@@ -24,12 +24,14 @@
     border: 2px solid #00000000;
   }
 
-  .activeIcon,
-  .activeIcon:hover {
-    border: 2px solid #ffd000;
-    cursor: default;
-  }
   img:hover {
     border: 2px solid #ffffff90;
+  }
+}
+.originPortraitContainer.activeOrigin {
+  cursor: default;
+  img,
+  img:hover {
+    border: 2px solid #ffd000;
   }
 }

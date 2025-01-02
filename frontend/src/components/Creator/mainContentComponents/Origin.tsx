@@ -9,15 +9,15 @@ export const Origin = () => {
   const isActiveIcon = (icon: string): string => {
     console.log(icon);
     console.log(icon === selectedOrigin.name);
-    return icon === selectedOrigin.name ? 'activeIcon' : '';
+    return icon === selectedOrigin.name ? 'originPortraitContainer activeOrigin' : 'originPortraitContainer';
   };
 
   return (
     <div className="centerContainer originsContainer">
       <div className="originOptionsContainer">
         {dbOrigins.map((origin) => (
-          <div key={origin.id} className="originPortraitContainer" onClick={() => setSelectedOrigin(origin)}>
-            <img className={isActiveIcon(origin.name)} src={origin.icon} />
+          <div key={origin.id} className={isActiveIcon(origin.name)} onClick={() => setSelectedOrigin(origin)}>
+            <img src={origin.icon} />
             <h4>{origin.name}</h4>
           </div>
         ))}
