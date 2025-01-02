@@ -1,5 +1,5 @@
 export interface ISpecialSkills {
-  sSkillsId: string;
+  id: string;
   atLevel: number;
   desc: string;
 }

@@ -3,6 +3,21 @@ import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
 import { ESubClasses } from './dbSubClass';
 
+export enum ECharClasses {
+  Barbarian = 'ccl01',
+  Bard = 'ccl02',
+  Cleric = 'ccl03',
+  Druid = 'ccl04',
+  Fighter = 'ccl05',
+  Monk = 'ccl06',
+  Paladin = 'ccl07',
+  Ranger = 'ccl08',
+  Rogue = 'ccl09',
+  Sorcerer = 'ccl10',
+  Warlock = 'ccl11',
+  Wizard = 'ccl12',
+}
+
 export const charClasses: ICharClass[] = [
   {
     charClassId: 'ccl01',
@@ -11,11 +26,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Barbarian_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [
-      ESubClasses.Berserker,
-      ESubClasses.WildMagicBarb,
-      ESubClasses.Wildheart,
-    ],
+    subclasses: [ESubClasses.Berserker, ESubClasses.WildMagicBarb, ESubClasses.Wildheart],
     skillProficiencies: [
       ESkills.AnimalHandling,
       ESkills.Athletics,
@@ -25,11 +36,7 @@ export const charClasses: ICharClass[] = [
       ESkills.Perception,
     ],
     skillProficiencySlots: 2,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.Shields,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.Shields],
     weaponProficiencies: [EEquipment.SimpleW, EEquipment.MartialW],
   },
   {
@@ -98,24 +105,10 @@ export const charClasses: ICharClass[] = [
       ESubClasses.Tempest,
       ESubClasses.War,
     ],
-    skillProficiencies: [
-      ESkills.History,
-      ESkills.Insight,
-      ESkills.Medicine,
-      ESkills.Persuasion,
-      ESkills.Religion,
-    ],
+    skillProficiencies: [ESkills.History, ESkills.Insight, ESkills.Medicine, ESkills.Persuasion, ESkills.Religion],
     skillProficiencySlots: 2,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.Shields,
-    ],
-    weaponProficiencies: [
-      EEquipment.SimpleW,
-      EEquipment.Flails,
-      EEquipment.Morningstars,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.Shields],
+    weaponProficiencies: [EEquipment.SimpleW, EEquipment.Flails, EEquipment.Morningstars],
   },
   {
     charClassId: 'ccl04',
@@ -141,11 +134,7 @@ export const charClasses: ICharClass[] = [
       ESkills.Survival,
     ],
     skillProficiencySlots: 2,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.Shields,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.Shields],
     weaponProficiencies: [
       EEquipment.Clubs,
       EEquipment.Daggers,
@@ -164,11 +153,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Fighter_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [
-      ESubClasses.BattleMaster,
-      ESubClasses.EldritchKnight,
-      ESubClasses.Champion,
-    ],
+    subclasses: [ESubClasses.BattleMaster, ESubClasses.EldritchKnight, ESubClasses.Champion],
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.AnimalHandling,
@@ -180,12 +165,7 @@ export const charClasses: ICharClass[] = [
       ESkills.Survival,
     ],
     skillProficiencySlots: 2,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.HeavyArmor,
-      EEquipment.Shields,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.HeavyArmor, EEquipment.Shields],
     weaponProficiencies: [EEquipment.SimpleW, EEquipment.MartialW],
   },
   {
@@ -195,11 +175,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Monk_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [
-      ESubClasses.FourElements,
-      ESubClasses.OpenHand,
-      ESubClasses.Shadow,
-    ],
+    subclasses: [ESubClasses.FourElements, ESubClasses.OpenHand, ESubClasses.Shadow],
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.Athletics,
@@ -219,12 +195,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Paladin_Icon.png',
     casterLevelPerLevel: 0.5,
     subclassAtLevel: 1,
-    subclasses: [
-      ESubClasses.Ancients,
-      ESubClasses.Devotion,
-      ESubClasses.Vengeance,
-      ESubClasses.Oathbreaker,
-    ],
+    subclasses: [ESubClasses.Ancients, ESubClasses.Devotion, ESubClasses.Vengeance, ESubClasses.Oathbreaker],
     skillProficiencies: [
       ESkills.Athletics,
       ESkills.Insight,
@@ -234,12 +205,7 @@ export const charClasses: ICharClass[] = [
       ESkills.Religion,
     ],
     skillProficiencySlots: 2,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.HeavyArmor,
-      EEquipment.Shields,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.HeavyArmor, EEquipment.Shields],
     weaponProficiencies: [EEquipment.SimpleW, EEquipment.MartialW],
   },
   {
@@ -249,11 +215,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Ranger_Icon.png',
     casterLevelPerLevel: 0.5,
     subclassAtLevel: 3,
-    subclasses: [
-      ESubClasses.Hunter,
-      ESubClasses.BeastMaster,
-      ESubClasses.GloomStalker,
-    ],
+    subclasses: [ESubClasses.Hunter, ESubClasses.BeastMaster, ESubClasses.GloomStalker],
     skillProficiencies: [
       ESkills.AnimalHandling,
       ESkills.Athletics,
@@ -265,11 +227,7 @@ export const charClasses: ICharClass[] = [
       ESkills.Survival,
     ],
     skillProficiencySlots: 3,
-    armorProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.Shields,
-    ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.Shields],
     weaponProficiencies: [EEquipment.SimpleW, EEquipment.MartialW],
   },
   {
@@ -279,11 +237,7 @@ export const charClasses: ICharClass[] = [
     imgSrc: './icons/charClasses/Rogue_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [
-      ESubClasses.Thief,
-      ESubClasses.ArcaneTrickster,
-      ESubClasses.Assassin,
-    ],
+    subclasses: [ESubClasses.Thief, ESubClasses.ArcaneTrickster, ESubClasses.Assassin],
     expertiseAtLevel: 1,
     expertiseSlots: 2,
     skillProficiencies: [
@@ -320,11 +274,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 6 },
     ],
     subclassAtLevel: 1,
-    subclasses: [
-      ESubClasses.WildMagicSorc,
-      ESubClasses.Draconic,
-      ESubClasses.StormSorcery,
-    ],
+    subclasses: [ESubClasses.WildMagicSorc, ESubClasses.Draconic, ESubClasses.StormSorcery],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.Deception,
@@ -335,11 +285,7 @@ export const charClasses: ICharClass[] = [
     ],
     skillProficiencySlots: 2,
     armorProficiencies: [],
-    weaponProficiencies: [
-      EEquipment.Daggers,
-      EEquipment.Quarterstaves,
-      EEquipment.LightCrossbows,
-    ],
+    weaponProficiencies: [EEquipment.Daggers, EEquipment.Quarterstaves, EEquipment.LightCrossbows],
   },
   {
     charClassId: 'ccl11',
@@ -353,11 +299,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 4 },
     ],
     subclassAtLevel: 1,
-    subclasses: [
-      ESubClasses.Fiend,
-      ESubClasses.GreatOldOne,
-      ESubClasses.Archfey,
-    ],
+    subclasses: [ESubClasses.Fiend, ESubClasses.GreatOldOne, ESubClasses.Archfey],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.Deception,
@@ -404,10 +346,6 @@ export const charClasses: ICharClass[] = [
     ],
     skillProficiencySlots: 2,
     armorProficiencies: [],
-    weaponProficiencies: [
-      EEquipment.Daggers,
-      EEquipment.Quarterstaves,
-      EEquipment.LightCrossbows,
-    ],
+    weaponProficiencies: [EEquipment.Daggers, EEquipment.Quarterstaves, EEquipment.LightCrossbows],
   },
 ];

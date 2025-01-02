@@ -5,4 +5,5 @@ export interface ISpell {
   imgSrc: string;
   spellLevel: number;
   isRitual: boolean;
+  classes: string[];
 }

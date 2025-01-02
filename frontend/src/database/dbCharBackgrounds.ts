@@ -1,6 +1,21 @@
 import { ICharBackground } from '../models/ICharBackground';
 import { ESkills } from './dbSkills';
 
+export enum ECharBg {
+  Acolyte = 'cbg01',
+  Charlatan = 'cbg02',
+  Criminal = 'cbg03',
+  Entertainer = 'cbg04',
+  FolkHero = 'cbg05',
+  GuildArtisan = 'cbg06',
+  HauntedOne = 'cbg07',
+  Noble = 'cbg08',
+  Outlander = 'cbg09',
+  Sage = 'cbg10',
+  Soldier = 'cbg11',
+  Urchin = 'cbg12',
+}
+
 export const charBackgrounds: ICharBackground[] = [
   {
     backgroundId: 'cbg01',
