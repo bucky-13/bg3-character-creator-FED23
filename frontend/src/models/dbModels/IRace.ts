@@ -1,6 +1,6 @@
-import { EEquipment } from '../database/dbEquipmentProficiencies';
-import { ESkills } from '../database/dbSkills';
-import { ESubraces } from '../database/dbSubraces';
+import { EEquipment } from '../../database/dbEquipmentProficiencies';
+import { ESkills } from '../../database/dbSkills';
+import { ESubraces } from '../../database/dbSubraces';
 
 export interface IRace {
   id: string;

@@ -1,4 +1,4 @@
-import { ISkill } from '../models/ISkill';
+import { ISkill } from '../models/dbModels/ISkill';
 
 export enum ESkills {
   Athletics = 'ski01',
@@ -23,109 +23,109 @@ export enum ESkills {
 
 export const skills: ISkill[] = [
   {
-    skillId: 'ski01',
+    id: 'ski01',
     name: 'Athletics',
     desc: 'Stay fit. Perform physical stunts',
     parentId: 'abi01',
   },
   {
-    skillId: 'ski02',
+    id: 'ski02',
     name: 'Acrobatics',
     desc: 'Keep your balance. Land on your feet',
     parentId: 'abi02',
   },
   {
-    skillId: 'ski03',
+    id: 'ski03',
     name: 'Sleight of Hand',
     desc: 'Wield nimble fingers. Steal stuff',
     parentId: 'abi02',
   },
   {
-    skillId: 'ski04',
+    id: 'ski04',
     name: 'Stealth',
     desc: 'Stay out of sight. Melt into the shadows.',
     parentId: 'abi02',
   },
   {
-    skillId: 'ski05',
+    id: 'ski05',
     name: 'Arcana',
     desc: 'Recognise magic. Interact with enchanted items.',
     parentId: 'abi04',
   },
   {
-    skillId: 'ski06',
+    id: 'ski06',
     name: 'History',
     desc: 'Remember the past -- of the world and its people.',
     parentId: 'abi04',
   },
   {
-    skillId: 'ski07',
+    id: 'ski07',
     name: 'Investigation',
     desc: 'Analyse clues. Solve mysteries.',
     parentId: 'abi04',
   },
   {
-    skillId: 'ski08',
+    id: 'ski08',
     name: 'Nature',
     desc: 'Recognise plants and animals. Hug trees.',
     parentId: 'abi04',
   },
   {
-    skillId: 'ski09',
+    id: 'ski09',
     name: 'Religion',
     desc: 'Recognise deities. Understand holy rites.',
     parentId: 'abi04',
   },
   {
-    skillId: 'ski10',
+    id: 'ski10',
     name: 'Animal Handling',
     desc: 'Influence animals. Pet all of the dogs.',
     parentId: 'abi05',
   },
   {
-    skillId: 'ski11',
+    id: 'ski11',
     name: 'Insight',
     desc: 'Read people and situations. Detect lies.',
     parentId: 'abi05',
   },
   {
-    skillId: 'ski12',
+    id: 'ski12',
     name: 'Medicine',
     desc: 'Recognise symptoms. Diagnose diseases.',
     parentId: 'abi05',
   },
   {
-    skillId: 'ski13',
+    id: 'ski13',
     name: 'Perception',
     desc: 'Observe your environment. Spot hidden details.',
     parentId: 'abi05',
   },
   {
-    skillId: 'ski14',
+    id: 'ski14',
     name: 'Survival',
     desc: 'Stay alive in the wilds. Track prey.',
     parentId: 'abi05',
   },
   {
-    skillId: 'ski15',
+    id: 'ski15',
     name: 'Deception',
     desc: 'Lie and cheat. Manipulate the truth',
     parentId: 'abi06',
   },
   {
-    skillId: 'ski16',
+    id: 'ski16',
     name: 'Intimidation',
     desc: 'Be a bully. Threaten and induce fear.',
     parentId: 'abi06',
   },
   {
-    skillId: 'ski17',
+    id: 'ski17',
     name: 'Performance',
     desc: 'Entertain audiences. Command the stage.',
     parentId: 'abi06',
   },
   {
-    skillId: 'ski18',
+    id: 'ski18',
     name: 'Persuasion',
     desc: 'Turn on the charm. Coax and cajole.',
     parentId: 'abi06',

@@ -1,12 +1,12 @@
-import { EEquipment } from '../database/dbEquipmentProficiencies';
-import { ESkills } from '../database/dbSkills';
-import { ESubClasses } from '../database/dbSubClass';
+import { EEquipment } from '../../database/dbEquipmentProficiencies';
+import { ESkills } from '../../database/dbSkills';
+import { ESubClasses } from '../../database/dbSubClass';
 
 export interface ICharClass {
-  charClassId: string;
+  id: string;
   name: string;
   desc: string;
-  imgSrc: string;
+  icon: string;
   casterLevelPerLevel: number;
   cantripsKnown?: { fromLevel: number; amount: number }[];
   subclassAtLevel: number;

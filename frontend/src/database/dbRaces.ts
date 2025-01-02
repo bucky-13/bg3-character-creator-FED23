@@ -1,4 +1,4 @@
-import { IRace } from '../models/IRace';
+import { IRace } from '../models/dbModels/IRace';
 import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
 import { ESubraces } from './dbSubraces';

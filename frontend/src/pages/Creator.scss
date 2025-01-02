@@ -3,3 +3,13 @@
   display: grid;
   grid-template-columns: 200px auto 300px;
 }
+
+.centerContainer {
+  width: 75%;
+}
+
+.mainContentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}

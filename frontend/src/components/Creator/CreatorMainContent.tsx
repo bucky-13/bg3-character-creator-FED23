@@ -11,7 +11,7 @@ interface CreatorMainContentProps {
 
 export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) => {
   return (
-    <div>
+    <div className="mainContentContainer">
       {currentSection === 'origin' && <Origin />}
       {currentSection === 'race' && <Race />}
       {currentSection === 'class' && <Class />}

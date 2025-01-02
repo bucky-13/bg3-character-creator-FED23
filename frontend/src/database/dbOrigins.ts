@@ -1,10 +1,10 @@
-import { IOrigin } from '../models/IOrigin';
+import { IOrigin } from '../models/dbModels/IOrigin';
 import { ECharBg } from './dbCharBackgrounds';
 import { ECharClasses } from './dbCharClasses';
 import { ESubClasses } from './dbSubClass';
 import { ESubraces } from './dbSubraces';
 
-export const origins: IOrigin[] = [
+export const dbOrigins: IOrigin[] = [
   {
     id: 'ori01',
     name: 'Custom',

@@ -5,7 +5,7 @@ export enum EquipmentTypes {
 }
 
 export interface IEquipmentProficiencies {
-  equipmentId: string;
+  id: string;
   name: string;
   equipmentType: EquipmentTypes;
 }

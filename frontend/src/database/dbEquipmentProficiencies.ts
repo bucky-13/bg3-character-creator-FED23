@@ -1,7 +1,4 @@
-import {
-  EquipmentTypes,
-  IEquipmentProficiencies,
-} from '../models/IEquipmentProficiencies';
+import { EquipmentTypes, IEquipmentProficiencies } from '../models/dbModels/IEquipmentProficiencies';
 
 export enum EEquipment {
   LightArmor = 'eqp01',
@@ -45,187 +42,187 @@ export enum EEquipment {
 
 export const equipmentProficiencies: IEquipmentProficiencies[] = [
   {
-    equipmentId: 'eqp01',
+    id: 'eqp01',
     name: 'Light Armor',
     equipmentType: EquipmentTypes.Armor,
   },
   {
-    equipmentId: 'eqp02',
+    id: 'eqp02',
     name: 'Medium Armor',
     equipmentType: EquipmentTypes.Armor,
   },
   {
-    equipmentId: 'eqp03',
+    id: 'eqp03',
     name: 'Heavy Armor',
     equipmentType: EquipmentTypes.Armor,
   },
   {
-    equipmentId: 'eqp04',
+    id: 'eqp04',
     name: 'Shields',
     equipmentType: EquipmentTypes.Armor,
   },
   {
-    equipmentId: 'eqp05',
+    id: 'eqp05',
     name: 'Simple Weapons',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp06',
+    id: 'eqp06',
     name: 'Martial Weapons',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp07',
+    id: 'eqp07',
     name: 'Clubs',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp08',
+    id: 'eqp08',
     name: 'Daggers',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp09',
+    id: 'eqp09',
     name: 'Handaxes',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp10',
+    id: 'eqp10',
     name: 'Javelins',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp11',
+    id: 'eqp11',
     name: 'Light Hammers',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp12',
+    id: 'eqp12',
     name: 'Maces',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp13',
+    id: 'eqp13',
     name: 'Sickles',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp14',
+    id: 'eqp14',
     name: 'Quarterstaves',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp15',
+    id: 'eqp15',
     name: 'Spears',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp16',
+    id: 'eqp16',
     name: 'Greatclubs',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp17',
+    id: 'eqp17',
     name: 'Light Crossbows',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp18',
+    id: 'eqp18',
     name: 'Shortbows',
     equipmentType: EquipmentTypes.SimpleW,
   },
   {
-    equipmentId: 'eqp19',
+    id: 'eqp19',
     name: 'Flails',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp20',
+    id: 'eqp20',
     name: 'Morningstars',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp21',
+    id: 'eqp21',
     name: 'Rapiers',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp22',
+    id: 'eqp22',
     name: 'Scimitars',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp23',
+    id: 'eqp23',
     name: 'Shortswords',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp24',
+    id: 'eqp24',
     name: 'War Picks',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp25',
+    id: 'eqp25',
     name: 'Battleaxes',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp26',
+    id: 'eqp26',
     name: 'Longswords',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp27',
+    id: 'eqp27',
     name: 'Tridents',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp28',
+    id: 'eqp28',
     name: 'Warhammers',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp29',
+    id: 'eqp29',
     name: 'Glaives',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp30',
+    id: 'eqp30',
     name: 'Greataxes',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp31',
+    id: 'eqp31',
     name: 'Greatswords',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp32',
+    id: 'eqp32',
     name: 'Halberds',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp33',
+    id: 'eqp33',
     name: 'Mauls',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp34',
+    id: 'eqp34',
     name: 'Pikes',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp35',
+    id: 'eqp35',
     name: 'Hand Crossbows',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp36',
+    id: 'eqp36',
     name: 'Heavy Crossbows',
     equipmentType: EquipmentTypes.MartialW,
   },
   {
-    equipmentId: 'eqp37',
+    id: 'eqp37',
     name: 'Longbows',
     equipmentType: EquipmentTypes.MartialW,
   },

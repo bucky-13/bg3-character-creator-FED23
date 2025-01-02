@@ -1,4 +1,4 @@
-import { ESkills } from '../database/dbSkills';
+import { ESkills } from '../../database/dbSkills';
 import { IRaceSpells } from './IRace';
 
 export interface ISubrace {

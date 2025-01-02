@@ -1,4 +1,4 @@
-import { ISubrace } from '../models/ISubrace';
+import { ISubrace } from '../models/dbModels/ISubrace';
 import { ESkills } from './dbSkills';
 
 export enum ESubraces {

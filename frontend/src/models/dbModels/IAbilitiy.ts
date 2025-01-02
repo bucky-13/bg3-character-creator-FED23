@@ -1,6 +1,6 @@
 export interface IAbility {
-  abilityId: string;
+  id: string;
   name: string;
   desc: string;
-  imgSrc: string;
+  icon: string;
 }

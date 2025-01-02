@@ -1,4 +1,4 @@
-import { ISpellCasterLevels } from '../models/ISpellCasterLevels';
+import { ISpellCasterLevels } from '../models/dbModels/ISpellCasterLevels';
 
 export const dbSpellSlots: ISpellCasterLevels[] = [
   {

@@ -1,0 +1,35 @@
+.originOptionsContainer {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: auto;
+  margin-top: 0;
+}
+
+.originsContainer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-content: start;
+  h4 {
+    margin-top: 0.5rem;
+  }
+}
+
+.originPortraitContainer {
+  cursor: pointer;
+  img {
+    border-radius: 1.5rem;
+    border: 2px solid #00000000;
+  }
+
+  .activeIcon,
+  .activeIcon:hover {
+    border: 2px solid #ffd000;
+    cursor: default;
+  }
+  img:hover {
+    border: 2px solid #ffffff90;
+  }
+}

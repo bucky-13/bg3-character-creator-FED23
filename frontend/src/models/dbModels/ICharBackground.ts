@@ -1,9 +1,9 @@
-import { ESkills } from '../database/dbSkills';
+import { ESkills } from '../../database/dbSkills';
 
 export interface ICharBackground {
-  backgroundId: string;
+  id: string;
   name: string;
   desc: string;
-  imgSrc: string;
+  icon: string;
   skillProficienciesGiven: ESkills[];
 }

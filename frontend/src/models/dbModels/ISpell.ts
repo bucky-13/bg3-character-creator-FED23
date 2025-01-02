@@ -1,5 +1,5 @@
 export interface ISpell {
-  spellId: string;
+  id: string;
   name: string;
   desc: string;
   imgSrc: string;
