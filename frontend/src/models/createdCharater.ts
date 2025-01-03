@@ -1,10 +1,22 @@
+import { EAbilites } from '../database/dbAbilities';
+import { ECharBg } from '../database/dbCharBackgrounds';
+import { ECharClasses } from '../database/dbCharClasses';
+import { EEquipment } from '../database/dbEquipmentProficiencies';
+import { EOrigin } from '../database/dbOrigins';
+import { ERaces } from '../database/dbRaces';
+import { ESkills } from '../database/dbSkills';
+import { ESubClasses } from '../database/dbSubClass';
+import { ESubraces } from '../database/dbSubraces';
+import { EEquipmentTypes } from './dbModels/IEquipmentProficiencies';
+
 export interface ICreatedCharacter {
-  charId: string;
+  charId?: string;
   name: string;
   characterLevel: number;
-  origin: string;
-  race: { raceId: string; isSubrace: boolean };
-  classes: [{ classId: string; levels: string; isSubclass: boolean }];
+  origin: EOrigin;
+  race: ERaces;
+  subrace?: ESubraces;
+  charClasses: [{ classId: ECharClasses; levels: number; subclass?: ESubClasses; isStartingClass: boolean }];
   casterLevel: number;
   cantrips?: string[];
   lvl1spells?: string[];
@@ -13,22 +25,13 @@ export interface ICreatedCharacter {
   lvl4spells?: string[];
   lvl5spells?: string[];
   lvl6spells?: string[];
-  background: string;
-  abilities: [
-    {
-      abiId: string;
-      baseValue: number;
-      plusOneBonus: boolean;
-      plusTwoBonus: boolean;
-      bonusesFromPerks: number[];
-    },
-  ];
-  skillsProficiencies: string[];
-  skillsExpertises: string[];
-  equipmentProficiencies: [{ name: string; equipmentType: string }];
-  perks: string[];
-
-  lvlChoices: ILvlChoices[];
+  background: ECharBg;
+  abilities: ICreatedAbilities[];
+  skillsProficiencies: ESkills[];
+  skillsExpertises?: ESkills[];
+  equipmentProficiencies: EEquipment[];
+  perks?: string[];
+  lvlChoices?: ILvlChoices[];
 }
 
 export interface ILvlChoices {
@@ -41,4 +44,12 @@ export interface ILvlChoices {
   chosenPerks?: string;
   skillProficiencies?: string[];
   skillsExpertises: string[];
+}
+
+export interface ICreatedAbilities {
+  abiId: EAbilites;
+  baseValue: number;
+  plusOneBonus: boolean;
+  plusTwoBonus: boolean;
+  bonusesFromPerks?: number[];
 }

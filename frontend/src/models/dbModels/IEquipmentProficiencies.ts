@@ -1,4 +1,4 @@
-export enum EquipmentTypes {
+export enum EEquipmentTypes {
   Armor = 'Armor',
   SimpleW = 'SimpleW',
   MartialW = 'MartialW',
@@ -7,5 +7,5 @@ export enum EquipmentTypes {
 export interface IEquipmentProficiencies {
   id: string;
   name: string;
-  equipmentType: EquipmentTypes;
+  equipmentType: EEquipmentTypes;
 }
