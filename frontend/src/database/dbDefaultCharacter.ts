@@ -1,4 +1,4 @@
-import { ICreatedCharacter } from '../models/createdCharater';
+import { ICreatedCharacter } from '../models/!CreatedCharater';
 import { EAbilites } from './dbAbilities';
 import { ECharBg } from './dbCharBackgrounds';
 import { ECharClasses } from './dbCharClasses';
@@ -16,14 +16,14 @@ export const dbDefaultCharacter: ICreatedCharacter = {
   charClasses: [{ classId: ECharClasses.Barbarian, levels: 1, isStartingClass: true }],
   casterLevel: 0,
   background: ECharBg.Soldier,
-  abilities: [
-    { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-    { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-    { abiId: EAbilites.Con, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-    { abiId: EAbilites.Int, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-    { abiId: EAbilites.Wis, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-    { abiId: EAbilites.Cha, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
-  ],
+  abilities: {
+    str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+    dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+    con: { abiId: EAbilites.Con, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+    int: { abiId: EAbilites.Int, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+    wis: { abiId: EAbilites.Wis, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+    cha: { abiId: EAbilites.Cha, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
+  },
   skillsProficiencies: [ESkills.Acrobatics, ESkills.Athletics],
   equipmentProficiencies: [],
 };

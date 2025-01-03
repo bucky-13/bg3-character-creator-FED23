@@ -26,7 +26,14 @@ export interface ICreatedCharacter {
   lvl5spells?: string[];
   lvl6spells?: string[];
   background: ECharBg;
-  abilities: ICreatedAbilities[];
+  abilities: {
+    str: ICreatedAbilities;
+    dex: ICreatedAbilities;
+    con: ICreatedAbilities;
+    int: ICreatedAbilities;
+    wis: ICreatedAbilities;
+    cha: ICreatedAbilities;
+  };
   skillsProficiencies: ESkills[];
   skillsExpertises?: ESkills[];
   equipmentProficiencies: EEquipment[];
