@@ -1,5 +1,8 @@
+import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import './Overview.scss';
 
 export const Overview = () => {
-  return <div className="creatorOverview">THIS IS OVERVIEW</div>;
+  const { newCharacter } = useNewCharContext();
+
+  return <div className="creatorOverview">{newCharacter.name}</div>;
 };

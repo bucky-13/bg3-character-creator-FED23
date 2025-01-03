@@ -1,22 +1,20 @@
-import { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { CreatorMainContent } from '../components/Creator/CreatorMainContent';
 import { SideNavbar } from '../components/Creator/SideNavbar';
 import './Creator.scss';
 import { Overview } from '../components/Creator/Overview';
-import { INewCharacter } from '../models/!NewCharater';
-import { dbDefaultCharacter } from '../database/dbDefaultCharacter';
+import { INewCharacter } from '../models/INewCharater';
 import { INewCharContext, NewCharContext } from '../Context/CreatedCharacterContext';
+import { dbOrigins } from '../database/dbOrigins';
 
 export const Creator = () => {
   const [currentSection, setCurrentSection] = useState('origin');
 
   const defaultValue: INewCharContext = {
-    newCharacter: dbDefaultCharacter,
+    newCharacter: dbOrigins[0],
     setNewCharacter: () => {},
   };
   const [newCharacter, setNewCharacter] = useState<INewCharacter>(defaultValue.newCharacter);
-
-  console.log(newCharacter);
 
   return (
     <NewCharContext.Provider value={{ newCharacter, setNewCharacter }}>

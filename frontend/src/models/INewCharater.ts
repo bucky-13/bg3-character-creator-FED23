@@ -12,10 +12,13 @@ export interface INewCharacter {
   charId?: string;
   name: string;
   characterLevel: number;
+  icon: string;
   origin: EOrigin;
   race: ERaces;
   subrace?: ESubraces;
-  charClasses: [{ classId: ECharClasses; levels: number; subclass?: ESubClasses; isStartingClass: boolean }];
+  startingClass: ECharClasses;
+  startingSubclass?: ESubClasses;
+  charClasses?: [{ classId: ECharClasses; levels: number; subclass?: ESubClasses; isStartingClass: boolean }];
   casterLevel: number;
   cantrips?: string[];
   lvl1spells?: string[];
@@ -33,9 +36,9 @@ export interface INewCharacter {
     wis: INewAbilities;
     cha: INewAbilities;
   };
-  skillsProficiencies: ESkills[];
+  skillsProficiencies?: ESkills[];
   skillsExpertises?: ESkills[];
-  equipmentProficiencies: EEquipment[];
+  equipmentProficiencies?: EEquipment[];
   perks?: string[];
   lvlChoices?: ILvlChoices[];
 }
@@ -58,4 +61,15 @@ export interface INewAbilities {
   plusOneBonus: boolean;
   plusTwoBonus: boolean;
   bonusesFromPerks?: number[];
+}
+
+export interface INewCharacters {
+  Custom: INewCharacter;
+  Astarion: INewCharacter;
+  Gale: INewCharacter;
+  Karlach: INewCharacter;
+  Laezel: INewCharacter;
+  Shadowheart: INewCharacter;
+  Wyll: INewCharacter;
+  DarkUrge: INewCharacter;
 }
