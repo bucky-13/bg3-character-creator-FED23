@@ -7,8 +7,6 @@ export const Origin = () => {
   const [selectedOrigin, setSelectedOrigin] = useState<IOrigin>(dbOrigins[0]);
 
   const isActiveIcon = (icon: string): string => {
-    console.log(icon);
-    console.log(icon === selectedOrigin.name);
     return icon === selectedOrigin.name ? 'originPortraitContainer activeOrigin' : 'originPortraitContainer';
   };
 

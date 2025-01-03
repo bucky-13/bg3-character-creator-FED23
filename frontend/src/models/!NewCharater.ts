@@ -7,9 +7,8 @@ import { ERaces } from '../database/dbRaces';
 import { ESkills } from '../database/dbSkills';
 import { ESubClasses } from '../database/dbSubClass';
 import { ESubraces } from '../database/dbSubraces';
-import { EEquipmentTypes } from './dbModels/IEquipmentProficiencies';
 
-export interface ICreatedCharacter {
+export interface INewCharacter {
   charId?: string;
   name: string;
   characterLevel: number;
@@ -27,12 +26,12 @@ export interface ICreatedCharacter {
   lvl6spells?: string[];
   background: ECharBg;
   abilities: {
-    str: ICreatedAbilities;
-    dex: ICreatedAbilities;
-    con: ICreatedAbilities;
-    int: ICreatedAbilities;
-    wis: ICreatedAbilities;
-    cha: ICreatedAbilities;
+    str: INewAbilities;
+    dex: INewAbilities;
+    con: INewAbilities;
+    int: INewAbilities;
+    wis: INewAbilities;
+    cha: INewAbilities;
   };
   skillsProficiencies: ESkills[];
   skillsExpertises?: ESkills[];
@@ -53,7 +52,7 @@ export interface ILvlChoices {
   skillsExpertises: string[];
 }
 
-export interface ICreatedAbilities {
+export interface INewAbilities {
   abiId: EAbilites;
   baseValue: number;
   plusOneBonus: boolean;

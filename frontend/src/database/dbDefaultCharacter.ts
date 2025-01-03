@@ -1,4 +1,4 @@
-import { ICreatedCharacter } from '../models/!CreatedCharater';
+import { INewCharacter } from '../models/!NewCharater';
 import { EAbilites } from './dbAbilities';
 import { ECharBg } from './dbCharBackgrounds';
 import { ECharClasses } from './dbCharClasses';
@@ -7,7 +7,7 @@ import { ERaces } from './dbRaces';
 import { ESkills } from './dbSkills';
 import { ESubraces } from './dbSubraces';
 
-export const dbDefaultCharacter: ICreatedCharacter = {
+export const dbDefaultCharacter: INewCharacter = {
   name: 'Tav',
   characterLevel: 0,
   origin: EOrigin.Custom,
