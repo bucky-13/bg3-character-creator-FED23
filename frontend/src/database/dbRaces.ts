@@ -19,7 +19,7 @@ export enum ERaces {
 
 export const races: IRace[] = [
   {
-    id: 'race01',
+    id: ERaces.Human,
     icon: './icons/races/Human.png',
     name: 'Human',
     desc: `The most common face in Faerûn, humans are known for their tenacity, creativity, and endless capacity for growth.`,
@@ -34,7 +34,7 @@ export const races: IRace[] = [
     baseSpeed: 9,
   },
   {
-    id: 'race02',
+    id: ERaces.Elf,
     icon: './icons/races/Elf.png',
     name: 'Elf',
     desc: `With ethereal countenances and long lifespans, elves are at home with nature's power, flourishing in light and dark alike.`,
@@ -45,7 +45,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.HighElf, ESubraces.WoodElf],
   },
   {
-    id: 'race03',
+    id: ERaces.Drow,
     icon: './icons/races/Drow.png',
     name: 'Drow',
     desc: `Driven to the Underdark, most drow have adopted a ruthless pragmatism. While the Lolth-sworn delight in the goddess' evil tenets, the Seldarine reject Her attempt to overthrow the leader of the elven pantheon.`,
@@ -56,7 +56,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.LolDrow, ESubraces.SelDrow],
   },
   {
-    id: 'race04',
+    id: ERaces.HalfElf,
     icon: './icons/races/Half-Elf.png',
     name: 'Half Elf',
     desc: `Curious, ambitious, and versatile, half-elves are welcome everywhere, but struggle without a community to call their own`,
@@ -73,7 +73,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.HalfHighElf, ESubraces.HalfWoodElf, ESubraces.HalfDrow],
   },
   {
-    id: 'race05',
+    id: ERaces.HalfOrc,
     icon: './icons/races/Half-Orc.png',
     name: 'Half Orc',
     desc: `Creatures of intense emotion, half-orcs are more inclined to act than contemplate - whether the rage burning their bodies compels them to fight, or the love filling their hearts inspires acts of incredible kindness.`,
@@ -82,7 +82,7 @@ export const races: IRace[] = [
     skillProficiencies: [ESkills.Intimidation],
   },
   {
-    id: 'race06',
+    id: ERaces.Halfling,
     icon: './icons/races/Halfling.png',
     name: 'Halfling',
     desc: `Small yet capable, halflings prefer the comforts of home and hearth - but their natural luck and dexterity makes them fine adventurers.`,
@@ -90,7 +90,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.LightHalfling, ESubraces.StrongHalfling],
   },
   {
-    id: 'race07',
+    id: ERaces.Dwarf,
     icon: './icons/races/Dwarf.png',
     name: 'Dwarf',
     desc: `As durable and unyielding as their homes of stone, dwarves are some of the finest warriors, miners, and smiths of Faerûn`,
@@ -105,7 +105,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.GoldDwarf, ESubraces.ShieldDwarf, ESubraces.Duergar],
   },
   {
-    id: 'race08',
+    id: ERaces.Gnome,
     icon: './icons/races/Gnome.png',
     name: 'Gnome',
     desc: `Small, clever, and energetic, gnomes use their long lives to explore Faerûn's brightest corners and darkest depths.`,
@@ -114,7 +114,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.ForestGnome, ESubraces.DeepGnome, ESubraces.RockGnome],
   },
   {
-    id: 'race09',
+    id: ERaces.Tiefling,
     icon: './icons/races/Tiefling.png',
     name: 'Tiefling',
     desc: `Descended from devils of the Nine Hells, tieflings face constant suspicion in Faerûn. Thankfully, their arcane abilities make them natural survivors.`,
@@ -123,7 +123,7 @@ export const races: IRace[] = [
     subraces: [ESubraces.AsmodTiefling, ESubraces.MephiTiefling, ESubraces.ZarielTiefling],
   },
   {
-    id: 'race10',
+    id: ERaces.Githyanki,
     icon: './icons/races/Githyanki.png',
     name: 'Githyanki',
     desc: `With a ruthlessness borne from mind flayer enslavement, githyanki ride the Astral Sea atop red dragons, bringing their silver swords and psionic might to bear against any trace of the illithid menace.`,
@@ -137,7 +137,7 @@ export const races: IRace[] = [
     baseSpeed: 9,
   },
   {
-    id: 'race11',
+    id: ERaces.Dragonborn,
     icon: './icons/races/Dragonborn.png',
     name: 'Dragonborn',
     desc: `A proud race that values clan and skills above all else. Once enslaved by dragons, they strive to be self-sufficient, not wanting to be beholden to anyone, not even the gods.`,

@@ -14,6 +14,7 @@ export interface INewCharacter {
   characterLevel: number;
   icon: string;
   origin: EOrigin;
+  desc: string;
   race: ERaces;
   subrace?: ESubraces;
   startingClass: ECharClasses;
@@ -41,6 +42,7 @@ export interface INewCharacter {
   equipmentProficiencies?: EEquipment[];
   perks?: string[];
   lvlChoices?: ILvlChoices[];
+  hasLockedChoices: boolean;
 }
 
 export interface ILvlChoices {

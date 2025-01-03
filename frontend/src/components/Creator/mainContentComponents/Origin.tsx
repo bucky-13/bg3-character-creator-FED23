@@ -3,12 +3,11 @@ import './Origin.scss';
 import { IOrigin } from '../../../models/dbModels/IOrigin';
 import { dbOrigins, EOrigin } from '../../../database/dbOrigins';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
+import { INewCharacter } from '../../../models/INewCharater';
 
 export const Origin = () => {
-  const [selectedOrigin, setSelectedOrigin] = useState<IOrigin>(dbOrigins[0]);
   const { newCharacter, setNewCharacter } = useNewCharContext();
-
-  console.log(newCharacter);
+  const [selectedOrigin, setSelectedOrigin] = useState<IOrigin | INewCharacter>(newCharacter);
 
   const isActiveIcon = (icon: EOrigin): string => {
     return icon === newCharacter.origin ? 'originPortraitContainer activeOrigin' : 'originPortraitContainer';
@@ -20,8 +19,6 @@ export const Origin = () => {
     setSelectedOrigin(changedOrigin);
     setNewCharacter(changedOrigin);
   };
-
-  console.log(newCharacter);
 
   return (
     <div className="centerContainer originsContainer">
