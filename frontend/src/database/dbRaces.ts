@@ -1,7 +1,6 @@
 import { IRace } from '../models/dbModels/IRace';
 import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
-import { ESubraces } from './dbSubraces';
 
 export enum ERaces {
   Human = 'race01',
@@ -42,7 +41,7 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     skillProficiencies: [ESkills.Perception],
-    subraces: [ESubraces.HighElf, ESubraces.WoodElf],
+    subraces: ['subr01', 'subr02'],
   },
   {
     id: 'race03',
@@ -53,7 +52,7 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 2,
     skillProficiencies: [ESkills.Perception],
-    subraces: [ESubraces.LolDrow, ESubraces.SelDrow],
+    subraces: ['subr03', 'subr04'],
   },
   {
     id: 'race04',
@@ -70,7 +69,7 @@ export const races: IRace[] = [
     ],
     baseSpeed: 9,
     darkvision: 1,
-    subraces: [ESubraces.HalfHighElf, ESubraces.HalfWoodElf, ESubraces.HalfDrow],
+    subraces: ['subr05', 'subr06', 'subr07'],
   },
   {
     id: 'race05',
@@ -87,7 +86,7 @@ export const races: IRace[] = [
     name: 'Halfling',
     desc: `Small yet capable, halflings prefer the comforts of home and hearth - but their natural luck and dexterity makes them fine adventurers.`,
     baseSpeed: 7.5,
-    subraces: [ESubraces.LightHalfling, ESubraces.StrongHalfling],
+    subraces: ['subr08', 'subr09'],
   },
   {
     id: 'race07',
@@ -102,7 +101,7 @@ export const races: IRace[] = [
     ],
     baseSpeed: 7.5,
     darkvision: 1,
-    subraces: [ESubraces.GoldDwarf, ESubraces.ShieldDwarf, ESubraces.Duergar],
+    subraces: ['subr10', 'subr11', 'subr12'],
   },
   {
     id: 'race08',
@@ -111,7 +110,7 @@ export const races: IRace[] = [
     desc: `Small, clever, and energetic, gnomes use their long lives to explore Faerûn's brightest corners and darkest depths.`,
     baseSpeed: 7.5,
     darkvision: 1,
-    subraces: [ESubraces.ForestGnome, ESubraces.DeepGnome, ESubraces.RockGnome],
+    subraces: ['subr13', 'subr14', 'subr15'],
   },
   {
     id: 'race09',
@@ -120,7 +119,7 @@ export const races: IRace[] = [
     desc: `Descended from devils of the Nine Hells, tieflings face constant suspicion in Faerûn. Thankfully, their arcane abilities make them natural survivors.`,
     baseSpeed: 9,
     darkvision: 1,
-    subraces: [ESubraces.AsmodTiefling, ESubraces.MephiTiefling, ESubraces.ZarielTiefling],
+    subraces: ['subr16', 'subr17', 'subr18'],
   },
   {
     id: 'race10',
@@ -142,17 +141,6 @@ export const races: IRace[] = [
     name: 'Dragonborn',
     desc: `A proud race that values clan and skills above all else. Once enslaved by dragons, they strive to be self-sufficient, not wanting to be beholden to anyone, not even the gods.`,
     baseSpeed: 9,
-    subraces: [
-      ESubraces.BlackDragon,
-      ESubraces.BlueDragon,
-      ESubraces.BrassDragon,
-      ESubraces.BronzeDragon,
-      ESubraces.CopperDragon,
-      ESubraces.GoldDragon,
-      ESubraces.GreenDragon,
-      ESubraces.RedDragon,
-      ESubraces.SilverDragon,
-      ESubraces.WhiteDragon,
-    ],
+    subraces: ['subr19', 'subr20', 'subr21', 'subr22', 'subr23', 'subr24', 'subr25', 'subr26', 'subr27', 'subr28'],
   },
 ];

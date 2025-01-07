@@ -1,18 +1,16 @@
 import { ECharBg } from '../../database/dbCharBackgrounds';
 import { ECharClasses } from '../../database/dbCharClasses';
-import { EOrigin } from '../../database/dbOrigins';
 import { ESubClasses } from '../../database/dbSubClass';
-import { ESubraces } from '../../database/dbSubraces';
 import { INewAbilities } from '../INewCharater';
 
 export interface IOrigin {
   name: string;
   characterLevel: number;
   icon: string;
-  origin: EOrigin;
+  origin: string;
   desc: string;
   race: string;
-  subrace?: ESubraces;
+  subrace?: string;
   startingClass: ECharClasses;
   startingSubclass?: ESubClasses;
   casterLevel: number;

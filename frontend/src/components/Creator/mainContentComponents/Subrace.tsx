@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { ESubraces, subraces } from '../../../database/dbSubraces';
+import { subraces } from '../../../database/dbSubraces';
 import { getSubraceObject, getSubracesArray, test3 } from '../../../functions/getDbItems';
 
 export const Subrace = () => {

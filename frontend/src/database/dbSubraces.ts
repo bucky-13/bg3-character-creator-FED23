@@ -34,7 +34,7 @@ export enum ESubraces {
 
 export const subraces: ISubrace[] = [
   {
-    id: ESubraces.HighElf,
+    id: 'subr01',
     icon: './icons/subraces/High_Elf.png',
     name: 'High Elf',
     desc: `Heirs of the mystical Feywild, high elves value magic in all its forms, and even those who do not study spellcraft can manipulate the Weave.`,
@@ -42,7 +42,7 @@ export const subraces: ISubrace[] = [
     equipmentProficiencies: [],
   },
   {
-    id: ESubraces.WoodElf,
+    id: 'subr02',
     icon: './icons/subraces/Wood_Elf.png',
     name: 'Wood Elf',
     desc: `These elves spend their reclusive lives in Faerûn's forests. Decades of training in archery and camouflage are enhanced by an otherworldly swiftness.`,

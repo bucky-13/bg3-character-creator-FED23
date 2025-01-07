@@ -1,6 +1,6 @@
 import { ECharClasses, charClasses } from '../database/dbCharClasses';
 import { races } from '../database/dbRaces';
-import { ESubraces, subraces } from '../database/dbSubraces';
+import { subraces } from '../database/dbSubraces';
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { IRace } from '../models/dbModels/IRace';
 import { ISubrace } from '../models/dbModels/ISubrace';
@@ -30,7 +30,7 @@ export const getSubracesArray = (id: string): ISubrace[] => {
   return usedSubraces!;
 };
 
-export const getSubraceObject = (id: ESubraces): ISubrace => {
+export const getSubraceObject = (id: string): ISubrace => {
   return subraces.find((o) => o.id === id)!;
 };
 
