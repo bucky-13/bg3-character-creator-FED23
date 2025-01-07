@@ -1,3 +1,4 @@
+import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { Dispatcher } from '../../models/types';
 import { ButtonSideNavbar } from '../elements/ButtonSideNavbar';
 import './SideNavbar.scss';
@@ -7,6 +8,10 @@ interface SideNavbarProps {
   setCurrentSection: Dispatcher<string>;
 }
 export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProps) => {
+  const { newCharacter } = useNewCharContext();
+
+  console.log(newCharacter);
+
   const isActiveSection = (section: string): boolean => {
     return currentSection === section ? true : false;
   };

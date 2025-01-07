@@ -4,11 +4,11 @@ import { getRaceObject } from '../../../functions/getDbItems';
 import { ERaces, races } from '../../../database/dbRaces';
 import './Race.scss';
 import { IRace } from '../../../models/dbModels/IRace';
+import { INewCharacter } from '../../../models/INewCharater';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedRace, setSelectedRace] = useState(getRaceObject(newCharacter.race));
-  console.log(newCharacter);
 
   const isActiveIcon = (icon: ERaces): string => {
     return icon === newCharacter.race ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
@@ -16,7 +16,13 @@ export const Race = () => {
 
   const onChangeRace = (changedRace: IRace): void => {
     setSelectedRace(changedRace);
-    setNewCharacter({ ...newCharacter, race: changedRace.id });
+    if (changedRace.subraces) {
+      setNewCharacter({ ...newCharacter, race: changedRace.id, subrace: changedRace.subraces[0] });
+    } else {
+      const newState: INewCharacter = { ...newCharacter, race: changedRace.id };
+      delete newState.subrace;
+      setNewCharacter(newState);
+    }
   };
 
   return (
