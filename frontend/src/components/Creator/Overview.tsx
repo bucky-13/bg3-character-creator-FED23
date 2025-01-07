@@ -1,6 +1,5 @@
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { ECharClasses } from '../../database/dbCharClasses';
-import { ERaces } from '../../database/dbRaces';
 import { getCharClassObject, getRaceObject } from '../../functions/getDbItems';
 import './Overview.scss';
 
@@ -11,7 +10,7 @@ export const Overview = () => {
     const object = getCharClassObject(id);
     return object !== undefined ? object[key as keyof object] : 'error';
   };
-  const getKeyValueFromCharacterRace = (id: ERaces, key: string) => {
+  const getKeyValueFromCharacterRace = (id: string, key: string) => {
     const object = getRaceObject(id);
     return object !== undefined ? object[key as keyof object] : 'error';
   };

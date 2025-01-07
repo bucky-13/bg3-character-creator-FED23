@@ -6,6 +6,7 @@ export interface ISubrace {
   icon: string;
   name: string;
   desc: string;
+  mainRace: string;
   skillProficiencies?: ESkills[];
   equipmentProficiencies?: string[];
   baseSpeed?: number;

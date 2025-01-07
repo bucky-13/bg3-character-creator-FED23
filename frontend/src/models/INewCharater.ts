@@ -3,7 +3,6 @@ import { ECharBg } from '../database/dbCharBackgrounds';
 import { ECharClasses } from '../database/dbCharClasses';
 import { EEquipment } from '../database/dbEquipmentProficiencies';
 import { EOrigin } from '../database/dbOrigins';
-import { ERaces } from '../database/dbRaces';
 import { ESkills } from '../database/dbSkills';
 import { ESubClasses } from '../database/dbSubClass';
 import { ESubraces } from '../database/dbSubraces';
@@ -15,7 +14,7 @@ export interface INewCharacter {
   icon: string;
   origin: EOrigin;
   desc: string;
-  race: ERaces;
+  race: string;
   subrace?: ESubraces;
   startingClass: ECharClasses;
   startingSubclass?: ESubClasses;

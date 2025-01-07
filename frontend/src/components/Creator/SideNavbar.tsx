@@ -10,8 +10,6 @@ interface SideNavbarProps {
 export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProps) => {
   const { newCharacter } = useNewCharContext();
 
-  console.log(newCharacter);
-
   const isActiveSection = (section: string): boolean => {
     return currentSection === section ? true : false;
   };
@@ -27,6 +25,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         activeSection={isActiveSection('race')}
         setCurrentSection={setCurrentSection}
       />
+      {newCharacter.subrace && (
+        <ButtonSideNavbar
+          textContent="Subrace"
+          activeSection={isActiveSection('subrace')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       <ButtonSideNavbar
         textContent="Class"
         activeSection={isActiveSection('class')}

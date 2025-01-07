@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getRaceObject } from '../../../functions/getDbItems';
-import { ERaces, races } from '../../../database/dbRaces';
+import { races } from '../../../database/dbRaces';
 import './Race.scss';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedRace, setSelectedRace] = useState(getRaceObject(newCharacter.race));
+  const [selectedRace, setSelectedRace] = useState<IRace>(getRaceObject(newCharacter.race));
 
-  const isActiveIcon = (icon: ERaces): string => {
+  const isActiveIcon = (icon: string): string => {
     return icon === newCharacter.race ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
   };
 

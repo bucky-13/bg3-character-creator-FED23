@@ -24,7 +24,7 @@ export const Origin = () => {
     <div className="centerContainer originsContainer">
       <div className="originOptionsContainer">
         {dbOrigins.map((origin) => (
-          <div key={origin.origin} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
+          <div key={origin.name} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
             <img src={origin.icon} />
             <h4>{origin.name}</h4>
           </div>
