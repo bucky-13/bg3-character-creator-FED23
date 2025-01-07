@@ -14,26 +14,27 @@ export const Origin = () => {
   };
 
   const onChangeOrigin = (changedOrigin: IOrigin): void => {
-    console.log(changedOrigin.origin);
-    console.log(newCharacter.origin);
     setSelectedOrigin(changedOrigin);
     setNewCharacter(changedOrigin);
   };
 
   return (
-    <div className="centerContainer originsContainer">
-      <div className="originOptionsContainer">
-        {dbOrigins.map((origin) => (
-          <div key={origin.origin} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
-            <img src={origin.icon} />
-            <h4>{origin.name}</h4>
-          </div>
-        ))}
-      </div>
-      <div>
-        <img className="originIcon" src={selectedOrigin.icon} />
-        <h4>{selectedOrigin.name}</h4>
-        <p>{selectedOrigin.desc}</p>
+    <div>
+      <h2>Origin</h2>
+      <div className="centerContainer originsContainer">
+        <div className="originOptionsContainer">
+          {dbOrigins.map((origin) => (
+            <div key={origin.origin} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
+              <img src={origin.icon} />
+              <h4>{origin.name}</h4>
+            </div>
+          ))}
+        </div>
+        <div>
+          <img className="originIcon" src={selectedOrigin.icon} />
+          <h4>{selectedOrigin.name}</h4>
+          <p>{selectedOrigin.desc}</p>
+        </div>
       </div>
     </div>
   );

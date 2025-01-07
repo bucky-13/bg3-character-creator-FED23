@@ -26,26 +26,28 @@ export const Race = () => {
   };
 
   return (
-    <div className="centerContainer originsContainer">
-      {!newCharacter.hasLockedChoices && (
-        <div>
-          <h2>Race</h2>
-          <div className="originOptionsContainer">
-            {races.map((race) => (
-              <div key={race.id} className={isActiveIcon(race.id)} onClick={() => onChangeRace(race)}>
-                <img src={race.icon} />
-                <p>{race.name}</p>
-              </div>
-            ))}
+    <div>
+      <h2>Race</h2>
+      <div className="centerContainer originsContainer">
+        {!newCharacter.hasLockedChoices && (
+          <div>
+            <div className="originOptionsContainer">
+              {races.map((race) => (
+                <div key={race.id} className={isActiveIcon(race.id)} onClick={() => onChangeRace(race)}>
+                  <img src={race.icon} />
+                  <p>{race.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-      {selectedRace && (
-        <div className="chosenRace">
-          <h3>{selectedRace.name}</h3>
-          <p>{selectedRace.desc}</p>
-        </div>
-      )}
+        )}
+        {selectedRace && (
+          <div className="chosenRace">
+            <h3>{selectedRace.name}</h3>
+            <p>{selectedRace.desc}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
