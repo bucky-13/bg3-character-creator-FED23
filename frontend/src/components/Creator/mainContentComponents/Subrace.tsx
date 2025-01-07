@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
-import { getSubraceObject } from '../../../functions/getDbItems';
+import { getDbObject } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   //   const subracesArray = getSubracesArray(newCharacter.race);
 
-  const [selectedSubrace, setSelectedSubrace] = useState(getSubraceObject(newCharacter.subrace!));
+  const [selectedSubrace, setSelectedSubrace] = useState(getDbObject(newCharacter.subrace!, 'subraces'));
 
   const isActiveIcon = (icon: string): string => {
     return icon === newCharacter.subrace ? 'racePortraitContainer activeRace' : 'racePortraitContainer';

@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { INewCharacter } from '../models/INewCharater';
 import { Dispatcher } from '../models/types';
 
