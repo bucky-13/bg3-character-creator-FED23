@@ -1,9 +1,7 @@
 import { EAbilites } from '../database/dbAbilities';
 import { ECharBg } from '../database/dbCharBackgrounds';
-import { ECharClasses } from '../database/dbCharClasses';
 import { EEquipment } from '../database/dbEquipmentProficiencies';
 import { ESkills } from '../database/dbSkills';
-import { ESubClasses } from '../database/dbSubClass';
 
 export interface INewCharacter {
   charId?: string;
@@ -14,9 +12,9 @@ export interface INewCharacter {
   desc: string;
   race: string;
   subrace?: string;
-  startingClass: ECharClasses;
-  startingSubclass?: ESubClasses;
-  charClasses?: [{ classId: ECharClasses; levels: number; subclass?: ESubClasses; isStartingClass: boolean }];
+  startingClass: string;
+  startingSubclass?: string;
+  charClasses?: [{ classId: string; levels: number; subclass?: string; isStartingClass: boolean }];
   casterLevel: number;
   cantrips?: string[];
   lvl1spells?: string[];

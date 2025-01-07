@@ -1,6 +1,4 @@
 import { ECharBg } from '../../database/dbCharBackgrounds';
-import { ECharClasses } from '../../database/dbCharClasses';
-import { ESubClasses } from '../../database/dbSubClass';
 import { INewAbilities } from '../INewCharater';
 
 export interface IOrigin {
@@ -11,8 +9,8 @@ export interface IOrigin {
   desc: string;
   race: string;
   subrace?: string;
-  startingClass: ECharClasses;
-  startingSubclass?: ESubClasses;
+  startingClass: string;
+  startingSubclass?: string;
   casterLevel: number;
   background: ECharBg;
   abilities: {

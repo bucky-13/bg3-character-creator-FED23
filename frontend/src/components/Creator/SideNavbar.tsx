@@ -37,6 +37,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         activeSection={isActiveSection('class')}
         setCurrentSection={setCurrentSection}
       />
+      {newCharacter.startingSubclass && (
+        <ButtonSideNavbar
+          textContent="Subclass"
+          activeSection={isActiveSection('subclass')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       <ButtonSideNavbar
         textContent="Background"
         activeSection={isActiveSection('background')}

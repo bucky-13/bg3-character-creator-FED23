@@ -1,8 +1,6 @@
 import { IOrigin } from '../models/dbModels/IOrigin';
 import { EAbilites } from './dbAbilities';
 import { ECharBg } from './dbCharBackgrounds';
-import { ECharClasses } from './dbCharClasses';
-import { ESubClasses } from './dbSubClass';
 
 export enum EOrigin {
   Custom = 'ori01',
@@ -18,13 +16,13 @@ export enum EOrigin {
 export const dbOrigins: IOrigin[] = [
   {
     name: 'Custom',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/cus_icon.png',
     origin: 'ori01',
     desc: `You’ve always felt you had a greater calling, but it has never borne fruit. Everything changes when you awaken imprisoned on an alien ship. Perhaps your time has finally come.`,
     race: 'race02',
     subrace: 'subr01',
-    startingClass: ECharClasses.Barbarian,
+    startingClass: 'ccl01',
     casterLevel: 0,
     background: ECharBg.Acolyte,
     abilities: {
@@ -39,13 +37,13 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'Astarion',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/ast_icon.png',
     origin: 'ori02',
     desc: `Astarion prowled the night as a vampire spawn for centuries, forced to follow the orders of his sadistic master, Cazador: seduce every fool with a pulse, and lure them back to Cazador's lair. Free for now, Astarion will do anything to keep his life in the light. He can see but one way to ensure his liberty for good: become many times more powerful than his old abuser could ever dream of being. His body is forever tainted by the intricate, patterned scarring Cazador carved upon his back, and the elder vampire seems set on sending out waves of hunters seeking to capture his lost spawn.`,
     race: 'race02',
     subrace: 'subr01',
-    startingClass: ECharClasses.Rogue,
+    startingClass: 'ccl09',
     casterLevel: 0,
     background: ECharBg.Charlatan,
     abilities: {
@@ -60,12 +58,12 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'Gale',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/gal_icon.png',
     origin: 'ori03',
     desc: `Gale of Waterdeep was a prodigious archmage, his talents earning him the attention of Mystra, the goddess of magic. At her side, he learned all that mortals might accomplish with the Weave, in time earning his place as her lover, and her Chosen. And yet, he was not satisfied. In an attempt to prove he was ready for even greater power, he accidentally unleashed 'the orb' - a highly volatile fragment of pure Weave, corrupted by Netherese magic, which buried itself in his chest. Cast out by Mystra, humbled by his downfall, he does all he can to prevent the orb's cataclysmic detonation, watching for his chance to get back everything he lost, and more.`,
     race: 'race01',
-    startingClass: ECharClasses.Wizard,
+    startingClass: 'ccl12',
     casterLevel: 1,
     background: ECharBg.Sage,
     abilities: {
@@ -80,13 +78,13 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'Karlach',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/kar_icon.png',
     origin: 'ori04',
     desc: `Gale of Waterdeep was a prodigious archmage, his talents earning him the attention of Mystra, the goddess of magic. At her side, he learned all that mortals might accomplish with the Weave, in time earning his place as her lover, and her Chosen. And yet, he was not satisfied. In an attempt to prove he was ready for even greater power, he accidentally unleashed 'the orb' - a highly volatile fragment of pure Weave, corrupted by Netherese magic, which buried itself in his chest. Cast out by Mystra, humbled by his downfall, he does all he can to prevent the orb's cataclysmic detonation, watching for his chance to get back everything he lost, and more.`,
     race: 'race09',
     subrace: 'subr18',
-    startingClass: ECharClasses.Barbarian,
+    startingClass: 'ccl01',
     casterLevel: 0,
     background: ECharBg.Outlander,
     abilities: {
@@ -101,12 +99,12 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: `Lae'zel`,
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/lae_icon.png',
     origin: 'ori05',
     desc: `Crashed down to the Sword Coast from the stars, Lae'zel is a fierce warrior, even by the standards of militant githyanki society. When faced with the possibility of becoming a mind flayer, the monster she has dedicated her life to defeating, she must prove her worth and earn the right to rejoin her people -- if they don't execute her first. Will Lae'zel's strength and determination be enough to prove herself to Queen Vlaakith, or must she walk another path in exile?`,
     race: 'race10',
-    startingClass: ECharClasses.Fighter,
+    startingClass: 'ccl05',
     casterLevel: 0,
     background: ECharBg.Soldier,
     abilities: {
@@ -121,14 +119,14 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'Shadowheart',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/sha_icon.png',
     origin: 'ori06',
     desc: `A devoted cleric of Shar, goddess of darkness and loss, Shadowheart agreed to have her memories wiped as part of a holy mission. Now its sole survivor, she must deliver a powerful relic back to her kin in order to win Shar's love and have her memories restored – but all the while, she is tormented by strange, painful magic that she struggles to understand.`,
     race: 'race04',
     subrace: 'subr05',
-    startingClass: ECharClasses.Cleric,
-    startingSubclass: ESubClasses.Trickery,
+    startingClass: 'ccl03',
+    startingSubclass: 'scl09',
     casterLevel: 1,
     background: ECharBg.Acolyte,
     abilities: {
@@ -143,13 +141,13 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'Wyll',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/wyl_icon.png',
     origin: 'ori07',
     desc: `From a scion of a famed Baldurian house to a life of adventure on the road, Wyll’s life as the monster hunter called the Blade of Frontiers has made him one of the beating hearts of the Sword Coast. While he has done great deeds for the Coast’s people, the source of his power remains secret. The cambion Mizora drew Wyll into a warlock’s pact in a moment with many lives at stake, and cursed him with the duty of hunting her enemies. Mizora only asks Wyll to sacrifice devilish creatures to her, but a cambion’s ambitions are ever fickle, and Wyll wishes to escape the pact before its price grows cruel.`,
     race: 'race01',
-    startingClass: ECharClasses.Warlock,
-    startingSubclass: ESubClasses.Fiend,
+    startingClass: 'ccl11',
+    startingSubclass: 'scl35',
     casterLevel: 1,
     background: ECharBg.FolkHero,
     abilities: {
@@ -164,14 +162,14 @@ export const dbOrigins: IOrigin[] = [
   },
   {
     name: 'The Dark Urge',
-    characterLevel: 0,
+    characterLevel: 1,
     icon: './icons/origins/dur_icon.png',
     origin: 'ori08',
     desc: `You remember nothing of your past besides that you walked a path paved with blood. As you venture on, you find yourself inescapably drawn towards unimaginable cruelties. Where do these thoughts come from?`,
     race: 'race11',
     subrace: 'subr28',
-    startingClass: ECharClasses.Sorcerer,
-    startingSubclass: ESubClasses.StormSorcery,
+    startingClass: 'ccl10',
+    startingSubclass: 'scl34',
     casterLevel: 1,
     background: ECharBg.HauntedOne,
     abilities: {

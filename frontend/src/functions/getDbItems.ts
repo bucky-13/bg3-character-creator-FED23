@@ -9,7 +9,7 @@ export const getDbObject = (id: string, dbFile: string) => {
       return races.find((o) => o.id === id)!;
     case 'subraces':
       return subraces.find((o) => o.id === id)!;
-    case 'charClass':
+    case 'charClasses':
       return charClasses.find((o) => o.id === id)!;
     case 'subClasses':
       return subClasses.find((o) => o.id === id)!;

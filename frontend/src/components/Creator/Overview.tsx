@@ -14,7 +14,11 @@ export const Overview = () => {
     <div className="creatorOverview">
       <h2>{newCharacter.name}</h2>
       <img src={newCharacter.icon} />
-      <p>{getNameFromDb(newCharacter.startingClass, 'charClass')} </p>
+
+      <p>
+        {newCharacter.startingSubclass && <span>{getNameFromDb(newCharacter.startingSubclass, 'subClasses')} </span>}
+        {getNameFromDb(newCharacter.startingClass, 'charClasses')}{' '}
+      </p>
       {newCharacter.subrace ? (
         <p>{getNameFromDb(newCharacter.subrace, 'subraces')}</p>
       ) : (

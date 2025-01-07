@@ -7,6 +7,7 @@ export interface ISubClass {
   id: string;
   name: string;
   desc: string;
+  mainClass: string;
   icon: string;
   skillProficiencies?: ESkills[];
   skillProficiencySlots?: number;

@@ -1,7 +1,6 @@
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
-import { ESubClasses } from './dbSubClass';
 
 export enum ECharClasses {
   Barbarian = 'ccl01',
@@ -26,7 +25,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Barbarian_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.Berserker, ESubClasses.WildMagicBarb, ESubClasses.Wildheart],
+    subclasses: ['scl01', 'scl02', 'scl03'],
     skillProficiencies: [
       ESkills.AnimalHandling,
       ESkills.Athletics,
@@ -51,7 +50,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 4 },
     ],
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.Lore, ESubClasses.Valour, ESubClasses.Swords],
+    subclasses: ['scl04', 'scl05', 'scl06'],
     expertiseAtLevel: 3,
     expertiseSlots: 2,
     skillProficiencies: [
@@ -96,15 +95,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 5 },
     ],
     subclassAtLevel: 1,
-    subclasses: [
-      ESubClasses.Life,
-      ESubClasses.Light,
-      ESubClasses.Trickery,
-      ESubClasses.Knowledge,
-      ESubClasses.Nature,
-      ESubClasses.Tempest,
-      ESubClasses.War,
-    ],
+    subclasses: ['scl07', 'scl08', 'scl09', 'scl10', 'scl11', 'scl12', 'scl13'],
     skillProficiencies: [ESkills.History, ESkills.Insight, ESkills.Medicine, ESkills.Persuasion, ESkills.Religion],
     skillProficiencySlots: 2,
     armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor, EEquipment.Shields],
@@ -122,7 +113,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 4 },
     ],
     subclassAtLevel: 2,
-    subclasses: [ESubClasses.Land, ESubClasses.Moon, ESubClasses.Spores],
+    subclasses: ['scl14', 'scl15', 'scl46'],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.AnimalHandling,
@@ -153,7 +144,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Fighter_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.BattleMaster, ESubClasses.EldritchKnight, ESubClasses.Champion],
+    subclasses: ['scl16', 'scl17', 'scl18'],
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.AnimalHandling,
@@ -175,7 +166,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Monk_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.FourElements, ESubClasses.OpenHand, ESubClasses.Shadow],
+    subclasses: ['scl19', 'scl20', 'scl21'],
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.Athletics,
@@ -195,7 +186,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Paladin_Icon.png',
     casterLevelPerLevel: 0.5,
     subclassAtLevel: 1,
-    subclasses: [ESubClasses.Ancients, ESubClasses.Devotion, ESubClasses.Vengeance, ESubClasses.Oathbreaker],
+    subclasses: ['scl22', 'scl23', 'scl24', 'scl25'],
     skillProficiencies: [
       ESkills.Athletics,
       ESkills.Insight,
@@ -215,7 +206,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Ranger_Icon.png',
     casterLevelPerLevel: 0.5,
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.Hunter, ESubClasses.BeastMaster, ESubClasses.GloomStalker],
+    subclasses: ['scl26', 'scl27', 'scl28'],
     skillProficiencies: [
       ESkills.AnimalHandling,
       ESkills.Athletics,
@@ -237,7 +228,7 @@ export const charClasses: ICharClass[] = [
     icon: './icons/charClasses/Rogue_Icon.png',
     casterLevelPerLevel: 0,
     subclassAtLevel: 3,
-    subclasses: [ESubClasses.Thief, ESubClasses.ArcaneTrickster, ESubClasses.Assassin],
+    subclasses: ['scl29', 'scl30', 'scl31'],
     expertiseAtLevel: 1,
     expertiseSlots: 2,
     skillProficiencies: [
@@ -274,7 +265,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 6 },
     ],
     subclassAtLevel: 1,
-    subclasses: [ESubClasses.WildMagicSorc, ESubClasses.Draconic, ESubClasses.StormSorcery],
+    subclasses: ['scl32', 'scl33', 'scl34'],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.Deception,
@@ -299,7 +290,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 4 },
     ],
     subclassAtLevel: 1,
-    subclasses: [ESubClasses.Fiend, ESubClasses.GreatOldOne, ESubClasses.Archfey],
+    subclasses: ['scl35', 'scl36', 'scl37'],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.Deception,
@@ -325,17 +316,7 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 10, amount: 5 },
     ],
     subclassAtLevel: 2,
-    subclasses: [
-      ESubClasses.Abjuration,
-      ESubClasses.Evocation,
-      ESubClasses.Necromancy,
-      ESubClasses.Conjuration,
-      ESubClasses.Enchantment,
-      ESubClasses.Divination,
-      ESubClasses.Divination,
-      ESubClasses.Illusion,
-      ESubClasses.Transmutation,
-    ],
+    subclasses: ['scl38', 'scl39', 'scl40', 'scl41', 'scl42', 'scl43', 'scl44', 'scl45'],
     skillProficiencies: [
       ESkills.Arcana,
       ESkills.History,

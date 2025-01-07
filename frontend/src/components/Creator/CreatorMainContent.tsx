@@ -4,6 +4,7 @@ import { Class } from './mainContentComponents/Class';
 import { Origin } from './mainContentComponents/Origin';
 import { Race } from './mainContentComponents/Race';
 import { Skills } from './mainContentComponents/Skills';
+import { Subclass } from './mainContentComponents/Subclass';
 import { Subrace } from './mainContentComponents/Subrace';
 
 interface CreatorMainContentProps {
@@ -16,6 +17,7 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'origin' && <Origin />}
       {currentSection === 'race' && <Race />}
       {currentSection === 'class' && <Class />}
+      {currentSection === 'subclass' && <Subclass />}
       {currentSection === 'subrace' && <Subrace />}
       {currentSection === 'background' && <Background />}
       {currentSection === 'abilities' && <Abilities />}
