@@ -6,8 +6,6 @@ import { ISubrace } from '../../../models/dbModels/ISubrace';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  //   const subracesArray = getSubracesArray(newCharacter.race);
-
   const [selectedSubrace, setSelectedSubrace] = useState(getDbObject(newCharacter.subrace!, 'subraces'));
 
   const isActiveIcon = (icon: string): string => {
