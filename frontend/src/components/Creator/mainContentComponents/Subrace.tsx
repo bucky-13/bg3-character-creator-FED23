@@ -12,7 +12,7 @@ export const Subrace = () => {
     return icon === newCharacter.subrace ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
   };
 
-  const onCHangeSubrace = (changdSubrace: ISubrace): void => {
+  const onChangeSubrace = (changdSubrace: ISubrace): void => {
     setSelectedSubrace(changdSubrace);
     setNewCharacter({ ...newCharacter, subrace: changdSubrace.id });
   };
@@ -28,7 +28,7 @@ export const Subrace = () => {
               {subraces.map(
                 (subrace) =>
                   subrace.mainRace === newCharacter.race && (
-                    <div key={subrace.id} className={isActiveIcon(subrace.id)} onClick={() => onCHangeSubrace(subrace)}>
+                    <div key={subrace.id} className={isActiveIcon(subrace.id)} onClick={() => onChangeSubrace(subrace)}>
                       <img src={subrace.icon} />
                       <p>{subrace.name}</p>
                     </div>

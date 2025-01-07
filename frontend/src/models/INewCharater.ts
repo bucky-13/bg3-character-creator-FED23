@@ -1,5 +1,4 @@
 import { EAbilites } from '../database/dbAbilities';
-import { ECharBg } from '../database/dbCharBackgrounds';
 import { EEquipment } from '../database/dbEquipmentProficiencies';
 import { ESkills } from '../database/dbSkills';
 
@@ -23,7 +22,7 @@ export interface INewCharacter {
   lvl4spells?: string[];
   lvl5spells?: string[];
   lvl6spells?: string[];
-  background: ECharBg;
+  background: string;
   abilities: {
     str: INewAbilities;
     dex: INewAbilities;

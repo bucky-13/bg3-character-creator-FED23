@@ -1,6 +1,5 @@
 import { IOrigin } from '../models/dbModels/IOrigin';
 import { EAbilites } from './dbAbilities';
-import { ECharBg } from './dbCharBackgrounds';
 
 export enum EOrigin {
   Custom = 'ori01',
@@ -24,7 +23,7 @@ export const dbOrigins: IOrigin[] = [
     subrace: 'subr01',
     startingClass: 'ccl01',
     casterLevel: 0,
-    background: ECharBg.Acolyte,
+    background: 'cbg01',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -45,7 +44,7 @@ export const dbOrigins: IOrigin[] = [
     subrace: 'subr01',
     startingClass: 'ccl09',
     casterLevel: 0,
-    background: ECharBg.Charlatan,
+    background: 'cbg03',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -65,7 +64,7 @@ export const dbOrigins: IOrigin[] = [
     race: 'race01',
     startingClass: 'ccl12',
     casterLevel: 1,
-    background: ECharBg.Sage,
+    background: 'cbg10',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -86,7 +85,7 @@ export const dbOrigins: IOrigin[] = [
     subrace: 'subr18',
     startingClass: 'ccl01',
     casterLevel: 0,
-    background: ECharBg.Outlander,
+    background: 'cbg09',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -106,7 +105,7 @@ export const dbOrigins: IOrigin[] = [
     race: 'race10',
     startingClass: 'ccl05',
     casterLevel: 0,
-    background: ECharBg.Soldier,
+    background: 'cbg11',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -128,7 +127,7 @@ export const dbOrigins: IOrigin[] = [
     startingClass: 'ccl03',
     startingSubclass: 'scl09',
     casterLevel: 1,
-    background: ECharBg.Acolyte,
+    background: 'cbg01',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -149,7 +148,7 @@ export const dbOrigins: IOrigin[] = [
     startingClass: 'ccl11',
     startingSubclass: 'scl35',
     casterLevel: 1,
-    background: ECharBg.FolkHero,
+    background: 'cbg05',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -171,7 +170,7 @@ export const dbOrigins: IOrigin[] = [
     startingClass: 'ccl10',
     startingSubclass: 'scl34',
     casterLevel: 1,
-    background: ECharBg.HauntedOne,
+    background: 'cbg07',
     abilities: {
       str: { abiId: EAbilites.Str, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
       dex: { abiId: EAbilites.Dex, baseValue: 10, plusOneBonus: false, plusTwoBonus: false },

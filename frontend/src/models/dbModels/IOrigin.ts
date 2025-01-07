@@ -1,4 +1,3 @@
-import { ECharBg } from '../../database/dbCharBackgrounds';
 import { INewAbilities } from '../INewCharater';
 
 export interface IOrigin {
@@ -12,7 +11,7 @@ export interface IOrigin {
   startingClass: string;
   startingSubclass?: string;
   casterLevel: number;
-  background: ECharBg;
+  background: string;
   abilities: {
     str: INewAbilities;
     dex: INewAbilities;

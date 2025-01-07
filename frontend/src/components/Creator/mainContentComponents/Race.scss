@@ -11,6 +11,8 @@
 .racePortraitContainer {
   cursor: pointer;
   img {
+    max-width: 100px;
+    max-height: 100px;
     border-radius: 100rem;
     border: 2px solid #00000000;
   }
@@ -29,4 +31,7 @@
 
 .chosenRace {
   margin-top: 3rem;
+  h4 {
+    display: inline;
+  }
 }
