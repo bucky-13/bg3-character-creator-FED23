@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './Origin.scss';
 import { IOrigin } from '../../../models/dbModels/IOrigin';
 import { dbOrigins } from '../../../database/dbOrigins';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
