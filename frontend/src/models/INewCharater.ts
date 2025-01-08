@@ -23,12 +23,18 @@ export interface INewCharacter {
   lvl6spells?: string[];
   background: string;
   abilities: INewAbility[];
-  skillsProficiencies?: ESkills[];
-  skillsExpertises?: ESkills[];
+  skillProficiencies?: ISkillProfNewChar[];
+  skillExpertises?: ISkillProfNewChar[];
   equipmentProficiencies?: EEquipment[];
   perks?: string[];
   lvlChoices?: ILvlChoices[];
   hasLockedChoices: boolean;
+}
+
+export interface ISkillProfNewChar {
+  id: string;
+  fromSource: string;
+  canChange: boolean;
 }
 
 export interface ILvlChoices {

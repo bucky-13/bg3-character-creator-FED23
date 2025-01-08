@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IOrigin } from '../../../models/dbModels/IOrigin';
 import { dbOrigins } from '../../../database/dbOrigins';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { INewCharacter } from '../../../models/INewCharater';
+import { INewAbility, INewCharacter, ISkillProfNewChar } from '../../../models/INewCharater';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Origin = () => {
@@ -11,7 +11,16 @@ export const Origin = () => {
 
   const onChangeOrigin = (changedOrigin: IOrigin): void => {
     setSelectedOrigin(changedOrigin);
-    setNewCharacter(changedOrigin);
+    let skills: ISkillProfNewChar[] = [];
+    for (let i = 0; i < changedOrigin.skillProficiencies.length; i++) {
+      let skill: ISkillProfNewChar = {
+        id: changedOrigin.skillProficiencies[i].id,
+        fromSource: 'origin',
+        canChange: false,
+      };
+      skills.push(skill);
+    }
+    setNewCharacter({ ...changedOrigin, skillProficiencies: skills });
   };
 
   return (

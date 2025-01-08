@@ -1,4 +1,4 @@
-import { INewAbility } from '../INewCharater';
+import { INewAbility, ISkillProfNewChar } from '../INewCharater';
 
 export interface IOrigin {
   name: string;
@@ -14,4 +14,5 @@ export interface IOrigin {
   background: string;
   abilities: INewAbility[];
   hasLockedChoices: boolean;
+  skillProficiencies: ISkillProfNewChar[];
 }

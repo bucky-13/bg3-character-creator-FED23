@@ -1,0 +1,12 @@
+.skillsContainer {
+  .skillContainer {
+    display: grid;
+    grid-template-columns: 1fr 50px 50px 50px;
+    align-items: center;
+    margin-top: 2px;
+    h4,
+    p {
+      margin: 0;
+    }
+  }
+}

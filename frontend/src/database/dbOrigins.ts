@@ -1,5 +1,4 @@
 import { IOrigin } from '../models/dbModels/IOrigin';
-import { EAbilites } from './dbAbilities';
 
 export enum EOrigin {
   Custom = 'ori01',
@@ -33,6 +32,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: false,
+    skillProficiencies: [
+      { id: 'ski11', fromSource: 'origin', canChange: false },
+      { id: 'ski09', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'Astarion',
@@ -54,6 +57,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski15', fromSource: 'origin', canChange: false },
+      { id: 'ski04', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'Gale',
@@ -74,6 +81,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski05', fromSource: 'origin', canChange: false },
+      { id: 'ski06', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'Karlach',
@@ -95,6 +106,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski01', fromSource: 'origin', canChange: false },
+      { id: 'ski14', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: `Lae'zel`,
@@ -115,6 +130,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski01', fromSource: 'origin', canChange: false },
+      { id: 'ski16', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'Shadowheart',
@@ -137,6 +156,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski11', fromSource: 'origin', canChange: false },
+      { id: 'ski09', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'Wyll',
@@ -158,6 +181,10 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: true,
+    skillProficiencies: [
+      { id: 'ski10', fromSource: 'origin', canChange: false },
+      { id: 'ski11', fromSource: 'origin', canChange: false },
+    ],
   },
   {
     name: 'The Dark Urge',
@@ -180,5 +207,9 @@ export const dbOrigins: IOrigin[] = [
       { id: 'abi06', shortName: 'Cha', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
     ],
     hasLockedChoices: false,
+    skillProficiencies: [
+      { id: 'ski12', fromSource: 'origin', canChange: false },
+      { id: 'ski16', fromSource: 'origin', canChange: false },
+    ],
   },
 ];

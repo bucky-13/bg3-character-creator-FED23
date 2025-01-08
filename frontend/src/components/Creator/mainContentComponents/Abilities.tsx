@@ -14,6 +14,7 @@ export const Abilities = () => {
   const getAbility = (key: string): IAbility => {
     return abilities.find((abi: IAbility) => abi.id === key)!;
   };
+
   const getAbiValue = (key: string, value: keyof IAbility): string => {
     const ability = getAbility(key);
     return ability ? ability[value] : 'error';
@@ -93,10 +94,16 @@ export const Abilities = () => {
             >
               +
             </button>
-            <button className="plusMinusBtn checkmarkIcon" onClick={() => updateNewCharBonus(ability.id, 1)}>
+            <button
+              className={ability.plusTwoBonus ? 'checkmarkIcon active' : 'checkmarkIcon'}
+              onClick={() => updateNewCharBonus(ability.id, 1)}
+            >
               {ability.plusTwoBonus && <img src="./icons/check-mark-icon.png" />}
             </button>
-            <button className="plusMinusBtn checkmarkIcon" onClick={() => updateNewCharBonus(ability.id, 0)}>
+            <button
+              className={ability.plusOneBonus ? 'checkmarkIcon active' : 'checkmarkIcon'}
+              onClick={() => updateNewCharBonus(ability.id, 0)}
+            >
               {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}
             </button>
           </div>

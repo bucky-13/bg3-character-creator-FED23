@@ -4,6 +4,7 @@ import { races } from '../database/dbRaces';
 import { skills } from '../database/dbSkills';
 import { subClasses } from '../database/dbSubClass';
 import { subraces } from '../database/dbSubraces';
+import { ICharClass } from '../models/dbModels/ICharClass';
 import { ISkill } from '../models/dbModels/ISkill';
 
 export const getDbObject = (id: string, dbFile: string) => {
@@ -21,6 +22,10 @@ export const getDbObject = (id: string, dbFile: string) => {
     case 'skills':
       return skills.find((o) => o.id === id)!;
   }
+};
+
+export const getDbClass = (id: string): ICharClass => {
+  return charClasses.find((o) => o.id === id)!;
 };
 
 export const getSkillProficiencies = (ids: string[]): ISkill[] => {
