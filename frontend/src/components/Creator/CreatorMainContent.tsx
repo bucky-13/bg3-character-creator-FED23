@@ -1,9 +1,8 @@
-import { Abilities } from './mainContentComponents/Abilities';
+import { AbilitiesAndSkills } from './mainContentComponents/AbilitiesAndSkills';
 import { Background } from './mainContentComponents/Background';
 import { Class } from './mainContentComponents/Class';
 import { Origin } from './mainContentComponents/Origin';
 import { Race } from './mainContentComponents/Race';
-import { Skills } from './mainContentComponents/Skills';
 import { Subclass } from './mainContentComponents/Subclass';
 import { Subrace } from './mainContentComponents/Subrace';
 
@@ -20,8 +19,7 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'subclass' && <Subclass />}
       {currentSection === 'subrace' && <Subrace />}
       {currentSection === 'background' && <Background />}
-      {currentSection === 'abilities' && <Abilities />}
-      {currentSection === 'skills' && <Skills />}
+      {currentSection === 'abilities' && <AbilitiesAndSkills />}
     </div>
   );
 };

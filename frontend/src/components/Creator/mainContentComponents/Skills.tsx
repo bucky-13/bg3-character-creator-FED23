@@ -1,3 +1,7 @@
 export const Skills = () => {
-  return <p>Skills</p>;
+  return (
+    <div className="skillsContainer">
+      <h2>Skills</h2>
+    </div>
+  );
 };

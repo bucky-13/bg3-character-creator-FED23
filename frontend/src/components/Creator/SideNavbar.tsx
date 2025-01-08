@@ -51,12 +51,7 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
       />
       <ButtonSideNavbar
         textContent="Abilities"
-        activeSection={isActiveSection('abilities')}
-        setCurrentSection={setCurrentSection}
-      />
-      <ButtonSideNavbar
-        textContent="Skills"
-        activeSection={isActiveSection('skills')}
+        activeSection={isActiveSection('abilitiesAndSkills')}
         setCurrentSection={setCurrentSection}
       />
     </div>

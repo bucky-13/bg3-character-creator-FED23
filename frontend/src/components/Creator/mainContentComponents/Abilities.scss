@@ -1,0 +1,48 @@
+.abilitiesContainer,
+.skillsContainer {
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.abilityContainer {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px 50px 50px 60px 60px;
+  justify-items: center;
+  align-items: center;
+  gap: 0;
+  h4,
+  p {
+    margin: 0;
+  }
+
+  .abiDummy {
+    grid-column: span 5;
+  }
+}
+
+.abilitiesIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.plusMinusBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.checkmarkIcon {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  img {
+    margin: auto;
+    width: 25px;
+    height: 25px;
+  }
+}
