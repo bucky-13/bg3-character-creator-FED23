@@ -1,15 +1,67 @@
+.mainContentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 .creatorContainer {
   height: 100%;
   display: grid;
   grid-template-columns: 200px auto 300px;
 }
 
-.centerContainer {
-  width: 75%;
+.creatorCenterContainer {
+  // height: 100%;
+  background-color: #00000095;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border: 1px solid black;
+  border-top: none;
+
+  h2 {
+    margin: 0;
+    padding-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+  }
 }
 
-.mainContentContainer {
+.choicesAndSelectedContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  width: 100%;
+  padding: 2rem 0.5rem;
+
+  h4 {
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+}
+
+.selectedChoiceContainer {
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
+  padding: 0 2rem;
+
+  .hInline {
+    display: inline;
+  }
+}
+
+.choicesContainer {
+  width: 100;
+  max-width: 540px;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: auto;
+  margin-top: 0;
+  padding: 0 2rem;
+
+  p {
+    margin-top: 0;
+  }
 }

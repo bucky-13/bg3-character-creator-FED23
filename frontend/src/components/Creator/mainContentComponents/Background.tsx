@@ -3,7 +3,6 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject, getSkillProficiencies } from '../../../functions/getDbItems';
 import { charBackgrounds } from '../../../database/dbCharBackgrounds';
 import { ICharBackground } from '../../../models/dbModels/ICharBackground';
-import { ISkill } from '../../../models/dbModels/ISkill';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -21,12 +20,12 @@ export const Background = () => {
   };
 
   return (
-    <div>
+    <div className="creatorCenterContainer">
       <h2>Character Background</h2>
-      <div className="centerContainer originsContainer">
+      <div className="choicesAndSelectedContainer">
         {(!newCharacter.hasLockedChoices || newCharacter.origin === 'ori01') && (
           <div>
-            <div className="originOptionsContainer">
+            <div className="choicesContainer">
               {charBackgrounds.map((bg) => (
                 <div key={bg.id} className={isActiveIcon(bg.id)} onClick={() => onChangeBg(bg)}>
                   <img src={bg.icon} />
@@ -37,11 +36,11 @@ export const Background = () => {
           </div>
         )}
         {selectedBg && (
-          <div className="chosenRace">
+          <div className="selectedChoiceContainer">
             <h3>{selectedBg.name}</h3>
             <p>{selectedBg.desc}</p>
             <p>
-              <h4>Starting Skills: </h4>
+              <h4 className="hInline">Starting Skills: </h4>
               {skills[0].name}, {skills[1].name}
             </p>
           </div>

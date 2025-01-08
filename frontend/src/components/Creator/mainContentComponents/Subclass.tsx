@@ -18,13 +18,13 @@ export const Subclass = () => {
   };
 
   return (
-    <div>
+    <div className="creatorCenterContainer">
       <h2>Subclass</h2>
 
-      <div className="centerContainer originsContainer">
+      <div className="choicesAndSelectedContainer">
         {!newCharacter.hasLockedChoices && (
           <div>
-            <div className="originOptionsContainer">
+            <div className="choicesContainer">
               {subClasses.map(
                 (subClass) =>
                   subClass.mainClass === newCharacter.startingClass && (
@@ -42,7 +42,7 @@ export const Subclass = () => {
           </div>
         )}
         {selectedSubclass && (
-          <div className="chosenRace">
+          <div className="selectedChoiceContainer">
             <h3>{selectedSubclass.name}</h3>
             <p>{selectedSubclass.desc}</p>
           </div>

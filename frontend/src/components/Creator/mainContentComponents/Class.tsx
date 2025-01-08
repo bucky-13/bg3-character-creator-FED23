@@ -30,12 +30,12 @@ export const Class = () => {
     }
   };
   return (
-    <div>
+    <div className="creatorCenterContainer">
       <h2>Starting Class</h2>
-      <div className="centerContainer originsContainer">
+      <div className="choicesAndSelectedContainer">
         {!newCharacter.hasLockedChoices && (
           <div>
-            <div className="originOptionsContainer">
+            <div className="choicesContainer">
               {charClasses.map((cClass) => (
                 <div key={cClass.id} className={isActiveIcon(cClass.id)} onClick={() => onChangeClass(cClass)}>
                   <img src={cClass.icon} />
@@ -46,7 +46,7 @@ export const Class = () => {
           </div>
         )}
         {selectedClass && (
-          <div className="chosenRace">
+          <div className="selectedChoiceContainer">
             <h3>{selectedClass.name}</h3>
             <p>{selectedClass.desc}</p>
           </div>

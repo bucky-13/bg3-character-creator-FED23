@@ -18,13 +18,13 @@ export const Subrace = () => {
   };
 
   return (
-    <div>
+    <div className="creatorCenterContainer">
       <h2>Subrace</h2>
 
-      <div className="centerContainer originsContainer">
+      <div className="choicesAndSelectedContainer">
         {!newCharacter.hasLockedChoices && (
           <div>
-            <div className="originOptionsContainer">
+            <div className="choicesContainer">
               {subraces.map(
                 (subrace) =>
                   subrace.mainRace === newCharacter.race && (
@@ -38,7 +38,7 @@ export const Subrace = () => {
           </div>
         )}
         {selectedSubrace && (
-          <div className="chosenRace">
+          <div className="selectedChoiceContainer">
             <h3>{selectedSubrace.name}</h3>
             <p>{selectedSubrace.desc}</p>
           </div>

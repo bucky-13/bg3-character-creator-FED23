@@ -1,13 +1,37 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Source Serif 4', serif;
+  font-optical-sizing: auto;
   line-height: 1.5;
   font-weight: 400;
-  background-color: rgb(59, 0, 0);
-  color: #eeda99;
+  // background-color: rgb(59, 0, 0);
+  background: linear-gradient(0deg, #00000040, #00000040), url('../images/background.webp');
+  background-size: cover;
+  color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Crimson Pro', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.7rem;
+}
+h4 {
+  font-size: 1.5rem;
 }
 
 a {
@@ -23,11 +47,14 @@ a:hover {
 
 body {
   margin: 0;
+  background-image: '';
 }
 
 header {
   margin: auto 0;
   padding: 0;
+  height: 100%;
+  background-color: #00000095;
 }
 
 nav {
@@ -35,6 +62,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin: 0 2rem;
+  height: 100%;
+
   ul {
     display: flex;
     justify-content: space-between;
@@ -46,6 +75,8 @@ nav {
   }
 }
 footer {
+  background-color: #00000095;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;

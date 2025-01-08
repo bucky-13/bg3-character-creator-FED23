@@ -1,4 +1,4 @@
-import { INewAbilities } from '../INewCharater';
+import { INewAbility } from '../INewCharater';
 
 export interface IOrigin {
   name: string;
@@ -12,13 +12,6 @@ export interface IOrigin {
   startingSubclass?: string;
   casterLevel: number;
   background: string;
-  abilities: {
-    str: INewAbilities;
-    dex: INewAbilities;
-    con: INewAbilities;
-    int: INewAbilities;
-    wis: INewAbilities;
-    cha: INewAbilities;
-  };
+  abilities: INewAbility[];
   hasLockedChoices: boolean;
 }

@@ -19,10 +19,10 @@ export const Origin = () => {
   };
 
   return (
-    <div>
+    <div className="creatorCenterContainer">
       <h2>Origin</h2>
-      <div className="centerContainer originsContainer">
-        <div className="originOptionsContainer">
+      <div className="choicesAndSelectedContainer">
+        <div className="choicesContainer">
           {dbOrigins.map((origin) => (
             <div key={origin.origin} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
               <img src={origin.icon} />
@@ -30,7 +30,7 @@ export const Origin = () => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="selectedChoiceContainer">
           <img className="originIcon" src={selectedOrigin.icon} />
           <h4>{selectedOrigin.name}</h4>
           <p>{selectedOrigin.desc}</p>

@@ -1,4 +1,3 @@
-import { EAbilites } from '../database/dbAbilities';
 import { EEquipment } from '../database/dbEquipmentProficiencies';
 import { ESkills } from '../database/dbSkills';
 
@@ -23,14 +22,7 @@ export interface INewCharacter {
   lvl5spells?: string[];
   lvl6spells?: string[];
   background: string;
-  abilities: {
-    str: INewAbilities;
-    dex: INewAbilities;
-    con: INewAbilities;
-    int: INewAbilities;
-    wis: INewAbilities;
-    cha: INewAbilities;
-  };
+  abilities: INewAbility[];
   skillsProficiencies?: ESkills[];
   skillsExpertises?: ESkills[];
   equipmentProficiencies?: EEquipment[];
@@ -51,8 +43,9 @@ export interface ILvlChoices {
   skillsExpertises: string[];
 }
 
-export interface INewAbilities {
-  abiId: EAbilites;
+export interface INewAbility {
+  id: string;
+  shortName: string;
   baseValue: number;
   plusOneBonus: boolean;
   plusTwoBonus: boolean;
