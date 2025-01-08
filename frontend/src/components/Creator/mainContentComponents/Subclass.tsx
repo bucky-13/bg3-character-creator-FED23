@@ -3,14 +3,11 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject } from '../../../functions/getDbItems';
 import { ISubClass } from '../../../models/dbModels/ISubClass';
 import { subClasses } from '../../../database/dbSubClass';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedSubclass, setSelectedSubclass] = useState(getDbObject(newCharacter.startingSubclass!, 'subClasses'));
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.startingSubclass ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
-  };
 
   const onChangeSubClass = (changedSubClass: ISubClass): void => {
     setSelectedSubclass(changedSubClass);
@@ -30,7 +27,7 @@ export const Subclass = () => {
                   subClass.mainClass === newCharacter.startingClass && (
                     <div
                       key={subClass.id}
-                      className={isActiveIcon(subClass.id)}
+                      className={isActiveIcon(subClass.id, 'startingSubclass', newCharacter)}
                       onClick={() => onChangeSubClass(subClass)}
                     >
                       <img src={subClass.icon} />

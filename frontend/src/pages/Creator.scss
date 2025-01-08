@@ -55,6 +55,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  align-content: start;
   flex-wrap: wrap;
   gap: 1rem;
   margin: auto;
@@ -64,4 +65,29 @@
   p {
     margin-top: 0;
   }
+}
+
+.creatorImageChoiceContainer {
+  cursor: pointer;
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 100rem;
+    border: 2px solid #00000000;
+  }
+
+  img:hover {
+    border: 2px solid #ffffff90;
+  }
+}
+.creatorImageChoiceContainer.activeChoice {
+  cursor: default;
+  img,
+  img:hover {
+    border: 2px solid #ffd000;
+  }
+}
+
+.originIcon {
+  border-radius: 1.5rem;
 }

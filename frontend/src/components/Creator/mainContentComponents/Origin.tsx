@@ -4,14 +4,11 @@ import { IOrigin } from '../../../models/dbModels/IOrigin';
 import { dbOrigins } from '../../../database/dbOrigins';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { INewCharacter } from '../../../models/INewCharater';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Origin = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedOrigin, setSelectedOrigin] = useState<IOrigin | INewCharacter>(newCharacter);
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.origin ? 'originPortraitContainer activeOrigin' : 'originPortraitContainer';
-  };
 
   const onChangeOrigin = (changedOrigin: IOrigin): void => {
     setSelectedOrigin(changedOrigin);
@@ -24,7 +21,11 @@ export const Origin = () => {
       <div className="choicesAndSelectedContainer">
         <div className="choicesContainer">
           {dbOrigins.map((origin) => (
-            <div key={origin.origin} className={isActiveIcon(origin.origin)} onClick={() => onChangeOrigin(origin)}>
+            <div
+              key={origin.origin}
+              className={isActiveIcon(origin.origin, 'origin', newCharacter)}
+              onClick={() => onChangeOrigin(origin)}
+            >
               <img src={origin.icon} />
               <h4>{origin.name}</h4>
             </div>

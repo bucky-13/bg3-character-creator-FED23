@@ -3,14 +3,11 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
 import { getDbObject } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedSubrace, setSelectedSubrace] = useState(getDbObject(newCharacter.subrace!, 'subraces'));
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.subrace ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
-  };
 
   const onChangeSubrace = (changdSubrace: ISubrace): void => {
     setSelectedSubrace(changdSubrace);
@@ -28,7 +25,11 @@ export const Subrace = () => {
               {subraces.map(
                 (subrace) =>
                   subrace.mainRace === newCharacter.race && (
-                    <div key={subrace.id} className={isActiveIcon(subrace.id)} onClick={() => onChangeSubrace(subrace)}>
+                    <div
+                      key={subrace.id}
+                      className={isActiveIcon(subrace.id, 'subrace', newCharacter)}
+                      onClick={() => onChangeSubrace(subrace)}
+                    >
                       <img src={subrace.icon} />
                       <p>{subrace.name}</p>
                     </div>

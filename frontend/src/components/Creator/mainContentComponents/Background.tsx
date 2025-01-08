@@ -3,15 +3,12 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject, getSkillProficiencies } from '../../../functions/getDbItems';
 import { charBackgrounds } from '../../../database/dbCharBackgrounds';
 import { ICharBackground } from '../../../models/dbModels/ICharBackground';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedBg, setSelectedBg] = useState(getDbObject(newCharacter.background, 'charBgs') as ICharBackground);
   const [skills, setSkills] = useState(getSkillProficiencies(selectedBg.skillProficienciesGiven));
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.background ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
-  };
 
   const onChangeBg = (changedBg: ICharBackground): void => {
     setSelectedBg(changedBg);
@@ -27,7 +24,11 @@ export const Background = () => {
           <div>
             <div className="choicesContainer">
               {charBackgrounds.map((bg) => (
-                <div key={bg.id} className={isActiveIcon(bg.id)} onClick={() => onChangeBg(bg)}>
+                <div
+                  key={bg.id}
+                  className={isActiveIcon(bg.id, 'background', newCharacter)}
+                  onClick={() => onChangeBg(bg)}
+                >
                   <img src={bg.icon} />
                   <p>{bg.name}</p>
                 </div>

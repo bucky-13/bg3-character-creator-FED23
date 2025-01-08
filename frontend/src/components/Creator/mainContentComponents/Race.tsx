@@ -2,17 +2,13 @@ import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject } from '../../../functions/getDbItems';
 import { races } from '../../../database/dbRaces';
-import './Race.scss';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedRace, setSelectedRace] = useState(getDbObject(newCharacter.race, 'races'));
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.race ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
-  };
 
   const onChangeRace = (changedRace: IRace): void => {
     setSelectedRace(changedRace);
@@ -33,7 +29,11 @@ export const Race = () => {
           <div>
             <div className="choicesContainer">
               {races.map((race) => (
-                <div key={race.id} className={isActiveIcon(race.id)} onClick={() => onChangeRace(race)}>
+                <div
+                  key={race.id}
+                  className={isActiveIcon(race.id, 'race', newCharacter)}
+                  onClick={() => onChangeRace(race)}
+                >
                   <img src={race.icon} />
                   <p>{race.name}</p>
                 </div>

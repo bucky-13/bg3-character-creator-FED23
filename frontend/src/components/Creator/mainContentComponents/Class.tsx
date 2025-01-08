@@ -3,17 +3,11 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedClass, setSelectedClass] = useState(getDbObject(newCharacter.startingClass, 'charClasses'));
-
-  const isActiveIcon = (icon: string): string => {
-    return icon === newCharacter.startingClass ? 'racePortraitContainer activeRace' : 'racePortraitContainer';
-  };
-
-  console.log(newCharacter);
-  console.log(selectedClass);
 
   const onChangeClass = (changedClass: ICharClass): void => {
     setSelectedClass(changedClass);
@@ -37,7 +31,11 @@ export const Class = () => {
           <div>
             <div className="choicesContainer">
               {charClasses.map((cClass) => (
-                <div key={cClass.id} className={isActiveIcon(cClass.id)} onClick={() => onChangeClass(cClass)}>
+                <div
+                  key={cClass.id}
+                  className={isActiveIcon(cClass.id, 'startingClass', newCharacter)}
+                  onClick={() => onChangeClass(cClass)}
+                >
                   <img src={cClass.icon} />
                   <p>{cClass.name}</p>
                 </div>
