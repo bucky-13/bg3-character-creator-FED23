@@ -4,6 +4,7 @@ import { abilities } from '../../../database/dbAbilities';
 import { IAbility } from '../../../models/dbModels/IAbilitiy';
 import './Abilities.scss';
 import { INewAbility } from '../../../models/INewCharater';
+import { displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 
 export const Abilities = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -31,12 +32,6 @@ export const Abilities = () => {
     setNewCharacter({ ...newCharacter, abilities: newCharAbilities });
   };
 
-  const displayAbilityTotal = (ability: INewAbility): number => {
-    const plus1Bonus = ability.plusOneBonus ? 1 : 0;
-    const plus2Bonus = ability.plusTwoBonus ? 2 : 0;
-    return ability.baseValue + plus1Bonus + plus2Bonus;
-  };
-
   console.log(newCharacter);
   return (
     <div className="abilitiesContainer">
@@ -53,7 +48,7 @@ export const Abilities = () => {
             <img src={getAbiValue(ability.id, 'icon')} className="abilitiesIcon" />
             <h4>{getAbiValue(ability.id, 'name')}</h4>
             <button className="plusMinusBtn">-</button>
-            <p>{displayAbilityTotal(ability)}</p>
+            <p>{displayAbilityTotalPoints(ability)}</p>
             <button className="plusMinusBtn">+</button>
             <button className="plusMinusBtn checkmarkIcon" onClick={() => updateNewCharBonus(ability.id, 0)}>
               {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}
