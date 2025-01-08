@@ -33,6 +33,16 @@
   border-radius: 100%;
 }
 
+.plusMinusBtn:disabled {
+  background-color: #444;
+  color: #aaa;
+  cursor: default;
+}
+
+.plusMinusBtn:disabled:hover {
+  border: 1px solid #8a5a00;
+}
+
 .checkmarkIcon {
   padding: 0;
   margin: auto;
@@ -44,5 +54,23 @@
     margin: auto;
     width: 25px;
     height: 25px;
+  }
+}
+
+.abilitiesContainer {
+  .flexRowCentered {
+    margin-top: 0.5rem;
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+.abilityInfoContainer {
+  height: 140px;
+  p {
+    width: 400px;
+    margin: auto;
+    margin-top: 1rem;
   }
 }

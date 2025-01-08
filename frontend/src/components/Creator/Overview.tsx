@@ -1,7 +1,6 @@
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { displayAbilityTotalPoints } from '../../functions/creatorMinorFunctions';
 import { getDbObject } from '../../functions/getDbItems';
-import { INewAbility } from '../../models/INewCharater';
 import './Overview.scss';
 
 export const Overview = () => {
