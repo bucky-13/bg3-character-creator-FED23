@@ -40,7 +40,10 @@ export const Subrace = () => {
         )}
         {selectedSubrace && (
           <div className="selectedChoiceContainer">
-            <h3>{selectedSubrace.name}</h3>
+            <div className="selectedChoiceHeader">
+              <img src={selectedSubrace.icon} />
+              <h3>{selectedSubrace.name}</h3>
+            </div>
             <p>{selectedSubrace.desc}</p>
           </div>
         )}

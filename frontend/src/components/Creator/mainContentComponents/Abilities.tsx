@@ -95,13 +95,13 @@ export const Abilities = () => {
               +
             </button>
             <button
-              className={ability.plusTwoBonus ? 'checkmarkIcon active' : 'checkmarkIcon'}
+              className={ability.plusTwoBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
               onClick={() => updateNewCharBonus(ability.id, 1)}
             >
               {ability.plusTwoBonus && <img src="./icons/check-mark-icon.png" />}
             </button>
             <button
-              className={ability.plusOneBonus ? 'checkmarkIcon active' : 'checkmarkIcon'}
+              className={ability.plusOneBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
               onClick={() => updateNewCharBonus(ability.id, 0)}
             >
               {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}

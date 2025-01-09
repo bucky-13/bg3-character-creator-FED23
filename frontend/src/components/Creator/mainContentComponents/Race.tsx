@@ -43,7 +43,10 @@ export const Race = () => {
         )}
         {selectedRace && (
           <div className="selectedChoiceContainer">
-            <h3>{selectedRace.name}</h3>
+            <div className="selectedChoiceHeader">
+              <img src={selectedRace.icon} />
+              <h3>{selectedRace.name}</h3>
+            </div>
             <p>{selectedRace.desc}</p>
             <h4>Features:</h4>
           </div>

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbObject } from '../../../functions/getDbItems';
+import { getDbClass, getDbObject } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedClass, setSelectedClass] = useState(getDbObject(newCharacter.startingClass, 'charClasses'));
+  const [selectedClass, setSelectedClass] = useState(getDbClass(newCharacter.startingClass));
 
   const onChangeClass = (changedClass: ICharClass): void => {
     setSelectedClass(changedClass);
@@ -45,7 +45,10 @@ export const Class = () => {
         )}
         {selectedClass && (
           <div className="selectedChoiceContainer">
-            <h3>{selectedClass.name}</h3>
+            <div className="selectedChoiceHeader">
+              <img src={selectedClass.icon} />
+              <h3>{selectedClass.name}</h3>
+            </div>
             <p>{selectedClass.desc}</p>
           </div>
         )}

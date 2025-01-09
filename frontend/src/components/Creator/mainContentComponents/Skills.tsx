@@ -136,7 +136,7 @@ export const Skills = () => {
             <p>{getAbilityModifier(skill.parentId, skill.id)}</p>
             {isPossibleSkill(false, skill.id) ? (
               <button
-                className="checkmarkIcon"
+                className={isSkillProfPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
                 disabled={isDisabled(skill.id) || (isSkillProfPicked(skill.id) === false && profSlotsLeft === 0)}
                 onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false)}
               >
@@ -147,7 +147,7 @@ export const Skills = () => {
             )}
             {isPossibleSkill(true, skill.id) && expertiseSlots > 0 ? (
               <button
-                className="checkmarkIcon"
+                className={isSkillExpPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
                 disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}
                 onClick={() => onTogglingSkill(skill.id, isSkillExpPicked(skill.id), true)}
               >

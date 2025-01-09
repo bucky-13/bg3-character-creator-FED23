@@ -40,7 +40,10 @@ export const Subclass = () => {
         )}
         {selectedSubclass && (
           <div className="selectedChoiceContainer">
-            <h3>{selectedSubclass.name}</h3>
+            <div className="selectedChoiceHeader">
+              <img src={selectedSubclass.icon} />
+              <h3>{selectedSubclass.name}</h3>
+            </div>
             <p>{selectedSubclass.desc}</p>
           </div>
         )}

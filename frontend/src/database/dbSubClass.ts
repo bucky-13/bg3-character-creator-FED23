@@ -267,7 +267,7 @@ export const subClasses: ISubClass[] = [
   {
     id: 'scl25',
     name: 'Oathbreaker',
-    desc: `You have broken your sacred Oath in pursuit of power and ambition. Only darkness remains to fuel you now. *NOTE*: This cannot be picked in game, but is allowed here since it is a viable class that is easily obtained`,
+    desc: `You have broken your sacred Oath in pursuit of power and ambition. Only darkness remains to fuel you now. *NOTE*: This cannot be picked in game, but is allowed here since it is available in the game fairly early on`,
     mainClass: 'ccl07',
     icon: './icons/subClasses/Paladin_Oathbreaker_Icon.png',
     specialSkills: [],

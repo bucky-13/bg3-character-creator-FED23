@@ -48,13 +48,18 @@
   }
 }
 
-.checkmarkIcon.active {
+.checkmarkIcon.checked {
   background-color: #00880080;
 }
 .checkmarkIcon:disabled {
+  background-color: #444;
+  cursor: default;
+}
+.checkmarkIcon.checked:disabled {
   background-color: #00330080;
   cursor: default;
 }
+
 .checkmarkIcon:disabled:hover {
   border: 1px solid #8a5a00;
 }

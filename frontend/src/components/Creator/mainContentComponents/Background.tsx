@@ -25,14 +25,18 @@ export const Background = () => {
     setNewCharacter({ ...newCharacter, background: changedBg.id, skillProficiencies: skills });
   };
 
+  const removeDUBackground = (): ICharBackground[] => {
+    return charBackgrounds.filter((o) => o.id !== 'cbg07');
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Character Background</h2>
       <div className="choicesAndSelectedContainer">
-        {(!newCharacter.hasLockedChoices || newCharacter.origin === 'ori01') && (
+        {newCharacter.origin === 'ori01' && (
           <div>
             <div className="choicesContainer">
-              {charBackgrounds.map((bg) => (
+              {removeDUBackground().map((bg) => (
                 <div
                   key={bg.id}
                   className={isActiveIcon(bg.id, 'background', newCharacter)}
@@ -47,7 +51,10 @@ export const Background = () => {
         )}
         {selectedBg && (
           <div className="selectedChoiceContainer">
-            <h3>{selectedBg.name}</h3>
+            <div className="selectedChoiceHeader">
+              <img src={selectedBg.icon} />
+              <h3>{selectedBg.name}</h3>
+            </div>
             <p>{selectedBg.desc}</p>
             <div>
               <h4 className="hInline">Starting Skills: </h4>

@@ -6,6 +6,7 @@ import { subClasses } from '../database/dbSubClass';
 import { subraces } from '../database/dbSubraces';
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { ISkill } from '../models/dbModels/ISkill';
+import { ISubClass } from '../models/dbModels/ISubClass';
 
 export const getDbObject = (id: string, dbFile: string) => {
   switch (dbFile) {
@@ -19,17 +20,21 @@ export const getDbObject = (id: string, dbFile: string) => {
       return subClasses.find((o) => o.id === id)!;
     case 'charBgs':
       return charBackgrounds.find((o) => o.id === id)!;
-    case 'skills':
-      return skills.find((o) => o.id === id)!;
   }
 };
 
 export const getDbClass = (id: string): ICharClass => {
   return charClasses.find((o) => o.id === id)!;
 };
+export const getDbSubClass = (id: string): ISubClass => {
+  return subClasses.find((o) => o.id === id)!;
+};
+export const getDbSkill = (id: string): ISkill => {
+  return skills.find((o) => o.id === id)!;
+};
 
 export const getSkillProficiencies = (ids: string[]): ISkill[] => {
   let skills: ISkill[] = [];
-  ids.map((id) => ((skills = skills), skills.push(getDbObject(id, 'skills') as ISkill)));
+  ids.map((id) => ((skills = skills), skills.push(getDbSkill(id) as ISkill)));
   return skills;
 };
