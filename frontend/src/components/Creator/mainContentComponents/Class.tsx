@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbClass, getDbObject } from '../../../functions/getDbItems';
+import { getDbClass } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';

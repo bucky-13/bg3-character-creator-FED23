@@ -1,6 +1,6 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbClass } from '../../../functions/getDbItems';
+import { getDbClass, getDbObject } from '../../../functions/getDbItems';
 import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
@@ -14,43 +14,46 @@ export const Skills = () => {
   const expertiseSlots = checkForExpertiseSlots(charClass, newCharacter);
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(expertiseSlots);
 
-  console.log(newCharacter);
-
-  checkForExpertiseSlots(charClass, newCharacter);
+  const findProfOnNewChar = (id: string) => {
+    return newCharacter.skillProficiencies?.find((o) => o.id == id);
+  };
+  const findExpOnNewChar = (id: string) => {
+    return newCharacter.skillExpertises?.find((o) => o.id == id);
+  };
 
   const getAbilityModifier = (key: string, id: string): number => {
     const usedAbility = newCharacter.abilities.find((abi: INewAbility) => abi.id === key)!;
     const abilityTotal = displayAbilityTotalPoints(usedAbility);
-    const isToBeRemoved = newCharacter.skillProficiencies?.find((o) => o.id == id);
+    const isToBeRemoved = findProfOnNewChar(id);
     const profiency: number = isToBeRemoved ? 2 : 0;
     return Math.floor((abilityTotal - 10) / 2 + profiency);
   };
 
   const isPossibleSkill = (isExpertise: boolean, id: string): boolean => {
-    const isAlreadyPicked = newCharacter.skillProficiencies?.find((o) => o.id == id);
+    const isAlreadyPicked = findProfOnNewChar(id);
     if (isAlreadyPicked && !isExpertise) return true;
     const isOnClass = charClass?.skillProficiencies.find((o) => o === id);
     if (isOnClass === undefined) return false;
     if (!isExpertise) {
       if (isAlreadyPicked && isAlreadyPicked.canChange === false) return false;
     } else {
-      const proficiencyIsToBeRemoved = newCharacter.skillProficiencies?.find((o) => o.id == id);
+      const proficiencyIsToBeRemoved = findProfOnNewChar(id);
       if (proficiencyIsToBeRemoved === undefined) return false;
     }
     return true;
   };
 
   const isDisabled = (id: string): boolean => {
-    const isAlreadyPicked = newCharacter.skillProficiencies?.find((o) => o.id == id);
+    const isAlreadyPicked = findProfOnNewChar(id);
     return isAlreadyPicked?.canChange === false ? true : false;
   };
 
   const isSkillProfPicked = (id: string): boolean => {
-    const isToBeRemoved = newCharacter.skillProficiencies?.find((o) => o.id == id);
+    const isToBeRemoved = findProfOnNewChar(id);
     return isToBeRemoved ? true : false;
   };
   const isSkillExpPicked = (id: string): boolean => {
-    const isToBeRemoved = newCharacter.skillExpertises?.find((o) => o.id == id);
+    const isToBeRemoved = findExpOnNewChar(id);
     return isToBeRemoved ? true : false;
   };
 
@@ -78,13 +81,6 @@ export const Skills = () => {
     }
   };
 
-  const filterProfs = (id: string) => {
-    return newCharacter.skillProficiencies?.filter((o) => o.id !== id);
-  };
-  const filterExp = (id: string) => {
-    return newCharacter.skillExpertises?.filter((o) => o.id !== id);
-  };
-
   const removeSkill = (id: string, isExpertise: boolean, removeBoth: boolean) => {
     const newSkillProfs = newCharacter.skillProficiencies?.filter((o) => o.id !== id);
     const newSkillExp = newCharacter.skillExpertises?.filter((o) => o.id !== id);
@@ -107,6 +103,25 @@ export const Skills = () => {
       removeBoth = isSkillExpPicked(id);
     }
     isToBeRemoved ? removeSkill(id, isExpertise, removeBoth) : addSkill(id, isExpertise);
+  };
+
+  const selectCheckmarkIcon = (id: string, isExpertise: boolean): string => {
+    let source = '';
+
+    if (isExpertise) {
+      const exp = findExpOnNewChar(id)?.fromSource;
+      exp ? (source = exp) : '';
+    } else {
+      const prof = findProfOnNewChar(id)?.fromSource;
+      prof ? (source = prof) : '';
+    }
+
+    switch (source) {
+      case 'background':
+        return getDbObject(newCharacter.background, 'charBgs')!.icon;
+      default:
+        return './icons/check-mark-icon.png';
+    }
   };
 
   return (
@@ -140,7 +155,7 @@ export const Skills = () => {
                 disabled={isDisabled(skill.id) || (isSkillProfPicked(skill.id) === false && profSlotsLeft === 0)}
                 onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false)}
               >
-                {isSkillProfPicked(skill.id) && <img src="./icons/check-mark-icon.png" />}
+                {isSkillProfPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, false)} />}
               </button>
             ) : (
               <div></div>
@@ -151,7 +166,7 @@ export const Skills = () => {
                 disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}
                 onClick={() => onTogglingSkill(skill.id, isSkillExpPicked(skill.id), true)}
               >
-                {isSkillExpPicked(skill.id) && <img src="./icons/check-mark-icon.png" />}
+                {isSkillExpPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, true)} />}
               </button>
             ) : (
               <div></div>
