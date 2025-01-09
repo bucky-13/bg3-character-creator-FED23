@@ -3,7 +3,7 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbObject, getSkillProficiencies } from '../../../functions/getDbItems';
 import { charBackgrounds } from '../../../database/dbCharBackgrounds';
 import { ICharBackground } from '../../../models/dbModels/ICharBackground';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
+import { changeSkillsProfs, isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 
 export const Background = () => {
@@ -11,17 +11,7 @@ export const Background = () => {
   const [selectedBg, setSelectedBg] = useState(getDbObject(newCharacter.background, 'charBgs') as ICharBackground);
 
   const onChangeBg = (changedBg: ICharBackground): void => {
-    let skills: ISkillProfNewChar[] = newCharacter.skillProficiencies;
-    skills = skills.filter((o) => o.fromSource !== 'background');
-
-    for (let i = 0; i < changedBg.skillProficienciesGiven.length; i++) {
-      let skill: ISkillProfNewChar = {
-        id: changedBg.skillProficienciesGiven[i],
-        fromSource: 'background',
-        canChange: false,
-      };
-      skills.push(skill);
-    }
+    const skills: ISkillProfNewChar[] = changeSkillsProfs(newCharacter, 'background', changedBg);
 
     setSelectedBg(changedBg);
     setNewCharacter({ ...newCharacter, background: changedBg.id, skillProficiencies: skills });
@@ -61,9 +51,9 @@ export const Background = () => {
             <div>
               <h4 className="hInline">Starting Skills: </h4>
               <p>
-                {getSkillProficiencies(selectedBg.skillProficienciesGiven)[0].name}
+                {getSkillProficiencies(selectedBg.skillProficiencies)[0].name}
                 <span>, </span>
-                {getSkillProficiencies(selectedBg.skillProficienciesGiven)[1].name}
+                {getSkillProficiencies(selectedBg.skillProficiencies)[1].name}
               </p>
             </div>
           </div>

@@ -82,6 +82,7 @@ export const subraces: ISubrace[] = [
     desc: `Like their wood elf parent, these half-elves have a quickened stride and an eye for stealth. Yet many break away from isolation in Faerûn's forests to explore the rest of the Realms.`,
     mainRace: 'race04',
     equipmentProficiencies: [],
+    skillProficiencies: [ESkills.Stealth],
   },
   {
     id: 'subr07',
@@ -139,6 +140,7 @@ export const subraces: ISubrace[] = [
     desc: `The most commonly seen gnomes on Faerûn's surface, rock gnomes are named as such for their hardiness and affinity for metal.`,
     mainRace: 'race08',
     equipmentProficiencies: [],
+    skillExpertises: [ESkills.History],
   },
   {
     id: 'subr14',

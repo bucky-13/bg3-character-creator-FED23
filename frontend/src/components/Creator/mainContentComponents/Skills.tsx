@@ -4,13 +4,18 @@ import { getDbClass, getDbObject } from '../../../functions/getDbItems';
 import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
-import { checkForExpertiseSlots, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
+import {
+  checkForExpertiseSlots,
+  displayAbilityTotalPoints,
+  getProfSlots,
+} from '../../../functions/creatorMinorFunctions';
 import { useState } from 'react';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const charClass: ICharClass = getDbClass(newCharacter.startingClass);
-  const [profSlotsLeft, setProfSlotsLeft] = useState(charClass.skillProficiencySlots);
+  const profSlots = getProfSlots(charClass, newCharacter.race);
+  const [profSlotsLeft, setProfSlotsLeft] = useState(profSlots);
   const expertiseSlots = checkForExpertiseSlots(charClass, newCharacter);
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(expertiseSlots);
 
@@ -116,8 +121,6 @@ export const Skills = () => {
       prof ? (source = prof) : '';
     }
 
-    console.log(source);
-
     switch (source) {
       case 'background':
         return getDbObject(newCharacter.background, 'charBgs')!.icon;
@@ -137,7 +140,7 @@ export const Skills = () => {
           <div>
             <h4>Prof </h4>
             <p>
-              {profSlotsLeft} / {charClass.skillProficiencySlots}
+              {profSlotsLeft} / {profSlots}
             </p>
           </div>
           {expertiseSlots > 0 && (

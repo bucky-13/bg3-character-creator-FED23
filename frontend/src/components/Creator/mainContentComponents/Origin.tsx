@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IOrigin } from '../../../models/dbModels/IOrigin';
 import { dbOrigins } from '../../../database/dbOrigins';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { INewCharacter, ISkillProfNewChar } from '../../../models/INewCharater';
+import { INewCharacter } from '../../../models/INewCharater';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 
 export const Origin = () => {

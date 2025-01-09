@@ -5,5 +5,5 @@ export interface ICharBackground {
   name: string;
   desc: string;
   icon: string;
-  skillProficienciesGiven: ESkills[];
+  skillProficiencies: ESkills[];
 }

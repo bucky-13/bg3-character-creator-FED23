@@ -8,6 +8,7 @@ export interface ISubrace {
   desc: string;
   mainRace: string;
   skillProficiencies?: ESkills[];
+  skillExpertises?: ESkills[];
   equipmentProficiencies?: string[];
   baseSpeed?: number;
   specialSkills?: IRaceSpells[];
