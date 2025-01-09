@@ -1,3 +1,4 @@
+import { ICharClass } from '../models/dbModels/ICharClass';
 import { INewAbility, INewCharacter } from '../models/INewCharater';
 
 export const isActiveIcon = (icon: string, key: keyof INewCharacter, newCharacter: INewCharacter): string => {
@@ -8,4 +9,11 @@ export const displayAbilityTotalPoints = (ability: INewAbility): number => {
   const plus1Bonus = ability.plusOneBonus ? 1 : 0;
   const plus2Bonus = ability.plusTwoBonus ? 2 : 0;
   return ability.baseValue + plus1Bonus + plus2Bonus;
+};
+
+export const checkForExpertiseSlots = (charClass: ICharClass, newCharacter: INewCharacter): number => {
+  if (charClass.expertiseSlots && charClass.expertiseAtLevel) {
+    return charClass.expertiseAtLevel === newCharacter.characterLevel ? charClass.expertiseSlots : 0;
+  }
+  return 0;
 };

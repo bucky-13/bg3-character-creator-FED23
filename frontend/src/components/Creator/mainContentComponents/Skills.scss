@@ -8,5 +8,10 @@
     p {
       margin: 0;
     }
+
+    .skillBonus {
+      grid-column: span 2;
+      text-align: right;
+    }
   }
 }
