@@ -11,17 +11,19 @@ export const Background = () => {
   const [selectedBg, setSelectedBg] = useState(getDbObject(newCharacter.background, 'charBgs') as ICharBackground);
 
   const onChangeBg = (changedBg: ICharBackground): void => {
-    setSelectedBg(changedBg);
-    let skills: ISkillProfNewChar[] = [];
+    let skills: ISkillProfNewChar[] = newCharacter.skillProficiencies;
+    skills = skills.filter((o) => o.fromSource !== 'background');
+
     for (let i = 0; i < changedBg.skillProficienciesGiven.length; i++) {
       let skill: ISkillProfNewChar = {
         id: changedBg.skillProficienciesGiven[i],
-        fromSource: 'origin',
+        fromSource: 'background',
         canChange: false,
       };
       skills.push(skill);
     }
 
+    setSelectedBg(changedBg);
     setNewCharacter({ ...newCharacter, background: changedBg.id, skillProficiencies: skills });
   };
 

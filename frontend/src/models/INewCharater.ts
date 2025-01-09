@@ -1,5 +1,4 @@
 import { EEquipment } from '../database/dbEquipmentProficiencies';
-import { ESkills } from '../database/dbSkills';
 
 export interface INewCharacter {
   charId?: string;
@@ -23,7 +22,7 @@ export interface INewCharacter {
   lvl6spells?: string[];
   background: string;
   abilities: INewAbility[];
-  skillProficiencies?: ISkillProfNewChar[];
+  skillProficiencies: ISkillProfNewChar[];
   skillExpertises?: ISkillProfNewChar[];
   equipmentProficiencies?: EEquipment[];
   perks?: string[];

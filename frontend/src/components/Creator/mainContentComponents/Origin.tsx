@@ -11,16 +11,7 @@ export const Origin = () => {
 
   const onChangeOrigin = (changedOrigin: IOrigin): void => {
     setSelectedOrigin(changedOrigin);
-    let skills: ISkillProfNewChar[] = [];
-    for (let i = 0; i < changedOrigin.skillProficiencies.length; i++) {
-      let skill: ISkillProfNewChar = {
-        id: changedOrigin.skillProficiencies[i].id,
-        fromSource: 'origin',
-        canChange: false,
-      };
-      skills.push(skill);
-    }
-    setNewCharacter({ ...changedOrigin, skillProficiencies: skills });
+    setNewCharacter(changedOrigin);
   };
 
   return (

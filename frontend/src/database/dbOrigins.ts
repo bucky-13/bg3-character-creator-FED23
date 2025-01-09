@@ -35,6 +35,7 @@ export const dbOrigins: IOrigin[] = [
     skillProficiencies: [
       { id: 'ski11', fromSource: 'background', canChange: false },
       { id: 'ski09', fromSource: 'background', canChange: false },
+      { id: 'ski13', fromSource: 'race', canChange: false },
     ],
   },
   {
@@ -60,6 +61,7 @@ export const dbOrigins: IOrigin[] = [
     skillProficiencies: [
       { id: 'ski15', fromSource: 'background', canChange: false },
       { id: 'ski04', fromSource: 'background', canChange: false },
+      { id: 'ski13', fromSource: 'race', canChange: false },
     ],
   },
   {

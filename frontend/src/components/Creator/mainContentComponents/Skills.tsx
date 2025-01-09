@@ -116,9 +116,13 @@ export const Skills = () => {
       prof ? (source = prof) : '';
     }
 
+    console.log(source);
+
     switch (source) {
       case 'background':
         return getDbObject(newCharacter.background, 'charBgs')!.icon;
+      case 'race':
+        return getDbObject(newCharacter.race, 'races')!.icon;
       default:
         return './icons/check-mark-icon.png';
     }
