@@ -5,6 +5,7 @@ import { skills } from '../database/dbSkills';
 import { subClasses } from '../database/dbSubClass';
 import { subraces } from '../database/dbSubraces';
 import { ICharClass } from '../models/dbModels/ICharClass';
+import { IRace } from '../models/dbModels/IRace';
 import { ISkill } from '../models/dbModels/ISkill';
 import { ISubClass } from '../models/dbModels/ISubClass';
 import { ISubrace } from '../models/dbModels/ISubrace';
@@ -29,6 +30,9 @@ export const getDbClass = (id: string): ICharClass => {
 };
 export const getDbSubClass = (id: string): ISubClass => {
   return subClasses.find((o) => o.id === id)!;
+};
+export const getDbRace = (id: string): IRace => {
+  return races.find((o) => o.id === id)!;
 };
 export const getDbSubrace = (id: string): ISubrace => {
   return subraces.find((o) => o.id === id)!;

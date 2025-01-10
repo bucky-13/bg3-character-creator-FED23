@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbObject, getDbSubrace } from '../../../functions/getDbItems';
+import { getDbRace, getDbSubrace } from '../../../functions/getDbItems';
 import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
@@ -8,7 +8,7 @@ import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedRace, setSelectedRace] = useState(getDbObject(newCharacter.race, 'races'));
+  const [selectedRace, setSelectedRace] = useState(getDbRace(newCharacter.race));
 
   const onChangeRace = (changedRace: IRace): void => {
     setSelectedRace(changedRace);
@@ -64,7 +64,16 @@ export const Race = () => {
               <h3>{selectedRace.name}</h3>
             </div>
             <p>{selectedRace.desc}</p>
-            <h4>Features:</h4>
+            <h4 className="featureH">Features:</h4>
+            {selectedRace.features.map((feature) => (
+              <div key={feature.name} className="featureContainer">
+                {feature.icon && <img src={feature.icon} />}
+                <p>
+                  <span>{feature.name}: </span>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>

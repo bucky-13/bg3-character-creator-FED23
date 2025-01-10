@@ -1,5 +1,6 @@
 import { EEquipment } from '../../database/dbEquipmentProficiencies';
 import { ESkills } from '../../database/dbSkills';
+import { IFeatures } from './IFeatures';
 
 export interface IRace {
   id: string;
@@ -13,6 +14,7 @@ export interface IRace {
   spells?: IRaceSpells[];
   specialSkills?: IRaceSpells[];
   darkvision?: number;
+  features: IFeatures[];
 }
 
 export interface IRaceSpells {

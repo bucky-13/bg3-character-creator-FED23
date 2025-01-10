@@ -31,6 +31,21 @@ export const races: IRace[] = [
       EEquipment.Shields,
     ],
     baseSpeed: 9,
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Human Versatility',
+        desc: 'Select an additional Skill to be Proficient in. Your carrying capacity is increased by 25%',
+      },
+      {
+        name: 'Civil Militia',
+        desc: 'You have Weapon Proficiency with Spears, Pikes, Halberds, Glaives, Light armour, and  Shields.',
+      },
+    ],
   },
   {
     id: 'race02',
@@ -42,6 +57,30 @@ export const races: IRace[] = [
     darkvision: 1,
     skillProficiencies: [ESkills.Perception],
     subraces: ['subr01', 'subr02'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Keen senses',
+        desc: 'You gain Proficiency in the Perception skill.',
+      },
+      {
+        name: 'Elven Weapon Training',
+        desc: 'You have Proficiency with Longswords, Shortswords, Longbows, and Shortbows.',
+      },
+      {
+        name: 'Fey Ancestry',
+        desc: `The Feywild casts a veil over your mind. You have Advantage on Saving throws against being Charmed, and magic can't put you to Sleep.`,
+      },
+    ],
   },
   {
     id: 'race03',
@@ -53,6 +92,34 @@ export const races: IRace[] = [
     darkvision: 2,
     skillProficiencies: [ESkills.Perception],
     subraces: ['subr03', 'subr04'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Superior Darkvision',
+        desc: 'Can see in the dark up to 24m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Keen senses',
+        desc: 'You gain Proficiency in the Perception skill.',
+      },
+      {
+        name: 'Drow Weapon Training',
+        desc: 'You have Proficiency with Rapiers, Shortswords, and Hand Crossbows.',
+      },
+      {
+        name: 'Fey Ancestry',
+        desc: `The Feywild casts a veil over your mind. You have Advantage on Saving throws against being Charmed, and magic can't put you to Sleep.`,
+      },
+      {
+        name: 'Drow Magic',
+        desc: `You gain access to the following Spells:`,
+      },
+    ],
   },
   {
     id: 'race04',
@@ -70,6 +137,26 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     subraces: ['subr05', 'subr06', 'subr07'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Civil Militia',
+        desc: 'You have Weapon Proficiency with Spears, Pikes, Halberds, Glaives, Light armour, and  Shields.',
+      },
+      {
+        name: 'Fey Ancestry',
+        desc: `The Feywild casts a veil over your mind. You have Advantage on Saving throws against being Charmed, and magic can't put you to Sleep.`,
+      },
+    ],
   },
   {
     id: 'race05',
@@ -79,6 +166,30 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     skillProficiencies: [ESkills.Intimidation],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Menacing',
+        desc: 'You gain Proficiency in the Intimidation skill.',
+      },
+      {
+        name: 'Relentless Endurance',
+        desc: `If you reach 0 hit points, you regain 1hit points instead of becoming Downed.`,
+      },
+      {
+        name: 'Savage Attacks',
+        desc: `When you land a Critical Hit with a melee weapon attack, you deal an extra dice of weapon damage.`,
+      },
+    ],
   },
   {
     id: 'race06',
@@ -87,6 +198,21 @@ export const races: IRace[] = [
     desc: `Small yet capable, halflings prefer the comforts of home and hearth - but their natural luck and dexterity makes them fine adventurers.`,
     baseSpeed: 7.5,
     subraces: ['subr08', 'subr09'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 7.5m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Halfling Luck',
+        desc: `When you roll a 1 for an Attack roll,  Ability check, or  Saving throw, you can reroll the dice and must use the new roll.`,
+      },
+      {
+        name: 'Brave',
+        desc: `You have Advantage on Saving Throws against Frightened.`,
+      },
+    ],
   },
   {
     id: 'race07',
@@ -102,6 +228,26 @@ export const races: IRace[] = [
     baseSpeed: 7.5,
     darkvision: 1,
     subraces: ['subr10', 'subr11', 'subr12'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 7.5m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Dwarven Combat Training',
+        desc: `You have Proficiency with Battleaxes, Handaxes, Light Hammers, and Warhammers.`,
+      },
+      {
+        name: 'Dwarven Resilience',
+        desc: `You have Advantage on  Saving throws against being Poisoned and you have Resistance against Poison damage.`,
+      },
+    ],
   },
   {
     id: 'race08',
@@ -111,6 +257,22 @@ export const races: IRace[] = [
     baseSpeed: 7.5,
     darkvision: 1,
     subraces: ['subr14', 'subr13', 'subr15'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 7.5m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Gnome Cunning',
+        desc: `You have Advantage on Intelligence, Wisdom, and Charisma Saving Throws.`,
+      },
+    ],
   },
   {
     id: 'race09',
@@ -120,6 +282,22 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     subraces: ['subr16', 'subr17', 'subr18'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Darkvision',
+        desc: 'Can see in the dark up to 12m',
+        icon: './icons/features/Darkvision.png',
+      },
+      {
+        name: 'Hellish Resistance',
+        desc: `Your blood protects you from flame, abyssal or otherwise. Gain Resistance to Fire damage, taking only half damage from it.`,
+      },
+    ],
   },
   {
     id: 'race10',
@@ -134,6 +312,21 @@ export const races: IRace[] = [
       EEquipment.Greatswords,
     ],
     baseSpeed: 9,
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+      {
+        name: 'Astral Knowledge',
+        desc: `Gain Proficiency in all Skills corresponding to a chosen Ability ( Recharge: Long rest)`,
+      },
+      {
+        name: 'Martial Prodigy',
+        desc: `A lifetime of relentless training gave you Armour proficiency with Light armour and Medium armour, as well as Proficiency with Shortswords, Longswords, and Greatswords.`,
+      },
+    ],
   },
   {
     id: 'race11',
@@ -142,5 +335,12 @@ export const races: IRace[] = [
     desc: `A proud race that values clan and skills above all else. Once enslaved by dragons, they strive to be self-sufficient, not wanting to be beholden to anyone, not even the gods.`,
     baseSpeed: 9,
     subraces: ['subr19', 'subr20', 'subr21', 'subr22', 'subr23', 'subr24', 'subr25', 'subr26', 'subr27', 'subr28'],
+    features: [
+      {
+        name: 'Base Movement Speed',
+        desc: 'You can move 9m per turn',
+        icon: './icons/features/Movement_Speed.png',
+      },
+    ],
   },
 ];

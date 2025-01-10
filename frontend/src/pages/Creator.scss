@@ -25,6 +25,7 @@
     padding-top: 1rem;
     width: 100%;
     max-width: 1200px;
+    color: #ffd000;
   }
 }
 
@@ -106,4 +107,32 @@
 
 .originIcon {
   border-radius: 1.5rem;
+}
+
+.featureH {
+  color: #ffd000;
+  margin-bottom: 0;
+}
+
+.featureContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  text-align: left;
+
+  img {
+    display: inline;
+    height: 25px;
+    width: 25px;
+    margin-right: 8px;
+  }
+  p {
+    display: inline;
+    margin: 0.5rem;
+  }
+  span {
+    font-weight: 700;
+    color: #ffd000;
+  }
 }
