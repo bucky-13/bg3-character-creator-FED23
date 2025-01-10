@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
-import { getDbObject } from '../../../functions/getDbItems';
+import { getDbObject, getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedSubrace, setSelectedSubrace] = useState(getDbObject(newCharacter.subrace!, 'subraces'));
+  const [selectedSubrace, setSelectedSubrace] = useState(getDbSubrace(newCharacter.subrace!));
 
   const onChangeSubrace = (changedSubrace: ISubrace): void => {
     const newSkillProfs = changeSkillsProfs(newCharacter, 'subrace', changedSubrace);
@@ -53,6 +53,16 @@ export const Subrace = () => {
               <h3>{selectedSubrace.name}</h3>
             </div>
             <p>{selectedSubrace.desc}</p>
+            <h4 className="featureH">Features:</h4>
+            {selectedSubrace.features.map((feature) => (
+              <div key={feature.name} className="featureContainer">
+                {feature.icon && <img src={feature.icon} />}
+                <p>
+                  <span>{feature.name}: </span>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>

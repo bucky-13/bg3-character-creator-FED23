@@ -66,7 +66,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Keen senses',
@@ -101,7 +101,7 @@ export const races: IRace[] = [
       {
         name: 'Superior Darkvision',
         desc: 'Can see in the dark up to 24m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Keen senses',
@@ -117,7 +117,7 @@ export const races: IRace[] = [
       },
       {
         name: 'Drow Magic',
-        desc: `You gain access to the following Spells:`,
+        desc: `You gain access to the following Spells (Note: These spells use Charisma as their casting stat.):`,
       },
       {
         name: 'Dancing Lights',
@@ -161,7 +161,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Civil Militia',
@@ -190,7 +190,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Menacing',
@@ -252,7 +252,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Dwarven Combat Training',
@@ -281,7 +281,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Gnome Cunning',
@@ -306,7 +306,7 @@ export const races: IRace[] = [
       {
         name: 'Darkvision',
         desc: 'Can see in the dark up to 12m',
-        icon: './icons/features/Darkvision.png',
+        icon: './icons/lvl2spells/Darkvision.png',
       },
       {
         name: 'Hellish Resistance',

@@ -1,4 +1,5 @@
 import { ESkills } from '../../database/dbSkills';
+import { IFeatures } from './IFeatures';
 import { IRaceSpells } from './IRace';
 
 export interface ISubrace {
@@ -14,4 +15,5 @@ export interface ISubrace {
   specialSkills?: IRaceSpells[];
   spells?: IRaceSpells[];
   darkvision?: number;
+  features: IFeatures[];
 }

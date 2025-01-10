@@ -40,6 +40,12 @@ export const subraces: ISubrace[] = [
     desc: `Heirs of the mystical Feywild, high elves value magic in all its forms, and even those who do not study spellcraft can manipulate the Weave.`,
     mainRace: 'race02',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Cantrip',
+        desc: 'Choose 1 Cantrip from the Wizard spell list. Note that this means these cantrips use Intelligence as a casting stat.',
+      },
+    ],
   },
   {
     id: 'subr02',
@@ -50,6 +56,17 @@ export const subraces: ISubrace[] = [
     equipmentProficiencies: [],
     baseSpeed: 10.5,
     skillProficiencies: [ESkills.Stealth],
+    features: [
+      {
+        name: 'Mask of the Wild',
+        desc: 'Proficiency in Stealth checks.',
+      },
+      {
+        name: 'Fleet of Foot',
+        desc: 'Your Movement Speed is increased by 1.5m, 10.5m in total ',
+        icon: './icons/features/Movement_Speed.png',
+      },
+    ],
   },
   {
     id: 'subr03',
@@ -58,6 +75,7 @@ export const subraces: ISubrace[] = [
     desc: `Raised by Lolth's cult in the city of Menzoberranzan, these drow embody the virtues of their corrupt and merciless goddess. Lolth marks Her followers with bright red eyes so those in the Underdark will learn to fear them on sight.`,
     mainRace: 'race03',
     equipmentProficiencies: [],
+    features: [],
   },
   {
     id: 'subr04',
@@ -66,6 +84,7 @@ export const subraces: ISubrace[] = [
     desc: `Seldarine drow can be found seeking allies from all over Faerûn, aiming to settle their conflict with Lolth - and each other - by any means necessary.`,
     mainRace: 'race03',
     equipmentProficiencies: [],
+    features: [],
   },
   {
     id: 'subr05',
@@ -74,7 +93,14 @@ export const subraces: ISubrace[] = [
     desc: `A touch of the Feywild remains in half-elves with this bloodline, and even those untrained in magic possess a hint of wild power.`,
     mainRace: 'race04',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Cantrip',
+        desc: 'Choose 1 Cantrip from the Wizard spell list. Note that this means these cantrips use Intelligence as a casting stat.',
+      },
+    ],
   },
+
   {
     id: 'subr06',
     icon: './icons/subraces/Wood_Half-Elf.png',
@@ -83,6 +109,17 @@ export const subraces: ISubrace[] = [
     mainRace: 'race04',
     equipmentProficiencies: [],
     skillProficiencies: [ESkills.Stealth],
+    features: [
+      {
+        name: 'Mask of the Wild',
+        desc: 'Proficiency in Stealth checks.',
+      },
+      {
+        name: 'Fleet of Foot',
+        desc: 'Your Movement Speed is increased by 1.5m, 10.5m in total ',
+        icon: './icons/features/Movement_Speed.png',
+      },
+    ],
   },
   {
     id: 'subr07',
@@ -91,6 +128,27 @@ export const subraces: ISubrace[] = [
     desc: `Most half-drow result from liaisons between Seldarine drow and surfacers. While half-drow inherited a few magical gifts, they aren't usually raised in the Underdark.`,
     mainRace: 'race04',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Drow Magic',
+        desc: `You gain access to the following Spells (Note: These spells use Charisma as their casting stat.):`,
+      },
+      {
+        name: 'Dancing Lights',
+        desc: `(Cantrip) At level 1`,
+        icon: './icons/lvl0spells/Dancing_Lights.png',
+      },
+      {
+        name: 'Faerie Fire',
+        desc: `(1st Level spell) At level 3, Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Faerie_Fire.png',
+      },
+      {
+        name: 'Darkness',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Darkness.png',
+      },
+    ],
   },
   {
     id: 'subr08',
@@ -99,6 +157,12 @@ export const subraces: ISubrace[] = [
     desc: `Stealthy but social, these halflings travel all over Faerûn to make names for themselves.`,
     mainRace: 'race06',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Naturally Stealthy',
+        desc: 'Your nimble nature makes you skilled at concealment. You have Advantage on Stealth Stealth Checks.',
+      },
+    ],
   },
   {
     id: 'subr09',
@@ -107,6 +171,12 @@ export const subraces: ISubrace[] = [
     desc: `Legend has it that dwarven blood gave stronghearts their hardiness. Resistant to poison and wellsprings of endurance, these halflings easily hold their own`,
     mainRace: 'race06',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Strongheart Resilience',
+        desc: 'You have Advantage on Saving Throws against being Poisoned and Resistance to Poison damage.',
+      },
+    ],
   },
   {
     id: 'subr10',
@@ -115,6 +185,12 @@ export const subraces: ISubrace[] = [
     desc: `These dwarves are known for their confidence and keen intuition. The culture of their Deep Kingdom values family, ritual, and fine craftsmanship.`,
     mainRace: 'race07',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Dwarven Toughness',
+        desc: 'Your Hit Point maximum increases by 1, and increases by 1 again every time you gain a level.',
+      },
+    ],
   },
   {
     id: 'subr11',
@@ -123,6 +199,12 @@ export const subraces: ISubrace[] = [
     desc: `Great losses in ancient wars against goblins and orcs have led these dwarves to adopt a cynical mindset, but they will endure anything to restore their ancestral homelands.`,
     mainRace: 'race07',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Dwarven Armor Training',
+        desc: 'You have Armour Proficiency with  Light armour and  Medium armour.',
+      },
+    ],
   },
   {
     id: 'subr12',
@@ -132,6 +214,32 @@ export const subraces: ISubrace[] = [
     mainRace: 'race07',
     equipmentProficiencies: [],
     darkvision: 2,
+    features: [
+      {
+        name: 'Superior Darkvision',
+        desc: 'Can see in the dark up to 24m',
+        icon: './icons/lvl2spells/Darkvision.png',
+      },
+      {
+        name: 'Duergar Resilience',
+        desc: 'You have Advantage on  Saving throws against Illusions and against being Charmed or Paralysed.',
+      },
+      {
+        name: 'Duergar Magic',
+        desc: `You gain access to the following Spells:`,
+      },
+
+      {
+        name: 'Enlarge',
+        desc: `(1st Level spell) At level 3, Rechange: Long Rest. Does not require Concentration`,
+        icon: './icons/lvl1spells/Enlarge_Duergar.png',
+      },
+      {
+        name: 'Invisibility',
+        desc: `(2nd Level spell) At level 5, Rechange: Per battle, does not use Spell Slots`,
+        icon: './icons/lvl2spells/Invisibility.png',
+      },
+    ],
   },
   {
     id: 'subr13',
@@ -141,6 +249,12 @@ export const subraces: ISubrace[] = [
     mainRace: 'race08',
     equipmentProficiencies: [],
     skillExpertises: [ESkills.History],
+    features: [
+      {
+        name: `Artificer's Lore`,
+        desc: 'Add twice your Proficiency Bonus Proficiency Bonus to History checks.',
+      },
+    ],
   },
   {
     id: 'subr14',
@@ -149,6 +263,13 @@ export const subraces: ISubrace[] = [
     desc: `Even smaller than their cousins and twice as reclusive, forest gnomes are a rare sight in Faerûn. They master magic and craftsmanship in their distant, idyllic groves.`,
     mainRace: 'race08',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Speak With Animals`,
+        desc: 'Gain the ability to comprehend and communicate with beasts. Recharge: Long rest.',
+        icon: './icons/lvl1spells/Speak_with_Animals.png',
+      },
+    ],
   },
   {
     id: 'subr15',
@@ -158,6 +279,17 @@ export const subraces: ISubrace[] = [
     mainRace: 'race08',
     equipmentProficiencies: [],
     darkvision: 2,
+    features: [
+      {
+        name: 'Superior Darkvision',
+        desc: 'Can see in the dark up to 24m',
+        icon: './icons/lvl2spells/Darkvision.png',
+      },
+      {
+        name: 'Stone Camouflage',
+        desc: 'You have Advantage Icon.png Advantage on Stealth checks.',
+      },
+    ],
   },
   {
     id: 'subr16',
@@ -166,6 +298,27 @@ export const subraces: ISubrace[] = [
     desc: `Bound to Nessus, the deepest layer of the Hells, these tieflings inherited the ability to wield fire and darkness from the archdevil Asmodeus' infernal bloodline.`,
     mainRace: 'race09',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Infernal Legacy',
+        desc: `Gain the following Spells (Note: These spells use Charisma as their casting stat.):`,
+      },
+      {
+        name: 'Produce Flame',
+        desc: `(Cantrip) At level 1`,
+        icon: './icons/lvl0spells/Produce_Flame.png',
+      },
+      {
+        name: 'Hellish Rebuke',
+        desc: `(1st Level spell) At level 3, casts as if using a second-level slot. Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Hellish_Rebuke.png',
+      },
+      {
+        name: 'Darkness',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Darkness.png',
+      },
+    ],
   },
   {
     id: 'subr17',
@@ -174,6 +327,27 @@ export const subraces: ISubrace[] = [
     desc: `Descended from the archdevil Mephistopheles, these tieflings are gifted with a particular affinity for arcane magic.`,
     mainRace: 'race09',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Legacy of Cania',
+        desc: `Gain the following Spells (Note: These spells use Charisma as their casting stat.):`,
+      },
+      {
+        name: 'Mage Hand',
+        desc: `(Cantrip) At level 1`,
+        icon: './icons/lvl0spells/Mage_Hand.png',
+      },
+      {
+        name: 'Burning Hands',
+        desc: `(1st Level spell) At level 3, casts as if using a second-level slot. Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Burning_Hands.png',
+      },
+      {
+        name: 'Flame Blade',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Flame_Blade.png',
+      },
+    ],
   },
   {
     id: 'subr18',
@@ -182,6 +356,27 @@ export const subraces: ISubrace[] = [
     desc: `Tieflings from Zariel's bloodline are empowered with martial strength, and can channel searing flame to punish their enemies.`,
     mainRace: 'race09',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: 'Legacy of Avernus',
+        desc: `Gain the following Spells (Note: These spells use Constitution as their casting stat.):`,
+      },
+      {
+        name: 'Thaumaturgy',
+        desc: `(Cantrip) At level 1`,
+        icon: './icons/lvl0spells/Thaumaturgy.png',
+      },
+      {
+        name: 'Searing Smite',
+        desc: `(1st Level spell) At level 3, casts as if using a second-level slot. Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Searing_Smite.png',
+      },
+      {
+        name: 'Branding Smite',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Branding_Smite.png',
+      },
+    ],
   },
   {
     id: 'subr19',
@@ -190,6 +385,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the charcoal colouration and fizzling, acrid breath of black dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Acid Breath`,
+        desc: 'Spew forth a column of acid, dealing 2d6 Acid damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Acid damage.',
+      },
+    ],
   },
   {
     id: 'subr20',
@@ -198,6 +403,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the deep sapphire scales and charged, crackling breath of blue dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Lightning Breath`,
+        desc: 'Spew forth a column of lightning, dealing 2d6 Lightning damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Lightning damage.',
+      },
+    ],
   },
   {
     id: 'subr21',
@@ -206,6 +421,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the burnished ochre hue and flickering, fiery breath of brass dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Fire Breath (Line)`,
+        desc: 'Spew forth a column of fire, dealing 2d6 Fire damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
+      },
+    ],
   },
   {
     id: 'subr22',
@@ -214,6 +439,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the shining sepia scales and sparking breath of bronze dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Lightning Breath`,
+        desc: 'Spew forth a column of lightning, dealing 2d6 Lightning damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Lightning damage.',
+      },
+    ],
   },
   {
     id: 'subr23',
@@ -222,6 +457,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the pink-gold colouration and corrosive breath of copper dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Acid Breath`,
+        desc: 'Spew forth a column of acid, dealing 2d6 Acid damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Acid damage.',
+      },
+    ],
   },
   {
     id: 'subr24',
@@ -230,6 +475,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the resplendent shine and roiling, blazing breath of gold dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Fire Breath (Cone)`,
+        desc: 'Spew forth a cone of fire, dealing 2d6 Fire damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
+      },
+    ],
   },
   {
     id: 'subr25',
@@ -238,6 +493,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the brilliant emerald aspect and stinking, putrid breath of green dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Poison Breath (Cone)`,
+        desc: 'Spew forth a cone of poison, dealing 2d6 Poison damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Poison damage.',
+      },
+    ],
   },
   {
     id: 'subr26',
@@ -246,6 +511,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the bright scarlet likeness and roiling, burning breath of red dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Fire Breath (Cone)`,
+        desc: 'Spew forth a cone of fire, dealing 2d6 Fire damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
+      },
+    ],
   },
   {
     id: 'subr27',
@@ -254,6 +529,16 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the glinting shine and scorching cold breath of silver dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Frost Breath (Cone)`,
+        desc: 'Spew forth a cone of ice, dealing 2d6 Cold damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Cold damage.',
+      },
+    ],
   },
   {
     id: 'subr28',
@@ -262,5 +547,15 @@ export const subraces: ISubrace[] = [
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the snowy aspect and frosty breath of white dragons.`,
     mainRace: 'race11',
     equipmentProficiencies: [],
+    features: [
+      {
+        name: `Frost Breath (Cone)`,
+        desc: 'Spew forth a cone of ice, dealing 2d6 Cold damage.',
+      },
+      {
+        name: `Draconic Ancestry`,
+        desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Cold damage.',
+      },
+    ],
   },
 ];
