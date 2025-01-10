@@ -119,6 +119,21 @@ export const races: IRace[] = [
         name: 'Drow Magic',
         desc: `You gain access to the following Spells:`,
       },
+      {
+        name: 'Dancing Lights',
+        desc: `(Cantrip) At level 1`,
+        icon: './icons/lvl0spells/Dancing_Lights.png',
+      },
+      {
+        name: 'Faerie Fire',
+        desc: `(1st Level spell) At level 3, Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Faerie_Fire.png',
+      },
+      {
+        name: 'Darkness',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Darkness.png',
+      },
     ],
   },
   {
@@ -325,6 +340,25 @@ export const races: IRace[] = [
       {
         name: 'Martial Prodigy',
         desc: `A lifetime of relentless training gave you Armour proficiency with Light armour and Medium armour, as well as Proficiency with Shortswords, Longswords, and Greatswords.`,
+      },
+      {
+        name: 'Githyanki Psionics',
+        desc: `You gain access to the following Spells:`,
+      },
+      {
+        name: 'Mage Hand',
+        desc: `(Cantrip) At level 1. Your Mage Hand is invisible when cast via Githyanki Psionics. Recharge: Long rest`,
+        icon: './icons/lvl0spells/Mage_Hand.png',
+      },
+      {
+        name: 'Enhance Leap',
+        desc: `(1st Level spell) At level 3, Rechange: Long Rest`,
+        icon: './icons/lvl1spells/Enhance_Leap.png',
+      },
+      {
+        name: 'Misty Step',
+        desc: `(2nd Level spell) At level 5, Rechange: Long Rest`,
+        icon: './icons/lvl2spells/Misty_Step.png',
       },
     ],
   },
