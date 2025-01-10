@@ -3,15 +3,23 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
 import { getDbObject } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
+import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedSubrace, setSelectedSubrace] = useState(getDbObject(newCharacter.subrace!, 'subraces'));
 
-  const onChangeSubrace = (changdSubrace: ISubrace): void => {
-    setSelectedSubrace(changdSubrace);
-    setNewCharacter({ ...newCharacter, subrace: changdSubrace.id });
+  const onChangeSubrace = (changedSubrace: ISubrace): void => {
+    const newSkillProfs = changeSkillsProfs(newCharacter, 'subrace', changedSubrace);
+    setSelectedSubrace(changedSubrace);
+    const skillExpertises = updateExpertiseArray(changedSubrace, newCharacter, 'subrace');
+
+    setNewCharacter({
+      ...newCharacter,
+      subrace: changedSubrace.id,
+      skillProficiencies: newSkillProfs,
+      skillExpertises: skillExpertises,
+    });
   };
 
   return (

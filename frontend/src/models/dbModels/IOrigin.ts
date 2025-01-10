@@ -15,4 +15,5 @@ export interface IOrigin {
   abilities: INewAbility[];
   hasLockedChoices: boolean;
   skillProficiencies: ISkillProfNewChar[];
+  skillExpertises: ISkillProfNewChar[];
 }

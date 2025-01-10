@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbObject } from '../../../functions/getDbItems';
+import { getDbObject, getDbSubrace } from '../../../functions/getDbItems';
 import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
-import { changeSkillsProfs, isActiveIcon } from '../../../functions/creatorMinorFunctions';
+import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -12,16 +12,26 @@ export const Race = () => {
 
   const onChangeRace = (changedRace: IRace): void => {
     setSelectedRace(changedRace);
-    const newSkillProfs = changeSkillsProfs(newCharacter, 'race', changedRace);
+    let newSkillProfs = changeSkillsProfs(newCharacter, 'race', changedRace);
+    newSkillProfs = newSkillProfs.filter((o) => o.fromSource !== 'subrace');
+    const defaultSubrace = changedRace.subraces ? getDbSubrace(changedRace.subraces[0]) : undefined;
+    let newSkillExps = updateExpertiseArray(defaultSubrace, newCharacter, 'subrace');
+
     if (changedRace.subraces) {
       setNewCharacter({
         ...newCharacter,
         race: changedRace.id,
         subrace: changedRace.subraces[0],
         skillProficiencies: newSkillProfs,
+        skillExpertises: newSkillExps,
       });
     } else {
-      const newState: INewCharacter = { ...newCharacter, race: changedRace.id, skillProficiencies: newSkillProfs };
+      const newState: INewCharacter = {
+        ...newCharacter,
+        race: changedRace.id,
+        skillProficiencies: newSkillProfs,
+        skillExpertises: newSkillExps,
+      };
       delete newState.subrace;
       setNewCharacter(newState);
     }

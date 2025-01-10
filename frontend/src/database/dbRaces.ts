@@ -110,7 +110,7 @@ export const races: IRace[] = [
     desc: `Small, clever, and energetic, gnomes use their long lives to explore Faerûn's brightest corners and darkest depths.`,
     baseSpeed: 7.5,
     darkvision: 1,
-    subraces: ['subr13', 'subr14', 'subr15'],
+    subraces: ['subr14', 'subr13', 'subr15'],
   },
   {
     id: 'race09',

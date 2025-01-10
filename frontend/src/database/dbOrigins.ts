@@ -37,6 +37,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski09', fromSource: 'background', canChange: false },
       { id: 'ski13', fromSource: 'race', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'Astarion',
@@ -63,6 +64,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski04', fromSource: 'background', canChange: false },
       { id: 'ski13', fromSource: 'race', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'Gale',
@@ -87,6 +89,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski05', fromSource: 'background', canChange: false },
       { id: 'ski06', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'Karlach',
@@ -112,6 +115,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski01', fromSource: 'background', canChange: false },
       { id: 'ski14', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: `Lae'zel`,
@@ -136,6 +140,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski01', fromSource: 'background', canChange: false },
       { id: 'ski16', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'Shadowheart',
@@ -162,6 +167,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski11', fromSource: 'background', canChange: false },
       { id: 'ski09', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'Wyll',
@@ -187,6 +193,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski10', fromSource: 'background', canChange: false },
       { id: 'ski11', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
   {
     name: 'The Dark Urge',
@@ -213,5 +220,6 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski12', fromSource: 'background', canChange: false },
       { id: 'ski16', fromSource: 'background', canChange: false },
     ],
+    skillExpertises: [],
   },
 ];

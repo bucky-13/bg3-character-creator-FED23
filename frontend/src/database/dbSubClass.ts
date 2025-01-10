@@ -1,5 +1,6 @@
 import { ISubClass } from '../models/dbModels/ISubClass';
 import { EEquipment } from './dbEquipmentProficiencies';
+import { ESkills } from './dbSkills';
 
 export enum ESubClasses {
   Berserker = 'scl01',
@@ -137,6 +138,9 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl03',
     icon: './icons/subClasses/Cleric_Knowledge_Icon.png',
     specialSkills: [],
+    skillExpertises: [ESkills.History, ESkills.Arcana, ESkills.Nature, ESkills.Religion],
+    skillExpertiseSlots: 2,
+    expertiseAtLevel: 1,
   },
   {
     // add proficiency to this one

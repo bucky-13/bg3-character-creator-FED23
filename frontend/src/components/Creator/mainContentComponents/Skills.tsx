@@ -1,6 +1,6 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbClass, getDbObject } from '../../../functions/getDbItems';
+import { getDbClass, getDbObject, getDbSubClass } from '../../../functions/getDbItems';
 import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
@@ -10,37 +10,48 @@ import {
   getProfSlots,
 } from '../../../functions/creatorMinorFunctions';
 import { useState } from 'react';
+import { ISubClass } from '../../../models/dbModels/ISubClass';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const charClass: ICharClass = getDbClass(newCharacter.startingClass);
+  const charSubClass: ISubClass | undefined = newCharacter.startingSubclass
+    ? getDbSubClass(newCharacter.startingSubclass)
+    : undefined;
   const profSlots = getProfSlots(charClass, newCharacter.race);
   const [profSlotsLeft, setProfSlotsLeft] = useState(profSlots);
-  const expertiseSlots = checkForExpertiseSlots(charClass, newCharacter);
+  const expertiseSlots = checkForExpertiseSlots(charClass, charSubClass, newCharacter);
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(expertiseSlots);
 
   const findProfOnNewChar = (id: string) => {
-    return newCharacter.skillProficiencies?.find((o) => o.id == id);
+    return newCharacter.skillProficiencies.find((o) => o.id == id);
   };
   const findExpOnNewChar = (id: string) => {
-    return newCharacter.skillExpertises?.find((o) => o.id == id);
+    return newCharacter.skillExpertises.find((o) => o.id == id);
   };
 
   const getAbilityModifier = (key: string, id: string): number => {
     const usedAbility = newCharacter.abilities.find((abi: INewAbility) => abi.id === key)!;
     const abilityTotal = displayAbilityTotalPoints(usedAbility);
-    const isToBeRemoved = findProfOnNewChar(id);
-    const profiency: number = isToBeRemoved ? 2 : 0;
-    return Math.floor((abilityTotal - 10) / 2 + profiency);
+    const hasProficiency = findProfOnNewChar(id);
+    const hasExpertise = findExpOnNewChar(id);
+    const bonus: number = hasExpertise ? 4 : hasProficiency ? 2 : 0;
+    return Math.floor((abilityTotal - 10) / 2 + bonus);
   };
 
   const isPossibleSkill = (isExpertise: boolean, id: string): boolean => {
-    const isAlreadyPicked = findProfOnNewChar(id);
-    if (isAlreadyPicked && !isExpertise) return true;
+    const profIsAlreadyPicked = findProfOnNewChar(id);
+    const expIsAlreadyPicked = findExpOnNewChar(id);
+    const isOnSubClass = charSubClass?.skillExpertises ? charSubClass.skillExpertises.find((o) => o === id) : undefined;
+    if (isOnSubClass && isExpertise) return true;
+    if (newCharacter.startingSubclass === 'scl10' && !isOnSubClass && isExpertise) return false;
+    if (expIsAlreadyPicked && isExpertise) return true;
+    if (expIsAlreadyPicked && expIsAlreadyPicked?.canChange === false && !isExpertise) return false;
+    if (profIsAlreadyPicked && !isExpertise) return true;
     const isOnClass = charClass?.skillProficiencies.find((o) => o === id);
     if (isOnClass === undefined) return false;
     if (!isExpertise) {
-      if (isAlreadyPicked && isAlreadyPicked.canChange === false) return false;
+      if (profIsAlreadyPicked && profIsAlreadyPicked.canChange === false) return false;
     } else {
       const proficiencyIsToBeRemoved = findProfOnNewChar(id);
       if (proficiencyIsToBeRemoved === undefined) return false;
@@ -49,8 +60,8 @@ export const Skills = () => {
   };
 
   const isDisabled = (id: string): boolean => {
-    const isAlreadyPicked = findProfOnNewChar(id);
-    return isAlreadyPicked?.canChange === false ? true : false;
+    const profIsAlreadyPicked = findProfOnNewChar(id);
+    return profIsAlreadyPicked?.canChange === false ? true : false;
   };
 
   const isSkillProfPicked = (id: string): boolean => {
@@ -126,6 +137,8 @@ export const Skills = () => {
         return getDbObject(newCharacter.background, 'charBgs')!.icon;
       case 'race':
         return getDbObject(newCharacter.race, 'races')!.icon;
+      case 'subrace':
+        return newCharacter.subrace ? getDbObject(newCharacter.subrace, 'subraces')!.icon : '';
       default:
         return './icons/check-mark-icon.png';
     }
@@ -167,7 +180,7 @@ export const Skills = () => {
             ) : (
               <div></div>
             )}
-            {isPossibleSkill(true, skill.id) && expertiseSlots > 0 ? (
+            {(isPossibleSkill(true, skill.id) && expertiseSlots > 0) || isSkillExpPicked(skill.id) ? (
               <button
                 className={isSkillExpPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
                 disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}

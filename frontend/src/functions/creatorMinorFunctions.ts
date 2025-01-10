@@ -1,6 +1,7 @@
 import { ICharBackground } from '../models/dbModels/ICharBackground';
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { IRace } from '../models/dbModels/IRace';
+import { ISubClass } from '../models/dbModels/ISubClass';
 import { ISubrace } from '../models/dbModels/ISubrace';
 import { INewAbility, INewCharacter, ISkillProfNewChar } from '../models/INewCharater';
 
@@ -14,9 +15,20 @@ export const displayAbilityTotalPoints = (ability: INewAbility): number => {
   return ability.baseValue + plus1Bonus + plus2Bonus;
 };
 
-export const checkForExpertiseSlots = (charClass: ICharClass, newCharacter: INewCharacter): number => {
-  if (charClass.expertiseSlots && charClass.expertiseAtLevel) {
-    return charClass.expertiseAtLevel === newCharacter.characterLevel ? charClass.expertiseSlots : 0;
+export const checkForExpertiseSlots = (
+  charClass: ICharClass,
+  charSubClass: ISubClass | undefined,
+  newCharacter: INewCharacter,
+): number => {
+  if (charClass.skillExpertiseSlots && charClass.expertiseAtLevel === newCharacter.characterLevel) {
+    return charClass.skillExpertiseSlots;
+  }
+  if (
+    charSubClass &&
+    charSubClass.skillExpertiseSlots &&
+    charSubClass.expertiseAtLevel === newCharacter.characterLevel
+  ) {
+    return charSubClass.skillExpertiseSlots;
   }
   return 0;
 };
@@ -42,6 +54,23 @@ export const changeSkillsProfs = (
       };
       skills.push(skill);
     }
+  }
+  return skills;
+};
+
+export const updateExpertiseArray = (object: ISubrace | undefined, newCharacter: INewCharacter, source: string) => {
+  let skills: ISkillProfNewChar[] = newCharacter.skillExpertises;
+  skills = skills.filter((o) => o.fromSource !== source);
+  if (!object) {
+    return skills;
+  }
+  if (object.skillExpertises) {
+    let skill: ISkillProfNewChar = {
+      id: object.skillExpertises[0],
+      fromSource: source,
+      canChange: false,
+    };
+    skills.push(skill);
   }
   return skills;
 };

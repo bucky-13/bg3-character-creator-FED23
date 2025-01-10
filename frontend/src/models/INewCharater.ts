@@ -23,7 +23,7 @@ export interface INewCharacter {
   background: string;
   abilities: INewAbility[];
   skillProficiencies: ISkillProfNewChar[];
-  skillExpertises?: ISkillProfNewChar[];
+  skillExpertises: ISkillProfNewChar[];
   equipmentProficiencies?: EEquipment[];
   perks?: string[];
   lvlChoices?: ILvlChoices[];

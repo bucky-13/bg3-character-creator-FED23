@@ -52,7 +52,7 @@ export const charClasses: ICharClass[] = [
     subclassAtLevel: 3,
     subclasses: ['scl04', 'scl05', 'scl06'],
     expertiseAtLevel: 3,
-    expertiseSlots: 2,
+    skillExpertiseSlots: 2,
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.AnimalHandling,
@@ -230,7 +230,7 @@ export const charClasses: ICharClass[] = [
     subclassAtLevel: 3,
     subclasses: ['scl29', 'scl30', 'scl31'],
     expertiseAtLevel: 1,
-    expertiseSlots: 2,
+    skillExpertiseSlots: 2,
     skillProficiencies: [
       ESkills.Acrobatics,
       ESkills.Athletics,

@@ -10,6 +10,9 @@ export interface ISubClass {
   mainClass: string;
   icon: string;
   skillProficiencies?: ESkills[];
+  skillExpertises?: ESkills[];
+  skillExpertiseSlots?: number;
+  expertiseAtLevel?: number;
   skillProficiencySlots?: number;
   armorProficiencies?: EEquipment[];
   weaponProficiencies?: EEquipment[];

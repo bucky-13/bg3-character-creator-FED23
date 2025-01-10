@@ -11,8 +11,9 @@ export interface ICharClass {
   subclassAtLevel: number;
   subclasses: string[];
   expertiseAtLevel?: number;
-  expertiseSlots?: number;
+  skillExpertiseSlots?: number;
   skillProficiencies: ESkills[];
+  skillExpertises?: ESkills[];
   skillProficiencySlots: number;
   armorProficiencies: EEquipment[];
   weaponProficiencies: EEquipment[];

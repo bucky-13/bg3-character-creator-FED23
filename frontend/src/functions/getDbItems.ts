@@ -7,6 +7,7 @@ import { subraces } from '../database/dbSubraces';
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { ISkill } from '../models/dbModels/ISkill';
 import { ISubClass } from '../models/dbModels/ISubClass';
+import { ISubrace } from '../models/dbModels/ISubrace';
 
 export const getDbObject = (id: string, dbFile: string) => {
   switch (dbFile) {
@@ -28,6 +29,9 @@ export const getDbClass = (id: string): ICharClass => {
 };
 export const getDbSubClass = (id: string): ISubClass => {
   return subClasses.find((o) => o.id === id)!;
+};
+export const getDbSubrace = (id: string): ISubrace => {
+  return subraces.find((o) => o.id === id)!;
 };
 export const getDbSkill = (id: string): ISkill => {
   return skills.find((o) => o.id === id)!;
