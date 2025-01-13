@@ -4,7 +4,7 @@ import { Background } from './mainContentComponents/Background';
 import { Class } from './mainContentComponents/Class';
 import { Origin } from './mainContentComponents/Origin';
 import { Race } from './mainContentComponents/Race';
-import { CharSpells } from './mainContentComponents/Spells';
+import { CharSpells, ESpellArray } from './mainContentComponents/Spells';
 import { Subclass } from './mainContentComponents/Subclass';
 import { Subrace } from './mainContentComponents/Subrace';
 
@@ -22,7 +22,9 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'subrace' && <Subrace />}
       {currentSection === 'background' && <Background />}
       {currentSection === 'abilities' && <AbilitiesAndSkills />}
-      {currentSection === 'cantrips' && <CharSpells spellLevel={0} title="Cantrips" spellList={lvl0spells} />}
+      {currentSection === 'cantrips' && (
+        <CharSpells spellLevel={ESpellArray.Lvl0} title="Cantrips" spellList={lvl0spells} />
+      )}
     </div>
   );
 };

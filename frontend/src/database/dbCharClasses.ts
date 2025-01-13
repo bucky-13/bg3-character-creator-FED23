@@ -49,6 +49,8 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 4, amount: 3 },
       { fromLevel: 10, amount: 4 },
     ],
+    spellsOnStartingLevel: 4,
+    spellsPerLevel: 1,
     subclassAtLevel: 3,
     subclasses: ['scl04', 'scl05', 'scl06'],
     expertiseAtLevel: 3,
@@ -205,6 +207,8 @@ export const charClasses: ICharClass[] = [
     desc: `Rangers are unrivalled scouts and trackers, honing a deep connection with nature in order to hunt their favoured prey.`,
     icon: './icons/charClasses/Ranger_Icon.png',
     casterLevelPerLevel: 0.5,
+    spellsOnStartingLevel: 2,
+    spellsPerLevel: 0.5,
     subclassAtLevel: 3,
     subclasses: ['scl26', 'scl27', 'scl28'],
     skillProficiencies: [
@@ -264,6 +268,8 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 4, amount: 5 },
       { fromLevel: 10, amount: 6 },
     ],
+    spellsOnStartingLevel: 2,
+    spellsPerLevel: 1,
     subclassAtLevel: 1,
     subclasses: ['scl32', 'scl33', 'scl34'],
     skillProficiencies: [
@@ -289,6 +295,8 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 4, amount: 3 },
       { fromLevel: 10, amount: 4 },
     ],
+    spellsOnStartingLevel: 2,
+    spellsPerLevel: 1,
     subclassAtLevel: 1,
     subclasses: ['scl35', 'scl36', 'scl37'],
     skillProficiencies: [
@@ -315,6 +323,8 @@ export const charClasses: ICharClass[] = [
       { fromLevel: 4, amount: 4 },
       { fromLevel: 10, amount: 5 },
     ],
+    spellsOnStartingLevel: 6,
+    spellsPerLevel: 2,
     subclassAtLevel: 2,
     subclasses: ['scl38', 'scl39', 'scl40', 'scl41', 'scl42', 'scl43', 'scl44', 'scl45'],
     skillProficiencies: [

@@ -129,9 +129,6 @@
 }
 
 .creatorImageChoiceContainer {
-  .spellChoiceIcon {
-    border-radius: 0;
-  }
   cursor: pointer;
   img {
     max-width: 100px;
@@ -142,13 +139,6 @@
 
   img:hover {
     border: 2px solid #ffffff90;
-  }
-}
-.creatorImageChoiceContainer.activeChoice {
-  cursor: default;
-  img,
-  img:hover {
-    border: 2px solid #ffd000;
   }
 }
 

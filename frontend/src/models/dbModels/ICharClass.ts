@@ -8,6 +8,8 @@ export interface ICharClass {
   icon: string;
   casterLevelPerLevel: number;
   cantripsKnown?: { fromLevel: number; amount: number }[];
+  spellsOnStartingLevel?: number;
+  spellsPerLevel?: number;
   subclassAtLevel: number;
   subclasses: string[];
   expertiseAtLevel?: number;

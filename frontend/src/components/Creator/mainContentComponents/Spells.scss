@@ -1,0 +1,36 @@
+.spellChoiceBtn {
+  border-radius: 0;
+  padding: 4px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.spellChoiceBtn:hover {
+  background-color: #00990050;
+  border: 1px solid #ffd000;
+}
+.creatorImageChoiceContainer.activeChoice {
+  img,
+  img:hover {
+    border: 2px solid #ffd000;
+  }
+}
+.spellChoiceBtn.selectedChoice {
+  border: 2px solid #00dd00;
+}
+
+.spellChoiceBtn:disabled {
+  background-color: #444;
+  cursor: default;
+}
+.spellChoiceBtn:disabled:hover {
+  border: 1px solid black;
+}
