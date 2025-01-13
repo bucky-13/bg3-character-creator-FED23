@@ -1,9 +1,12 @@
 export interface ISpell {
   id: string;
   name: string;
+  school: string;
   desc: string;
-  imgSrc: string;
+  details: string[];
+  icon: string;
   spellLevel: number;
   isRitual: boolean;
-  classes: string[];
+  hasConcentration: boolean;
+  availableTo: string[];
 }

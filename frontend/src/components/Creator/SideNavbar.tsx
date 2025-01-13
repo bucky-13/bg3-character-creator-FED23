@@ -1,4 +1,5 @@
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
+import { getDbClass } from '../../functions/getDbItems';
 import { Dispatcher } from '../../models/types';
 import { ButtonSideNavbar } from '../elements/ButtonSideNavbar';
 import './SideNavbar.scss';
@@ -9,6 +10,18 @@ interface SideNavbarProps {
 }
 export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProps) => {
   const { newCharacter } = useNewCharContext();
+
+  const displayCantrips = () => {
+    const charClass = getDbClass(newCharacter.startingClass);
+    let showCantrips = false;
+    if (charClass.cantripsKnown) {
+      for (let i = 0; i < charClass.cantripsKnown.length; i++) {
+        const yes = charClass.cantripsKnown[i].fromLevel === newCharacter.characterLevel;
+        if (yes) showCantrips = true;
+      }
+    }
+    return showCantrips;
+  };
 
   const isActiveSection = (section: string): boolean => {
     return currentSection === section ? true : false;
@@ -41,6 +54,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         <ButtonSideNavbar
           textContent="Subclass"
           activeSection={isActiveSection('subclass')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
+      {displayCantrips() && (
+        <ButtonSideNavbar
+          textContent="Cantrips"
+          activeSection={isActiveSection('cantrips')}
           setCurrentSection={setCurrentSection}
         />
       )}

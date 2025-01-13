@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
-import { getDbObject, getDbSubrace } from '../../../functions/getDbItems';
+import { getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
 
