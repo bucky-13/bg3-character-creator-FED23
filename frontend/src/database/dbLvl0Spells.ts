@@ -262,7 +262,7 @@ export const lvl0spells: ISpell[] = [
     icon: './icons/lvl0spells/Vicious_Mockery.png',
     spellLevel: 0,
     isRitual: false,
-    hasConcentration: true,
+    hasConcentration: false,
     availableTo: ['ccl02'],
   },
 ];
