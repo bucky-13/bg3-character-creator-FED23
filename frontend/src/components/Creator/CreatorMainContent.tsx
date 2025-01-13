@@ -1,4 +1,5 @@
 import { lvl0spells } from '../../database/dbLvl0Spells';
+import { lvl1spells } from '../../database/dbLvl1Spells';
 import { AbilitiesAndSkills } from './mainContentComponents/AbilitiesAndSkills';
 import { Background } from './mainContentComponents/Background';
 import { Class } from './mainContentComponents/Class';
@@ -24,6 +25,9 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'abilities' && <AbilitiesAndSkills />}
       {currentSection === 'cantrips' && (
         <CharSpells spellLevel={ESpellArray.Lvl0} title="Cantrips" spellList={lvl0spells} />
+      )}
+      {currentSection === 'spells' && (
+        <CharSpells spellLevel={ESpellArray.Lvl1} title="Spells" spellList={lvl1spells} />
       )}
     </div>
   );

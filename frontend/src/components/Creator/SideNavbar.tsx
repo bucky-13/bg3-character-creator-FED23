@@ -23,6 +23,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
     return showCantrips;
   };
 
+  const displaySpells = () => {
+    const charClass = getDbClass(newCharacter.startingClass);
+    let showSpells = false;
+    if (charClass.casterLevelPerLevel * newCharacter.characterLevel >= 1) showSpells = true;
+    return showSpells;
+  };
+
   const isActiveSection = (section: string): boolean => {
     return currentSection === section ? true : false;
   };
@@ -61,6 +68,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         <ButtonSideNavbar
           textContent="Cantrips"
           activeSection={isActiveSection('cantrips')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
+      {displaySpells() && (
+        <ButtonSideNavbar
+          textContent="Spells"
+          activeSection={isActiveSection('spells')}
           setCurrentSection={setCurrentSection}
         />
       )}

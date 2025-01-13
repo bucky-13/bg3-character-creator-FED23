@@ -289,7 +289,7 @@ export const charClasses: ICharClass[] = [
     name: 'Warlock',
     desc: `Bound by a pact to an all-powerful patron, warlocks trade their loyalty for supernatural abilities and unique magic.`,
     icon: './icons/charClasses/Warlock_Icon.png',
-    casterLevelPerLevel: 0,
+    casterLevelPerLevel: 1,
     cantripsKnown: [
       { fromLevel: 1, amount: 2 },
       { fromLevel: 4, amount: 3 },

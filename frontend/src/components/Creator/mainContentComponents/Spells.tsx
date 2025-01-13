@@ -38,7 +38,12 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
     return cantripObject!.amount;
   };
 
-  const amountToPick = spellLevel === ESpellArray.Lvl0 ? getCantripTotal() : 0;
+  const getSpellTotal = (): number => {
+    const charClass = getDbClass(newCharacter.startingClass);
+    return newCharacter.characterLevel === 1 ? charClass.spellsOnStartingLevel! : charClass.spellsPerLevel!;
+  };
+
+  const amountToPick = spellLevel === ESpellArray.Lvl0 ? getCantripTotal() : getSpellTotal();
 
   const isSpellAvailable = (spell: ISpell) => {
     if (spell.availableTo.includes(newCharacter.startingClass)) return true;
@@ -102,17 +107,18 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
         <div>
           <div className="choicesContainer">
             {spellList.map(
-              (spell) =>
-                isSpellAvailable(spell) && (
-                  <button
-                    key={spell.id}
-                    className={isSelected(spell.id)}
-                    disabled={isDisabled(spell.id)}
-                    onClick={() => onChangeSpell(spell)}
-                  >
-                    <img src={spell.icon} className="spellChoiceIcon" />
-                  </button>
-                ),
+              (spell) => (
+                // isSpellAvailable(spell) && (
+                <button
+                  key={spell.id}
+                  className={isSelected(spell.id)}
+                  disabled={isDisabled(spell.id)}
+                  onClick={() => onChangeSpell(spell)}
+                >
+                  <img src={spell.icon} className="spellChoiceIcon" />
+                </button>
+              ),
+              // ),
             )}
           </div>
         </div>
@@ -132,6 +138,12 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
               <div className="iconPContainer">
                 <img src="./icons/features/Concentration.png" />
                 <p>Concentration Spell</p>
+              </div>
+            )}
+            {activeSpell.isRitual && (
+              <div className="iconPContainer">
+                <img src="./icons/features/Ritual.png" />
+                <p>Ritual Spell</p>
               </div>
             )}
             {activeSpell.details.map((detail) => (
