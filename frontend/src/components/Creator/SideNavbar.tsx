@@ -26,7 +26,9 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
   const displaySpells = () => {
     const charClass = getDbClass(newCharacter.startingClass);
     let showSpells = false;
-    if (charClass.casterLevelPerLevel * newCharacter.characterLevel >= 1) showSpells = true;
+    if (charClass.casterLevelPerLevel * newCharacter.characterLevel >= 1 && charClass.spellsOnStartingLevel)
+      showSpells = true;
+
     return showSpells;
   };
 

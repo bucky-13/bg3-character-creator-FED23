@@ -22,7 +22,7 @@ export default tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -31,7 +31,7 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from 'eslint-plugin-react';
 
 export default tseslint.config({
   // Set the react version
@@ -46,5 +46,40 @@ export default tseslint.config({
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
   },
-})
+});
 ```
+
+Shortlist for spell additions:
+
+Barbarian = 'ccl01',
+Bard = 'ccl02',
+Cleric = 'ccl03',
+Druid = 'ccl04',
+Fighter = 'ccl05',
+Monk = 'ccl06',
+Paladin = 'ccl07',
+Ranger = 'ccl08',
+Rogue = 'ccl09',
+Sorcerer = 'ccl10',
+Warlock = 'ccl11',
+Wizard = 'ccl12',
+
+Abjuration
+Conjuration
+Divination
+Enchantment
+Evocation
+Illusion
+Necromancy
+Transmutation
+
+1.5m / 5ft
+
+18m / 60ft
+
+AoE: 2m / 7ft (Radius)
+AoE: 3m / 10ft (Radius)
+AoE: 5m / 15ft (Radius)
+AoE: 9m / 30ft (Radius)
+AoE: 6m / 20ft (Radius)
+AoE: 5m / 17ft (Cube)

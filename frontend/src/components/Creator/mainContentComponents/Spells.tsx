@@ -107,18 +107,17 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
         <div>
           <div className="choicesContainer">
             {spellList.map(
-              (spell) => (
-                // isSpellAvailable(spell) && (
-                <button
-                  key={spell.id}
-                  className={isSelected(spell.id)}
-                  disabled={isDisabled(spell.id)}
-                  onClick={() => onChangeSpell(spell)}
-                >
-                  <img src={spell.icon} className="spellChoiceIcon" />
-                </button>
-              ),
-              // ),
+              (spell) =>
+                isSpellAvailable(spell) && (
+                  <button
+                    key={spell.id}
+                    className={isSelected(spell.id)}
+                    disabled={isDisabled(spell.id)}
+                    onClick={() => onChangeSpell(spell)}
+                  >
+                    <img src={spell.icon} className="spellChoiceIcon" />
+                  </button>
+                ),
             )}
           </div>
         </div>
