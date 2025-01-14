@@ -53,7 +53,7 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
     }
   };
 
-  const filterShit = (o: ISpellChociesNewChar, spell: ISpell) => {
+  const filterSpellArrayNoSpecialCase = (o: ISpellChociesNewChar, spell: ISpell) => {
     if (o.id !== spell.id) return o;
     if (o.fromSource !== newCharacter.startingClass) return o;
   };
@@ -64,9 +64,11 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
     if (isSpellTaken) {
       let updatedNewSpellArray = newCharacter[spellLevel];
       if (specialCase) {
-        updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => o.id !== spell.id && o.fromSource !== 'ccl12');
+        updatedNewSpellArray = newCharacter[spellLevel]!.filter(
+          (o) => o.id !== spell.id && o.specialCase !== 'highelfcatnip',
+        );
       } else {
-        updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => filterShit(o, spell));
+        updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => filterSpellArrayNoSpecialCase(o, spell));
       }
       setNewCharacter({ ...newCharacter, [spellLevel]: updatedNewSpellArray });
     } else {
@@ -88,6 +90,8 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
     updateSpellList(spell);
     setActiveSpell(spell);
   };
+
+  console.log(newCharacter);
 
   return (
     <div className="creatorCenterContainer">

@@ -31,8 +31,11 @@ export const totalSpellsSelected = (
     let arrayWithNiceSource = specialCase
       ? spellArray.filter((o) => o.fromSource === 'ccl12')
       : spellArray.filter((o) => o.fromSource === newCharacter.startingClass);
-    if (newCharacter.startingClass === 'ccl12') {
+    if (newCharacter.startingClass === 'ccl12' && !specialCase) {
       arrayWithNiceSource = arrayWithNiceSource.filter((o) => o.specialCase === 'no');
+    }
+    if (newCharacter.startingClass === 'ccl12' && specialCase) {
+      arrayWithNiceSource = arrayWithNiceSource.filter((o) => o.specialCase === 'highelfcatnip');
     }
     return arrayWithNiceSource.length;
   } else {
@@ -51,7 +54,20 @@ export const isDisabled = (
     const spellIsSelected = specialCase
       ? newCharacter[spellLevel].find((o) => o.id === spellId && o.fromSource === 'ccl12')
       : newCharacter[spellLevel].find((o) => o.id === spellId && o.fromSource === newCharacter.startingClass);
-    if (specialCase && spellIsSelected && spellIsSelected.fromSource === 'ccl12') return false;
+    if (
+      specialCase &&
+      spellIsSelected &&
+      spellIsSelected.fromSource === 'ccl12' &&
+      spellIsSelected.specialCase === 'highelfcatnip'
+    )
+      return false;
+    if (
+      specialCase &&
+      spellIsSelected &&
+      spellIsSelected.fromSource === 'ccl12' &&
+      spellIsSelected.specialCase === 'no'
+    )
+      return true;
     if (!specialCase && spellIsSelected && spellIsSelected.specialCase !== 'no') return true;
     if (spellIsSelected && spellIsSelected.fromSource === newCharacter.startingClass) return false;
     return amountToPick - totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase) <= 0 ? true : false;
