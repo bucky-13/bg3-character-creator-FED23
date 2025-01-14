@@ -2,8 +2,18 @@ import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import './Spells.scss';
 import { ISpell } from '../../../models/dbModels/ISpell';
-import { getDbClass } from '../../../functions/getDbItems';
-import { ISkillProfNewChar } from '../../../models/INewCharater';
+import { ISkillProfNewChar, ISpellChociesNewChar } from '../../../models/INewCharater';
+import {
+  createSpellSource,
+  getCantripTotal,
+  getSpellTotal,
+  hasSpellsFromOtherSource,
+  isDisabled,
+  isSelected,
+  isSpellAvailable,
+  isSpellFromOtherSource,
+  totalSpellsSelected,
+} from '../../../functions/skillFunctions';
 
 export enum ESpecialSpellCases {
   HighElf = 'highelf',
@@ -26,39 +36,46 @@ export interface ICantripsProps {
   spellLevel: ESpellArray;
   title: string;
   spellList: ISpell[];
+  specialCase?: string;
 }
 
-export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => {
+export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantripsProps) => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [activeSpell, setActiveSpell] = useState<ISpell>(spellList[0]);
+  const amountToPick =
+    spellLevel === ESpellArray.Lvl0 ? getCantripTotal(newCharacter, specialCase) : getSpellTotal(newCharacter);
 
-  const getCantripTotal = (): number => {
-    const charClass = getDbClass(newCharacter.startingClass);
-    const cantripObject = charClass.cantripsKnown!.find((arr) => arr.fromLevel === newCharacter.characterLevel);
-    return cantripObject!.amount;
+  const setIsSpellTaken = (spell: ISpell) => {
+    if (specialCase) {
+      return newCharacter[spellLevel]!.find((o) => o.id === spell.id && o.fromSource === 'ccl12');
+    } else {
+      return newCharacter[spellLevel]!.find((o) => o.id === spell.id && o.fromSource === newCharacter.startingClass);
+    }
   };
 
-  const getSpellTotal = (): number => {
-    const charClass = getDbClass(newCharacter.startingClass);
-    return newCharacter.characterLevel === 1 ? charClass.spellsOnStartingLevel! : charClass.spellsPerLevel!;
-  };
-
-  const amountToPick = spellLevel === ESpellArray.Lvl0 ? getCantripTotal() : getSpellTotal();
-
-  const isSpellAvailable = (spell: ISpell) => {
-    if (spell.availableTo.includes(newCharacter.startingClass)) return true;
-    if (newCharacter.startingSubclass && spell.availableTo.includes(newCharacter.startingSubclass)) return true;
-    return false;
+  const filterShit = (o: ISpellChociesNewChar, spell: ISpell) => {
+    if (o.id !== spell.id) return o;
+    if (o.fromSource !== newCharacter.startingClass) return o;
   };
 
   const updateSpellList = (spell: ISpell) => {
-    const isSpellTaken = newCharacter[spellLevel] ? newCharacter[spellLevel].find((o) => o.id === spell.id) : undefined;
+    const isSpellTaken = newCharacter[spellLevel] ? setIsSpellTaken(spell) : undefined;
 
     if (isSpellTaken) {
-      const updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => o.id !== spell.id);
+      let updatedNewSpellArray = newCharacter[spellLevel];
+      if (specialCase) {
+        updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => o.id !== spell.id && o.fromSource !== 'ccl12');
+      } else {
+        updatedNewSpellArray = newCharacter[spellLevel]!.filter((o) => filterShit(o, spell));
+      }
       setNewCharacter({ ...newCharacter, [spellLevel]: updatedNewSpellArray });
     } else {
-      let newSpell: ISkillProfNewChar = { id: spell.id, fromSource: spellLevel, canChange: true };
+      const newSpell: ISpellChociesNewChar = {
+        id: spell.id,
+        fromSource: createSpellSource(newCharacter, specialCase),
+        canChange: true,
+        specialCase: specialCase ? 'highelfcatnip' : 'no',
+      };
       if (newCharacter[spellLevel]) {
         setNewCharacter({ ...newCharacter, [spellLevel]: newCharacter[spellLevel]?.concat([newSpell]) });
       } else {
@@ -67,57 +84,52 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
     }
   };
 
-  const totalSpellsSelected = (spellArray: ISkillProfNewChar[] | undefined, source: string): number => {
-    if (spellArray) {
-      const arrayWithNiceSource = spellArray.filter((o) => o.fromSource === source);
-      return arrayWithNiceSource.length;
-    } else {
-      return 0;
-    }
-  };
-
-  const isDisabled = (spellId: string): boolean => {
-    if (newCharacter[spellLevel]) {
-      const spellIsSelected = newCharacter[spellLevel].find((o) => o.id === spellId);
-      if (spellIsSelected && spellIsSelected.fromSource !== spellLevel) return true;
-
-      if (spellIsSelected && spellIsSelected.fromSource === spellLevel) return false;
-      return amountToPick - totalSpellsSelected(newCharacter[spellLevel], spellLevel) <= 0 ? true : false;
-    } else {
-      return false;
-    }
-  };
-
-  const isSelected = (spellId: string): string => {
-    const isOnSpellList = newCharacter[spellLevel] ? newCharacter[spellLevel].find((o) => o.id === spellId) : undefined;
-    return isOnSpellList ? 'spellChoiceBtn selectedChoice' : 'spellChoiceBtn';
-  };
-
   const onChangeSpell = (spell: ISpell) => {
     updateSpellList(spell);
     setActiveSpell(spell);
   };
+
   return (
     <div className="creatorCenterContainer">
       <h2>{title}</h2>
       <p>
-        {title} chosen: {totalSpellsSelected(newCharacter[spellLevel], spellLevel)} / {amountToPick}
+        {title} chosen: {totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase)} / {amountToPick}
       </p>
       <div className="choicesAndSelectedContainer">
         <div>
           <div className="choicesContainer">
             {spellList.map(
               (spell) =>
-                isSpellAvailable(spell) && (
+                isSpellAvailable(spell, newCharacter, specialCase) && (
                   <button
                     key={spell.id}
-                    className={isSelected(spell.id)}
-                    disabled={isDisabled(spell.id)}
+                    className={isSelected(spell.id, newCharacter, spellLevel, specialCase)}
+                    disabled={isDisabled(spell.id, newCharacter, spellLevel, amountToPick, specialCase)}
                     onClick={() => onChangeSpell(spell)}
                   >
                     <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
                   </button>
                 ),
+            )}
+            {hasSpellsFromOtherSource(newCharacter, spellLevel) && !specialCase && (
+              <div>
+                <h3>{title} from other sources:</h3>
+                <p>
+                  You already know these spells from other sources. If a spell can be selected again, it will give you
+                  access to a second version of the spell with another spellcasting modifier.
+                </p>
+                {spellList.map(
+                  (spell) =>
+                    isSpellFromOtherSource(newCharacter, spellLevel, spell.id) && (
+                      <div key={spell.id} className="alreadySelectedSpellContainer">
+                        <button className="spellChoiceBtn alreadySelectedButton" disabled>
+                          <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
+                        </button>
+                        {spell.name}
+                      </div>
+                    ),
+                )}
+              </div>
             )}
           </div>
         </div>

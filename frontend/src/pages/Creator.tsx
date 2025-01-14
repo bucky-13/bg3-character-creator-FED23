@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CreatorMainContent } from '../components/Creator/CreatorMainContent';
 import { SideNavbar } from '../components/Creator/SideNavbar';
 import './Creator.scss';

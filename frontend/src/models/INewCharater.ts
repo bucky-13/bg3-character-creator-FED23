@@ -13,13 +13,13 @@ export interface INewCharacter {
   startingSubclass?: string;
   charClasses?: [{ classId: string; levels: number; subclass?: string; isStartingClass: boolean }];
   casterLevel: number;
-  cantrips?: ISkillProfNewChar[];
-  lvl1Spells?: ISkillProfNewChar[];
-  lvl2Spells?: ISkillProfNewChar[];
-  lvl3Spells?: ISkillProfNewChar[];
-  lvl4Spells?: ISkillProfNewChar[];
-  lvl5Spells?: ISkillProfNewChar[];
-  lvl6Spells?: ISkillProfNewChar[];
+  cantrips?: ISpellChociesNewChar[];
+  lvl1Spells?: ISpellChociesNewChar[];
+  lvl2Spells?: ISpellChociesNewChar[];
+  lvl3Spells?: ISpellChociesNewChar[];
+  lvl4Spells?: ISpellChociesNewChar[];
+  lvl5Spells?: ISpellChociesNewChar[];
+  lvl6Spells?: ISpellChociesNewChar[];
   background: string;
   abilities: INewAbility[];
   skillProficiencies: ISkillProfNewChar[];
@@ -34,6 +34,13 @@ export interface ISkillProfNewChar {
   id: string;
   fromSource: string;
   canChange: boolean;
+}
+
+export interface ISpellChociesNewChar {
+  id: string;
+  fromSource: string;
+  canChange: boolean;
+  specialCase: string;
 }
 
 export interface ILvlChoices {

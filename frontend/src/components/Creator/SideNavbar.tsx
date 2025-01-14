@@ -54,6 +54,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
           setCurrentSection={setCurrentSection}
         />
       )}
+      {(newCharacter.subrace === 'subr01' || newCharacter.subrace === 'subr05') && (
+        <ButtonSideNavbar
+          textContent="High Elf Cantrip"
+          activeSection={isActiveSection('high elf cantrip')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       <ButtonSideNavbar
         textContent="Class"
         activeSection={isActiveSection('class')}

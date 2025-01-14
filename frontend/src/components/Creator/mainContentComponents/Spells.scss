@@ -27,10 +27,25 @@
   border: 2px solid #00dd00;
 }
 
+.spellChoiceBtn.selectedChoice:disabled:hover {
+  border: 2px solid #00dd00;
+}
+
 .spellChoiceBtn:disabled {
   background-color: #444;
   cursor: default;
 }
 .spellChoiceBtn:disabled:hover {
   border: 1px solid black;
+}
+
+.alreadySelectedSpellContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .spellChoiceBtn.alreadySelectedButton:disabled {
+    background-color: #000;
+    border: 1px solid black;
+    margin-right: 1rem;
+  }
 }

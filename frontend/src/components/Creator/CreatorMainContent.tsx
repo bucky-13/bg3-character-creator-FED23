@@ -26,6 +26,14 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'cantrips' && (
         <CharSpells spellLevel={ESpellArray.Lvl0} title="Cantrips" spellList={lvl0spells} />
       )}
+      {currentSection === 'high elf cantrip' && (
+        <CharSpells
+          spellLevel={ESpellArray.Lvl0}
+          title="High Elf Cantrip"
+          spellList={lvl0spells}
+          specialCase="highElfCantrip"
+        />
+      )}
       {currentSection === 'spells' && (
         <CharSpells spellLevel={ESpellArray.Lvl1} title="Spells" spellList={lvl1spells} />
       )}
