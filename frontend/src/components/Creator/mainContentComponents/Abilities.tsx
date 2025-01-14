@@ -77,7 +77,11 @@ export const Abilities = () => {
             onClick={() => setActiveAbility(getAbility(ability.id))}
             onMouseEnter={() => setActiveAbility(getAbility(ability.id))}
           >
-            <img src={getAbiValue(ability.id, 'icon')} className="abilitiesIcon" />
+            <img
+              src={getAbiValue(ability.id, 'icon')}
+              className="abilitiesIcon"
+              alt={getAbiValue(ability.id, 'name')}
+            />
             <h4>{getAbiValue(ability.id, 'name')}</h4>
             <button
               className="plusMinusBtn"

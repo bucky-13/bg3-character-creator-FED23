@@ -50,7 +50,7 @@ export const Race = () => {
                   className={isActiveIcon(race.id, 'race', newCharacter)}
                   onClick={() => onChangeRace(race)}
                 >
-                  <img src={race.icon} />
+                  <img src={race.icon} alt={race.name} />
                   <p>{race.name}</p>
                 </div>
               ))}
@@ -67,7 +67,7 @@ export const Race = () => {
             <h4 className="featureH">Features:</h4>
             {selectedRace.features.map((feature) => (
               <div key={feature.name} className="featureContainer">
-                {feature.icon && <img src={feature.icon} />}
+                {feature.icon && <img src={feature.icon} alt={selectedRace.name} />}
                 <p>
                   <span>{feature.name}: </span>
                   {feature.desc}

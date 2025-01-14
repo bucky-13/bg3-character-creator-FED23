@@ -34,7 +34,7 @@ export const Background = () => {
                   className={isActiveIcon(bg.id, 'background', newCharacter)}
                   onClick={() => onChangeBg(bg)}
                 >
-                  <img src={bg.icon} />
+                  <img src={bg.icon} alt={bg.name} />
                   <p>{bg.name}</p>
                 </div>
               ))}
@@ -44,7 +44,7 @@ export const Background = () => {
         {selectedBg && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedBg.icon} />
+              <img src={selectedBg.icon} alt={selectedBg.name} />
               <h3>{selectedBg.name}</h3>
             </div>
             <p>{selectedBg.desc}</p>

@@ -115,7 +115,7 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
                     disabled={isDisabled(spell.id)}
                     onClick={() => onChangeSpell(spell)}
                   >
-                    <img src={spell.icon} className="spellChoiceIcon" />
+                    <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
                   </button>
                 ),
             )}
@@ -125,7 +125,7 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
         {activeSpell && (
           <div className="selectedSpellContainer">
             <div className="selectedSpellHeader">
-              <img src={activeSpell.icon} />
+              <img src={activeSpell.icon} alt={activeSpell.name} />
               <h3>
                 {activeSpell.name} ({activeSpell.school})
               </h3>
@@ -135,13 +135,13 @@ export const CharSpells = ({ spellLevel, title, spellList }: ICantripsProps) => 
             <h4 className="featureH">Features:</h4>
             {activeSpell.hasConcentration && (
               <div className="iconPContainer">
-                <img src="./icons/features/Concentration.png" />
+                <img src="./icons/features/Concentration.png" alt="Spell have Concentration" />
                 <p>Concentration Spell</p>
               </div>
             )}
             {activeSpell.isRitual && (
               <div className="iconPContainer">
-                <img src="./icons/features/Ritual.png" />
+                <img src="./icons/features/Ritual.png" alt="Is a Ritual Spell" />
                 <p>Ritual Spell</p>
               </div>
             )}

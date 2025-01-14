@@ -30,7 +30,7 @@ export const Subclass = () => {
                       className={isActiveIcon(subClass.id, 'startingSubclass', newCharacter)}
                       onClick={() => onChangeSubClass(subClass)}
                     >
-                      <img src={subClass.icon} />
+                      <img src={subClass.icon} alt={subClass.name} />
                       <p>{subClass.name}</p>
                     </div>
                   ),
@@ -41,7 +41,7 @@ export const Subclass = () => {
         {selectedSubclass && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedSubclass.icon} />
+              <img src={selectedSubclass.icon} alt={selectedSubclass.name} />
               <h3>{selectedSubclass.name}</h3>
             </div>
             <p>{selectedSubclass.desc}</p>

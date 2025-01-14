@@ -14,7 +14,7 @@ export const Overview = () => {
   return (
     <div className="creatorOverview">
       <h2>{newCharacter.name}</h2>
-      <img src={newCharacter.icon} />
+      <img src={newCharacter.icon} alt="Portrait of characters origin" />
       <div className="charStatsOverview">
         {newCharacter.abilities.map((abi) => (
           <div className="charStatContainer" key={abi.id}>

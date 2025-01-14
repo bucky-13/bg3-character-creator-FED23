@@ -25,13 +25,13 @@ export const Origin = () => {
               className={isActiveIcon(origin.origin, 'origin', newCharacter)}
               onClick={() => onChangeOrigin(origin)}
             >
-              <img src={origin.icon} />
+              <img src={origin.icon} alt={origin.name} />
               <h4>{origin.name}</h4>
             </div>
           ))}
         </div>
         <div className="selectedChoiceContainer">
-          <img className="originIcon" src={selectedOrigin.icon} />
+          <img className="originIcon" src={selectedOrigin.icon} alt={selectedOrigin.name} />
           <h4>{selectedOrigin.name}</h4>
           <p>{selectedOrigin.desc}</p>
         </div>

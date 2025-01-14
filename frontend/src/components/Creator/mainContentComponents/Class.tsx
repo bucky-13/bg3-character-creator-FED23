@@ -57,7 +57,7 @@ export const Class = () => {
                   className={isActiveIcon(cClass.id, 'startingClass', newCharacter)}
                   onClick={() => onChangeClass(cClass)}
                 >
-                  <img src={cClass.icon} />
+                  <img src={cClass.icon} alt={cClass.name} />
                   <p>{cClass.name}</p>
                 </div>
               ))}
@@ -67,7 +67,7 @@ export const Class = () => {
         {selectedClass && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedClass.icon} />
+              <img src={selectedClass.icon} alt={selectedClass.name} />
               <h3>{selectedClass.name}</h3>
             </div>
             <p>{selectedClass.desc}</p>

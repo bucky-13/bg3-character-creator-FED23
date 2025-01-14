@@ -38,7 +38,7 @@ export const Subrace = () => {
                       className={isActiveIcon(subrace.id, 'subrace', newCharacter)}
                       onClick={() => onChangeSubrace(subrace)}
                     >
-                      <img src={subrace.icon} />
+                      <img src={subrace.icon} alt={subrace.name} />
                       <p>{subrace.name}</p>
                     </div>
                   ),
@@ -56,7 +56,7 @@ export const Subrace = () => {
             <h4 className="featureH">Features:</h4>
             {selectedSubrace.features.map((feature) => (
               <div key={feature.name} className="featureContainer">
-                {feature.icon && <img src={feature.icon} />}
+                {feature.icon && <img src={feature.icon} alt={feature.name} />}
                 <p>
                   <span>{feature.name}: </span>
                   {feature.desc}

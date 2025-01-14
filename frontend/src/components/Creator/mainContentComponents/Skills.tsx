@@ -175,7 +175,7 @@ export const Skills = () => {
                 disabled={isDisabled(skill.id) || (isSkillProfPicked(skill.id) === false && profSlotsLeft === 0)}
                 onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false)}
               >
-                {isSkillProfPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, false)} />}
+                {isSkillProfPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, false)} alt={skill.name} />}
               </button>
             ) : (
               <div></div>
@@ -186,7 +186,7 @@ export const Skills = () => {
                 disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}
                 onClick={() => onTogglingSkill(skill.id, isSkillExpPicked(skill.id), true)}
               >
-                {isSkillExpPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, true)} />}
+                {isSkillExpPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, true)} alt={skill.name} />}
               </button>
             ) : (
               <div></div>
