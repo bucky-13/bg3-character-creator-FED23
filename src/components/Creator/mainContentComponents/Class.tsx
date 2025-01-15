@@ -5,13 +5,13 @@ import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { ESpellArray } from './Spells';
-import { ISkillProfNewChar } from '../../../models/INewCharater';
+import { ISpellChociesNewChar } from '../../../models/INewCharater';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedClass, setSelectedClass] = useState(getDbClass(newCharacter.startingClass));
 
-  const filterSpells = (spellLevel: ESpellArray): ISkillProfNewChar[] => {
+  const filterSpells = (spellLevel: ESpellArray): ISpellChociesNewChar[] => {
     if (newCharacter[spellLevel]) {
       const newArray = newCharacter[spellLevel].filter((o) => o.fromSource !== spellLevel);
       return newArray;
