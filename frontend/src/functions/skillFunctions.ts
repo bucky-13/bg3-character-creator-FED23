@@ -1,6 +1,6 @@
 import { ESpellArray } from '../components/Creator/mainContentComponents/Spells';
 import { ISpell } from '../models/dbModels/ISpell';
-import { INewCharacter, ISkillProfNewChar, ISpellChociesNewChar } from '../models/INewCharater';
+import { INewCharacter, ISpellChociesNewChar } from '../models/INewCharater';
 import { getDbClass } from './getDbItems';
 
 export const getCantripTotal = (newCharacter: INewCharacter, specialCase?: string | undefined): number => {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import './Spells.scss';
 import { ISpell } from '../../../models/dbModels/ISpell';
-import { ISkillProfNewChar, ISpellChociesNewChar } from '../../../models/INewCharater';
+import { ISpellChociesNewChar } from '../../../models/INewCharater';
 import {
   createSpellSource,
   getCantripTotal,
