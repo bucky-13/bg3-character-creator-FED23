@@ -24,6 +24,7 @@ export const Origin = () => {
               key={origin.origin}
               className={isActiveIcon(origin.origin, 'origin', newCharacter)}
               onClick={() => onChangeOrigin(origin)}
+              onMouseEnter={() => setSelectedOrigin(origin)}
             >
               <img src={origin.icon} alt={origin.name} />
               <h4>{origin.name}</h4>

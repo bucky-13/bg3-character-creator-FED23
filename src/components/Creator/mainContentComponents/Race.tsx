@@ -49,6 +49,7 @@ export const Race = () => {
                   key={race.id}
                   className={isActiveIcon(race.id, 'race', newCharacter)}
                   onClick={() => onChangeRace(race)}
+                  onMouseEnter={() => setSelectedRace(race)}
                 >
                   <img src={race.icon} alt={race.name} />
                   <p>{race.name}</p>

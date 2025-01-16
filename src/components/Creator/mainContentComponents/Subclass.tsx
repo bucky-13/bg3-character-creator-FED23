@@ -29,6 +29,7 @@ export const Subclass = () => {
                       key={subClass.id}
                       className={isActiveIcon(subClass.id, 'startingSubclass', newCharacter)}
                       onClick={() => onChangeSubClass(subClass)}
+                      onMouseEnter={() => setSelectedSubclass(subClass)}
                     >
                       <img src={subClass.icon} alt={subClass.name} />
                       <p>{subClass.name}</p>

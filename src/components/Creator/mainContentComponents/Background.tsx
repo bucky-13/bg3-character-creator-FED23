@@ -33,6 +33,7 @@ export const Background = () => {
                   key={bg.id}
                   className={isActiveIcon(bg.id, 'background', newCharacter)}
                   onClick={() => onChangeBg(bg)}
+                  onMouseEnter={() => setSelectedBg(bg)}
                 >
                   <img src={bg.icon} alt={bg.name} />
                   <p>{bg.name}</p>

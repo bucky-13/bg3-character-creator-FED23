@@ -37,6 +37,7 @@ export const Subrace = () => {
                       key={subrace.id}
                       className={isActiveIcon(subrace.id, 'subrace', newCharacter)}
                       onClick={() => onChangeSubrace(subrace)}
+                      onMouseEnter={() => setSelectedSubrace(subrace)}
                     >
                       <img src={subrace.icon} alt={subrace.name} />
                       <p>{subrace.name}</p>

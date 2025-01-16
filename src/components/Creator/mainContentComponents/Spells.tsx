@@ -110,6 +110,7 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
                     className={isSelected(spell.id, newCharacter, spellLevel, specialCase)}
                     disabled={isDisabled(spell.id, newCharacter, spellLevel, amountToPick, specialCase)}
                     onClick={() => onChangeSpell(spell)}
+                    onMouseEnter={() => setActiveSpell(spell)}
                   >
                     <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
                   </button>

@@ -56,6 +56,7 @@ export const Class = () => {
                   key={cClass.id}
                   className={isActiveIcon(cClass.id, 'startingClass', newCharacter)}
                   onClick={() => onChangeClass(cClass)}
+                  onMouseEnter={() => setSelectedClass(cClass)}
                 >
                   <img src={cClass.icon} alt={cClass.name} />
                   <p>{cClass.name}</p>
