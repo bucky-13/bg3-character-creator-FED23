@@ -45,7 +45,7 @@ export const Race = () => {
           <div>
             <div className="choicesContainer">
               {races.map((race) => (
-                <div
+                <button
                   key={race.id}
                   className={isActiveIcon(race.id, 'race', newCharacter)}
                   onClick={() => onChangeRace(race)}
@@ -53,7 +53,7 @@ export const Race = () => {
                 >
                   <img src={race.icon} alt={race.name} />
                   <p>{race.name}</p>
-                </div>
+                </button>
               ))}
             </div>
           </div>

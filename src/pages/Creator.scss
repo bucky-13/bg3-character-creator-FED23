@@ -130,6 +130,12 @@
 
 .creatorImageChoiceContainer {
   cursor: pointer;
+  background-color: #00000000;
+  border: none;
+  height: auto;
+  width: auto;
+  color: #fff;
+
   img {
     max-width: 100px;
     max-height: 100px;
@@ -140,6 +146,17 @@
   img:hover {
     border: 2px solid #ffffff90;
   }
+}
+
+.creatorImageChoiceContainer:hover {
+  background-color: #00000000;
+  border: none;
+  height: auto;
+  width: auto;
+}
+
+.creatorImageChoiceContainer.activeChoice {
+  color: #f0de7a;
 }
 
 .originIcon {

@@ -20,7 +20,7 @@ export const Origin = () => {
       <div className="choicesAndSelectedContainer">
         <div className="choicesContainer">
           {dbOrigins.map((origin) => (
-            <div
+            <button
               key={origin.origin}
               className={isActiveIcon(origin.origin, 'origin', newCharacter)}
               onClick={() => onChangeOrigin(origin)}
@@ -28,7 +28,7 @@ export const Origin = () => {
             >
               <img src={origin.icon} alt={origin.name} />
               <h4>{origin.name}</h4>
-            </div>
+            </button>
           ))}
         </div>
         <div className="selectedChoiceContainer">

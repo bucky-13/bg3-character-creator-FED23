@@ -48,7 +48,7 @@ export const Class = () => {
           <div>
             <div className="choicesContainer">
               {charClasses.map((cClass) => (
-                <div
+                <button
                   key={cClass.id}
                   className={isActiveIcon(cClass.id, 'startingClass', newCharacter)}
                   onClick={() => onChangeClass(cClass)}
@@ -56,7 +56,7 @@ export const Class = () => {
                 >
                   <img src={cClass.icon} alt={cClass.name} />
                   <p>{cClass.name}</p>
-                </div>
+                </button>
               ))}
             </div>
           </div>

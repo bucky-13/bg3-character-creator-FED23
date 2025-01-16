@@ -25,7 +25,7 @@ export const Subclass = () => {
               {subClasses.map(
                 (subClass) =>
                   subClass.mainClass === newCharacter.startingClass && (
-                    <div
+                    <button
                       key={subClass.id}
                       className={isActiveIcon(subClass.id, 'startingSubclass', newCharacter)}
                       onClick={() => onChangeSubClass(subClass)}
@@ -33,7 +33,7 @@ export const Subclass = () => {
                     >
                       <img src={subClass.icon} alt={subClass.name} />
                       <p>{subClass.name}</p>
-                    </div>
+                    </button>
                   ),
               )}
             </div>

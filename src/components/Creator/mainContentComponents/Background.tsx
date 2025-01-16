@@ -29,7 +29,7 @@ export const Background = () => {
           <div>
             <div className="choicesContainer">
               {removeDUBackground().map((bg) => (
-                <div
+                <button
                   key={bg.id}
                   className={isActiveIcon(bg.id, 'background', newCharacter)}
                   onClick={() => onChangeBg(bg)}
@@ -37,7 +37,7 @@ export const Background = () => {
                 >
                   <img src={bg.icon} alt={bg.name} />
                   <p>{bg.name}</p>
-                </div>
+                </button>
               ))}
             </div>
           </div>

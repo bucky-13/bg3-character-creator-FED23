@@ -33,7 +33,7 @@ export const Subrace = () => {
               {subraces.map(
                 (subrace) =>
                   subrace.mainRace === newCharacter.race && (
-                    <div
+                    <button
                       key={subrace.id}
                       className={isActiveIcon(subrace.id, 'subrace', newCharacter)}
                       onClick={() => onChangeSubrace(subrace)}
@@ -41,7 +41,7 @@ export const Subrace = () => {
                     >
                       <img src={subrace.icon} alt={subrace.name} />
                       <p>{subrace.name}</p>
-                    </div>
+                    </button>
                   ),
               )}
             </div>
