@@ -74,3 +74,15 @@ export const updateExpertiseArray = (object: ISubrace | undefined, newCharacter:
   }
   return skills;
 };
+
+export const calculateSkillPointsLeft = (abilities: INewAbility[]): number => {
+  let points = 27;
+  for (let i = 0; i < abilities.length; i++) {
+    if (abilities[i].baseValue < 14) {
+      points = points - (abilities[i].baseValue - 8);
+    } else {
+      points = points - (abilities[i].baseValue - 13) * 2 - 5;
+    }
+  }
+  return points;
+};

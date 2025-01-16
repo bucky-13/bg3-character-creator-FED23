@@ -86,7 +86,7 @@ export const races: IRace[] = [
     id: 'race03',
     icon: './icons/races/Drow.png',
     name: 'Drow',
-    desc: `Driven to the Underdark, most drow have adopted a ruthless pragmatism. While the Lolth-sworn delight in the goddess' evil tenets, the Seldarine reject Her attempt to overthrow the leader of the elven pantheon.`,
+    desc: `Driven to the Underdark, most drow have adopted a ruthless pragmatism.`,
     equipmentProficiencies: [EEquipment.Rapiers, EEquipment.Shortswords, EEquipment.HandCrossbows],
     baseSpeed: 9,
     darkvision: 2,
@@ -113,7 +113,7 @@ export const races: IRace[] = [
       },
       {
         name: 'Fey Ancestry',
-        desc: `The Feywild casts a veil over your mind. You have Advantage on Saving throws against being Charmed, and magic can't put you to Sleep.`,
+        desc: `You have Advantage on Saving throws against being Charmed, and magic can't put you to Sleep.`,
       },
       {
         name: 'Drow Magic',
