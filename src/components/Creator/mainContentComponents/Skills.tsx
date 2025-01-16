@@ -5,6 +5,7 @@ import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import {
+  calculateSkillPointsLeft,
   checkForExpertiseSlots,
   displayAbilityTotalPoints,
   getProfSlots,
@@ -19,9 +20,13 @@ export const Skills = () => {
     ? getDbSubClass(newCharacter.startingSubclass)
     : undefined;
   const profSlots = getProfSlots(charClass, newCharacter.race);
-  const [profSlotsLeft, setProfSlotsLeft] = useState(profSlots);
+  const [profSlotsLeft, setProfSlotsLeft] = useState(
+    calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies),
+  );
   const expertiseSlots = checkForExpertiseSlots(charClass, charSubClass, newCharacter);
-  const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(expertiseSlots);
+  const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(
+    calculateSkillPointsLeft(expertiseSlots, newCharacter.skillExpertises),
+  );
 
   const findProfOnNewChar = (id: string) => {
     return newCharacter.skillProficiencies.find((o) => o.id == id);

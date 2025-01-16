@@ -4,11 +4,11 @@ import { abilities } from '../../../database/dbAbilities';
 import { IAbility } from '../../../models/dbModels/IAbilitiy';
 import './Abilities.scss';
 import { INewAbility } from '../../../models/INewCharater';
-import { calculateSkillPointsLeft, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
+import { calculateAbilityPointsLeft, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 
 export const Abilities = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [abilityPoints, setAbilityPoints] = useState(calculateSkillPointsLeft(newCharacter.abilities));
+  const [abilityPoints, setAbilityPoints] = useState(calculateAbilityPointsLeft(newCharacter.abilities));
   const [activeAbility, setActiveAbility] = useState<IAbility>(abilities[0]);
 
   const getAbility = (key: string): IAbility => {

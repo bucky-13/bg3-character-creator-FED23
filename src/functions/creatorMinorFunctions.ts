@@ -75,7 +75,7 @@ export const updateExpertiseArray = (object: ISubrace | undefined, newCharacter:
   return skills;
 };
 
-export const calculateSkillPointsLeft = (abilities: INewAbility[]): number => {
+export const calculateAbilityPointsLeft = (abilities: INewAbility[]): number => {
   let points = 27;
   for (let i = 0; i < abilities.length; i++) {
     if (abilities[i].baseValue < 14) {
@@ -85,4 +85,13 @@ export const calculateSkillPointsLeft = (abilities: INewAbility[]): number => {
     }
   }
   return points;
+};
+
+export const calculateSkillPointsLeft = (pointsTotal: number, skillsArray: ISkillProfNewChar[]): number => {
+  const skillArrayFromSource = skillsArray.filter((o) => o.fromSource === 'skills');
+  return pointsTotal - skillArrayFromSource.length;
+};
+
+export const resetSkillArrays = (skillsArray: ISkillProfNewChar[]): ISkillProfNewChar[] => {
+  return skillsArray.filter((o) => o.fromSource !== 'skills');
 };

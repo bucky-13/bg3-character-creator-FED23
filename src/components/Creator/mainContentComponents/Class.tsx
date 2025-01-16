@@ -3,7 +3,7 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbClass } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
+import { isActiveIcon, resetSkillArrays } from '../../../functions/creatorMinorFunctions';
 import { ESpellArray } from './Spells';
 import { ISpellChociesNewChar } from '../../../models/INewCharater';
 
@@ -22,26 +22,22 @@ export const Class = () => {
 
   const onChangeClass = (changedClass: ICharClass): void => {
     setSelectedClass(changedClass);
+    let updatedNewCharacter = newCharacter;
     if (changedClass.subclassAtLevel === 1) {
-      setNewCharacter({
-        ...newCharacter,
-        startingClass: changedClass.id,
-        startingSubclass: changedClass.subclasses[0],
-        casterLevel: changedClass.casterLevelPerLevel,
-        cantrips: filterSpells(ESpellArray.Lvl0),
-        lvl1Spells: filterSpells(ESpellArray.Lvl1),
-      });
+      updatedNewCharacter = { ...updatedNewCharacter, startingSubclass: changedClass.subclasses[0] };
     } else {
-      const newState = {
-        ...newCharacter,
-        startingClass: changedClass.id,
-        casterLevel: changedClass.casterLevelPerLevel,
-        cantrips: filterSpells(ESpellArray.Lvl0),
-        lvl1Spells: filterSpells(ESpellArray.Lvl1),
-      };
-      delete newState.startingSubclass;
-      setNewCharacter(newState);
+      delete updatedNewCharacter.startingSubclass;
     }
+
+    setNewCharacter({
+      ...updatedNewCharacter,
+      startingClass: changedClass.id,
+      casterLevel: changedClass.casterLevelPerLevel,
+      cantrips: filterSpells(ESpellArray.Lvl0),
+      lvl1Spells: filterSpells(ESpellArray.Lvl1),
+      skillProficiencies: resetSkillArrays(updatedNewCharacter.skillProficiencies),
+      skillExpertises: resetSkillArrays(updatedNewCharacter.skillExpertises),
+    });
   };
 
   return (
