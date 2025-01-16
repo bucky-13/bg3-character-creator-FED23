@@ -6,8 +6,8 @@ import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import {
   calculateSkillPointsLeft,
-  checkForExpertiseSlots,
   displayAbilityTotalPoints,
+  getExpertiseSlots,
   getProfSlots,
 } from '../../../functions/creatorMinorFunctions';
 import { useState } from 'react';
@@ -23,7 +23,7 @@ export const Skills = () => {
   const [profSlotsLeft, setProfSlotsLeft] = useState(
     calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies),
   );
-  const expertiseSlots = checkForExpertiseSlots(charClass, charSubClass, newCharacter);
+  const expertiseSlots = getExpertiseSlots(charClass, charSubClass, newCharacter);
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(
     calculateSkillPointsLeft(expertiseSlots, newCharacter.skillExpertises),
   );

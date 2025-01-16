@@ -15,7 +15,7 @@ export const displayAbilityTotalPoints = (ability: INewAbility): number => {
   return ability.baseValue + plus1Bonus + plus2Bonus;
 };
 
-export const checkForExpertiseSlots = (
+export const getExpertiseSlots = (
   charClass: ICharClass,
   charSubClass: ISubClass | undefined,
   newCharacter: INewCharacter,

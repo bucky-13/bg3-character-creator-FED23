@@ -5,6 +5,33 @@
   padding: 2rem 1rem 0 1rem;
   background-color: #00000095;
   border-right: 1px solid #000;
+
+  button {
+    text-align: left;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  p {
+    padding-left: 0.5rem;
+  }
+  div {
+    border: 1px solid red;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h4 {
+      color: red;
+      font-weight: 500;
+      margin: 0;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
 }
 
 button {

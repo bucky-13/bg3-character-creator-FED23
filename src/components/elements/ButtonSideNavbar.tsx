@@ -4,16 +4,27 @@ interface ButtonSideNavbarProps {
   textContent: string;
   activeSection: boolean;
   setCurrentSection: Dispatcher<string>;
+  displayWarning?: boolean;
 }
 
-export const ButtonSideNavbar = ({ textContent, activeSection, setCurrentSection }: ButtonSideNavbarProps) => {
+export const ButtonSideNavbar = ({
+  textContent,
+  activeSection,
+  setCurrentSection,
+  displayWarning,
+}: ButtonSideNavbarProps) => {
   const navigateToSection = (section: string) => {
     setCurrentSection(section.toLowerCase());
   };
 
   return (
     <button className={activeSection ? 'activeSectionBtn' : ''} onClick={() => navigateToSection(textContent)}>
-      {textContent}
+      {displayWarning && (
+        <div>
+          <h4>!</h4>
+        </div>
+      )}
+      <p>{textContent}</p>
     </button>
   );
 };
