@@ -20,7 +20,7 @@ export const ButtonSideNavbar = ({
   return (
     <button className={activeSection ? 'activeSectionBtn' : ''} onClick={() => navigateToSection(textContent)}>
       {displayWarning && (
-        <div>
+        <div className="alertDiv">
           <h4>!</h4>
         </div>
       )}

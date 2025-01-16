@@ -16,21 +16,21 @@
   p {
     padding-left: 0.5rem;
   }
-  div {
-    border: 1px solid red;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h4 {
-      color: red;
-      font-weight: 500;
-      margin: 0;
-      font-size: 1.5rem;
-      text-align: center;
-    }
+}
+.alertDiv {
+  border: 1px solid red;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4 {
+    color: red;
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
   }
 }
 

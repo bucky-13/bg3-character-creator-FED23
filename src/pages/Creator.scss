@@ -3,6 +3,50 @@
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  position: relative;
+
+  .proceedContainer {
+    position: fixed;
+    bottom: 50px;
+    background-color: #000;
+    height: 80px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 100px;
+    border: 1px solid #f0de7a;
+
+    .alertTextContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: #aaa;
+      margin: 0;
+    }
+    button {
+      padding: 0 2rem;
+      background-color: #040;
+    }
+    button:disabled {
+      background-color: #333;
+      border: 1px solid #888;
+      color: #aaa;
+    }
+    button:disabled:hover {
+      cursor: default;
+      border: 1px solid #888;
+      background-color: #333;
+    }
+    button:hover {
+      background-color: #070;
+    }
+  }
 }
 .creatorContainer {
   height: 100%;

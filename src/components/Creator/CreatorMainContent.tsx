@@ -8,6 +8,7 @@ import { Race } from './mainContentComponents/Race';
 import { CharSpells, ESpellArray } from './mainContentComponents/Spells';
 import { Subclass } from './mainContentComponents/Subclass';
 import { Subrace } from './mainContentComponents/Subrace';
+import { Proceed } from './Proceed';
 
 interface CreatorMainContentProps {
   currentSection: string;
@@ -37,6 +38,7 @@ export const CreatorMainContent = ({ currentSection }: CreatorMainContentProps) 
       {currentSection === 'spells' && (
         <CharSpells spellLevel={ESpellArray.Lvl1} title="Spells" spellList={lvl1spells} />
       )}
+      <Proceed />
     </div>
   );
 };
