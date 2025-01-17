@@ -11,7 +11,7 @@ export const Creator = () => {
   const [currentSection, setCurrentSection] = useState('origin');
 
   const defaultValue: INewCharContext = {
-    newCharacter: dbOrigins[0],
+    newCharacter: { ...dbOrigins[0], name: 'Tav' },
     setNewCharacter: () => {},
   };
   const [newCharacter, setNewCharacter] = useState<INewCharacter>(defaultValue.newCharacter);

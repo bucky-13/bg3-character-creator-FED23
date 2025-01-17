@@ -1,43 +1,66 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
+import { displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 import {
   getDbBackground,
   getDbClass,
   getDbOrigin,
   getDbRace,
+  getDbSkill,
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
+import { TextItem } from '../summaryComponents/TextItem';
 import './Summary.scss';
 
 export const Summary = () => {
   const { newCharacter } = useNewCharContext();
 
+  console.log(newCharacter);
+
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
       <h2>Character Summary</h2>
       <div className="summarySecondaryContainer">
-        <p>
-          <span className="summaryTitle">Origin:</span> {getDbOrigin(newCharacter.origin).name}
-        </p>
-        <p>
-          <span className="summaryTitle">Race:</span> {getDbRace(newCharacter.race).name}
-        </p>
-        {newCharacter.subrace && (
-          <p>
-            <span className="summaryTitle">Race:</span> {getDbSubrace(newCharacter.subrace).name}
-          </p>
-        )}
-        <p>
-          <span className="summaryTitle">Class:</span> {getDbClass(newCharacter.startingClass).name}
-        </p>
+        <TextItem title="Origin" name={getDbOrigin(newCharacter.origin).name} />
+        <TextItem title="Race" name={getDbRace(newCharacter.race).name} />
+        {newCharacter.subrace && <TextItem title="Subrace" name={getDbSubrace(newCharacter.subrace).name} />}
+        <TextItem title="Class" name={getDbClass(newCharacter.startingClass).name} />
         {newCharacter.startingSubclass && (
-          <p>
-            <span className="summaryTitle">Race:</span> {getDbSubClass(newCharacter.startingSubclass).name}
-          </p>
+          <TextItem title="Subclass" name={getDbSubClass(newCharacter.startingSubclass).name} />
         )}
-        <p>
-          <span className="summaryTitle">Background:</span> {getDbBackground(newCharacter.background).name}
-        </p>
+        <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
+
+        <ul>
+          <li>
+            <span className="summaryTitle">Abilities:</span>
+          </li>
+          {newCharacter.abilities.map((ability) => (
+            <li key={ability.id}>
+              <span className="summarySubTitle">{ability.shortName} </span>
+              {displayAbilityTotalPoints(ability)}
+            </li>
+          ))}
+        </ul>
+        <ul>
+          <li>
+            <span className="summaryTitle">Character Skills:</span>
+          </li>
+          {newCharacter.skillProficiencies.map((skill) => (
+            <li key={skill.id}>
+              <span className="summarySubTitle">{getDbSkill(skill.id).name} </span>({skill.fromSource})
+            </li>
+          ))}
+        </ul>
+        <ul>
+          <li>
+            <span className="summaryTitle">Armor:</span>
+          </li>
+          {newCharacter.skillProficiencies.map((skill) => (
+            <li key={skill.id}>
+              <span className="summarySubTitle">{getDbSkill(skill.id).name} </span>({skill.fromSource})
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

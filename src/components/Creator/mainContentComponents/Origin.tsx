@@ -11,7 +11,11 @@ export const Origin = () => {
 
   const onChangeOrigin = (changedOrigin: IOrigin): void => {
     setSelectedOrigin(changedOrigin);
-    setNewCharacter(changedOrigin);
+    if (changedOrigin.origin === 'ori01') {
+      setNewCharacter({ ...changedOrigin, name: 'Tav' });
+    } else {
+      setNewCharacter(changedOrigin);
+    }
   };
 
   return (
