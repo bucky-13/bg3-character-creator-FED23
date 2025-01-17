@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { CreatorMainContent } from '../components/Creator/CreatorMainContent';
 import { SideNavbar } from '../components/Creator/SideNavbar';
 import './Creator.scss';
-import { Overview } from '../components/Creator/Overview';
 import { INewCharacter } from '../models/INewCharater';
 import { INewCharContext, NewCharContext } from '../Context/CreatedCharacterContext';
 import { dbOrigins } from '../database/dbOrigins';
@@ -21,7 +20,6 @@ export const Creator = () => {
       <div className="creatorContainer">
         <SideNavbar currentSection={currentSection} setCurrentSection={setCurrentSection} />
         <CreatorMainContent currentSection={currentSection} setCurrentSection={setCurrentSection} />
-        <Overview />
       </div>
     </NewCharContext.Provider>
   );

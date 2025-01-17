@@ -37,6 +37,33 @@
 }
 .summarySubTitle {
   font-weight: 500;
-
   font-size: 1.1rem;
+}
+
+.abilitiesSummaryContainer {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.charStatsOverview {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+
+  .charStatContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    .charStatName {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    p {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
 }

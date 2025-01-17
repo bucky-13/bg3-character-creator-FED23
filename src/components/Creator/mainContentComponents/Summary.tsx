@@ -9,6 +9,7 @@ import {
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
+import { AbilitiesSummary } from '../summaryComponents/AbilitiesSummary';
 import { TextItem } from '../summaryComponents/TextItem';
 import './Summary.scss';
 
@@ -21,6 +22,8 @@ export const Summary = () => {
     <div className="creatorCenterContainer summaryMainContainer ">
       <h2>Character Summary</h2>
       <div className="summarySecondaryContainer">
+        <TextItem title="Character Name" name={newCharacter.name} />
+        <TextItem title="Character Level" name={newCharacter.characterLevel.toString()} />
         <TextItem title="Origin" name={getDbOrigin(newCharacter.origin).name} />
         <TextItem title="Race" name={getDbRace(newCharacter.race).name} />
         {newCharacter.subrace && <TextItem title="Subrace" name={getDbSubrace(newCharacter.subrace).name} />}
@@ -29,8 +32,8 @@ export const Summary = () => {
           <TextItem title="Subclass" name={getDbSubClass(newCharacter.startingSubclass).name} />
         )}
         <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
-
-        <ul>
+        <AbilitiesSummary />
+        {/* <ul>
           <li>
             <span className="summaryTitle">Abilities:</span>
           </li>
@@ -40,10 +43,10 @@ export const Summary = () => {
               {displayAbilityTotalPoints(ability)}
             </li>
           ))}
-        </ul>
+        </ul> */}
         <ul>
           <li>
-            <span className="summaryTitle">Character Skills:</span>
+            <span className="summaryTitle">Character Skill Proficiencies:</span>
           </li>
           {newCharacter.skillProficiencies.map((skill) => (
             <li key={skill.id}>
