@@ -5,6 +5,7 @@ import { IAbility } from '../../../models/dbModels/IAbilitiy';
 import './Abilities.scss';
 import { INewAbility } from '../../../models/INewCharater';
 import { calculateAbilityPointsLeft, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
+import { checkPlusOneBonusMissing, checkPlusTwoBonusMissing } from '../../../functions/sideNavbarFunctions';
 
 export const Abilities = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -63,12 +64,12 @@ export const Abilities = () => {
   return (
     <div className="abilitiesContainer">
       <h2>Abilities</h2>
-      <p>Ability points left: {abilityPoints}</p>
+      <p className={abilityPoints > 0 ? 'alertText' : ''}>Ability points left: {abilityPoints}</p>
       <div>
         <div className="abilityContainer">
           <div className="abiDummy"></div>
-          <p>Assign +2</p>
-          <p>Assign +1</p>
+          <p className={checkPlusTwoBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +2</p>
+          <p className={checkPlusOneBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +1</p>
         </div>
         {newCharacter.abilities.map((ability) => (
           <div

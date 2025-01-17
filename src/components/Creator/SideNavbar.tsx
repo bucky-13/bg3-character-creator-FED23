@@ -1,19 +1,10 @@
-import { useState } from 'react';
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 
-import {
-  checkAbilitiesWarning,
-  checkHECantrip,
-  checkSkillsWarning,
-  checkSpellsNormal,
-  displayCantrips,
-  displaySpells,
-  isWarningDisplayed,
-} from '../../functions/sideNavbarFunctions';
+import { displayCantrips, displaySpells, isWarningDisplayed } from '../../functions/sideNavbarFunctions';
 
 import { Dispatcher } from '../../models/types';
 import { ButtonSideNavbar } from '../elements/ButtonSideNavbar';
-import { ESpellArray } from './mainContentComponents/Spells';
+
 import './SideNavbar.scss';
 
 interface SideNavbarProps {

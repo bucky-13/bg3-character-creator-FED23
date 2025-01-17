@@ -89,9 +89,15 @@ export const calculateAbilityPointsLeft = (abilities: INewAbility[]): number => 
 
 export const calculateSkillPointsLeft = (pointsTotal: number, skillsArray: ISkillProfNewChar[]): number => {
   const skillArrayFromSource = skillsArray.filter((o) => o.fromSource === 'skills');
+
   return pointsTotal - skillArrayFromSource.length;
 };
 
 export const resetSkillArrays = (skillsArray: ISkillProfNewChar[]): ISkillProfNewChar[] => {
   return skillsArray.filter((o) => o.fromSource !== 'skills');
+};
+
+export const calculateSkillPointsTaken = (skillsArray: ISkillProfNewChar[]): number => {
+  const skillArrayFromSource = skillsArray.filter((o) => o.fromSource === 'skills');
+  return skillArrayFromSource ? skillArrayFromSource.length : 0;
 };

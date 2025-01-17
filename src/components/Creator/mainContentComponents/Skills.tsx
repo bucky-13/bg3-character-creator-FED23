@@ -6,6 +6,7 @@ import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import {
   calculateSkillPointsLeft,
+  calculateSkillPointsTaken,
   displayAbilityTotalPoints,
   getExpertiseSlots,
   getProfSlots,
@@ -155,17 +156,17 @@ export const Skills = () => {
       <div>
         <div className="skillContainer">
           <h4 className="skillBonus">Skill Bonus </h4>
-          <div>
+          <div className={profSlotsLeft > 0 ? 'alertText' : ''}>
             <h4>Prof </h4>
             <p>
-              {profSlotsLeft} / {profSlots}
+              {calculateSkillPointsTaken(newCharacter.skillProficiencies)} / {profSlots}
             </p>
           </div>
           {expertiseSlots > 0 && (
-            <div>
+            <div className={expertiseSlotsLeft > 0 ? 'alertText' : ''}>
               <h4>Exp</h4>
               <p>
-                {expertiseSlotsLeft} / {expertiseSlots}
+                {calculateSkillPointsTaken(newCharacter.skillExpertises)} / {expertiseSlots}
               </p>
             </div>
           )}

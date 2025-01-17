@@ -91,12 +91,17 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
     setActiveSpell(spell);
   };
 
+  const displayAlertText = (): boolean => {
+    const spellsTaken = totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase);
+    return spellsTaken === amountToPick ? false : true;
+  };
+
   console.log(newCharacter);
 
   return (
     <div className="creatorCenterContainer">
       <h2>{title}</h2>
-      <p>
+      <p className={displayAlertText() ? 'alertText' : ''}>
         {title} chosen: {totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase)} / {amountToPick}
       </p>
       <div className="choicesAndSelectedContainer">

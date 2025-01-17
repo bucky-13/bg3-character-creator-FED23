@@ -10,10 +10,19 @@ import {
 import { getDbClass, getDbSubClass } from './getDbItems';
 import { getCantripTotal, getSpellTotal, totalSpellsSelected } from './skillFunctions';
 
-export const checkPlusBonusesMissing = (newCharacter: INewCharacter) => {
-  const plus1bonuses = newCharacter.abilities.filter((o) => o.plusOneBonus === true);
+export const checkPlusTwoBonusMissing = (newCharacter: INewCharacter): boolean => {
   const plus2bonuses = newCharacter.abilities.filter((o) => o.plusTwoBonus === true);
-  return Object.keys(plus1bonuses).length <= 0 || Object.keys(plus2bonuses).length <= 0 ? true : false;
+  return Object.keys(plus2bonuses).length <= 0 ? true : false;
+};
+export const checkPlusOneBonusMissing = (newCharacter: INewCharacter): boolean => {
+  const plus1bonuses = newCharacter.abilities.filter((o) => o.plusOneBonus === true);
+
+  return Object.keys(plus1bonuses).length <= 0 ? true : false;
+};
+export const checkPlusBonusesMissing = (newCharacter: INewCharacter) => {
+  const plus1bonuses = checkPlusOneBonusMissing(newCharacter);
+  const plus2bonuses = checkPlusTwoBonusMissing(newCharacter);
+  return plus1bonuses || plus2bonuses ? true : false;
 };
 
 export const checkAbilitiesWarning = (newCharacter: INewCharacter): boolean => {
