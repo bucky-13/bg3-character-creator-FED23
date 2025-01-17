@@ -1,15 +1,10 @@
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { displayAbilityTotalPoints } from '../../functions/creatorMinorFunctions';
-import { getDbObject } from '../../functions/getDbItems';
+import { getDbBackground, getDbClass, getDbRace, getDbSubClass, getDbSubrace } from '../../functions/getDbItems';
 import './Overview.scss';
 
 export const Overview = () => {
   const { newCharacter } = useNewCharContext();
-
-  const getNameFromDb = (id: string, key: string) => {
-    const object = getDbObject(id, key);
-    return object !== undefined ? object.name : 'error';
-  };
 
   return (
     <div className="creatorOverview">
@@ -23,15 +18,15 @@ export const Overview = () => {
         ))}
       </div>
       <p>
-        {newCharacter.startingSubclass && <span>{getNameFromDb(newCharacter.startingSubclass, 'subClasses')} </span>}
-        {getNameFromDb(newCharacter.startingClass, 'charClasses')}{' '}
+        {newCharacter.startingSubclass && <span>{getDbSubClass(newCharacter.startingSubclass).name} </span>}
+        {getDbClass(newCharacter.startingClass).name}
       </p>
       {newCharacter.subrace ? (
-        <p>{getNameFromDb(newCharacter.subrace, 'subraces')}</p>
+        <p>{getDbSubrace(newCharacter.subrace).name}</p>
       ) : (
-        <p>{getNameFromDb(newCharacter.race, 'races')}</p>
+        <p>{getDbRace(newCharacter.race).name}</p>
       )}
-      <p>{getNameFromDb(newCharacter.background, 'charBgs')}</p>
+      <p>{getDbBackground(newCharacter.background).name}</p>
     </div>
   );
 };

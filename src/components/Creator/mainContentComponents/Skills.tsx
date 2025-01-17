@@ -1,6 +1,6 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbClass, getDbObject, getDbSubClass } from '../../../functions/getDbItems';
+import { getDbBackground, getDbClass, getDbRace, getDbSubClass, getDbSubrace } from '../../../functions/getDbItems';
 import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
@@ -140,11 +140,11 @@ export const Skills = () => {
 
     switch (source) {
       case 'background':
-        return getDbObject(newCharacter.background, 'charBgs')!.icon;
+        return getDbBackground(newCharacter.background).icon;
       case 'race':
-        return getDbObject(newCharacter.race, 'races')!.icon;
+        return getDbRace(newCharacter.race).icon;
       case 'subrace':
-        return newCharacter.subrace ? getDbObject(newCharacter.subrace, 'subraces')!.icon : '';
+        return newCharacter.subrace ? getDbSubrace(newCharacter.subrace).icon : '';
       default:
         return './icons/check-mark-icon.png';
     }

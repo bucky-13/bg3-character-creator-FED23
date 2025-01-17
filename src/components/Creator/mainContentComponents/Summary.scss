@@ -1,0 +1,24 @@
+.summaryMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+.summarySecondaryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.summaryTitle {
+  font-weight: 500;
+  color: #f0de7a;
+}

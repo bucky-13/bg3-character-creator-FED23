@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbObject } from '../../../functions/getDbItems';
 import { ISubClass } from '../../../models/dbModels/ISubClass';
 import { subClasses } from '../../../database/dbSubClass';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
+import { getDbSubClass } from '../../../functions/getDbItems';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedSubclass, setSelectedSubclass] = useState(getDbObject(newCharacter.startingSubclass!, 'subClasses'));
+  const [selectedSubclass, setSelectedSubclass] = useState(getDbSubClass(newCharacter.startingSubclass!));
 
   const onChangeSubClass = (changedSubClass: ISubClass): void => {
     setSelectedSubclass(changedSubClass);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbObject, getSkillProficiencies } from '../../../functions/getDbItems';
+import { getDbBackground, getSkillProficiencies } from '../../../functions/getDbItems';
 import { charBackgrounds } from '../../../database/dbCharBackgrounds';
 import { ICharBackground } from '../../../models/dbModels/ICharBackground';
 import { changeSkillsProfs, isActiveIcon } from '../../../functions/creatorMinorFunctions';
@@ -8,7 +8,7 @@ import { ISkillProfNewChar } from '../../../models/INewCharater';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
-  const [selectedBg, setSelectedBg] = useState(getDbObject(newCharacter.background, 'charBgs') as ICharBackground);
+  const [selectedBg, setSelectedBg] = useState(getDbBackground(newCharacter.background) as ICharBackground);
 
   const onChangeBg = (changedBg: ICharBackground): void => {
     const skills: ISkillProfNewChar[] = changeSkillsProfs(newCharacter, 'background', changedBg);
