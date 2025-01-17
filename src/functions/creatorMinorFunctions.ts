@@ -101,3 +101,8 @@ export const calculateSkillPointsTaken = (skillsArray: ISkillProfNewChar[]): num
   const skillArrayFromSource = skillsArray.filter((o) => o.fromSource === 'skills');
   return skillArrayFromSource ? skillArrayFromSource.length : 0;
 };
+
+export const regexNameCheckPassed = (e: string): boolean => {
+  const regex = new RegExp(/^[\p{Letter}\s\-.'0-9]+$/u);
+  return regex.test(e);
+};

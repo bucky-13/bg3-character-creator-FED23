@@ -13,7 +13,7 @@ export enum EOrigin {
 
 export const dbOrigins: IOrigin[] = [
   {
-    name: 'Custom',
+    name: 'Tav',
     characterLevel: 1,
     icon: './icons/origins/cus_icon.png',
     origin: 'ori01',

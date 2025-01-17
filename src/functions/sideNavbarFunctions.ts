@@ -6,6 +6,7 @@ import {
   calculateSkillPointsLeft,
   getExpertiseSlots,
   getProfSlots,
+  regexNameCheckPassed,
 } from './creatorMinorFunctions';
 import { getDbClass, getDbSubClass } from './getDbItems';
 import { getCantripTotal, getSpellTotal, totalSpellsSelected } from './skillFunctions';
@@ -81,5 +82,6 @@ export const isWarningDisplayed = (section: string, newCharacter: INewCharacter)
   if (section === 'high elf cantrip') return checkHECantrip(newCharacter);
   if (section === 'cantrips') return checkSpellsNormal(ESpellArray.Lvl0, newCharacter);
   if (section === 'spellsLvl1') return checkSpellsNormal(ESpellArray.Lvl1, newCharacter);
+  if (section === 'name') return !regexNameCheckPassed(newCharacter.name);
   return false;
 };

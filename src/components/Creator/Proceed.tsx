@@ -18,6 +18,7 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
     if (currentSection === 'cantrips' && isWarningDisplayed('cantrips', newCharacter)) isPending = true;
     if (currentSection === 'spells' && isWarningDisplayed('spellsLvl1', newCharacter)) isPending = true;
     if (currentSection === 'abilities' && isWarningDisplayed('abilities', newCharacter)) isPending = true;
+    if (currentSection === 'name' && isWarningDisplayed('name', newCharacter)) isPending = true;
     return isPending;
   };
 

@@ -42,7 +42,7 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
           textContent="High Elf Cantrip"
           activeSection={isActiveSection('high elf cantrip')}
           setCurrentSection={setCurrentSection}
-          displayWarning={isWarningDisplayed('highelfcatnip', newCharacter)}
+          displayWarning={isWarningDisplayed('high elf cantrip', newCharacter)}
         />
       )}
       <ButtonSideNavbar
@@ -84,6 +84,14 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         setCurrentSection={setCurrentSection}
         displayWarning={isWarningDisplayed('abilities', newCharacter)}
       />
+      {(newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') && (
+        <ButtonSideNavbar
+          textContent="Name"
+          activeSection={isActiveSection('name')}
+          setCurrentSection={setCurrentSection}
+          displayWarning={isWarningDisplayed('name', newCharacter)}
+        />
+      )}
       <ButtonSideNavbar
         textContent="Summary"
         activeSection={isActiveSection('summary')}

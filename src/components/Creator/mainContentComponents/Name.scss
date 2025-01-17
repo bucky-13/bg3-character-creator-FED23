@@ -1,0 +1,24 @@
+.nameContainer {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  input {
+    // height: 40px;
+    font-size: 1rem;
+    width: 300px;
+    background-color: #00000095;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border: 1px solid #d48a00;
+    border-radius: 100px;
+  }
+  input:focus {
+    background-color: #00330095;
+  }
+  .inputAlert:focus {
+    background-color: #33000095;
+  }
+}

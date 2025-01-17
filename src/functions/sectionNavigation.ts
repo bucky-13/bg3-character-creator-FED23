@@ -26,6 +26,9 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   if (displaySpells(newCharacter)) {
     insertChoiceAfterThis(lvl1ChoicesBase, 'spells', 'cantrips');
   }
+  if (newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') {
+    insertChoiceAfterThis(lvl1ChoicesBase, 'name', 'abilities');
+  }
   return lvl1ChoicesBase;
 };
 export const findSectionIndex = (lvlChoices: string[], currentSection: string): number => {
