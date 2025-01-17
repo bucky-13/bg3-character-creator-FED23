@@ -9,8 +9,8 @@
     position: fixed;
     bottom: 50px;
     background-color: #000;
-    height: 80px;
-    width: 200px;
+    height: 100px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,17 +18,25 @@
     border-radius: 100px;
     border: 1px solid #f0de7a;
 
+    .proceedButtonsContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
     .alertTextContainer {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       margin-bottom: 0.5rem;
+      p {
+        margin: 0 0 0 0.5rem;
+      }
     }
-    p {
-      color: #aaa;
-      margin: 0;
-    }
+
     button {
       padding: 0 2rem;
       background-color: #040;

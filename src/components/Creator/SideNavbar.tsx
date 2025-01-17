@@ -80,9 +80,14 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
       />
       <ButtonSideNavbar
         textContent="Abilities"
-        activeSection={isActiveSection('abilitiesAndSkills')}
+        activeSection={isActiveSection('abilities')}
         setCurrentSection={setCurrentSection}
         displayWarning={isWarningDisplayed('abilities', newCharacter)}
+      />
+      <ButtonSideNavbar
+        textContent="Summary"
+        activeSection={isActiveSection('summary')}
+        setCurrentSection={setCurrentSection}
       />
     </div>
   );

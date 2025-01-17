@@ -96,8 +96,6 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
     return spellsTaken === amountToPick ? false : true;
   };
 
-  console.log(newCharacter);
-
   return (
     <div className="creatorCenterContainer">
       <h2>{title}</h2>

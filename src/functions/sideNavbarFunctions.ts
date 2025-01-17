@@ -51,8 +51,6 @@ export const checkSpellsNormal = (spellLevel: ESpellArray, newCharacter: INewCha
   const spellsSelected = totalSpellsSelected(newCharacter[spellLevel], newCharacter, undefined);
   const amountToPick =
     spellLevel === ESpellArray.Lvl0 ? getCantripTotal(newCharacter, undefined) : getSpellTotal(newCharacter);
-  console.log(spellsSelected);
-  console.log(amountToPick);
   return amountToPick - spellsSelected > 0 ? true : false;
 };
 
@@ -80,7 +78,7 @@ export const displaySpells = (newCharacter: INewCharacter) => {
 export const isWarningDisplayed = (section: string, newCharacter: INewCharacter): boolean => {
   if (section === 'abilities')
     return checkAbilitiesWarning(newCharacter) || checkSkillsWarning(newCharacter) ? true : false;
-  if (section === 'highelfcatnip') return checkHECantrip(newCharacter);
+  if (section === 'high elf cantrip') return checkHECantrip(newCharacter);
   if (section === 'cantrips') return checkSpellsNormal(ESpellArray.Lvl0, newCharacter);
   if (section === 'spellsLvl1') return checkSpellsNormal(ESpellArray.Lvl1, newCharacter);
   return false;
