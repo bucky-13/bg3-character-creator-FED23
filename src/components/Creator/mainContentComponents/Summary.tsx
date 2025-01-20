@@ -57,11 +57,24 @@ export const Summary = () => {
           <li>
             <span className="summaryTitle">Armor:</span>
           </li>
-          {newCharacter.skillProficiencies.map((skill) => (
-            <li key={skill.id}>
-              <span className="summarySubTitle">{getDbSkill(skill.id).name} </span>({skill.fromSource})
+          {newCharacter.armorProficiencies.length > 0 ? (
+            newCharacter.armorProficiencies.map((armor) => (
+              <li key={armor.id}>
+                <span className="summarySubTitle">{armor.name} </span>(
+                {armor.fromSource.map((o, i) => (
+                  <span>
+                    {o}
+                    {i + 1 !== armor.fromSource.length && ', '}
+                  </span>
+                ))}
+                )
+              </li>
+            ))
+          ) : (
+            <li>
+              <span className="summarySubTitle">None</span>
             </li>
-          ))}
+          )}
         </ul>
       </div>
     </div>
