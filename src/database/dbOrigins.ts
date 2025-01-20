@@ -60,7 +60,44 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['class'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp06',
+        name: 'Martial Weapons',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp23',
+        name: 'Shortswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp26',
+        name: 'Longswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp18',
+        name: 'Shortbows',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp37',
+        name: 'Longbows',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+    ],
   },
   {
     name: 'Astarion',
@@ -96,7 +133,50 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['class'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp23',
+        name: 'Shortswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp26',
+        name: 'Longswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp18',
+        name: 'Shortbows',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp37',
+        name: 'Longbows',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp35',
+        name: 'Hand Crossbows',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp21',
+        name: 'Rapiers',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+    ],
   },
   {
     name: 'Gale',
@@ -136,7 +216,50 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['race'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp08',
+        name: 'Daggers',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp14',
+        name: 'Quarterstaves',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp17',
+        name: 'Light Crossbows',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp15',
+        name: 'Spears',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp34',
+        name: 'Pikes',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp32',
+        name: 'Halberds',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp29',
+        name: 'Glaives',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+    ],
   },
   {
     name: 'Karlach',
@@ -183,7 +306,20 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['class'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp06',
+        name: 'Martial Weapons',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+    ],
   },
   {
     name: `Lae'zel`,
@@ -235,7 +371,38 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['class'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp06',
+        name: 'Martial Weapons',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp23',
+        name: 'Shortswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp26',
+        name: 'Longswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race', 'class'],
+      },
+      {
+        id: 'eqp31',
+        name: 'Greatswords',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+    ],
   },
   {
     name: 'Shadowheart',
@@ -283,7 +450,44 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['class', 'race'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp20',
+        name: 'Morningstars',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp15',
+        name: 'Spears',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp34',
+        name: 'Pikes',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp32',
+        name: 'Halberds',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp29',
+        name: 'Glaives',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+    ],
   },
   {
     name: 'Wyll',
@@ -324,7 +528,38 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['race'],
       },
     ],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp05',
+        name: 'Simple Weapons',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp15',
+        name: 'Spears',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp34',
+        name: 'Pikes',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp32',
+        name: 'Halberds',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp29',
+        name: 'Glaives',
+        equipmentType: EEquipmentTypes.MartialW,
+        fromSource: ['race'],
+      },
+    ],
   },
   {
     name: 'The Dark Urge',
@@ -353,6 +588,25 @@ export const dbOrigins: IOrigin[] = [
     ],
     skillExpertises: [],
     armorProficiencies: [],
-    weaponProficiencies: [],
+    weaponProficiencies: [
+      {
+        id: 'eqp08',
+        name: 'Daggers',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp14',
+        name: 'Quarterstaves',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp17',
+        name: 'Light Crossbows',
+        equipmentType: EEquipmentTypes.SimpleW,
+        fromSource: ['class'],
+      },
+    ],
   },
 ];
