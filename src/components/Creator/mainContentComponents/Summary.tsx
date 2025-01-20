@@ -1,5 +1,4 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 import {
   getDbBackground,
   getDbClass,
