@@ -5,6 +5,7 @@ import {
   getDbOrigin,
   getDbRace,
   getDbSkill,
+  getDbSpell,
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
@@ -32,27 +33,14 @@ export const Summary = () => {
         )}
         <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
         <AbilitiesSummary />
-        {/* <ul>
-          <li>
-            <span className="summaryTitle">Abilities:</span>
-          </li>
-          {newCharacter.abilities.map((ability) => (
-            <li key={ability.id}>
-              <span className="summarySubTitle">{ability.shortName} </span>
-              {displayAbilityTotalPoints(ability)}
-            </li>
-          ))}
-        </ul> */}
         <ul>
           <li>
             <span className="summaryTitle">Character Skill Proficiencies:</span>
           </li>
           {newCharacter.skillProficiencies.map((skill, i) => (
             <li key={skill.id}>
-              <span className="summarySubTitle">
-                {getDbSkill(skill.id).name}
-                {i + 1 !== newCharacter.skillProficiencies.length && ', '}{' '}
-              </span>
+              {getDbSkill(skill.id).name}
+              {i + 1 !== newCharacter.skillProficiencies.length && ', '}{' '}
             </li>
           ))}
         </ul>
@@ -63,10 +51,8 @@ export const Summary = () => {
           {newCharacter.armorProficiencies.length > 0 ? (
             newCharacter.armorProficiencies.map((armor, i) => (
               <li key={armor.id}>
-                <span className="summarySubTitle">
-                  {armor.name}
-                  {i + 1 !== newCharacter.armorProficiencies.length && ', '}
-                </span>
+                {armor.name}
+                {i + 1 !== newCharacter.armorProficiencies.length && ', '}
               </li>
             ))
           ) : (
@@ -82,10 +68,8 @@ export const Summary = () => {
           {newCharacter.weaponProficiencies.length > 0 ? (
             newCharacter.weaponProficiencies.map((weapon, i) => (
               <li key={weapon.id}>
-                <span className="summarySubTitle">
-                  {weapon.name}
-                  {i + 1 !== newCharacter.weaponProficiencies.length && ', '}{' '}
-                </span>
+                {weapon.name}
+                {i + 1 !== newCharacter.weaponProficiencies.length && ', '}
               </li>
             ))
           ) : (
@@ -94,6 +78,32 @@ export const Summary = () => {
             </li>
           )}
         </ul>
+        {newCharacter.cantrips && newCharacter.cantrips.length > 0 && (
+          <ul>
+            <li>
+              <span className="summaryTitle">Cantrips: </span>
+              {newCharacter.cantrips.map((cantrip, i) => (
+                <li key={cantrip.id}>
+                  {getDbSpell(cantrip.id, 0).name}
+                  {i + 1 !== newCharacter.cantrips!.length && ', '}
+                </li>
+              ))}
+            </li>
+          </ul>
+        )}
+        {newCharacter.lvl1Spells && newCharacter.lvl1Spells.length > 0 && (
+          <ul>
+            <li>
+              <span className="summaryTitle">Level 1 spells: </span>
+              {newCharacter.lvl1Spells.map((spell, i) => (
+                <li key={spell.id}>
+                  {getDbSpell(spell.id, 1).name}
+                  {i + 1 !== newCharacter.lvl1Spells!.length && ', '}
+                </li>
+              ))}
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );

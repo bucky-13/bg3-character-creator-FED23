@@ -14,7 +14,7 @@ export const Class = () => {
 
   const filterSpells = (spellLevel: ESpellArray): ISpellChociesNewChar[] => {
     if (newCharacter[spellLevel]) {
-      const newArray = newCharacter[spellLevel].filter((o) => o.fromSource !== spellLevel);
+      const newArray = newCharacter[spellLevel].filter((o) => o.fromSource !== newCharacter.startingClass);
       return newArray;
     } else {
       return [];

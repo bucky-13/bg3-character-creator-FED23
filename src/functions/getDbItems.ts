@@ -1,6 +1,8 @@
 import { charBackgrounds } from '../database/dbCharBackgrounds';
 import { charClasses } from '../database/dbCharClasses';
 import { equipmentProficiencies } from '../database/dbEquipmentProficiencies';
+import { lvl0spells } from '../database/dbLvl0Spells';
+import { lvl1spells } from '../database/dbLvl1Spells';
 import { dbOrigins } from '../database/dbOrigins';
 import { races } from '../database/dbRaces';
 import { skills } from '../database/dbSkills';
@@ -12,6 +14,7 @@ import { IEquipmentProficiencies } from '../models/dbModels/IEquipmentProficienc
 import { IOrigin } from '../models/dbModels/IOrigin';
 import { IRace } from '../models/dbModels/IRace';
 import { ISkill } from '../models/dbModels/ISkill';
+import { ISpell } from '../models/dbModels/ISpell';
 import { ISubClass } from '../models/dbModels/ISubClass';
 import { ISubrace } from '../models/dbModels/ISubrace';
 
@@ -38,6 +41,11 @@ export const getDbBackground = (id: string): ICharBackground => {
 };
 export const getDbEquipment = (id: string): IEquipmentProficiencies => {
   return equipmentProficiencies.find((o) => o.id === id)!;
+};
+
+export const getDbSpell = (id: string, spellLevel: number): ISpell => {
+  if (spellLevel === 1) return lvl1spells.find((o) => o.id === id)!;
+  return lvl0spells.find((o) => o.id === id)!;
 };
 
 export const getSkillProficiencies = (ids: string[]): ISkill[] => {
