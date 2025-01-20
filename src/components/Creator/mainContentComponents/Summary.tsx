@@ -4,12 +4,13 @@ import {
   getDbClass,
   getDbOrigin,
   getDbRace,
-  getDbSkill,
-  getDbSpell,
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
 import { AbilitiesSummary } from '../summaryComponents/AbilitiesSummary';
+import { EquipmentSummary } from '../summaryComponents/EquipmentSummary';
+import { SkillsSummary } from '../summaryComponents/SkillsSummary';
+import { SpellSummary } from '../summaryComponents/SpellSummary';
 import { TextItem } from '../summaryComponents/TextItem';
 import './Summary.scss';
 
@@ -33,76 +34,17 @@ export const Summary = () => {
         )}
         <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
         <AbilitiesSummary />
-        <ul>
-          <li>
-            <span className="summaryTitle">Character Skill Proficiencies:</span>
-          </li>
-          {newCharacter.skillProficiencies.map((skill, i) => (
-            <li key={skill.id}>
-              {getDbSkill(skill.id).name}
-              {i + 1 !== newCharacter.skillProficiencies.length && ', '}{' '}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <li>
-            <span className="summaryTitle">Armor Proficiencies:</span>
-          </li>
-          {newCharacter.armorProficiencies.length > 0 ? (
-            newCharacter.armorProficiencies.map((armor, i) => (
-              <li key={armor.id}>
-                {armor.name}
-                {i + 1 !== newCharacter.armorProficiencies.length && ', '}
-              </li>
-            ))
-          ) : (
-            <li>
-              <span className="summarySubTitle">None</span>
-            </li>
-          )}
-        </ul>
-        <ul>
-          <li>
-            <span className="summaryTitle">Weapon Proficiencies:</span>
-          </li>
-          {newCharacter.weaponProficiencies.length > 0 ? (
-            newCharacter.weaponProficiencies.map((weapon, i) => (
-              <li key={weapon.id}>
-                {weapon.name}
-                {i + 1 !== newCharacter.weaponProficiencies.length && ', '}
-              </li>
-            ))
-          ) : (
-            <li>
-              <span className="summarySubTitle">None</span>
-            </li>
-          )}
-        </ul>
+        <SkillsSummary title="Character Skill Proficiencies" skillsArray={newCharacter.skillProficiencies} />
+        {newCharacter.skillExpertises.length > 0 && (
+          <SkillsSummary title="Character Skill Expertises" skillsArray={newCharacter.skillExpertises} />
+        )}
+        <EquipmentSummary title="Armor Proficiencies" equipmentArray={newCharacter.armorProficiencies} />
+        <EquipmentSummary title="Weapon Proficiencies" equipmentArray={newCharacter.weaponProficiencies} />
         {newCharacter.cantrips && newCharacter.cantrips.length > 0 && (
-          <ul>
-            <li>
-              <span className="summaryTitle">Cantrips: </span>
-              {newCharacter.cantrips.map((cantrip, i) => (
-                <li key={cantrip.id}>
-                  {getDbSpell(cantrip.id, 0).name}
-                  {i + 1 !== newCharacter.cantrips!.length && ', '}
-                </li>
-              ))}
-            </li>
-          </ul>
+          <SpellSummary title="Cantrips" spellArray={newCharacter.cantrips} spellLevel={0} />
         )}
         {newCharacter.lvl1Spells && newCharacter.lvl1Spells.length > 0 && (
-          <ul>
-            <li>
-              <span className="summaryTitle">Level 1 spells: </span>
-              {newCharacter.lvl1Spells.map((spell, i) => (
-                <li key={spell.id}>
-                  {getDbSpell(spell.id, 1).name}
-                  {i + 1 !== newCharacter.lvl1Spells!.length && ', '}
-                </li>
-              ))}
-            </li>
-          </ul>
+          <SpellSummary title="Level 1 spells" spellArray={newCharacter.lvl1Spells} spellLevel={1} />
         )}
       </div>
     </div>
