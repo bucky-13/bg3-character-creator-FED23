@@ -1,4 +1,5 @@
 import { EEquipment } from '../database/dbEquipmentProficiencies';
+import { INewEquipmentProficiencies } from './dbModels/IEquipmentProficiencies';
 
 export interface INewCharacter {
   charId?: string;
@@ -24,7 +25,8 @@ export interface INewCharacter {
   abilities: INewAbility[];
   skillProficiencies: ISkillProfNewChar[];
   skillExpertises: ISkillProfNewChar[];
-  equipmentProficiencies?: EEquipment[];
+  armorProficiencies: INewEquipmentProficiencies[];
+  weaponProficiencies: INewEquipmentProficiencies[];
   perks?: string[];
   lvlChoices?: ILvlChoices[];
   hasLockedChoices: boolean;

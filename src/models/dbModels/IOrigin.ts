@@ -1,4 +1,5 @@
 import { INewAbility, ISkillProfNewChar } from '../INewCharater';
+import { INewEquipmentProficiencies } from './IEquipmentProficiencies';
 
 export interface IOrigin {
   name: string;
@@ -16,4 +17,6 @@ export interface IOrigin {
   hasLockedChoices: boolean;
   skillProficiencies: ISkillProfNewChar[];
   skillExpertises: ISkillProfNewChar[];
+  armorProficiencies: INewEquipmentProficiencies[];
+  weaponProficiencies: INewEquipmentProficiencies[];
 }

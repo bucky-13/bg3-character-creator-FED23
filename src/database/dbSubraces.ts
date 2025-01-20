@@ -1,4 +1,5 @@
 import { ISubrace } from '../models/dbModels/ISubrace';
+import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
 
 export enum ESubraces {
@@ -39,7 +40,7 @@ export const subraces: ISubrace[] = [
     name: 'High Elf',
     desc: `Heirs of the mystical Feywild, high elves value magic in all its forms, and even those who do not study spellcraft can manipulate the Weave.`,
     mainRace: 'race02',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Cantrip',
@@ -53,7 +54,7 @@ export const subraces: ISubrace[] = [
     name: 'Wood Elf',
     desc: `These elves spend their reclusive lives in Faerûn's forests. Decades of training in archery and camouflage are enhanced by an otherworldly swiftness.`,
     mainRace: 'race02',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     baseSpeed: 10.5,
     skillProficiencies: [ESkills.Stealth],
     features: [
@@ -74,7 +75,7 @@ export const subraces: ISubrace[] = [
     name: 'Lolth-sworn Drow',
     desc: `Raised by Lolth's cult in the city of Menzoberranzan, these drow embody the virtues of their corrupt and merciless goddess. Lolth marks Her followers with bright red eyes so those in the Underdark will learn to fear them on sight.`,
     mainRace: 'race03',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [],
   },
   {
@@ -83,7 +84,7 @@ export const subraces: ISubrace[] = [
     name: 'Seldarine Drow',
     desc: `Seldarine drow can be found seeking allies from all over Faerûn, aiming to settle their conflict with Lolth - and each other - by any means necessary.`,
     mainRace: 'race03',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [],
   },
   {
@@ -92,7 +93,7 @@ export const subraces: ISubrace[] = [
     name: 'High Half-Elf',
     desc: `A touch of the Feywild remains in half-elves with this bloodline, and even those untrained in magic possess a hint of wild power.`,
     mainRace: 'race04',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Cantrip',
@@ -107,7 +108,7 @@ export const subraces: ISubrace[] = [
     name: 'Wood Half-Elf',
     desc: `Like their wood elf parent, these half-elves have a quickened stride and an eye for stealth. Yet many break away from isolation in Faerûn's forests to explore the rest of the Realms.`,
     mainRace: 'race04',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     skillProficiencies: [ESkills.Stealth],
     features: [
       {
@@ -127,7 +128,7 @@ export const subraces: ISubrace[] = [
     name: 'Drow Half-Elf',
     desc: `Most half-drow result from liaisons between Seldarine drow and surfacers. While half-drow inherited a few magical gifts, they aren't usually raised in the Underdark.`,
     mainRace: 'race04',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Drow Magic',
@@ -156,7 +157,7 @@ export const subraces: ISubrace[] = [
     name: 'Lightfoot Halfling',
     desc: `Stealthy but social, these halflings travel all over Faerûn to make names for themselves.`,
     mainRace: 'race06',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Naturally Stealthy',
@@ -170,7 +171,7 @@ export const subraces: ISubrace[] = [
     name: 'Strongheart Halfling',
     desc: `Legend has it that dwarven blood gave stronghearts their hardiness. Resistant to poison and wellsprings of endurance, these halflings easily hold their own`,
     mainRace: 'race06',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Strongheart Resilience',
@@ -184,7 +185,7 @@ export const subraces: ISubrace[] = [
     name: 'Gold Dwarf',
     desc: `These dwarves are known for their confidence and keen intuition. The culture of their Deep Kingdom values family, ritual, and fine craftsmanship.`,
     mainRace: 'race07',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Dwarven Toughness',
@@ -198,7 +199,7 @@ export const subraces: ISubrace[] = [
     name: 'Shield Dwarf',
     desc: `Great losses in ancient wars against goblins and orcs have led these dwarves to adopt a cynical mindset, but they will endure anything to restore their ancestral homelands.`,
     mainRace: 'race07',
-    equipmentProficiencies: [],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor],
     features: [
       {
         name: 'Dwarven Armor Training',
@@ -212,7 +213,7 @@ export const subraces: ISubrace[] = [
     name: 'Duergar',
     desc: `Once enslaved by the eldritch mind flayers, duergar adapted to freedom with harsh practicality. Their cold demeanours and gift of stealth are well-known throughout the Underdark.`,
     mainRace: 'race07',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     darkvision: 2,
     features: [
       {
@@ -247,7 +248,7 @@ export const subraces: ISubrace[] = [
     name: 'Rock Gnome',
     desc: `The most commonly seen gnomes on Faerûn's surface, rock gnomes are named as such for their hardiness and affinity for metal.`,
     mainRace: 'race08',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     skillExpertises: [ESkills.History],
     features: [
       {
@@ -262,7 +263,7 @@ export const subraces: ISubrace[] = [
     name: 'Forest Gnome',
     desc: `Even smaller than their cousins and twice as reclusive, forest gnomes are a rare sight in Faerûn. They master magic and craftsmanship in their distant, idyllic groves.`,
     mainRace: 'race08',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Speak With Animals`,
@@ -277,7 +278,7 @@ export const subraces: ISubrace[] = [
     name: 'Deep Gnome',
     desc: `Even smaller than their cousins and twice as reclusive, forest gnomes are a rare sight in Faerûn. They master magic and craftsmanship in their distant, idyllic groves.`,
     mainRace: 'race08',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     darkvision: 2,
     features: [
       {
@@ -297,7 +298,7 @@ export const subraces: ISubrace[] = [
     name: 'Asmodeus Tiefling',
     desc: `Bound to Nessus, the deepest layer of the Hells, these tieflings inherited the ability to wield fire and darkness from the archdevil Asmodeus' infernal bloodline.`,
     mainRace: 'race09',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Infernal Legacy',
@@ -326,7 +327,7 @@ export const subraces: ISubrace[] = [
     name: 'Mephistopheles Tiefling',
     desc: `Descended from the archdevil Mephistopheles, these tieflings are gifted with a particular affinity for arcane magic.`,
     mainRace: 'race09',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Legacy of Cania',
@@ -355,7 +356,7 @@ export const subraces: ISubrace[] = [
     name: 'Zariel Tiefling',
     desc: `Tieflings from Zariel's bloodline are empowered with martial strength, and can channel searing flame to punish their enemies.`,
     mainRace: 'race09',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: 'Legacy of Avernus',
@@ -384,7 +385,7 @@ export const subraces: ISubrace[] = [
     name: 'Black Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the charcoal colouration and fizzling, acrid breath of black dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Acid Breath`,
@@ -402,7 +403,7 @@ export const subraces: ISubrace[] = [
     name: 'Blue Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the deep sapphire scales and charged, crackling breath of blue dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Lightning Breath`,
@@ -420,7 +421,7 @@ export const subraces: ISubrace[] = [
     name: 'Brass Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the burnished ochre hue and flickering, fiery breath of brass dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Fire Breath (Line)`,
@@ -438,7 +439,7 @@ export const subraces: ISubrace[] = [
     name: 'Bronze Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the shining sepia scales and sparking breath of bronze dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Lightning Breath`,
@@ -456,7 +457,7 @@ export const subraces: ISubrace[] = [
     name: 'Copper Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the pink-gold colouration and corrosive breath of copper dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Acid Breath`,
@@ -474,7 +475,7 @@ export const subraces: ISubrace[] = [
     name: 'Gold Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the resplendent shine and roiling, blazing breath of gold dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Fire Breath (Cone)`,
@@ -492,7 +493,7 @@ export const subraces: ISubrace[] = [
     name: 'Green Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the brilliant emerald aspect and stinking, putrid breath of green dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Poison Breath (Cone)`,
@@ -510,7 +511,7 @@ export const subraces: ISubrace[] = [
     name: 'Red Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the bright scarlet likeness and roiling, burning breath of red dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Fire Breath (Cone)`,
@@ -528,7 +529,7 @@ export const subraces: ISubrace[] = [
     name: 'Silver Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the glinting shine and scorching cold breath of silver dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Frost Breath (Cone)`,
@@ -546,7 +547,7 @@ export const subraces: ISubrace[] = [
     name: 'White Dragonborn',
     desc: `Despite no ancestral links to the mighty creatures, these dragonborn share the snowy aspect and frosty breath of white dragons.`,
     mainRace: 'race11',
-    equipmentProficiencies: [],
+    armorProficiencies: [],
     features: [
       {
         name: `Frost Breath (Cone)`,

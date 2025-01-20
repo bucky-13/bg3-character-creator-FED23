@@ -1,3 +1,4 @@
+import { EEquipmentTypes } from '../models/dbModels/IEquipmentProficiencies';
 import { IOrigin } from '../models/dbModels/IOrigin';
 
 export enum EOrigin {
@@ -38,6 +39,28 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski13', fromSource: 'race', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp02',
+        name: 'Medium Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'Astarion',
@@ -65,6 +88,15 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski13', fromSource: 'race', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'Gale',
@@ -90,6 +122,21 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski06', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['race'],
+      },
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['race'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'Karlach',
@@ -116,6 +163,27 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski14', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp02',
+        name: 'Medium Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: `Lae'zel`,
@@ -141,6 +209,33 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski16', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class', 'race'],
+      },
+      {
+        id: 'eqp02',
+        name: 'Medium Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class', 'race'],
+      },
+      {
+        id: 'eqp03',
+        name: 'Heavy Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'Shadowheart',
@@ -168,6 +263,27 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski09', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class', 'race'],
+      },
+      {
+        id: 'eqp02',
+        name: 'Medium Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class'],
+      },
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class', 'race'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'Wyll',
@@ -194,6 +310,21 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski11', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [
+      {
+        id: 'eqp01',
+        name: 'Light Armor',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['class', 'race'],
+      },
+      {
+        id: 'eqp04',
+        name: 'Shields',
+        equipmentType: EEquipmentTypes.Armor,
+        fromSource: ['race'],
+      },
+    ],
+    weaponProficiencies: [],
   },
   {
     name: 'The Dark Urge',
@@ -221,5 +352,7 @@ export const dbOrigins: IOrigin[] = [
       { id: 'ski16', fromSource: 'background', canChange: false },
     ],
     skillExpertises: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
 ];

@@ -9,3 +9,7 @@ export interface IEquipmentProficiencies {
   name: string;
   equipmentType: EEquipmentTypes;
 }
+
+export interface INewEquipmentProficiencies extends IEquipmentProficiencies {
+  fromSource: string[];
+}

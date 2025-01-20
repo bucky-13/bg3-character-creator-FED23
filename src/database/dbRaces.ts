@@ -22,7 +22,7 @@ export const races: IRace[] = [
     icon: './icons/races/Human.png',
     name: 'Human',
     desc: `The most common face in Faerûn, humans are known for their tenacity, creativity, and endless capacity for growth.`,
-    equipmentProficiencies: [
+    weaponProficiencies: [
       EEquipment.Spears,
       EEquipment.Pikes,
       EEquipment.Halberds,
@@ -30,6 +30,7 @@ export const races: IRace[] = [
       EEquipment.LightArmor,
       EEquipment.Shields,
     ],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.Shields],
     baseSpeed: 9,
     features: [
       {
@@ -52,7 +53,7 @@ export const races: IRace[] = [
     icon: './icons/races/Elf.png',
     name: 'Elf',
     desc: `With ethereal countenances and long lifespans, elves are at home with nature's power, flourishing in light and dark alike.`,
-    equipmentProficiencies: [EEquipment.Longswords, EEquipment.Shortswords, EEquipment.Longbows, EEquipment.Shortbows],
+    weaponProficiencies: [EEquipment.Longswords, EEquipment.Shortswords, EEquipment.Longbows, EEquipment.Shortbows],
     baseSpeed: 9,
     darkvision: 1,
     skillProficiencies: [ESkills.Perception],
@@ -87,7 +88,7 @@ export const races: IRace[] = [
     icon: './icons/races/Drow.png',
     name: 'Drow',
     desc: `Driven to the Underdark, most drow have adopted a ruthless pragmatism.`,
-    equipmentProficiencies: [EEquipment.Rapiers, EEquipment.Shortswords, EEquipment.HandCrossbows],
+    weaponProficiencies: [EEquipment.Rapiers, EEquipment.Shortswords, EEquipment.HandCrossbows],
     baseSpeed: 9,
     darkvision: 2,
     skillProficiencies: [ESkills.Perception],
@@ -141,14 +142,8 @@ export const races: IRace[] = [
     icon: './icons/races/Half-Elf.png',
     name: 'Half Elf',
     desc: `Curious, ambitious, and versatile, half-elves are welcome everywhere, but struggle without a community to call their own`,
-    equipmentProficiencies: [
-      EEquipment.Spears,
-      EEquipment.Pikes,
-      EEquipment.Halberds,
-      EEquipment.Glaives,
-      EEquipment.LightArmor,
-      EEquipment.Shields,
-    ],
+    weaponProficiencies: [EEquipment.Spears, EEquipment.Pikes, EEquipment.Halberds, EEquipment.Glaives],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.Shields],
     baseSpeed: 9,
     darkvision: 1,
     subraces: ['subr05', 'subr06', 'subr07'],
@@ -234,12 +229,7 @@ export const races: IRace[] = [
     icon: './icons/races/Dwarf.png',
     name: 'Dwarf',
     desc: `As durable and unyielding as their homes of stone, dwarves are some of the finest warriors, miners, and smiths of Faerûn`,
-    equipmentProficiencies: [
-      EEquipment.Battleaxes,
-      EEquipment.Handaxes,
-      EEquipment.LightHammers,
-      EEquipment.Warhammers,
-    ],
+    weaponProficiencies: [EEquipment.Battleaxes, EEquipment.Handaxes, EEquipment.LightHammers, EEquipment.Warhammers],
     baseSpeed: 7.5,
     darkvision: 1,
     subraces: ['subr10', 'subr11', 'subr12'],
@@ -319,13 +309,8 @@ export const races: IRace[] = [
     icon: './icons/races/Githyanki.png',
     name: 'Githyanki',
     desc: `With a ruthlessness borne from mind flayer enslavement, githyanki ride the Astral Sea atop red dragons, bringing their silver swords and psionic might to bear against any trace of the illithid menace.`,
-    equipmentProficiencies: [
-      EEquipment.LightArmor,
-      EEquipment.MediumArmor,
-      EEquipment.Shortswords,
-      EEquipment.Longswords,
-      EEquipment.Greatswords,
-    ],
+    weaponProficiencies: [EEquipment.Shortswords, EEquipment.Longswords, EEquipment.Greatswords],
+    armorProficiencies: [EEquipment.LightArmor, EEquipment.MediumArmor],
     baseSpeed: 9,
     features: [
       {

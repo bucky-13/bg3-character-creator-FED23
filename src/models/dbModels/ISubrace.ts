@@ -1,3 +1,4 @@
+import { EEquipment } from '../../database/dbEquipmentProficiencies';
 import { ESkills } from '../../database/dbSkills';
 import { IFeatures } from './IFeatures';
 import { IRaceSpells } from './IRace';
@@ -10,7 +11,7 @@ export interface ISubrace {
   mainRace: string;
   skillProficiencies?: ESkills[];
   skillExpertises?: ESkills[];
-  equipmentProficiencies?: string[];
+  armorProficiencies?: EEquipment[];
   baseSpeed?: number;
   specialSkills?: IRaceSpells[];
   spells?: IRaceSpells[];
