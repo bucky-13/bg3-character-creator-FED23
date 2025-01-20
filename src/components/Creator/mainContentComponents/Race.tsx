@@ -5,6 +5,7 @@ import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
 import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
+import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -17,13 +18,23 @@ export const Race = () => {
     const defaultSubrace = changedRace.subraces ? getDbSubrace(changedRace.subraces[0]) : undefined;
     let newSkillExps = updateExpertiseArray(defaultSubrace, newCharacter, 'subrace');
 
+    let newArmorProfs = updateEquipmentArray(newCharacter.armorProficiencies, 'race', changedRace.armorProficiencies);
+    let newWeaponProfs = updateEquipmentArray(
+      newCharacter.weaponProficiencies,
+      'race',
+      changedRace.weaponProficiencies,
+    );
+
     if (changedRace.subraces) {
+      const updatedSubrace = getDbSubrace(changedRace.subraces[0]);
       setNewCharacter({
         ...newCharacter,
         race: changedRace.id,
         subrace: changedRace.subraces[0],
         skillProficiencies: newSkillProfs,
         skillExpertises: newSkillExps,
+        armorProficiencies: updateEquipmentArray(newArmorProfs, 'subrace', updatedSubrace.armorProficiencies),
+        weaponProficiencies: newWeaponProfs,
       });
     } else {
       const newState: INewCharacter = {
@@ -31,6 +42,8 @@ export const Race = () => {
         race: changedRace.id,
         skillProficiencies: newSkillProfs,
         skillExpertises: newSkillExps,
+        armorProficiencies: removeEquipmentFromOldClass(newArmorProfs, 'subrace'),
+        weaponProficiencies: newWeaponProfs,
       };
       delete newState.subrace;
       setNewCharacter(newState);

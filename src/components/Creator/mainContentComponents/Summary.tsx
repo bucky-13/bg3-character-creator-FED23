@@ -47,27 +47,45 @@ export const Summary = () => {
           <li>
             <span className="summaryTitle">Character Skill Proficiencies:</span>
           </li>
-          {newCharacter.skillProficiencies.map((skill) => (
+          {newCharacter.skillProficiencies.map((skill, i) => (
             <li key={skill.id}>
-              <span className="summarySubTitle">{getDbSkill(skill.id).name} </span>({skill.fromSource})
+              <span className="summarySubTitle">
+                {getDbSkill(skill.id).name}
+                {i + 1 !== newCharacter.skillProficiencies.length && ', '}{' '}
+              </span>
             </li>
           ))}
         </ul>
         <ul>
           <li>
-            <span className="summaryTitle">Armor:</span>
+            <span className="summaryTitle">Armor Proficiencies:</span>
           </li>
           {newCharacter.armorProficiencies.length > 0 ? (
-            newCharacter.armorProficiencies.map((armor) => (
+            newCharacter.armorProficiencies.map((armor, i) => (
               <li key={armor.id}>
-                <span className="summarySubTitle">{armor.name} </span>(
-                {armor.fromSource.map((o, i) => (
-                  <span>
-                    {o}
-                    {i + 1 !== armor.fromSource.length && ', '}
-                  </span>
-                ))}
-                )
+                <span className="summarySubTitle">
+                  {armor.name}
+                  {i + 1 !== newCharacter.armorProficiencies.length && ', '}
+                </span>
+              </li>
+            ))
+          ) : (
+            <li>
+              <span className="summarySubTitle">None</span>
+            </li>
+          )}
+        </ul>
+        <ul>
+          <li>
+            <span className="summaryTitle">Weapon Proficiencies:</span>
+          </li>
+          {newCharacter.weaponProficiencies.length > 0 ? (
+            newCharacter.weaponProficiencies.map((weapon, i) => (
+              <li key={weapon.id}>
+                <span className="summarySubTitle">
+                  {weapon.name}
+                  {i + 1 !== newCharacter.weaponProficiencies.length && ', '}{' '}
+                </span>
               </li>
             ))
           ) : (

@@ -3,6 +3,7 @@ import { skills } from '../../../database/dbSkills';
 import { getDbBackground, getDbClass, getDbRace, getDbSubClass, getDbSubrace } from '../../../functions/getDbItems';
 import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
+import '../Overview.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import {
   calculateSkillPointsLeft,

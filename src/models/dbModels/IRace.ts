@@ -9,8 +9,8 @@ export interface IRace {
   desc: string;
   subraces?: string[];
   skillProficiencies?: ESkills[];
-  armorProficiencies?: EEquipment[];
-  weaponProficiencies?: EEquipment[];
+  armorProficiencies: EEquipment[];
+  weaponProficiencies: EEquipment[];
   baseSpeed: number;
   spells?: IRaceSpells[];
   specialSkills?: IRaceSpells[];

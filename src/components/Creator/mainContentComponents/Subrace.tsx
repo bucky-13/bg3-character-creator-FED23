@@ -4,6 +4,7 @@ import { subraces } from '../../../database/dbSubraces';
 import { getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
+import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -14,11 +15,18 @@ export const Subrace = () => {
     setSelectedSubrace(changedSubrace);
     const skillExpertises = updateExpertiseArray(changedSubrace, newCharacter, 'subrace');
 
+    const newArmorProfs = updateEquipmentArray(
+      newCharacter.armorProficiencies,
+      'subrace',
+      changedSubrace.armorProficiencies,
+    );
+
     setNewCharacter({
       ...newCharacter,
       subrace: changedSubrace.id,
       skillProficiencies: newSkillProfs,
       skillExpertises: skillExpertises,
+      armorProficiencies: newArmorProfs,
     });
   };
 

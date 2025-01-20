@@ -3,6 +3,7 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { abilities } from '../../../database/dbAbilities';
 import { IAbility } from '../../../models/dbModels/IAbilitiy';
 import './Abilities.scss';
+import '../Overview.scss';
 import { INewAbility } from '../../../models/INewCharater';
 import { calculateAbilityPointsLeft, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 import { checkPlusOneBonusMissing, checkPlusTwoBonusMissing } from '../../../functions/sideNavbarFunctions';

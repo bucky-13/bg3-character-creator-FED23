@@ -14,8 +14,8 @@ export interface ISubClass {
   skillExpertiseSlots?: number;
   expertiseAtLevel?: number;
   skillProficiencySlots?: number;
-  armorProficiencies?: EEquipment[];
-  weaponProficiencies?: EEquipment[];
+  armorProficiencies: EEquipment[];
+  weaponProficiencies: EEquipment[];
   spells?: ISpell[];
   specialSkills: ISpecialSkills[];
 }

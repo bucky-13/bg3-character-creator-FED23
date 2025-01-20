@@ -1,5 +1,6 @@
 import { charBackgrounds } from '../database/dbCharBackgrounds';
 import { charClasses } from '../database/dbCharClasses';
+import { equipmentProficiencies } from '../database/dbEquipmentProficiencies';
 import { dbOrigins } from '../database/dbOrigins';
 import { races } from '../database/dbRaces';
 import { skills } from '../database/dbSkills';
@@ -7,6 +8,7 @@ import { subClasses } from '../database/dbSubClass';
 import { subraces } from '../database/dbSubraces';
 import { ICharBackground } from '../models/dbModels/ICharBackground';
 import { ICharClass } from '../models/dbModels/ICharClass';
+import { IEquipmentProficiencies } from '../models/dbModels/IEquipmentProficiencies';
 import { IOrigin } from '../models/dbModels/IOrigin';
 import { IRace } from '../models/dbModels/IRace';
 import { ISkill } from '../models/dbModels/ISkill';
@@ -33,6 +35,9 @@ export const getDbSkill = (id: string): ISkill => {
 };
 export const getDbBackground = (id: string): ICharBackground => {
   return charBackgrounds.find((o) => o.id === id)!;
+};
+export const getDbEquipment = (id: string): IEquipmentProficiencies => {
+  return equipmentProficiencies.find((o) => o.id === id)!;
 };
 
 export const getSkillProficiencies = (ids: string[]): ISkill[] => {

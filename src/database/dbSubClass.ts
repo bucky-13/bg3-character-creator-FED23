@@ -59,6 +59,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl01',
     icon: './icons/subClasses/Barbarian_Berserker_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl02',
@@ -67,6 +69,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl01',
     icon: './icons/subClasses/Barbarian_Wild_Magic_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl03',
@@ -75,6 +79,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl01',
     icon: './icons/subClasses/Barbarian_Wildheart_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl04',
@@ -84,6 +90,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl02',
     skillProficiencySlots: 3,
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl05',
@@ -113,6 +121,7 @@ export const subClasses: ISubClass[] = [
     icon: './icons/subClasses/Cleric_Life_Icon.png',
     armorProficiencies: [EEquipment.HeavyArmor],
     specialSkills: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl08',
@@ -121,6 +130,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl03',
     icon: './icons/subClasses/Cleric_Light_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl09',
@@ -129,6 +140,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl03',
     icon: './icons/subClasses/Cleric_Trickery_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     // add expertise to this one
@@ -138,6 +151,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl03',
     icon: './icons/subClasses/Cleric_Knowledge_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     skillExpertises: [ESkills.History, ESkills.Arcana, ESkills.Nature, ESkills.Religion],
     skillExpertiseSlots: 2,
     expertiseAtLevel: 1,
@@ -151,6 +166,7 @@ export const subClasses: ISubClass[] = [
     icon: './icons/subClasses/Cleric_Nature_Icon.png',
     armorProficiencies: [EEquipment.HeavyArmor],
     specialSkills: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl12',
@@ -179,6 +195,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl04',
     icon: './icons/subClasses/Druid_Land_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl46',
@@ -187,6 +205,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl04',
     icon: './icons/subClasses/Druid_Moon_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl15',
@@ -195,6 +215,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl04',
     icon: './icons/subClasses/Druid_Spores_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl16',
@@ -203,6 +225,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl05',
     icon: './icons/subClasses/Fighter_Battle_Master_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl17',
@@ -211,6 +235,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl05',
     icon: './icons/subClasses/Fighter_Eldritch_Knight_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl18',
@@ -219,6 +245,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl05',
     icon: './icons/subClasses/Fighter_Champion_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl19',
@@ -227,6 +255,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl06',
     icon: './icons/subClasses/Monk_Four_Elements_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl20',
@@ -235,6 +265,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl06',
     icon: './icons/subClasses/Monk_Open_Hand_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl21',
@@ -243,6 +275,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl06',
     icon: './icons/subClasses/Monk_Shadow_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl22',
@@ -251,6 +285,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl07',
     icon: './icons/subClasses/Paladin_Ancients_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl23',
@@ -259,6 +295,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl07',
     icon: './icons/subClasses/Paladin_Devotion_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl24',
@@ -267,6 +305,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl07',
     icon: './icons/subClasses/Paladin_Vengeance_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl25',
@@ -275,6 +315,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl07',
     icon: './icons/subClasses/Paladin_Oathbreaker_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl26',
@@ -283,6 +325,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl08',
     icon: './icons/subClasses/Ranger_Hunter_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl27',
@@ -291,6 +335,8 @@ export const subClasses: ISubClass[] = [
     icon: './icons/subClasses/Ranger_Beast_Master_Icon.png',
     mainClass: 'ccl08',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl28',
@@ -299,6 +345,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl08',
     icon: './icons/subClasses/Ranger_Gloom_Stalker_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl29',
@@ -307,6 +355,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl09',
     icon: './icons/subClasses/Rogue_Thief_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl30',
@@ -315,6 +365,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl09',
     icon: './icons/subClasses/Rogue_Arcane_Trickster_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl31',
@@ -323,6 +375,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl09',
     icon: './icons/subClasses/Rogue_Assassin_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl32',
@@ -331,6 +385,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl10',
     icon: './icons/subClasses/Sorcerer_Wild_Magic_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl33',
@@ -339,6 +395,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl10',
     icon: './icons/subClasses/Sorcerer_Draconic_Bloodline_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl34',
@@ -347,6 +405,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl10',
     icon: './icons/subClasses/Sorcerer_Storm_Sorcery_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl35',
@@ -355,6 +415,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl11',
     icon: './icons/subClasses/Warlock_Fiend_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl36',
@@ -363,6 +425,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl11',
     icon: './icons/subClasses/Warlock_Great_Old_One_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl37',
@@ -371,6 +435,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl11',
     icon: './icons/subClasses/Warlock_Archfey_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl38',
@@ -379,6 +445,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Abjuration_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl39',
@@ -387,6 +455,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Evocation_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl40',
@@ -395,6 +465,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Necromancy_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl41',
@@ -403,6 +475,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Conjuration_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl42',
@@ -411,6 +485,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Enchantment_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl43',
@@ -419,6 +495,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Divination_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl44',
@@ -427,6 +505,8 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Illusion_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
   {
     id: 'scl45',
@@ -435,5 +515,7 @@ export const subClasses: ISubClass[] = [
     mainClass: 'ccl12',
     icon: './icons/subClasses/Wizard_Transmutation_Icon.png',
     specialSkills: [],
+    armorProficiencies: [],
+    weaponProficiencies: [],
   },
 ];

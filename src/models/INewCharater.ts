@@ -1,4 +1,3 @@
-import { EEquipment } from '../database/dbEquipmentProficiencies';
 import { INewEquipmentProficiencies } from './dbModels/IEquipmentProficiencies';
 
 export interface INewCharacter {

@@ -54,6 +54,7 @@ export const races: IRace[] = [
     name: 'Elf',
     desc: `With ethereal countenances and long lifespans, elves are at home with nature's power, flourishing in light and dark alike.`,
     weaponProficiencies: [EEquipment.Longswords, EEquipment.Shortswords, EEquipment.Longbows, EEquipment.Shortbows],
+    armorProficiencies: [],
     baseSpeed: 9,
     darkvision: 1,
     skillProficiencies: [ESkills.Perception],
@@ -89,6 +90,7 @@ export const races: IRace[] = [
     name: 'Drow',
     desc: `Driven to the Underdark, most drow have adopted a ruthless pragmatism.`,
     weaponProficiencies: [EEquipment.Rapiers, EEquipment.Shortswords, EEquipment.HandCrossbows],
+    armorProficiencies: [],
     baseSpeed: 9,
     darkvision: 2,
     skillProficiencies: [ESkills.Perception],
@@ -176,6 +178,8 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     skillProficiencies: [ESkills.Intimidation],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     features: [
       {
         name: 'Base Movement Speed',
@@ -208,6 +212,8 @@ export const races: IRace[] = [
     desc: `Small yet capable, halflings prefer the comforts of home and hearth - but their natural luck and dexterity makes them fine adventurers.`,
     baseSpeed: 7.5,
     subraces: ['subr08', 'subr09'],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     features: [
       {
         name: 'Base Movement Speed',
@@ -230,6 +236,7 @@ export const races: IRace[] = [
     name: 'Dwarf',
     desc: `As durable and unyielding as their homes of stone, dwarves are some of the finest warriors, miners, and smiths of Faerûn`,
     weaponProficiencies: [EEquipment.Battleaxes, EEquipment.Handaxes, EEquipment.LightHammers, EEquipment.Warhammers],
+    armorProficiencies: [],
     baseSpeed: 7.5,
     darkvision: 1,
     subraces: ['subr10', 'subr11', 'subr12'],
@@ -262,6 +269,8 @@ export const races: IRace[] = [
     baseSpeed: 7.5,
     darkvision: 1,
     subraces: ['subr14', 'subr13', 'subr15'],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     features: [
       {
         name: 'Base Movement Speed',
@@ -287,6 +296,8 @@ export const races: IRace[] = [
     baseSpeed: 9,
     darkvision: 1,
     subraces: ['subr16', 'subr17', 'subr18'],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     features: [
       {
         name: 'Base Movement Speed',
@@ -354,6 +365,8 @@ export const races: IRace[] = [
     desc: `A proud race that values clan and skills above all else. Once enslaved by dragons, they strive to be self-sufficient, not wanting to be beholden to anyone, not even the gods.`,
     baseSpeed: 9,
     subraces: ['subr19', 'subr20', 'subr21', 'subr22', 'subr23', 'subr24', 'subr25', 'subr26', 'subr27', 'subr28'],
+    armorProficiencies: [],
+    weaponProficiencies: [],
     features: [
       {
         name: 'Base Movement Speed',

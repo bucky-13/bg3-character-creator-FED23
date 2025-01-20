@@ -11,7 +11,7 @@ export interface ISubrace {
   mainRace: string;
   skillProficiencies?: ESkills[];
   skillExpertises?: ESkills[];
-  armorProficiencies?: EEquipment[];
+  armorProficiencies: EEquipment[];
   baseSpeed?: number;
   specialSkills?: IRaceSpells[];
   spells?: IRaceSpells[];

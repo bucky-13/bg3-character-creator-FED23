@@ -4,14 +4,31 @@ import { ISubClass } from '../../../models/dbModels/ISubClass';
 import { subClasses } from '../../../database/dbSubClass';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { getDbSubClass } from '../../../functions/getDbItems';
+import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedSubclass, setSelectedSubclass] = useState(getDbSubClass(newCharacter.startingSubclass!));
 
   const onChangeSubClass = (changedSubClass: ISubClass): void => {
+    const newArmorProfs = updateEquipmentArray(
+      newCharacter.armorProficiencies,
+      'subclass',
+      changedSubClass.armorProficiencies,
+    );
+    const newWeaponProfs = updateEquipmentArray(
+      newCharacter.weaponProficiencies,
+      'subclass',
+      changedSubClass.weaponProficiencies,
+    );
+
     setSelectedSubclass(changedSubClass);
-    setNewCharacter({ ...newCharacter, startingSubclass: changedSubClass.id });
+    setNewCharacter({
+      ...newCharacter,
+      startingSubclass: changedSubClass.id,
+      armorProficiencies: newArmorProfs,
+      weaponProficiencies: newWeaponProfs,
+    });
   };
 
   return (
