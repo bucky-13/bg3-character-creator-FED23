@@ -35,9 +35,9 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: false,
     skillProficiencies: [
-      { id: 'ski11', fromSource: 'background', canChange: false },
-      { id: 'ski09', fromSource: 'background', canChange: false },
-      { id: 'ski13', fromSource: 'race', canChange: false },
+      { id: 'ski11', fromSource: ['background'], canChange: false },
+      { id: 'ski09', fromSource: ['background'], canChange: false },
+      { id: 'ski13', fromSource: ['race'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -121,9 +121,9 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski15', fromSource: 'background', canChange: false },
-      { id: 'ski04', fromSource: 'background', canChange: false },
-      { id: 'ski13', fromSource: 'race', canChange: false },
+      { id: 'ski15', fromSource: ['background'], canChange: false },
+      { id: 'ski04', fromSource: ['background'], canChange: false },
+      { id: 'ski13', fromSource: ['race'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -199,8 +199,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski05', fromSource: 'background', canChange: false },
-      { id: 'ski06', fromSource: 'background', canChange: false },
+      { id: 'ski05', fromSource: ['background'], canChange: false },
+      { id: 'ski06', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -283,8 +283,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski01', fromSource: 'background', canChange: false },
-      { id: 'ski14', fromSource: 'background', canChange: false },
+      { id: 'ski01', fromSource: ['background'], canChange: false },
+      { id: 'ski14', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -342,8 +342,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski01', fromSource: 'background', canChange: false },
-      { id: 'ski16', fromSource: 'background', canChange: false },
+      { id: 'ski01', fromSource: ['background'], canChange: false },
+      { id: 'ski16', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -428,8 +428,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski11', fromSource: 'background', canChange: false },
-      { id: 'ski09', fromSource: 'background', canChange: false },
+      { id: 'ski11', fromSource: ['background'], canChange: false },
+      { id: 'ski09', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -512,8 +512,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: true,
     skillProficiencies: [
-      { id: 'ski10', fromSource: 'background', canChange: false },
-      { id: 'ski11', fromSource: 'background', canChange: false },
+      { id: 'ski10', fromSource: ['background'], canChange: false },
+      { id: 'ski11', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [
@@ -585,8 +585,8 @@ export const dbOrigins: IOrigin[] = [
     ],
     hasLockedChoices: false,
     skillProficiencies: [
-      { id: 'ski12', fromSource: 'background', canChange: false },
-      { id: 'ski16', fromSource: 'background', canChange: false },
+      { id: 'ski12', fromSource: ['background'], canChange: false },
+      { id: 'ski16', fromSource: ['background'], canChange: false },
     ],
     skillExpertises: [],
     armorProficiencies: [],

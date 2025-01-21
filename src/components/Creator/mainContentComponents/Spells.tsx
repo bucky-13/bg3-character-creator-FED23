@@ -13,7 +13,7 @@ import {
   isSpellAvailable,
   isSpellFromOtherSource,
   totalSpellsSelected,
-} from '../../../functions/skillFunctions';
+} from '../../../functions/spellFunctions';
 
 export enum ESpecialSpellCases {
   HighElf = 'highelf',

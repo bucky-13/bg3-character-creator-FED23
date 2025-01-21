@@ -9,7 +9,7 @@ import {
   regexNameCheckPassed,
 } from './creatorMinorFunctions';
 import { getDbClass, getDbSubClass } from './getDbItems';
-import { getCantripTotal, getSpellTotal, totalSpellsSelected } from './skillFunctions';
+import { getCantripTotal, getSpellTotal, totalSpellsSelected } from './spellFunctions';
 
 export const checkPlusTwoBonusMissing = (newCharacter: INewCharacter): boolean => {
   const plus2bonuses = newCharacter.abilities.filter((o) => o.plusTwoBonus === true);

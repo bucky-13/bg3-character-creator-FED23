@@ -84,7 +84,7 @@ export const Skills = () => {
     if (isExpertise) {
       const newSkill: ISkillProfNewChar = {
         id: id,
-        fromSource: 'skills',
+        fromSource: ['skills'],
         canChange: true,
       };
       let newSkillExp = newCharacter.skillExpertises;
@@ -94,7 +94,7 @@ export const Skills = () => {
     } else {
       const newSkill: ISkillProfNewChar = {
         id: id,
-        fromSource: 'skills',
+        fromSource: ['skills'],
         canChange: true,
       };
       const newSkillProfs = newCharacter.skillProficiencies;
@@ -132,10 +132,10 @@ export const Skills = () => {
     let source = '';
 
     if (isExpertise) {
-      const exp = findExpOnNewChar(id)?.fromSource;
+      const exp = findExpOnNewChar(id)?.fromSource[0];
       exp ? (source = exp) : '';
     } else {
-      const prof = findProfOnNewChar(id)?.fromSource;
+      const prof = findProfOnNewChar(id)?.fromSource[0];
       prof ? (source = prof) : '';
     }
 
@@ -144,6 +144,8 @@ export const Skills = () => {
         return getDbBackground(newCharacter.background).icon;
       case 'race':
         return getDbRace(newCharacter.race).icon;
+      case 'class':
+        return getDbClass(newCharacter.startingClass).icon;
       case 'subrace':
         return newCharacter.subrace ? getDbSubrace(newCharacter.subrace).icon : '';
       default:

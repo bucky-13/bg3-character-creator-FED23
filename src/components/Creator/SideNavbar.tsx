@@ -57,6 +57,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
           setCurrentSection={setCurrentSection}
         />
       )}
+      {newCharacter.startingClass === 'ccl08' && (
+        <ButtonSideNavbar
+          textContent="Favoured Enemy"
+          activeSection={isActiveSection('favoured enemy')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       {newCharacter.startingSubclass && (
         <ButtonSideNavbar
           textContent="Subclass"

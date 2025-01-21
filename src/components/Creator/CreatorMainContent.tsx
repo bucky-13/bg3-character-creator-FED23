@@ -4,6 +4,7 @@ import { Dispatcher } from '../../models/types';
 import { AbilitiesAndSkills } from './mainContentComponents/AbilitiesAndSkills';
 import { Background } from './mainContentComponents/Background';
 import { Class } from './mainContentComponents/Class';
+import { FavouredEnemy } from './mainContentComponents/FavouredEnemy';
 import { FightingStyle } from './mainContentComponents/FightingStyle';
 import { Name } from './mainContentComponents/Name';
 import { Origin } from './mainContentComponents/Origin';
@@ -31,6 +32,7 @@ export const CreatorMainContent = ({ currentSection, setCurrentSection }: Creato
       {currentSection === 'abilities' && <AbilitiesAndSkills />}
       {currentSection === 'name' && <Name />}
       {currentSection === 'fighting style' && <FightingStyle />}
+      {currentSection === 'favoured enemy' && <FavouredEnemy />}
       {currentSection === 'cantrips' && (
         <CharSpells spellLevel={ESpellArray.Lvl0} title="Cantrips" spellList={lvl0spells} />
       )}

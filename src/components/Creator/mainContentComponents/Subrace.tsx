@@ -3,17 +3,22 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
 import { getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
-import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
+import { updateSkillsArray } from '../../../functions/skillFunctions';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedSubrace, setSelectedSubrace] = useState(getDbSubrace(newCharacter.subrace!));
 
   const onChangeSubrace = (changedSubrace: ISubrace): void => {
-    const newSkillProfs = changeSkillsProfs(newCharacter, 'subrace', changedSubrace);
+    const newSkillProfs = updateSkillsArray(
+      newCharacter.skillProficiencies,
+      'subrace',
+      changedSubrace.skillProficiencies,
+    );
     setSelectedSubrace(changedSubrace);
-    const skillExpertises = updateExpertiseArray(changedSubrace, newCharacter, 'subrace');
+    const skillExpertises = updateSkillsArray(newCharacter.skillExpertises, 'subrace', changedSubrace.skillExpertises);
 
     const newArmorProfs = updateEquipmentArray(
       newCharacter.armorProficiencies,

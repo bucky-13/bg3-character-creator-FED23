@@ -4,8 +4,9 @@ import { getDbRace, getDbSubrace } from '../../../functions/getDbItems';
 import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
-import { changeSkillsProfs, isActiveIcon, updateExpertiseArray } from '../../../functions/creatorMinorFunctions';
+import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
+import { updateSkillsArray } from '../../../functions/skillFunctions';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -13,10 +14,10 @@ export const Race = () => {
 
   const onChangeRace = (changedRace: IRace): void => {
     setSelectedRace(changedRace);
-    let newSkillProfs = changeSkillsProfs(newCharacter, 'race', changedRace);
-    newSkillProfs = newSkillProfs.filter((o) => o.fromSource !== 'subrace');
+    let newSkillProfs = updateSkillsArray(newCharacter.skillProficiencies, 'race', changedRace.skillProficiencies);
+    newSkillProfs = updateSkillsArray(newCharacter.skillProficiencies, 'race', changedRace.skillProficiencies);
     const defaultSubrace = changedRace.subraces ? getDbSubrace(changedRace.subraces[0]) : undefined;
-    let newSkillExps = updateExpertiseArray(defaultSubrace, newCharacter, 'subrace');
+    let newSkillExps = updateSkillsArray(newCharacter.skillExpertises, 'subrace', defaultSubrace?.skillExpertises);
 
     let newArmorProfs = updateEquipmentArray(newCharacter.armorProficiencies, 'race', changedRace.armorProficiencies);
     let newWeaponProfs = updateEquipmentArray(

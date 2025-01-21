@@ -5,22 +5,15 @@ import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import { isActiveIcon, resetSkillArrays } from '../../../functions/creatorMinorFunctions';
 import { ESpellArray } from './Spells';
-import { ISpellChociesNewChar } from '../../../models/INewCharater';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { dbFightingStyles } from '../../../database/dbFightingStyles';
+import { dbFavouredEnemy } from '../../../database/dbFavouredEnemy';
+import { removeSkillsFromOldSouce, updateSkillsArray } from '../../../functions/skillFunctions';
+import { removeClassSpells } from '../../../functions/spellFunctions';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedClass, setSelectedClass] = useState(getDbClass(newCharacter.startingClass));
-
-  const filterSpells = (spellLevel: ESpellArray): ISpellChociesNewChar[] => {
-    if (newCharacter[spellLevel]) {
-      const newArray = newCharacter[spellLevel].filter((o) => o.fromSource !== newCharacter.startingClass);
-      return newArray;
-    } else {
-      return [];
-    }
-  };
 
   const onChangeClass = (changedClass: ICharClass): void => {
     setSelectedClass(changedClass);
@@ -34,8 +27,22 @@ export const Class = () => {
     if (changedClass.id === 'ccl05') {
       updatedNewCharacter = { ...updatedNewCharacter, fightingStyles: [dbFightingStyles[0]] };
     } else {
-      console.log('DELETE');
       delete updatedNewCharacter.fightingStyles;
+    }
+    if (changedClass.id === 'ccl08') {
+      updatedNewCharacter = {
+        ...updatedNewCharacter,
+        favouredEnemy: [dbFavouredEnemy[0]],
+        skillProficiencies: updateSkillsArray(newCharacter.skillProficiencies, 'class', [
+          dbFavouredEnemy[0].skillProficiencies,
+        ]),
+      };
+    } else {
+      updatedNewCharacter = {
+        ...updatedNewCharacter,
+        skillProficiencies: removeSkillsFromOldSouce(newCharacter.skillProficiencies, 'class'),
+      };
+      delete updatedNewCharacter.favouredEnemy;
     }
     if (changedClass.subclassAtLevel === 1) {
       const changedSubclass = getDbSubClass(changedClass.subclasses[0]);
@@ -52,8 +59,8 @@ export const Class = () => {
       ...updatedNewCharacter,
       startingClass: changedClass.id,
       casterLevel: changedClass.casterLevelPerLevel,
-      cantrips: filterSpells(ESpellArray.Lvl0),
-      lvl1Spells: filterSpells(ESpellArray.Lvl1),
+      cantrips: removeClassSpells(ESpellArray.Lvl0, newCharacter),
+      lvl1Spells: removeClassSpells(ESpellArray.Lvl1, newCharacter),
       skillProficiencies: resetSkillArrays(updatedNewCharacter.skillProficiencies),
       skillExpertises: resetSkillArrays(updatedNewCharacter.skillExpertises),
       armorProficiencies: newArmorProfs,

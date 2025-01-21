@@ -15,6 +15,9 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   if (newCharacter.subrace === 'subr01' || newCharacter.subrace === 'subr05') {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'high elf cantrip', 'subrace');
   }
+  if (newCharacter.startingClass === 'ccl05') {
+    lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'fighting style', 'class');
+  }
   if (newCharacter.startingSubclass) {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'subclass', 'class');
   }
@@ -23,6 +26,7 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
       ? insertChoiceAfterThis(lvl1ChoicesBase, 'cantrips', 'subclass')
       : insertChoiceAfterThis(lvl1ChoicesBase, 'cantrips', 'class');
   }
+
   if (displaySpells(newCharacter)) {
     insertChoiceAfterThis(lvl1ChoicesBase, 'spells', 'cantrips');
   }

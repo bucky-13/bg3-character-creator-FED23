@@ -1,4 +1,5 @@
 import { INewEquipmentProficiencies } from './dbModels/IEquipmentProficiencies';
+import { IFavouredEnemy } from './dbModels/IFavouredEnemy';
 import { IFightingStyle } from './dbModels/IFightingSyles';
 
 export interface INewCharacter {
@@ -31,11 +32,12 @@ export interface INewCharacter {
   lvlChoices?: ILvlChoices[];
   hasLockedChoices: boolean;
   fightingStyles?: IFightingStyle[];
+  favouredEnemy?: IFavouredEnemy[];
 }
 
 export interface ISkillProfNewChar {
   id: string;
-  fromSource: string;
+  fromSource: string[];
   canChange: boolean;
 }
 
