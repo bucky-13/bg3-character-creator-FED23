@@ -246,6 +246,20 @@
   }
 }
 
+.styleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+  h4 {
+    margin: 0;
+  }
+}
+.stylesChoicesContainer {
+  padding: 0 2rem;
+}
+
 .alertText {
   color: #ff4444;
 }

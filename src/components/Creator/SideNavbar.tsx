@@ -50,6 +50,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         activeSection={isActiveSection('class')}
         setCurrentSection={setCurrentSection}
       />
+      {newCharacter.startingClass === 'ccl05' && (
+        <ButtonSideNavbar
+          textContent="Fighting Style"
+          activeSection={isActiveSection('fighting style')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       {newCharacter.startingSubclass && (
         <ButtonSideNavbar
           textContent="Subclass"

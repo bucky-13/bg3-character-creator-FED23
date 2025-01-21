@@ -244,7 +244,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
 
       {
         name: 'Unarmoured Defence',
-        desc: `Your reflexes are as effective as any armour. While not wearing armour or a shield, you add your Wisdom Modifier to your Armour Class. This feature does not stack with Mage Armour, nor the Barbarian version of Unarmoured Defence (Barbarian).`,
+        desc: `While not wearing armour or a shield, you add your Wisdom Modifier to your Armour Class. This feature does not stack with Mage Armour, nor the Barbarian version of Unarmoured Defence (Barbarian).`,
       },
       {
         name: 'Flurry of Blows',

@@ -1,5 +1,6 @@
 import { EEquipmentTypes } from '../models/dbModels/IEquipmentProficiencies';
 import { IOrigin } from '../models/dbModels/IOrigin';
+import { dbFightingStyles } from './dbFightingStyles';
 
 export enum EOrigin {
   Custom = 'ori01',
@@ -403,6 +404,7 @@ export const dbOrigins: IOrigin[] = [
         fromSource: ['race'],
       },
     ],
+    fightingStyles: [dbFightingStyles[0]],
   },
   {
     name: 'Shadowheart',

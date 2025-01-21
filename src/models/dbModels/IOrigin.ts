@@ -1,5 +1,6 @@
 import { INewAbility, ISkillProfNewChar } from '../INewCharater';
 import { INewEquipmentProficiencies } from './IEquipmentProficiencies';
+import { IFightingStyle } from './IFightingSyles';
 
 export interface IOrigin {
   name: string;
@@ -19,4 +20,5 @@ export interface IOrigin {
   skillExpertises: ISkillProfNewChar[];
   armorProficiencies: INewEquipmentProficiencies[];
   weaponProficiencies: INewEquipmentProficiencies[];
+  fightingStyles?: IFightingStyle[];
 }

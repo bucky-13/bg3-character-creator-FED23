@@ -7,6 +7,7 @@ import { isActiveIcon, resetSkillArrays } from '../../../functions/creatorMinorF
 import { ESpellArray } from './Spells';
 import { ISpellChociesNewChar } from '../../../models/INewCharater';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
+import { dbFightingStyles } from '../../../database/dbFightingStyles';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -30,6 +31,12 @@ export const Class = () => {
       changedClass.weaponProficiencies,
     );
     let updatedNewCharacter = newCharacter;
+    if (changedClass.id === 'ccl05') {
+      updatedNewCharacter = { ...updatedNewCharacter, fightingStyles: [dbFightingStyles[0]] };
+    } else {
+      console.log('DELETE');
+      delete updatedNewCharacter.fightingStyles;
+    }
     if (changedClass.subclassAtLevel === 1) {
       const changedSubclass = getDbSubClass(changedClass.subclasses[0]);
       newArmorProfs = updateEquipmentArray(newArmorProfs, 'subclass', changedSubclass.armorProficiencies);
