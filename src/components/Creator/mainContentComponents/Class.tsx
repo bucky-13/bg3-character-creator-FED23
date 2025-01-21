@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbClass, getDbSubClass } from '../../../functions/getDbItems';
+import { getDbClass, getDbEquipment, getDbSubClass } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
 import { isActiveIcon, resetSkillArrays } from '../../../functions/creatorMinorFunctions';
@@ -82,6 +82,49 @@ export const Class = () => {
               <h3>{selectedClass.name}</h3>
             </div>
             <p>{selectedClass.desc}</p>
+
+            <h4 className="featureH">Features:</h4>
+            <div className="featureContainer">
+              <p>
+                <span>Weapon Proficiencies: </span>
+                {selectedClass.weaponProficiencies.length > 0
+                  ? selectedClass.weaponProficiencies.map((o, i) => (
+                      <span className="whiteSpan" key={o}>
+                        {getDbEquipment(o).name}
+                        {i + 1 !== selectedClass.weaponProficiencies.length && ', '}
+                      </span>
+                    ))
+                  : 'None'}
+              </p>
+            </div>
+            <div className="featureContainer">
+              <p>
+                <span>Armor Proficiencies: </span>
+                {selectedClass.armorProficiencies.length > 0
+                  ? selectedClass.armorProficiencies.map((o, i) => (
+                      <span className="whiteSpan" key={o}>
+                        {getDbEquipment(o).name}
+                        {i + 1 !== selectedClass.armorProficiencies.length && ', '}
+                      </span>
+                    ))
+                  : 'None'}
+              </p>
+            </div>
+            <div className="featureContainer">
+              <p>
+                <span>Subclass at level: </span>
+                {selectedClass.subclassAtLevel}
+              </p>
+            </div>
+            {selectedClass.features.map((feature) => (
+              <div key={feature.name} className="featureContainer">
+                {feature.icon && <img src={feature.icon} alt={selectedClass.name} />}
+                <p>
+                  <span>{feature.name}: </span>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>

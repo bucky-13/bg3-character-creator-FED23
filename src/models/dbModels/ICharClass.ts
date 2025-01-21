@@ -1,5 +1,6 @@
 import { EEquipment } from '../../database/dbEquipmentProficiencies';
 import { ESkills } from '../../database/dbSkills';
+import { IFeatures } from './IFeatures';
 
 export interface ICharClass {
   id: string;
@@ -19,6 +20,7 @@ export interface ICharClass {
   skillProficiencySlots: number;
   armorProficiencies: EEquipment[];
   weaponProficiencies: EEquipment[];
+  features: IFeatures[];
 }
 
 // expertiseAtLevel & expertiseSlots - only use if class has expertise at some level

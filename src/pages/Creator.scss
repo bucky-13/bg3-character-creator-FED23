@@ -227,6 +227,10 @@
   align-items: center;
   text-align: left;
 
+  .whiteSpan {
+    color: #fff;
+  }
+
   img {
     display: inline;
     height: 25px;
@@ -238,7 +242,6 @@
     margin: 0.5rem;
   }
   span {
-    font-weight: 700;
     color: #ffd000;
   }
 }
