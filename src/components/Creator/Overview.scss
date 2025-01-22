@@ -1,7 +1,9 @@
+@import '../../scss/variables';
+
 .creatorOverview {
-  background-color: #00000095;
+  background-color: $colorBgTransparentBlack;
   height: 100%;
-  border-left: 1px solid #000;
+  border-left: 1px solid $colorBlack;
   padding-right: 1.2rem;
 }
 
@@ -30,18 +32,18 @@
 }
 
 .checkmarkIcon.checked {
-  background-color: #00880080;
+  background-color: $colorChecked;
 }
 .checkmarkIcon:disabled {
-  background-color: #444;
-  border: 1px solid #000;
+  background-color: $colorButtonBgDisabled;
+  border: 1px solid $colorBlack;
   cursor: default;
 }
 .checkmarkIcon.checked:disabled {
-  background-color: #00880080;
+  background-color: $colorChecked;
   cursor: default;
 }
 
 .checkmarkIcon:disabled:hover {
-  border: 1px solid #000;
+  border: 1px solid $colorBlack;
 }

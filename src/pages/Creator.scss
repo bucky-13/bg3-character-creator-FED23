@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 .mainContentContainer {
   display: flex;
   justify-content: center;
@@ -8,7 +10,7 @@
   .proceedContainer {
     position: fixed;
     bottom: 50px;
-    background-color: #000;
+    background-color: $colorBlack;
     height: 100px;
     width: 350px;
     display: flex;
@@ -16,7 +18,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 100px;
-    border: 1px solid #f0de7a;
+    border: 1px solid $colorPrimaryLightColor;
 
     .proceedButtonsContainer {
       display: flex;
@@ -39,20 +41,20 @@
 
     button {
       padding: 0 2rem;
-      background-color: #040;
+      background-color: $colorButtonBg;
     }
     button:disabled {
-      background-color: #333;
-      border: 1px solid #888;
-      color: #aaa;
+      background-color: $colorButtonBgDisabled;
+      border: 1px solid $colorButtonBorderDisabled;
+      color: $colorLightGray;
     }
     button:disabled:hover {
       cursor: default;
-      border: 1px solid #888;
-      background-color: #333;
+      border: 1px solid $colorButtonBorderDisabled;
+      background-color: $colorButtonBgDisabled;
     }
     button:hover {
-      background-color: #070;
+      background-color: $colorButtonBgHover;
     }
   }
 }
@@ -64,11 +66,10 @@
 }
 
 .creatorCenterContainer {
-  // height: 100%;
-  background-color: #00000095;
+  background-color: $colorBgTransparentBlack;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  border: 1px solid black;
+  border: 1px solid $colorBlack;
   border-top: none;
   width: 90%;
   margin-bottom: 2rem;
@@ -77,7 +78,7 @@
     padding-top: 1rem;
     width: 100%;
     max-width: 1200px;
-    color: #ffd000;
+    color: $colorPrimaryColor;
   }
 }
 
@@ -182,33 +183,33 @@
 
 .creatorImageChoiceContainer {
   cursor: pointer;
-  background-color: #00000000;
+  background-color: transparent;
   border: none;
   height: auto;
   width: auto;
-  color: #fff;
+  color: $colorWhite;
 
   img {
     max-width: 100px;
     max-height: 100px;
     border-radius: 100rem;
-    border: 2px solid #00000000;
+    border: 2px solid transparent;
   }
 
   img:hover {
-    border: 2px solid #ffffff90;
+    border: 2px solid $colorBgTransparentWhite;
   }
 }
 
 .creatorImageChoiceContainer:hover {
-  background-color: #00000000;
+  background-color: transparent;
   border: none;
   height: auto;
   width: auto;
 }
 
 .creatorImageChoiceContainer.activeChoice {
-  color: #f0de7a;
+  color: $colorPrimaryLightColor;
 }
 
 .originIcon {
@@ -216,7 +217,7 @@
 }
 
 .featureH {
-  color: #ffd000;
+  color: $colorPrimaryColor;
   margin-bottom: 0;
 }
 
@@ -242,7 +243,7 @@
     margin: 0.5rem;
   }
   span {
-    color: #ffd000;
+    color: $colorPrimaryColor;
   }
 }
 
@@ -261,5 +262,5 @@
 }
 
 .alertText {
-  color: #ff4444;
+  color: $colorAlert;
 }

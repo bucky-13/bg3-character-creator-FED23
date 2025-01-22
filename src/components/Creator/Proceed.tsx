@@ -74,8 +74,6 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
     setCurrentSection(usedSectionsArray[index - 1]);
   };
 
-  console.log(warningArray);
-
   return (
     <div className="proceedContainer">
       {areChoicesPending() && (

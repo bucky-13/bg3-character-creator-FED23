@@ -4,7 +4,9 @@ export const TopNavbar = () => {
   return (
     <>
       <nav>
-        <NavLink to={'/'}>Home</NavLink>
+        <NavLink to={'/'}>
+          <span className="siteLogo">BG3 Character Creator</span>
+        </NavLink>
         <ul>
           <li>
             <NavLink to={'/'}>Home</NavLink>
