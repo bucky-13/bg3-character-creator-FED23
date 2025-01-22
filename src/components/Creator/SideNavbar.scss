@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 
 .sideNavbar {
   display: flex;
@@ -11,22 +12,18 @@
   button {
     text-align: left;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flexRowLeft;
   }
   p {
     padding-left: 0.5rem;
   }
 }
 .alertDiv {
+  @include flexRowCentered;
   border: 1px solid $colorAlert;
   width: 25px;
   height: 25px;
   border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   h4 {
     color: $colorAlert;
     font-weight: 500;

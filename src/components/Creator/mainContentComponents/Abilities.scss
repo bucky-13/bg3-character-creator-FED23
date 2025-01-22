@@ -1,4 +1,5 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .abilitiesContainer,
 .skillsContainer {
@@ -36,14 +37,11 @@
 }
 
 .plusMinusBtn:disabled {
-  background-color: $colorButtonBgDisabled;
-  color: $colorLightGray;
-  border: 1px solid $colorButtonBorderDisabled;
-  cursor: default;
+  @include disabledButton;
 }
 
 .plusMinusBtn:disabled:hover {
-  border: 1px solid $colorButtonBorderDisabled;
+  @include disabledButtonHover;
 }
 
 .abilitiesContainer {

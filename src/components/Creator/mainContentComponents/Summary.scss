@@ -1,8 +1,6 @@
+@import '../../../scss/mixins';
 .summaryMainContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  @include flexColCentered;
   padding-bottom: 3rem;
 }
 
@@ -25,18 +23,14 @@
     text-align: left;
     padding-left: 0;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flexRowLeft;
     li {
       display: inline;
     }
   }
 
   .spellListItem {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flexRowLeft;
 
     img {
       height: 25px;
@@ -62,9 +56,7 @@
 
 .abilitiesSummaryContainer {
   margin: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include flexRowLeft;
 }
 
 .charStatsOverview {
@@ -74,8 +66,7 @@
   margin: 0.5rem 0;
 
   .charStatContainer {
-    display: flex;
-    flex-direction: column;
+    @include flexColCentered;
     margin-right: 1rem;
     .charStatName {
       font-size: 1.1rem;

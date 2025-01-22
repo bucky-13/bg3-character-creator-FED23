@@ -1,4 +1,5 @@
 @import '../scss/variables';
+@import '../scss/mixins';
 
 .mainContentContainer {
   display: flex;
@@ -13,26 +14,17 @@
     background-color: $colorBlack;
     height: 100px;
     width: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flexColCentered;
     border-radius: 100px;
     border: 1px solid $colorPrimaryLightColor;
 
     .proceedButtonsContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
+      @include flexRowCentered;
       gap: 1rem;
     }
 
     .alertTextContainer {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+      @include flexRowCentered;
       margin-bottom: 0.5rem;
       p {
         margin: 0 0 0 0.5rem;
@@ -44,14 +36,10 @@
       background-color: $colorButtonBg;
     }
     button:disabled {
-      background-color: $colorButtonBgDisabled;
-      border: 1px solid $colorButtonBorderDisabled;
-      color: $colorLightGray;
+      @include disabledButton;
     }
     button:disabled:hover {
-      cursor: default;
-      border: 1px solid $colorButtonBorderDisabled;
-      background-color: $colorButtonBgDisabled;
+      @include disabledButtonHover;
     }
     button:hover {
       background-color: $colorButtonBgHover;
@@ -102,10 +90,7 @@
   padding: 0 2rem;
 
   .selectedChoiceHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    @include flexRowCentered;
     img {
       height: 60px;
       width: 60px;
@@ -128,10 +113,7 @@
   align-items: flex-start;
 
   .selectedSpellHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    @include flexRowCentered;
     img {
       height: 60px;
       width: 60px;
@@ -150,10 +132,7 @@
   }
 
   .iconPContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flexRowCentered;
     margin: 0;
     img {
       height: 20px;
@@ -222,10 +201,8 @@
 }
 
 .featureContainer {
-  display: flex;
-  flex-direction: row;
+  @include flexRowLeft;
   justify-content: start;
-  align-items: center;
   text-align: left;
 
   .whiteSpan {
@@ -248,9 +225,7 @@
 }
 
 .styleContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include flexRowLeft;
   margin-bottom: 0.5rem;
   gap: 1rem;
   h4 {

@@ -1,13 +1,12 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .spellChoiceBtn {
   border-radius: 0;
   padding: 4px;
   height: 50px;
   width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexColCentered;
   border: 1px solid $colorButtonBorder;
   img {
     height: 40px;
@@ -37,19 +36,14 @@
 }
 
 .spellChoiceBtn:disabled {
-  background-color: $colorButtonBgDisabled;
-  border: 1px solid $colorButtonBorderDisabled;
-  cursor: default;
+  @include disabledButton;
 }
 .spellChoiceBtn:disabled:hover {
-  background-color: $colorButtonBgDisabled;
-  border: 1px solid $colorButtonBorderDisabled;
+  @include disabledButtonHover;
 }
 
 .alreadySelectedSpellContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include flexRowLeft;
   .spellChoiceBtn.alreadySelectedButton:disabled {
     background-color: $colorButtonBgDisabled;
     border: 1px solid $colorButtonBorderDisabled;

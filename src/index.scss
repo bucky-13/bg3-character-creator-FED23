@@ -1,4 +1,5 @@
 @import './scss/variables';
+@import './scss/mixins';
 
 :root {
   font-family: 'Source Serif 4', serif;
@@ -102,9 +103,7 @@ footer {
   width: 100%;
   height: 40px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexRowCentered;
 }
 
 main {
