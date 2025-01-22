@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin disabledButton {
   background-color: $colorButtonBgDisabled;
   border: 1px solid $colorBlack;
