@@ -9,6 +9,7 @@ export const insertChoiceAfterThis = (lvlChoices: string[], newChoice: string, i
 
 export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   let lvl1ChoicesBase = ['origin', 'race', 'class', 'background', 'abilities', 'summary'];
+
   if (newCharacter.subrace) {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'subrace', 'race');
   }
@@ -17,6 +18,10 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   }
   if (newCharacter.startingClass === 'ccl05') {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'fighting style', 'class');
+  }
+  if (newCharacter.startingClass === 'ccl08') {
+    lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'favoured enemy', 'class');
+    lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'natural explorer', 'favoured enemy');
   }
   if (newCharacter.startingSubclass) {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'subclass', 'class');
@@ -33,6 +38,7 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   if (newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') {
     insertChoiceAfterThis(lvl1ChoicesBase, 'name', 'abilities');
   }
+  console.log(lvl1ChoicesBase);
   return lvl1ChoicesBase;
 };
 export const findSectionIndex = (lvlChoices: string[], currentSection: string): number => {

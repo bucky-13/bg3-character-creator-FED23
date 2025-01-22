@@ -4,10 +4,8 @@ import { IFavouredEnemy } from '../../../models/dbModels/IFavouredEnemy';
 import { dbFavouredEnemy } from '../../../database/dbFavouredEnemy';
 import { updateRangerSkills } from '../../../functions/skillFunctions';
 import { getDbClass, getDbEquipment, getDbSkill, getDbSpell } from '../../../functions/getDbItems';
-
 import { ISpellChociesNewChar } from '../../../models/INewCharater';
 import { removeSpell } from '../../../functions/spellFunctions';
-
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { INewEquipmentProficiencies } from '../../../models/dbModels/IEquipmentProficiencies';
 
@@ -98,7 +96,7 @@ export const FavouredEnemy = () => {
 
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
-      <h2>Fighting Style</h2>
+      <h2>Favoured Enemy</h2>
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbFavouredEnemy.map((style, i) => (

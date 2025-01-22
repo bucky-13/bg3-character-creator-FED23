@@ -61,7 +61,7 @@ export const NaturalExplorer = () => {
 
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
-      <h2>Fighting Style</h2>
+      <h2>Natural Explorer</h2>
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbNaturalExplorer.map((explorer, i) => (
