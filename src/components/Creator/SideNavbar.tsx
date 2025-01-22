@@ -64,6 +64,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
           setCurrentSection={setCurrentSection}
         />
       )}
+      {newCharacter.startingClass === 'ccl08' && (
+        <ButtonSideNavbar
+          textContent="Natural Explorer"
+          activeSection={isActiveSection('natural explorer')}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       {newCharacter.startingSubclass && (
         <ButtonSideNavbar
           textContent="Subclass"

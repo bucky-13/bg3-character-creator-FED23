@@ -58,10 +58,9 @@ export const removeRangerSkillFromOldSouce = (
   let newArray = [];
   for (let i = 0; i < charSkillArray.length; i++) {
     if (charSkillArray[i].fromSource.length < 2) {
-      if (charSkillArray[i].fromSource[0] !== fromSource && charSkillArray[i].id !== id)
-        newArray.push(charSkillArray[i]);
+      if (charSkillArray[i].id !== id) newArray.push(charSkillArray[i]);
     } else {
-      if (charSkillArray[i].id === id) {
+      if (charSkillArray[i].id !== id) {
         const newFromSource: string[] = charSkillArray[i].fromSource.filter((o) => o !== fromSource);
         newArray.push({ ...charSkillArray[i], fromSource: newFromSource });
       } else {

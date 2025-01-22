@@ -10,6 +10,7 @@ import { dbFightingStyles } from '../../../database/dbFightingStyles';
 import { dbFavouredEnemy } from '../../../database/dbFavouredEnemy';
 import { removeSkillsFromOldSouce, updateSkillsArray } from '../../../functions/skillFunctions';
 import { removeClassSpells } from '../../../functions/spellFunctions';
+import { dbNaturalExplorer } from '../../../models/dbModels/dbNaturalExplorer';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -33,6 +34,7 @@ export const Class = () => {
       updatedNewCharacter = {
         ...updatedNewCharacter,
         favouredEnemy: [dbFavouredEnemy[0]],
+        naturalExplorer: [dbNaturalExplorer[3]],
         skillProficiencies: updateSkillsArray(newCharacter.skillProficiencies, 'class', [
           dbFavouredEnemy[0].skillProficiencies,
         ]),
@@ -43,6 +45,7 @@ export const Class = () => {
         skillProficiencies: removeSkillsFromOldSouce(newCharacter.skillProficiencies, 'class'),
       };
       delete updatedNewCharacter.favouredEnemy;
+      delete updatedNewCharacter.naturalExplorer;
     }
     if (changedClass.subclassAtLevel === 1) {
       const changedSubclass = getDbSubClass(changedClass.subclasses[0]);

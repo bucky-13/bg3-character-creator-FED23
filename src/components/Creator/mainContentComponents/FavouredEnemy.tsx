@@ -3,12 +3,13 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { IFavouredEnemy } from '../../../models/dbModels/IFavouredEnemy';
 import { dbFavouredEnemy } from '../../../database/dbFavouredEnemy';
 import { updateRangerSkills } from '../../../functions/skillFunctions';
-import { getDbClass, getDbEquipment, getDbSpell } from '../../../functions/getDbItems';
+import { getDbClass, getDbEquipment, getDbSkill, getDbSpell } from '../../../functions/getDbItems';
 
 import { ISpellChociesNewChar } from '../../../models/INewCharater';
-import { removeClassSpells } from '../../../functions/spellFunctions';
-import { ESpellArray } from './Spells';
+import { removeSpell } from '../../../functions/spellFunctions';
+
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
+import { INewEquipmentProficiencies } from '../../../models/dbModels/IEquipmentProficiencies';
 
 export const FavouredEnemy = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -18,11 +19,22 @@ export const FavouredEnemy = () => {
     return enemy.name === newCharacter.favouredEnemy![0].name ? true : false;
   };
 
-  const updateCantrips = (
+  const updateSpells = (
     spell: string | undefined,
     spellArray: ISpellChociesNewChar[] | undefined,
+    spellLevel: number,
   ): ISpellChociesNewChar[] => {
-    let newSpells: ISpellChociesNewChar[] = removeClassSpells(ESpellArray.Lvl0, newCharacter);
+    let newSpells: ISpellChociesNewChar[] = spellArray ? spellArray : [];
+
+    if (newSpells.length > 0) {
+      if (spellLevel === 0) {
+        newSpells = removeSpell(newSpells, 'spl021');
+        newSpells = removeSpell(newSpells, 'spl016');
+      } else if (spellLevel === 1) {
+        newSpells = removeSpell(newSpells, 'spl140');
+      }
+    }
+
     if (spell) {
       let newSpell = [{ id: spell, fromSource: 'ccl08', canChange: true, specialCase: 'no' }];
 
@@ -35,14 +47,9 @@ export const FavouredEnemy = () => {
     return newSpells;
   };
 
-  const onChangeStyle = (enemy: IFavouredEnemy) => {
-    const newSkillProfs = updateRangerSkills(
-      newCharacter.skillProficiencies,
-      'class',
-      [selectedEnemy.skillProficiencies],
-      newCharacter.favouredEnemy![0].skillProficiencies,
-    );
+  const updateArmorProfs = (enemy: IFavouredEnemy): INewEquipmentProficiencies[] => {
     let armorProfs = newCharacter.armorProficiencies;
+
     if (enemy.armorProficiencies) {
       armorProfs.push({
         id: enemy.armorProficiencies,
@@ -57,10 +64,23 @@ export const FavouredEnemy = () => {
         getDbClass(newCharacter.startingClass).armorProficiencies,
       );
     }
+    return armorProfs;
+  };
+
+  const onChangeStyle = (enemy: IFavouredEnemy) => {
+    const newSkillProfs = updateRangerSkills(
+      newCharacter.skillProficiencies,
+      'class',
+      [selectedEnemy.skillProficiencies],
+      newCharacter.favouredEnemy![0].skillProficiencies,
+    );
+
+    let armorProfs = updateArmorProfs(enemy);
+
     let cantrips = newCharacter.cantrips;
-    cantrips = updateCantrips(enemy.cantrip, newCharacter.cantrips);
+    cantrips = updateSpells(enemy.cantrip, newCharacter.cantrips, 0);
     let lvl1spells = newCharacter.lvl1Spells;
-    lvl1spells = updateCantrips(enemy.lvl1spell, newCharacter.lvl1Spells);
+    lvl1spells = updateSpells(enemy.lvl1spell, newCharacter.lvl1Spells, 1);
 
     setNewCharacter({
       ...newCharacter,
@@ -101,6 +121,12 @@ export const FavouredEnemy = () => {
               <h3>{selectedEnemy.name}</h3>
             </div>
             <p>{selectedEnemy.desc}</p>
+            <div className="featureContainer">
+              <p>
+                <span>Skill Proficiency: </span>
+                {getDbSkill(selectedEnemy.skillProficiencies).name}
+              </p>
+            </div>
             {selectedEnemy.cantrip && (
               <div className="featureContainer">
                 <span>Cantrip: </span>

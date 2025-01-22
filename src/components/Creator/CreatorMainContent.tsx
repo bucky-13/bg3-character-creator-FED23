@@ -7,6 +7,7 @@ import { Class } from './mainContentComponents/Class';
 import { FavouredEnemy } from './mainContentComponents/FavouredEnemy';
 import { FightingStyle } from './mainContentComponents/FightingStyle';
 import { Name } from './mainContentComponents/Name';
+import { NaturalExplorer } from './mainContentComponents/NaturalExplorer';
 import { Origin } from './mainContentComponents/Origin';
 import { Race } from './mainContentComponents/Race';
 import { CharSpells, ESpellArray } from './mainContentComponents/Spells';
@@ -33,6 +34,7 @@ export const CreatorMainContent = ({ currentSection, setCurrentSection }: Creato
       {currentSection === 'name' && <Name />}
       {currentSection === 'fighting style' && <FightingStyle />}
       {currentSection === 'favoured enemy' && <FavouredEnemy />}
+      {currentSection === 'natural explorer' && <NaturalExplorer />}
       {currentSection === 'cantrips' && (
         <CharSpells spellLevel={ESpellArray.Lvl0} title="Cantrips" spellList={lvl0spells} />
       )}

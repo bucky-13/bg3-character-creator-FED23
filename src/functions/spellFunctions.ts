@@ -129,3 +129,8 @@ export const removeClassSpells = (spellLevel: ESpellArray, newCharacter: INewCha
     return [];
   }
 };
+
+export const removeSpell = (spellArray: ISpellChociesNewChar[], spellId: string | undefined) => {
+  const newArray = spellArray.filter((o) => o.id !== spellId);
+  return newArray;
+};
