@@ -183,6 +183,7 @@ export const Skills = () => {
                 className={isSkillProfPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
                 disabled={isDisabled(skill.id) || (isSkillProfPicked(skill.id) === false && profSlotsLeft === 0)}
                 onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false)}
+                aria-label={'Select proficiency for ' + skill.name}
               >
                 {isSkillProfPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, false)} alt={skill.name} />}
               </button>
@@ -194,6 +195,7 @@ export const Skills = () => {
                 className={isSkillExpPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
                 disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}
                 onClick={() => onTogglingSkill(skill.id, isSkillExpPicked(skill.id), true)}
+                aria-label={'Select expertise for ' + skill.name}
               >
                 {isSkillExpPicked(skill.id) && <img src={selectCheckmarkIcon(skill.id, true)} alt={skill.name} />}
               </button>

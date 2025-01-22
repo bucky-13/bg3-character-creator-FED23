@@ -52,7 +52,7 @@ export const Subrace = () => {
                       onClick={() => onChangeSubrace(subrace)}
                       onMouseEnter={() => setSelectedSubrace(subrace)}
                     >
-                      <img src={subrace.icon} alt={subrace.name} />
+                      <img src={subrace.icon} alt={'portrait of a ' + subrace.name} height={100} width={100} />
                       <p>{subrace.name}</p>
                     </button>
                   ),
@@ -63,14 +63,14 @@ export const Subrace = () => {
         {selectedSubrace && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedSubrace.icon} />
+              <img src={selectedSubrace.icon} alt={'portrait of a ' + selectedSubrace.name} />
               <h3>{selectedSubrace.name}</h3>
             </div>
             <p>{selectedSubrace.desc}</p>
             <h4 className="featureH">Features:</h4>
             {selectedSubrace.features.map((feature) => (
               <div key={feature.name} className="featureContainer">
-                {feature.icon && <img src={feature.icon} alt={feature.name} />}
+                {feature.icon && <img src={feature.icon} alt={'icon of ' + feature.name} />}
                 <p>
                   <span>{feature.name}: </span>
                   {feature.desc}

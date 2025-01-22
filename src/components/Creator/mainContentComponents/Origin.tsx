@@ -30,14 +30,14 @@ export const Origin = () => {
               onClick={() => onChangeOrigin(origin)}
               onMouseEnter={() => setSelectedOrigin(origin)}
             >
-              <img src={origin.icon} alt={origin.name} />
-              <h4>{origin.name}</h4>
+              <img src={origin.icon} alt={'portrait of ' + origin.name} height={100} width={100} />
+              <p>{origin.name}</p>
             </button>
           ))}
         </div>
         <div className="selectedChoiceContainer">
-          <img className="originIcon" src={selectedOrigin.icon} alt={selectedOrigin.name} />
-          <h4>{selectedOrigin.name}</h4>
+          <img className="originIcon" src={selectedOrigin.icon} alt={selectedOrigin.name} height={120} width={120} />
+          <h3>{selectedOrigin.name}</h3>
           <p>{selectedOrigin.desc}</p>
         </div>
       </div>

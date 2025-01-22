@@ -48,7 +48,7 @@ export const Subclass = () => {
                       onClick={() => onChangeSubClass(subClass)}
                       onMouseEnter={() => setSelectedSubclass(subClass)}
                     >
-                      <img src={subClass.icon} alt={subClass.name} />
+                      <img src={subClass.icon} alt={'icon for a ' + subClass.name} height={100} width={100} />
                       <p>{subClass.name}</p>
                     </button>
                   ),
@@ -59,7 +59,7 @@ export const Subclass = () => {
         {selectedSubclass && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedSubclass.icon} alt={selectedSubclass.name} />
+              <img src={selectedSubclass.icon} alt={'icon for a ' + selectedSubclass.name} />
               <h3>{selectedSubclass.name}</h3>
             </div>
             <p>{selectedSubclass.desc}</p>

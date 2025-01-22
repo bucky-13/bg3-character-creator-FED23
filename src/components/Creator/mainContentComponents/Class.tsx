@@ -85,7 +85,7 @@ export const Class = () => {
                   onClick={() => onChangeClass(cClass)}
                   onMouseEnter={() => setSelectedClass(cClass)}
                 >
-                  <img src={cClass.icon} alt={cClass.name} />
+                  <img src={cClass.icon} alt={'icon for a ' + cClass.name} height={100} width={100} />
                   <p>{cClass.name}</p>
                 </button>
               ))}
@@ -95,7 +95,7 @@ export const Class = () => {
         {selectedClass && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedClass.icon} alt={selectedClass.name} />
+              <img src={selectedClass.icon} alt={'icon for a ' + selectedClass.name} />
               <h3>{selectedClass.name}</h3>
             </div>
             <p>{selectedClass.desc}</p>

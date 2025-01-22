@@ -82,9 +82,9 @@ export const Abilities = () => {
             <img
               src={getAbiValue(ability.id, 'icon')}
               className="abilitiesIcon"
-              alt={getAbiValue(ability.id, 'name')}
+              alt={'icon of ' + getAbiValue(ability.id, 'name')}
             />
-            <h4>{getAbiValue(ability.id, 'name')}</h4>
+            <p>{getAbiValue(ability.id, 'name')}</p>
             <button
               className="plusMinusBtn"
               onClick={() => removePoint(ability)}
@@ -103,12 +103,14 @@ export const Abilities = () => {
             <button
               className={ability.plusTwoBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
               onClick={() => updateNewCharBonus(ability.id, 1)}
+              aria-label={'Assign +2 bonus to' + ability.shortName}
             >
               {ability.plusTwoBonus && <img src="./icons/check-mark-icon.png" />}
             </button>
             <button
               className={ability.plusOneBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
               onClick={() => updateNewCharBonus(ability.id, 0)}
+              aria-label={'Assign +1 bonus to' + ability.shortName}
             >
               {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}
             </button>
@@ -117,7 +119,11 @@ export const Abilities = () => {
       </div>
       <div className="abilityInfoContainer">
         <div className="flexRowCentered">
-          <img src={activeAbility.icon} className="abilitiesIcon" />
+          <img
+            src={activeAbility.icon}
+            className="abilitiesIcon"
+            alt={'icon of ' + getAbiValue(activeAbility.id, 'name')}
+          />
           <h3>{activeAbility.name}</h3>
         </div>
         <p>{activeAbility.desc}</p>

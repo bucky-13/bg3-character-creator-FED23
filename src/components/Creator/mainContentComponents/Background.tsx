@@ -40,7 +40,7 @@ export const Background = () => {
                   onClick={() => onChangeBg(bg)}
                   onMouseEnter={() => setSelectedBg(bg)}
                 >
-                  <img src={bg.icon} alt={bg.name} />
+                  <img src={bg.icon} alt={'icon for a ' + bg.name} height={100} width={100} />
                   <p>{bg.name}</p>
                 </button>
               ))}
@@ -50,7 +50,7 @@ export const Background = () => {
         {selectedBg && (
           <div className="selectedChoiceContainer">
             <div className="selectedChoiceHeader">
-              <img src={selectedBg.icon} alt={selectedBg.name} />
+              <img src={selectedBg.icon} alt={'icon for a ' + selectedBg.name} />
               <h3>{selectedBg.name}</h3>
             </div>
             <p>{selectedBg.desc}</p>
