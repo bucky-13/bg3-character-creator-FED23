@@ -39,6 +39,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          VITE_SUPA_KEY: ${{secrets.VITE_SUPA_KEY}}
+          VITE_SUPA_URL: ${{secrets.VITE_SUPA_URL}}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
