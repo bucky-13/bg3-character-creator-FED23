@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { Database, Tables } from '../../database.types'
-import { INewAbility, INewCharacter } from '../models/INewCharater';
+import { INewCharacter } from '../models/INewCharater';
 import { convertToNewCharacter } from './convertToNewCharacter';
 
 const supabaseUrl = import.meta.env.VITE_SUPA_URL;
