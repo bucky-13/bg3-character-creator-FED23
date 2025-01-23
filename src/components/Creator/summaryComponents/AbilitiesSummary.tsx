@@ -1,8 +1,11 @@
-import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
+import { INewCharacter } from '../../../models/INewCharater';
 
-export const AbilitiesSummary = () => {
-  const { newCharacter } = useNewCharContext();
+interface IAbilitiesSummaryProps {
+  newCharacter: INewCharacter;
+}
+
+export const AbilitiesSummary = ({ newCharacter }: IAbilitiesSummaryProps) => {
   return (
     <div className="abilitiesSummaryContainer">
       <p>

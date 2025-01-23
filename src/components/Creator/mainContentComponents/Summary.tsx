@@ -31,7 +31,7 @@ export const Summary = () => {
           <TextItem title="Subclass" name={getDbSubClass(newCharacter.startingSubclass).name} />
         )}
         <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
-        <AbilitiesSummary />
+        <AbilitiesSummary newCharacter={newCharacter} />
         <SkillsSummary title="Character Skill Proficiencies" skillsArray={newCharacter.skillProficiencies} />
         {newCharacter.skillExpertises.length > 0 && (
           <SkillsSummary title="Character Skill Expertises" skillsArray={newCharacter.skillExpertises} />

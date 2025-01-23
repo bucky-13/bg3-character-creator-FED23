@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Tables } from '../../database.types';
 import { getCharacters } from '../supabase/supaIndex';
-
-export type TCharacters = Tables<'characters'>;
+import { INewCharacter } from '../models/INewCharater';
+import { AbilitiesSummary } from '../components/Creator/summaryComponents/AbilitiesSummary';
 
 export const ViewCharacters = () => {
-  const [chars, setChars] = useState<TCharacters[] | undefined>();
+  const [chars, setChars] = useState<INewCharacter[] | undefined>();
 
   const onGettingCharacters = async () => {
     let chars = await getCharacters();
@@ -20,6 +19,7 @@ export const ViewCharacters = () => {
         chars.map((char) => (
           <div key={char.id}>
             <h3>{char.name}</h3>
+            <AbilitiesSummary newCharacter={char} />
           </div>
         ))}
     </div>
