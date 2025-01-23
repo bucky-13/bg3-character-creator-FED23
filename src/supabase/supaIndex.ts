@@ -14,6 +14,7 @@ export const getCharacters = async ():Promise<Tables<'characters'>[] | undefined
       console.log(data);
       return data;
     } else {
+        console.log(error);
       return undefined;
     }
   };
