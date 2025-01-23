@@ -64,6 +64,7 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
   const navigateToNextSection = () => {
     let index = findSectionIndex(usedSectionsArray, currentSection);
     if (index === usedSectionsArray.length - 1) {
+      console.log(newCharacter);
       console.log('insert fancy function here later');
     } else {
       setCurrentSection(usedSectionsArray[index + 1]);

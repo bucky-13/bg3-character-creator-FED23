@@ -4,7 +4,8 @@ import { IFightingStyle } from './dbModels/IFightingSyles';
 import { INaturalExplorer } from './dbModels/INaturalExplorer';
 
 export interface INewCharacter {
-  charId?: string;
+  id?: string;
+  createdAt?: string;
   name: string;
   characterLevel: number;
   icon: string;

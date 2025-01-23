@@ -17,8 +17,6 @@ import './Summary.scss';
 export const Summary = () => {
   const { newCharacter } = useNewCharContext();
 
-  console.log(newCharacter);
-
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
       <h2>Character Summary</h2>
