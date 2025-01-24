@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { getCharacters } from '../supabase/supaIndex';
 import { INewCharacter } from '../models/INewCharater';
-import { AbilitiesSummary } from '../components/Creator/summaryComponents/AbilitiesSummary';
+import { CharacterSummary } from '../components/ViewCharacters/CharacterSummary';
+import './ViewCharacters.scss';
 
 export const ViewCharacters = () => {
   const [chars, setChars] = useState<INewCharacter[] | undefined>();
@@ -11,17 +12,18 @@ export const ViewCharacters = () => {
     setChars(chars);
   };
 
+  const onCharacterClick = () => {
+    console.log('do stuff');
+  };
+
   return (
-    <div>
-      <h2>Created Characters</h2>
-      <button onClick={() => onGettingCharacters()}>Get characters</button>
-      {chars &&
-        chars.map((char) => (
-          <div key={char.id}>
-            <h3>{char.name}</h3>
-            <AbilitiesSummary newCharacter={char} />
-          </div>
-        ))}
+    <div className="viewCharactersMainContainer">
+      <div className="viewCharactersContainer">
+        <h2>Created Characters</h2>
+        <button onClick={() => onGettingCharacters()}>Get characters</button>
+        {chars &&
+          chars.map((char) => <CharacterSummary character={char} key={char.id} onClick={() => onCharacterClick()} />)}
+      </div>
     </div>
   );
 };

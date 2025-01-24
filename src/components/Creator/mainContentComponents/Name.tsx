@@ -27,6 +27,7 @@ export const Name = () => {
         className={displayWarning ? 'inputAlert' : ''}
         value={newCharacter.name}
         onChange={(e) => checkName(e)}
+        maxLength={20}
       />
 
       {displayWarning && (

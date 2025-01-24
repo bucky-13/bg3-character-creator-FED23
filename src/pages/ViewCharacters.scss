@@ -1,0 +1,25 @@
+@use '../scss/variables' as *;
+@use '../scss/mixins' as *;
+
+.viewCharactersMainContainer {
+  @include flexColCentered;
+  width: 100%;
+
+  h2 {
+    color: $colorPrimaryLightColor;
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+  }
+  button {
+    margin-bottom: 1rem;
+  }
+}
+.viewCharactersContainer {
+  @include flexColCentered;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 2rem 1rem 2rem;
+  background-color: $colorBgTransparentBlack;
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
