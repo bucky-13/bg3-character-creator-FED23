@@ -2,14 +2,14 @@ import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { findSectionIndex, setUsedSections } from '../../functions/sectionNavigation';
 import { displayCantrips, displaySpells, isWarningDisplayed } from '../../functions/sideNavbarFunctions';
 import { Dispatcher } from '../../models/types';
-import { postCharacter } from '../../supabase/supaIndex';
 
 interface IProceedProps {
   currentSection: string;
   setCurrentSection: Dispatcher<string>;
+  setShowModal: Dispatcher<boolean>;
 }
 
-export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) => {
+export const Proceed = ({ currentSection, setCurrentSection, setShowModal }: IProceedProps) => {
   const { newCharacter } = useNewCharContext();
   const usedSectionsArray = setUsedSections(newCharacter);
   let warningArray: string[] = [];
@@ -65,9 +65,7 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
   const navigateToNextSection = async () => {
     let index = findSectionIndex(usedSectionsArray, currentSection);
     if (index === usedSectionsArray.length - 1) {
-      console.log('add confirmation thingie here');
-      let postResult = await postCharacter(newCharacter);
-      console.log(postResult);
+      setShowModal(true);
     } else {
       setCurrentSection(usedSectionsArray[index + 1]);
     }

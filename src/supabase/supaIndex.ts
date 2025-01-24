@@ -24,12 +24,13 @@ export const getCharacters = async ():Promise<INewCharacterSummary[] | undefined
     }
 };
   
-export const postCharacter = async (newCharacter: INewCharacter) => {
+export const postCharacter = async (newCharacter: INewCharacter):Promise<INewCharacter | string> => {
     const convertedNewCharacter: Database['public']['Tables']['characters']['Insert'] = convertToSupaJson(newCharacter)
 
     const { data, error } = await supabase.from('characters').insert(convertedNewCharacter).select()
     if (data) {
-        return 'yay!'
+      let newChar: INewCharacter = convertToNewCharacterFull(data[0])
+      return newChar
     } else {
         return JSON.stringify(error)
     }

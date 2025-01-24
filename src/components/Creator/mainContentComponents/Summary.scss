@@ -31,6 +31,7 @@
     flex-wrap: wrap;
     padding-left: 0;
     margin: 0;
+    gap: 0.4rem;
     @include flexRowLeft;
     li {
       display: inline;
@@ -55,7 +56,6 @@
   font-weight: 500;
   color: #f0de7a;
   font-size: 1.1rem;
-  margin-right: 0.3rem;
 }
 .summarySubTitle {
   font-weight: 500;

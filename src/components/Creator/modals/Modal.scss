@@ -1,0 +1,51 @@
+@use '../../../scss/variables' as *;
+@use '../../../scss/mixins' as *;
+
+.modalContainer {
+  @include flexColTopCentered;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: $colorBgTransparentBlack;
+}
+
+.modalContent {
+  margin-top: 3rem;
+  height: 50%;
+  width: 50%;
+  background-color: $colorBlack;
+  border: 2px solid $colorButtonBorder;
+  padding: 1rem;
+}
+
+.modalButtonContainer {
+  @include flexRowCentered;
+  gap: 3rem;
+  align-self: flex-end;
+  margin-top: 5rem;
+
+  button {
+    padding: 0 1.5rem;
+  }
+
+  .cancelBtn {
+    background-color: $colorButtonCancelBg;
+    border: 1px solid $colorAlert;
+  }
+  .cancelBtn:hover {
+    background-color: $colorAlert;
+    color: $colorWhite;
+    border: 1px solid $colorButtonCancelBg;
+  }
+
+  .confirmBtn {
+    background-color: $colorButtonChecked;
+  }
+  .confirmBtn:hover {
+    background-color: $colorChecked;
+    color: $colorWhite;
+  }
+}

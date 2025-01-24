@@ -20,10 +20,12 @@ import { Proceed } from './Proceed';
 interface CreatorMainContentProps {
   currentSection: string;
   setCurrentSection: Dispatcher<string>;
+  setShowModal: Dispatcher<boolean>;
 }
 
-export const CreatorMainContent = ({ currentSection, setCurrentSection }: CreatorMainContentProps) => {
+export const CreatorMainContent = ({ currentSection, setCurrentSection, setShowModal }: CreatorMainContentProps) => {
   const { newCharacter } = useNewCharContext();
+
   return (
     <div className="mainContentContainer">
       {currentSection === 'origin' && <Origin />}
@@ -52,7 +54,7 @@ export const CreatorMainContent = ({ currentSection, setCurrentSection }: Creato
         <CharSpells spellLevel={ESpellArray.Lvl1} title="Spells" spellList={lvl1spells} />
       )}
       {currentSection === 'summary' && <Summary character={newCharacter} />}
-      <Proceed currentSection={currentSection} setCurrentSection={setCurrentSection} />
+      <Proceed currentSection={currentSection} setCurrentSection={setCurrentSection} setShowModal={setShowModal} />
     </div>
   );
 };

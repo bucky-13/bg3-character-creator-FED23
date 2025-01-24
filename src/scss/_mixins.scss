@@ -22,6 +22,12 @@
   align-items: center;
   justify-content: center;
 }
+@mixin flexColTopCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 @mixin flexRowLeft {
   display: flex;
   flex-direction: row;
