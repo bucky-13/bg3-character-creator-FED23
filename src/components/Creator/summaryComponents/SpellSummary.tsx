@@ -14,7 +14,7 @@ export const SpellSummary = ({ title, spellArray, spellLevel }: ISpellSummaryPro
         <span className="summaryTitle">{title}: </span>
       </li>
       {spellArray.map((spell, i) => (
-        <li key={spell.id}>
+        <li key={i}>
           <div className="spellListItem">
             <img src={getDbSpell(spell.id, spellLevel).icon} alt={getDbSpell(spell.id, spellLevel).name + ' icon'} />
             <span>

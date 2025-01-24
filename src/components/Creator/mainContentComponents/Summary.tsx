@@ -6,9 +6,11 @@ import {
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
+import { displaySpellsGivenByClass } from '../../../functions/sideNavbarFunctions';
 import { INewCharacter } from '../../../models/INewCharater';
 import { AbilitiesSummary } from '../summaryComponents/AbilitiesSummary';
 import { EquipmentSummary } from '../summaryComponents/EquipmentSummary';
+import { GivenSpellsSummary } from '../summaryComponents/GivenSpellsSummary';
 import { SkillsSummary } from '../summaryComponents/SkillsSummary';
 import { SpellSummary } from '../summaryComponents/SpellSummary';
 import { TextItem } from '../summaryComponents/TextItem';
@@ -47,6 +49,7 @@ export const Summary = ({ character }: ISummaryProps) => {
         {character.lvl1Spells && character.lvl1Spells.length > 0 && (
           <SpellSummary title="Level 1 spells" spellArray={character.lvl1Spells} spellLevel={1} />
         )}
+        {displaySpellsGivenByClass(character) && <GivenSpellsSummary character={character} levelXSpells={1} />}
       </div>
     </div>
   );

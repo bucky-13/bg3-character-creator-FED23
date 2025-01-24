@@ -75,6 +75,14 @@ export const displaySpells = (newCharacter: INewCharacter) => {
 
   return showSpells;
 };
+export const displaySpellsGivenByClass = (newCharacter: INewCharacter) => {
+  const charClass = getDbClass(newCharacter.startingClass);
+  let showSpells = false;
+  if ((charClass.casterLevelPerLevel / 10) * newCharacter.characterLevel >= 1 && !charClass.spellsOnStartingLevel)
+    showSpells = true;
+
+  return showSpells;
+};
 
 export const isWarningDisplayed = (section: string, newCharacter: INewCharacter): boolean => {
   if (section === 'abilities')
