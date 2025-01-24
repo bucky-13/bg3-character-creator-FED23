@@ -35,7 +35,7 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
   if (displaySpells(newCharacter)) {
     insertChoiceAfterThis(lvl1ChoicesBase, 'spells', 'cantrips');
   }
-  if (newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') {
+  if (newCharacter.origin === 'ori01' || newCharacter.origin === 'ori08') {
     insertChoiceAfterThis(lvl1ChoicesBase, 'name', 'abilities');
   }
   return lvl1ChoicesBase;

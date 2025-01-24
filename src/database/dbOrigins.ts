@@ -187,7 +187,7 @@ export const dbOrigins: IOrigin[] = [
     desc: `Gale of Waterdeep was a prodigious archmage, his talents earning him the attention of Mystra, the goddess of magic. At her side, he learned all that mortals might accomplish with the Weave, in time earning his place as her lover, and her Chosen. And yet, he was not satisfied. In an attempt to prove he was ready for even greater power, he accidentally unleashed 'the orb' - a highly volatile fragment of pure Weave, corrupted by Netherese magic, which buried itself in his chest. Cast out by Mystra, humbled by his downfall, he does all he can to prevent the orb's cataclysmic detonation, watching for his chance to get back everything he lost, and more.`,
     race: 'race01',
     startingClass: 'ccl12',
-    casterLevel: 1,
+    casterLevel: 10,
     background: 'cbg10',
     abilities: [
       { id: 'abi01', shortName: 'Str', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -416,7 +416,7 @@ export const dbOrigins: IOrigin[] = [
     subrace: 'subr05',
     startingClass: 'ccl03',
     startingSubclass: 'scl09',
-    casterLevel: 1,
+    casterLevel: 10,
     background: 'cbg01',
     abilities: [
       { id: 'abi01', shortName: 'Str', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -500,7 +500,7 @@ export const dbOrigins: IOrigin[] = [
     race: 'race01',
     startingClass: 'ccl11',
     startingSubclass: 'scl35',
-    casterLevel: 1,
+    casterLevel: 10,
     background: 'cbg05',
     abilities: [
       { id: 'abi01', shortName: 'Str', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },
@@ -573,7 +573,7 @@ export const dbOrigins: IOrigin[] = [
     subrace: 'subr28',
     startingClass: 'ccl10',
     startingSubclass: 'scl34',
-    casterLevel: 1,
+    casterLevel: 10,
     background: 'cbg07',
     abilities: [
       { id: 'abi01', shortName: 'Str', baseValue: 10, plusOneBonus: false, plusTwoBonus: false },

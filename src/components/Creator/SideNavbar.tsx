@@ -105,7 +105,7 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         setCurrentSection={setCurrentSection}
         displayWarning={isWarningDisplayed('abilities', newCharacter)}
       />
-      {(newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') && (
+      {(newCharacter.origin === 'ori01' || newCharacter.origin === 'ori08') && (
         <ButtonSideNavbar
           textContent="Name"
           activeSection={isActiveSection('name')}

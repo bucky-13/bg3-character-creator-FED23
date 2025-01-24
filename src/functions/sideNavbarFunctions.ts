@@ -70,7 +70,7 @@ export const displayCantrips = (newCharacter: INewCharacter) => {
 export const displaySpells = (newCharacter: INewCharacter) => {
   const charClass = getDbClass(newCharacter.startingClass);
   let showSpells = false;
-  if (charClass.casterLevelPerLevel * newCharacter.characterLevel >= 1 && charClass.spellsOnStartingLevel)
+  if ((charClass.casterLevelPerLevel / 10) * newCharacter.characterLevel >= 1 && charClass.spellsOnStartingLevel)
     showSpells = true;
 
   return showSpells;

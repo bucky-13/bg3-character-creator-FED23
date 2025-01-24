@@ -2,6 +2,7 @@ import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { findSectionIndex, setUsedSections } from '../../functions/sectionNavigation';
 import { displayCantrips, displaySpells, isWarningDisplayed } from '../../functions/sideNavbarFunctions';
 import { Dispatcher } from '../../models/types';
+import { postCharacter } from '../../supabase/supaIndex';
 
 interface IProceedProps {
   currentSection: string;
@@ -61,11 +62,13 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
     return isPending;
   };
 
-  const navigateToNextSection = () => {
+  const navigateToNextSection = async () => {
     let index = findSectionIndex(usedSectionsArray, currentSection);
     if (index === usedSectionsArray.length - 1) {
       console.log(newCharacter);
-      console.log('insert fancy function here later');
+      console.log('add confirmation thingie here');
+      let postResult = await postCharacter(newCharacter);
+      console.log(postResult);
     } else {
       setCurrentSection(usedSectionsArray[index + 1]);
     }

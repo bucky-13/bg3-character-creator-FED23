@@ -55,7 +55,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Bard',
     desc: `Bards know music is more than idle fancy - it is power. Through study and adventure, these travelling troubadours master song, speech, and the magic within.`,
     icon: './icons/charClasses/Bard_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 2 },
       { fromLevel: 4, amount: 3 },
@@ -112,7 +112,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Cleric',
     desc: `Clerics are representatives of the gods they worship, wielding potent divine magic for good or ill`,
     icon: './icons/charClasses/Cleric_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 3 },
       { fromLevel: 4, amount: 4 },
@@ -140,7 +140,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Druid',
     desc: `Druids channel the elemental forces of nature and share a deep kinship with animals. Mastery of Wild Shape allows them to transform into beasts from all over the Realms.`,
     icon: './icons/charClasses/Druid_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 2 },
       { fromLevel: 4, amount: 3 },
@@ -257,7 +257,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Paladin',
     desc: `A promise made so deeply that it becomes divine in itself flows through a paladin, burning bright enough to inspire allies and smite foes.`,
     icon: './icons/charClasses/Paladin_Icon.png',
-    casterLevelPerLevel: 0.5,
+    casterLevelPerLevel: 5,
     subclassAtLevel: 1,
     subclasses: ['scl22', 'scl23', 'scl24', 'scl25'],
     skillProficiencies: [
@@ -287,7 +287,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Ranger',
     desc: `Rangers are unrivalled scouts and trackers, honing a deep connection with nature in order to hunt their favoured prey.`,
     icon: './icons/charClasses/Ranger_Icon.png',
-    casterLevelPerLevel: 0.5,
+    casterLevelPerLevel: 5,
     spellsOnStartingLevel: 2,
     spellsPerLevel: 0.5,
     subclassAtLevel: 3,
@@ -363,7 +363,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Sorcerer',
     desc: `Sorcerers are natural spellcasters, drawing on inherent magic from a gift or bloodline.`,
     icon: './icons/charClasses/Sorcerer_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 4 },
       { fromLevel: 4, amount: 5 },
@@ -401,7 +401,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Warlock',
     desc: `Bound by a pact to an all-powerful patron, warlocks trade their loyalty for supernatural abilities and unique magic.`,
     icon: './icons/charClasses/Warlock_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 2 },
       { fromLevel: 4, amount: 3 },
@@ -439,7 +439,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
     name: 'Wizard',
     desc: `Wizards master the arcane by specialising in individual schools of magic, combining ancient spells with modern research.`,
     icon: './icons/charClasses/Wizard_Icon.png',
-    casterLevelPerLevel: 1,
+    casterLevelPerLevel: 10,
     cantripsKnown: [
       { fromLevel: 1, amount: 3 },
       { fromLevel: 4, amount: 4 },

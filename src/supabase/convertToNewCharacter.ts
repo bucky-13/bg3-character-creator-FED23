@@ -10,7 +10,7 @@ const convertJsonObject = <T>(dbEntry: Json | null): T[] => {
     if (dbEntry === null) {
         return []
     } else {
-        let string = JSON.stringify(dbEntry)
+        let string = dbEntry.toString()
         return JSON.parse(string) as T[]
     }
 
@@ -19,6 +19,7 @@ const convertJsonObject = <T>(dbEntry: Json | null): T[] => {
 export const convertToNewCharacter = (char: SupaCharacter): INewCharacter => {
     let newCharacter: INewCharacter = {
         id: char.charId,
+        createdAt: char.createdAt,
         background: char.background,
         casterLevel: char.casterLevel,
         characterLevel: char.characterLevel,
@@ -43,7 +44,7 @@ export const convertToNewCharacter = (char: SupaCharacter): INewCharacter => {
     if(char.lvl1Spells !== null) newCharacter = {...newCharacter, lvl1Spells: convertJsonObject<ISpellChociesNewChar>(char.lvl1Spells)}
     if(char.fightingStyles !== null) newCharacter = {...newCharacter, fightingStyles: convertJsonObject<IFightingStyle>(char.fightingStyles)}
     if(char.favouredEnemy !== null) newCharacter = {...newCharacter, favouredEnemy: convertJsonObject<IFavouredEnemy>(char.favouredEnemy)}
-    if(char.naturalExplorer !== null) newCharacter = {...newCharacter, naturalExplorer: convertJsonObject<INaturalExplorer>(char.naturalExplorer)}
+    if (char.naturalExplorer !== null) newCharacter = { ...newCharacter, naturalExplorer: convertJsonObject<INaturalExplorer>(char.naturalExplorer) }
     return newCharacter
 
 }
