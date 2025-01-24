@@ -33,3 +33,15 @@ export const postCharacter = async (newCharacter: INewCharacter) => {
     }
 
 }
+
+export const getCharacter = async (id: string):Promise<INewCharacter | undefined> => {
+    const { data, error } = await supabase.from('characters').select().eq('charId', id);
+    if (data) {
+      let chars: Tables<'characters'> = data[0]
+        const convertedChar: INewCharacter = convertToNewCharacter(chars)
+        return convertedChar
+    } else {
+        console.error(error);
+      return undefined;
+    }
+};

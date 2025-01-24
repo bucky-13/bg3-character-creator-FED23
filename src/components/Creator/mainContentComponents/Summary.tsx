@@ -1,4 +1,3 @@
-import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import {
   getDbBackground,
   getDbClass,
@@ -7,6 +6,7 @@ import {
   getDbSubClass,
   getDbSubrace,
 } from '../../../functions/getDbItems';
+import { INewCharacter } from '../../../models/INewCharater';
 import { AbilitiesSummary } from '../summaryComponents/AbilitiesSummary';
 import { EquipmentSummary } from '../summaryComponents/EquipmentSummary';
 import { SkillsSummary } from '../summaryComponents/SkillsSummary';
@@ -14,35 +14,38 @@ import { SpellSummary } from '../summaryComponents/SpellSummary';
 import { TextItem } from '../summaryComponents/TextItem';
 import './Summary.scss';
 
-export const Summary = () => {
-  const { newCharacter } = useNewCharContext();
+interface ISummaryProps {
+  character: INewCharacter;
+}
 
+export const Summary = ({ character }: ISummaryProps) => {
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
       <h2>Character Summary</h2>
       <div className="summarySecondaryContainer">
-        <TextItem title="Character Name" name={newCharacter.name} />
-        <TextItem title="Character Level" name={newCharacter.characterLevel.toString()} />
-        <TextItem title="Origin" name={getDbOrigin(newCharacter.origin).name} />
-        <TextItem title="Race" name={getDbRace(newCharacter.race).name} />
-        {newCharacter.subrace && <TextItem title="Subrace" name={getDbSubrace(newCharacter.subrace).name} />}
-        <TextItem title="Class" name={getDbClass(newCharacter.startingClass).name} />
-        {newCharacter.startingSubclass && (
-          <TextItem title="Subclass" name={getDbSubClass(newCharacter.startingSubclass).name} />
+        <img className="portraitImage" src={character.icon} />
+        <TextItem title="Character Name" name={character.name} />
+        <TextItem title="Character Level" name={character.characterLevel.toString()} />
+        <TextItem title="Origin" name={getDbOrigin(character.origin).name} />
+        <TextItem title="Race" name={getDbRace(character.race).name} />
+        {character.subrace && <TextItem title="Subrace" name={getDbSubrace(character.subrace).name} />}
+        <TextItem title="Class" name={getDbClass(character.startingClass).name} />
+        {character.startingSubclass && (
+          <TextItem title="Subclass" name={getDbSubClass(character.startingSubclass).name} />
         )}
-        <TextItem title="Background" name={getDbBackground(newCharacter.background).name} />
-        <AbilitiesSummary newCharacter={newCharacter} />
-        <SkillsSummary title="Character Skill Proficiencies" skillsArray={newCharacter.skillProficiencies} />
-        {newCharacter.skillExpertises.length > 0 && (
-          <SkillsSummary title="Character Skill Expertises" skillsArray={newCharacter.skillExpertises} />
+        <TextItem title="Background" name={getDbBackground(character.background).name} />
+        <AbilitiesSummary character={character} />
+        <SkillsSummary title="Character Skill Proficiencies" skillsArray={character.skillProficiencies} />
+        {character.skillExpertises.length > 0 && (
+          <SkillsSummary title="Character Skill Expertises" skillsArray={character.skillExpertises} />
         )}
-        <EquipmentSummary title="Armor Proficiencies" equipmentArray={newCharacter.armorProficiencies} />
-        <EquipmentSummary title="Weapon Proficiencies" equipmentArray={newCharacter.weaponProficiencies} />
-        {newCharacter.cantrips && newCharacter.cantrips.length > 0 && (
-          <SpellSummary title="Cantrips" spellArray={newCharacter.cantrips} spellLevel={0} />
+        <EquipmentSummary title="Armor Proficiencies" equipmentArray={character.armorProficiencies} />
+        <EquipmentSummary title="Weapon Proficiencies" equipmentArray={character.weaponProficiencies} />
+        {character.cantrips && character.cantrips.length > 0 && (
+          <SpellSummary title="Cantrips" spellArray={character.cantrips} spellLevel={0} />
         )}
-        {newCharacter.lvl1Spells && newCharacter.lvl1Spells.length > 0 && (
-          <SpellSummary title="Level 1 spells" spellArray={newCharacter.lvl1Spells} spellLevel={1} />
+        {character.lvl1Spells && character.lvl1Spells.length > 0 && (
+          <SpellSummary title="Level 1 spells" spellArray={character.lvl1Spells} spellLevel={1} />
         )}
       </div>
     </div>

@@ -13,6 +13,7 @@
   gap: 1rem;
   text-align: left;
   height: auto;
+  width: 100%;
 
   cursor: pointer;
   h3 {
@@ -34,4 +35,22 @@
 .characterSummaryContainer:hover {
   background-color: $colorButtonBgHover;
   border: 1px solid $colorButtonBorderHover;
+}
+
+.createdCharcontainer {
+  @include flexColCentered;
+  .backToCharsContainer {
+    @include flexColCentered;
+    background-color: $colorBgTransparentBlack;
+    width: 90%;
+    padding-top: 0.5rem;
+
+    div {
+      width: 90%;
+      text-align: left;
+      button {
+        padding: 0 1rem;
+      }
+    }
+  }
 }

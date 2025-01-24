@@ -65,7 +65,6 @@ export const Proceed = ({ currentSection, setCurrentSection }: IProceedProps) =>
   const navigateToNextSection = async () => {
     let index = findSectionIndex(usedSectionsArray, currentSection);
     if (index === usedSectionsArray.length - 1) {
-      console.log(newCharacter);
       console.log('add confirmation thingie here');
       let postResult = await postCharacter(newCharacter);
       console.log(postResult);

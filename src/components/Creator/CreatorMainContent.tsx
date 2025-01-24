@@ -1,3 +1,4 @@
+import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { lvl0spells } from '../../database/dbLvl0Spells';
 import { lvl1spells } from '../../database/dbLvl1Spells';
 import { Dispatcher } from '../../models/types';
@@ -22,6 +23,7 @@ interface CreatorMainContentProps {
 }
 
 export const CreatorMainContent = ({ currentSection, setCurrentSection }: CreatorMainContentProps) => {
+  const { newCharacter } = useNewCharContext();
   return (
     <div className="mainContentContainer">
       {currentSection === 'origin' && <Origin />}
@@ -49,7 +51,7 @@ export const CreatorMainContent = ({ currentSection, setCurrentSection }: Creato
       {currentSection === 'spells' && (
         <CharSpells spellLevel={ESpellArray.Lvl1} title="Spells" spellList={lvl1spells} />
       )}
-      {currentSection === 'summary' && <Summary />}
+      {currentSection === 'summary' && <Summary character={newCharacter} />}
       <Proceed currentSection={currentSection} setCurrentSection={setCurrentSection} />
     </div>
   );

@@ -2,17 +2,17 @@ import { displayAbilityTotalPoints } from '../../../functions/creatorMinorFuncti
 import { INewCharacter } from '../../../models/INewCharater';
 
 interface IAbilitiesSummaryProps {
-  newCharacter: INewCharacter;
+  character: INewCharacter;
 }
 
-export const AbilitiesSummary = ({ newCharacter }: IAbilitiesSummaryProps) => {
+export const AbilitiesSummary = ({ character }: IAbilitiesSummaryProps) => {
   return (
     <div className="abilitiesSummaryContainer">
       <p>
         <span className="summaryTitle">Abilities: </span>
       </p>
       <div className="charStatsOverview">
-        {newCharacter.abilities.map((abi) => (
+        {character.abilities.map((abi) => (
           <div className="charStatContainer" key={abi.id}>
             <p className="charStatName">{abi.shortName}</p> <p>{displayAbilityTotalPoints(abi)}</p>
           </div>

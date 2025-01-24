@@ -4,6 +4,10 @@
 .viewCharactersMainContainer {
   @include flexColCentered;
   width: 100%;
+  a {
+    width: 100%;
+    text-decoration: none;
+  }
 
   h2 {
     color: $colorPrimaryLightColor;

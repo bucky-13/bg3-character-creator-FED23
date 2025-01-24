@@ -4,12 +4,11 @@ import './Character.Summary.scss';
 
 interface ICharacterSummaryProps {
   character: INewCharacter;
-  onClick: () => void;
 }
 
-export const CharacterSummary = ({ character, onClick }: ICharacterSummaryProps) => {
+export const CharacterSummary = ({ character }: ICharacterSummaryProps) => {
   return (
-    <button key={character.id} className="characterSummaryContainer" onClick={onClick}>
+    <button key={character.id} className="characterSummaryContainer">
       <img src={character.icon} alt={'Portrait of ' + character.name} />
       <h3>{character.name}</h3>
       <p>Level {character.characterLevel}</p>
