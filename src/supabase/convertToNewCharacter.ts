@@ -3,7 +3,7 @@ import { INewEquipmentProficiencies } from "../models/dbModels/IEquipmentProfici
 import { IFavouredEnemy } from "../models/dbModels/IFavouredEnemy";
 import { IFightingStyle } from "../models/dbModels/IFightingSyles";
 import { INaturalExplorer } from "../models/dbModels/INaturalExplorer";
-import { INewAbility, INewCharacter, ISkillProfNewChar, ISpellChociesNewChar } from "../models/INewCharater";
+import { INewAbility, INewCharacter, INewCharacterSummary, ISkillProfNewChar, ISpellChociesNewChar } from "../models/INewCharater";
 import { SupaCharacter } from "./supaIndex";
 
 const convertJsonObject = <T>(dbEntry: Json | null): T[] => {
@@ -16,7 +16,23 @@ const convertJsonObject = <T>(dbEntry: Json | null): T[] => {
 
 }
 
-export const convertToNewCharacter = (char: SupaCharacter): INewCharacter => {
+export const convertToNewCharacter = (char: SupaCharacter): INewCharacterSummary => {
+    let newCharacter: INewCharacterSummary = {
+        id: char.charId,
+        createdAt: char.createdAt,
+        background: char.background,
+        characterLevel: char.characterLevel,
+        icon: char.icon,
+        name: char.name,
+        race: char.race,
+        startingClass: char.startingClass,
+    }
+    if(char.startingSubclass !== null) newCharacter = {...newCharacter, startingSubclass: char.startingSubclass}
+    if(char.subrace !== null) newCharacter = {...newCharacter, subrace: char.subrace}
+    return newCharacter
+}
+
+export const convertToNewCharacterFull = (char: SupaCharacter): INewCharacter => {
     let newCharacter: INewCharacter = {
         id: char.charId,
         createdAt: char.createdAt,
@@ -35,8 +51,7 @@ export const convertToNewCharacter = (char: SupaCharacter): INewCharacter => {
         skillExpertises: convertJsonObject<ISkillProfNewChar>(char.skillExpertises),
         armorProficiencies: convertJsonObject<INewEquipmentProficiencies>(char.armorProficiencies),
         weaponProficiencies: convertJsonObject<INewEquipmentProficiencies>(char.weaponProficiencies)
-
-        
+ 
     }
     if(char.startingSubclass !== null) newCharacter = {...newCharacter, startingSubclass: char.startingSubclass}
     if(char.subrace !== null) newCharacter = {...newCharacter, subrace: char.subrace}
@@ -46,5 +61,4 @@ export const convertToNewCharacter = (char: SupaCharacter): INewCharacter => {
     if(char.favouredEnemy !== null) newCharacter = {...newCharacter, favouredEnemy: convertJsonObject<IFavouredEnemy>(char.favouredEnemy)}
     if (char.naturalExplorer !== null) newCharacter = { ...newCharacter, naturalExplorer: convertJsonObject<INaturalExplorer>(char.naturalExplorer) }
     return newCharacter
-
 }

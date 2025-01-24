@@ -37,6 +37,19 @@ export interface INewCharacter {
   favouredEnemy?: IFavouredEnemy[];
   naturalExplorer?: INaturalExplorer[];
 }
+export interface INewCharacterSummary {
+  id?: string;
+  createdAt?: string;
+  name: string;
+  characterLevel: number;
+  icon: string;
+  race: string;
+  subrace?: string;
+  startingClass: string;
+  startingSubclass?: string;
+  charClasses?: [{ classId: string; levels: number; subclass?: string; isStartingClass: boolean }];
+  background: string;
+}
 
 export interface ISkillProfNewChar {
   id: string;

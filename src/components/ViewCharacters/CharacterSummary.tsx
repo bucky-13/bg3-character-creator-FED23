@@ -1,9 +1,9 @@
 import { getDbBackground, getDbClass, getDbRace, getDbSubrace } from '../../functions/getDbItems';
-import { INewCharacter } from '../../models/INewCharater';
+import { INewCharacterSummary } from '../../models/INewCharater';
 import './Character.Summary.scss';
 
 interface ICharacterSummaryProps {
-  character: INewCharacter;
+  character: INewCharacterSummary;
 }
 
 export const CharacterSummary = ({ character }: ICharacterSummaryProps) => {
