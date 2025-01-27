@@ -16,6 +16,7 @@ export interface IRace {
   specialSkills?: IRaceSpells[];
   darkvision?: number;
   features: IFeatures[];
+  portraits?: string[];
 }
 
 export interface IRaceSpells {

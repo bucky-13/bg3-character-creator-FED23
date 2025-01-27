@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
-import { getDbRace, getDbSubrace } from '../../../functions/getDbItems';
+import { getDbOrigin, getDbRace, getDbSubrace } from '../../../functions/getDbItems';
 import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
@@ -31,6 +31,7 @@ export const Race = () => {
       setNewCharacter({
         ...newCharacter,
         race: changedRace.id,
+        icon: getDbOrigin(newCharacter.origin).icon,
         subrace: changedRace.subraces[0],
         skillProficiencies: newSkillProfs,
         skillExpertises: newSkillExps,
@@ -41,6 +42,7 @@ export const Race = () => {
       const newState: INewCharacter = {
         ...newCharacter,
         race: changedRace.id,
+        icon: getDbOrigin(newCharacter.origin).icon,
         skillProficiencies: newSkillProfs,
         skillExpertises: newSkillExps,
         armorProficiencies: removeEquipmentFromOldClass(newArmorProfs, 'subrace'),

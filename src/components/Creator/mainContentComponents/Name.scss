@@ -23,3 +23,34 @@
     background-color: #33000095;
   }
 }
+
+.charNameLabel {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  input {
+    margin-left: 1rem;
+  }
+}
+
+.portraitsSelectionContainer {
+  padding-bottom: 2rem;
+
+  .creatorImageChoiceContainer {
+    img {
+      max-height: 120px;
+      max-width: 120px;
+    }
+    .checkmarkIconPortrait {
+      height: 30px;
+      width: 30px;
+      border: 2px solid $colorBorderSelected;
+      margin-left: -2.1rem;
+      background-color: $colorButtonChecked;
+    }
+  }
+}
+
+.portraitsH3 {
+  color: $colorPrimaryLightColor;
+}

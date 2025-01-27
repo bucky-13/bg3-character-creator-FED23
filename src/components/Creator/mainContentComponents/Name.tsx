@@ -3,6 +3,8 @@ import './Name.scss';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { regexNameCheckPassed } from '../../../functions/creatorMinorFunctions';
 
+import { PortraitSelection } from './PortraitSelection';
+
 export const Name = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [displayWarning, setDisplayWarning] = useState(false);
@@ -20,21 +22,27 @@ export const Name = () => {
 
   return (
     <div className="creatorCenterContainer nameContainer">
-      <h2>Enter Character Name</h2>
+      <h2>Choose Character Name and Portrait</h2>
 
-      <input
-        type="text"
-        className={displayWarning ? 'inputAlert' : ''}
-        value={newCharacter.name}
-        onChange={(e) => checkName(e)}
-        maxLength={20}
-      />
+      <label htmlFor="characterName" className="charNameLabel">
+        Enter Character Name
+        <input
+          type="text"
+          name="characterName"
+          id="characterName"
+          className={displayWarning ? 'inputAlert' : ''}
+          value={newCharacter.name}
+          onChange={(e) => checkName(e)}
+          maxLength={20}
+        />
+      </label>
 
       {displayWarning && (
         <p className="alertText">
           Allowed characters are A-Z, a-z, international letters like üÅÄÖ, '. 0-9 and blankspaces
         </p>
       )}
+      <PortraitSelection />
     </div>
   );
 };

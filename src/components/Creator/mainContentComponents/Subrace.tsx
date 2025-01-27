@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
-import { getDbSubrace } from '../../../functions/getDbItems';
+import { getDbOrigin, getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
@@ -29,6 +29,7 @@ export const Subrace = () => {
     setNewCharacter({
       ...newCharacter,
       subrace: changedSubrace.id,
+      icon: getDbOrigin(newCharacter.origin).icon,
       skillProficiencies: newSkillProfs,
       skillExpertises: skillExpertises,
       armorProficiencies: newArmorProfs,

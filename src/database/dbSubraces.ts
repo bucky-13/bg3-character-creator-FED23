@@ -47,6 +47,7 @@ export const subraces: ISubrace[] = [
         desc: 'Choose 1 Cantrip from the Wizard spell list. Note that this means these cantrips use Intelligence as a casting stat.',
       },
     ],
+    portraits: ['./icons/portraits/elf_high_1.png', './icons/portraits/elf_high_2.png'],
   },
   {
     id: 'subr02',
@@ -68,6 +69,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/features/Movement_Speed.png',
       },
     ],
+    portraits: ['./icons/portraits/elf_wood_1.png', './icons/portraits/elf_wood_2.png'],
   },
   {
     id: 'subr03',
@@ -77,6 +79,7 @@ export const subraces: ISubrace[] = [
     mainRace: 'race03',
     armorProficiencies: [],
     features: [],
+    portraits: ['./icons/portraits/drow_1.png', './icons/portraits/drow_2.png'],
   },
   {
     id: 'subr04',
@@ -86,6 +89,7 @@ export const subraces: ISubrace[] = [
     mainRace: 'race03',
     armorProficiencies: [],
     features: [],
+    portraits: ['./icons/portraits/drow_1.png', './icons/portraits/drow_2.png'],
   },
   {
     id: 'subr05',
@@ -100,6 +104,7 @@ export const subraces: ISubrace[] = [
         desc: 'Choose 1 Cantrip from the Wizard spell list. Note that this means these cantrips use Intelligence as a casting stat.',
       },
     ],
+    portraits: ['./icons/portraits/halfelf_high_1.png', './icons/portraits/halfelf_high_2.png'],
   },
 
   {
@@ -121,6 +126,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/features/Movement_Speed.png',
       },
     ],
+    portraits: ['./icons/portraits/halfelf_wood_1.png', './icons/portraits/halfelf_wood_2.png'],
   },
   {
     id: 'subr07',
@@ -150,6 +156,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl2spells/Darkness.png',
       },
     ],
+    portraits: ['./icons/portraits/halfelf_drow_1.png', './icons/portraits/halfelf_drow_2.png'],
   },
   {
     id: 'subr08',
@@ -164,6 +171,7 @@ export const subraces: ISubrace[] = [
         desc: 'Your nimble nature makes you skilled at concealment. You have Advantage on Stealth Stealth Checks.',
       },
     ],
+    portraits: ['./icons/portraits/halfling_light_1.png', './icons/portraits/halfling_light_2.png'],
   },
   {
     id: 'subr09',
@@ -178,6 +186,7 @@ export const subraces: ISubrace[] = [
         desc: 'You have Advantage on Saving Throws against being Poisoned and Resistance to Poison damage.',
       },
     ],
+    portraits: ['./icons/portraits/halfling_strong_1.png', './icons/portraits/halfling_strong_2.png'],
   },
   {
     id: 'subr10',
@@ -192,6 +201,7 @@ export const subraces: ISubrace[] = [
         desc: 'Your Hit Point maximum increases by 1, and increases by 1 again every time you gain a level.',
       },
     ],
+    portraits: ['./icons/portraits/dwarf_gold_1.png', './icons/portraits/dwarf_gold_2.png'],
   },
   {
     id: 'subr11',
@@ -206,6 +216,7 @@ export const subraces: ISubrace[] = [
         desc: 'You have Armour Proficiency with  Light armour and  Medium armour.',
       },
     ],
+    portraits: ['./icons/portraits/dwarf_shield_1.png', './icons/portraits/dwarf_shield_2.png'],
   },
   {
     id: 'subr12',
@@ -241,6 +252,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl2spells/Invisibility.png',
       },
     ],
+    portraits: ['./icons/portraits/dwarf_duer_1.png', './icons/portraits/dwarf_duer_2.png'],
   },
   {
     id: 'subr13',
@@ -256,6 +268,7 @@ export const subraces: ISubrace[] = [
         desc: 'Add twice your Proficiency Bonus Proficiency Bonus to History checks.',
       },
     ],
+    portraits: ['./icons/portraits/gnome_rock_1.png', './icons/portraits/gnome_rock_2.png'],
   },
   {
     id: 'subr14',
@@ -271,6 +284,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl1spells/Speak_with_Animals.png',
       },
     ],
+    portraits: ['./icons/portraits/gnome_forest_1.png', './icons/portraits/gnome_forest_2.png'],
   },
   {
     id: 'subr15',
@@ -291,6 +305,7 @@ export const subraces: ISubrace[] = [
         desc: 'You have Advantage Icon.png Advantage on Stealth checks.',
       },
     ],
+    portraits: ['./icons/portraits/gnome_deep_1.png', './icons/portraits/gnome_deep_2.png'],
   },
   {
     id: 'subr16',
@@ -320,6 +335,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl2spells/Darkness.png',
       },
     ],
+    portraits: ['./icons/portraits/tiefling_asm_1.png', './icons/portraits/tiefling_asm_2.png'],
   },
   {
     id: 'subr17',
@@ -349,6 +365,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl2spells/Flame_Blade.png',
       },
     ],
+    portraits: ['./icons/portraits/tiefling_mep_1.png', './icons/portraits/tiefling_mep_2.png'],
   },
   {
     id: 'subr18',
@@ -378,6 +395,7 @@ export const subraces: ISubrace[] = [
         icon: './icons/lvl2spells/Branding_Smite.png',
       },
     ],
+    portraits: ['./icons/portraits/tiefling_zar_1.png', './icons/portraits/tiefling_zar_2.png'],
   },
   {
     id: 'subr19',
@@ -396,6 +414,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Acid damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_black_1.png', './icons/portraits/dragon_black_2.png'],
   },
   {
     id: 'subr20',
@@ -414,6 +433,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Lightning damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_blue_1.png', './icons/portraits/dragon_blue_2.png'],
   },
   {
     id: 'subr21',
@@ -432,6 +452,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_brass_1.png', './icons/portraits/dragon_brass_2.png'],
   },
   {
     id: 'subr22',
@@ -450,6 +471,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Lightning damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_bronze_1.png', './icons/portraits/dragon_bronze_2.png'],
   },
   {
     id: 'subr23',
@@ -468,6 +490,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Acid damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_copper_1.png', './icons/portraits/dragon_copper_2.png'],
   },
   {
     id: 'subr24',
@@ -486,6 +509,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_gold_1.png', './icons/portraits/dragon_gold_2.png'],
   },
   {
     id: 'subr25',
@@ -504,6 +528,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Poison damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_green_1.png', './icons/portraits/dragon_green_2.png'],
   },
   {
     id: 'subr26',
@@ -522,6 +547,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Fire damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_red_1.png', './icons/portraits/dragon_red_2.png'],
   },
   {
     id: 'subr27',
@@ -540,6 +566,7 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Cold damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_silver_1.png', './icons/portraits/dragon_silver_2.png'],
   },
   {
     id: 'subr28',
@@ -558,5 +585,6 @@ export const subraces: ISubrace[] = [
         desc: 'The blood of ancient dragons flow through your veins. You are Resistant to Cold damage.',
       },
     ],
+    portraits: ['./icons/portraits/dragon_white_1.png', './icons/portraits/dragon_white_2.png'],
   },
 ];

@@ -17,4 +17,5 @@ export interface ISubrace {
   spells?: IRaceSpells[];
   darkvision?: number;
   features: IFeatures[];
+  portraits: string[];
 }

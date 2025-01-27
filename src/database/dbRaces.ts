@@ -47,6 +47,7 @@ export const races: IRace[] = [
         desc: 'You have Weapon Proficiency with Spears, Pikes, Halberds, Glaives, Light armour, and  Shields.',
       },
     ],
+    portraits: ['./icons/portraits/human_1.png', './icons/portraits/human_2.png'],
   },
   {
     id: 'race02',
@@ -204,6 +205,7 @@ export const races: IRace[] = [
         desc: `When you land a Critical Hit with a melee weapon attack, you deal an extra dice of weapon damage.`,
       },
     ],
+    portraits: ['./icons/portraits/halforc_1.png', './icons/portraits/halforc_2.png'],
   },
   {
     id: 'race06',
@@ -357,6 +359,7 @@ export const races: IRace[] = [
         icon: './icons/lvl2spells/Misty_Step.png',
       },
     ],
+    portraits: ['./icons/portraits/gith_1.png', './icons/portraits/gith_2.png'],
   },
   {
     id: 'race11',
