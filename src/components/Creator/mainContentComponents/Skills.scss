@@ -1,17 +1,31 @@
+@use '../../../scss/variables' as *;
+
 .skillsContainer {
   .skillContainer {
     display: grid;
-    grid-template-columns: 1fr 50px 50px 50px;
+    grid-template-columns: 1fr 80px 60px 60px 60px;
     align-items: center;
     margin-top: 2px;
-    h4,
-    p {
-      margin: 0;
+
+    .skillTitle {
+      color: $colorPrimaryLightColor;
     }
 
-    .skillBonus {
-      grid-column: span 2;
-      text-align: right;
+    h3,
+    h4,
+    p {
+      text-align: left;
+      margin: 0;
     }
   }
+}
+
+.skillContainer.humanSkills {
+  grid-template-columns: 1fr 80px 60px 60px 60px 60px;
+}
+
+.dummyCheckmark {
+  height: 30px;
+  width: 30px;
+  margin: 0;
 }

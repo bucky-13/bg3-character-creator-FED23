@@ -5,7 +5,6 @@ import {
   calculateAbilityPointsLeft,
   calculateSkillPointsLeft,
   getExpertiseSlots,
-  getProfSlots,
   regexNameCheckPassed,
 } from './creatorMinorFunctions';
 import { getDbClass, getDbSubClass } from './getDbItems';
@@ -38,7 +37,7 @@ export const checkHECantrip = (newCharacter: INewCharacter): boolean => {
 };
 
 export const checkSkillsWarning = (newCharacter: INewCharacter): boolean => {
-  const profSlots = getProfSlots(getDbClass(newCharacter.startingClass), newCharacter.race);
+  const profSlots = getDbClass(newCharacter.startingClass).skillProficiencySlots;
   const skillPointsLeft = calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies);
   const charSubClass: ISubClass | undefined = newCharacter.startingSubclass
     ? getDbSubClass(newCharacter.startingSubclass)

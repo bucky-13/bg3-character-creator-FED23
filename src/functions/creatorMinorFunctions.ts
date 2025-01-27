@@ -30,10 +30,6 @@ export const getExpertiseSlots = (
   return 0;
 };
 
-export const getProfSlots = (charClass: ICharClass, raceId: string) => {
-  const raceBonus = raceId === 'race01' ? 1 : 0;
-  return charClass.skillProficiencySlots + raceBonus;
-};
 
 export const calculateAbilityPointsLeft = (abilities: INewAbility[]): number => {
   let points = 27;
@@ -64,8 +60,8 @@ export const resetSkillArrays = (skillsArray: ISkillProfNewChar[]): ISkillProfNe
   return skillsArray.filter((o) => !checkSkillSource(o.fromSource, 'skills'));
 };
 
-export const calculateSkillPointsTaken = (skillsArray: ISkillProfNewChar[]): number => {
-  const skillArrayFromSource = skillsArray.filter((o) => checkSkillSource(o.fromSource, 'skills'));
+export const calculateSkillPointsTaken = (skillsArray: ISkillProfNewChar[], fromSource: string): number => {
+  const skillArrayFromSource = skillsArray.filter((o) => checkSkillSource(o.fromSource, fromSource));
   return skillArrayFromSource ? skillArrayFromSource.length : 0;
 };
 
