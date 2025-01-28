@@ -3,9 +3,9 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbBackground, getSkillProficiencies } from '../../../functions/getDbItems';
 import { charBackgrounds } from '../../../database/dbCharBackgrounds';
 import { ICharBackground } from '../../../models/dbModels/ICharBackground';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
+import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -26,6 +26,10 @@ export const Background = () => {
     return charBackgrounds.filter((o) => o.id !== 'cbg07');
   };
 
+  const onSetSelectedBackground = (background: ICharBackground) => {
+    setSelectedBg(background);
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Character Background</h2>
@@ -33,16 +37,14 @@ export const Background = () => {
         {newCharacter.origin === 'ori01' && (
           <div>
             <div className="choicesContainer">
-              {removeDUBackground().map((bg) => (
-                <button
-                  key={bg.id}
-                  className={isActiveIcon(bg.id, 'background', newCharacter)}
-                  onClick={() => onChangeBg(bg)}
-                  onMouseEnter={() => setSelectedBg(bg)}
-                >
-                  <img src={bg.icon} alt={'icon for a ' + bg.name} height={100} width={100} />
-                  <p>{bg.name}</p>
-                </button>
+              {removeDUBackground().map((bg, i) => (
+                <DisplaySelectionButton
+                  selection={bg}
+                  onChange={onChangeBg}
+                  setActiveSelection={onSetSelectedBackground}
+                  key={i}
+                  typeOfSelection="background"
+                />
               ))}
             </div>
           </div>

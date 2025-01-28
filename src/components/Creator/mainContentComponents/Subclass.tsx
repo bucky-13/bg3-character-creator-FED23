@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { ISubClass } from '../../../models/dbModels/ISubClass';
 import { subClasses } from '../../../database/dbSubClass';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { getDbSubClass } from '../../../functions/getDbItems';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
+import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -31,6 +31,10 @@ export const Subclass = () => {
     });
   };
 
+  const onSetSelectedSubclass = (subclass: ISubClass) => {
+    setSelectedSubclass(subclass);
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Subclass</h2>
@@ -40,17 +44,15 @@ export const Subclass = () => {
           <div>
             <div className="choicesContainer">
               {subClasses.map(
-                (subClass) =>
+                (subClass, i) =>
                   subClass.mainClass === newCharacter.startingClass && (
-                    <button
-                      key={subClass.id}
-                      className={isActiveIcon(subClass.id, 'startingSubclass', newCharacter)}
-                      onClick={() => onChangeSubClass(subClass)}
-                      onMouseEnter={() => setSelectedSubclass(subClass)}
-                    >
-                      <img src={subClass.icon} alt={'icon for a ' + subClass.name} height={100} width={100} />
-                      <p>{subClass.name}</p>
-                    </button>
+                    <DisplaySelectionButton
+                      selection={subClass}
+                      onChange={onChangeSubClass}
+                      setActiveSelection={onSetSelectedSubclass}
+                      key={i}
+                      typeOfSelection="startingSubclass"
+                    />
                   ),
               )}
             </div>

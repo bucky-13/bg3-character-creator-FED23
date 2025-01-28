@@ -3,9 +3,9 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { subraces } from '../../../database/dbSubraces';
 import { getDbOrigin, getDbSubrace } from '../../../functions/getDbItems';
 import { ISubrace } from '../../../models/dbModels/ISubrace';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
+import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -36,6 +36,10 @@ export const Subrace = () => {
     });
   };
 
+  const onSetSelectedSubrace = (subrace: ISubrace) => {
+    setSelectedSubrace(subrace);
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Subrace</h2>
@@ -45,17 +49,15 @@ export const Subrace = () => {
           <div>
             <div className="choicesContainer">
               {subraces.map(
-                (subrace) =>
+                (subrace, i) =>
                   subrace.mainRace === newCharacter.race && (
-                    <button
-                      key={subrace.id}
-                      className={isActiveIcon(subrace.id, 'subrace', newCharacter)}
-                      onClick={() => onChangeSubrace(subrace)}
-                      onMouseEnter={() => setSelectedSubrace(subrace)}
-                    >
-                      <img src={subrace.icon} alt={'portrait of a ' + subrace.name} height={100} width={100} />
-                      <p>{subrace.name}</p>
-                    </button>
+                    <DisplaySelectionButton
+                      selection={subrace}
+                      onChange={onChangeSubrace}
+                      setActiveSelection={onSetSelectedSubrace}
+                      key={i}
+                      typeOfSelection="subrace"
+                    />
                   ),
               )}
             </div>

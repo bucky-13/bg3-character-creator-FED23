@@ -17,12 +17,12 @@ import {
   isSkillTakenFromOtherSource,
   isSourceTheSame,
 } from '../../../functions/skillFunctions';
-import { DummyCheckmark } from './SkillsMinorComponents/DummyCheckmark';
-import { HumanSkillCheckmark } from './SkillsMinorComponents/HumanSkillSelection';
-import { ProficiencyCheckmark } from './SkillsMinorComponents/ProficiencyCheckmark';
-import { ExpertiseCheckmark } from './SkillsMinorComponents/ExpertiseCheckmark';
-import { SkillsTableHeader } from './SkillsMinorComponents/SkillsTableHeader';
-import { OtherSourcesCheckmark } from './SkillsMinorComponents/OtherSourcesCheckmark';
+import { DummyCheckmark } from './skillsMinorComponents/DummyCheckmark';
+import { HumanSkillCheckmark } from './skillsMinorComponents/HumanSkillSelection';
+import { ProficiencyCheckmark } from './skillsMinorComponents/ProficiencyCheckmark';
+import { ExpertiseCheckmark } from './skillsMinorComponents/ExpertiseCheckmark';
+import { SkillsTableHeader } from './skillsMinorComponents/SkillsTableHeader';
+import { OtherSourcesCheckmark } from './skillsMinorComponents/OtherSourcesCheckmark';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();

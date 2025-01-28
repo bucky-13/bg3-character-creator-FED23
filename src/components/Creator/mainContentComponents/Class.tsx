@@ -3,7 +3,6 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { getDbClass, getDbEquipment, getDbSubClass } from '../../../functions/getDbItems';
 import { charClasses } from '../../../database/dbCharClasses';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
-import { isActiveIcon, resetSkillArrays } from '../../../functions/creatorMinorFunctions';
 import { ESpellArray } from './Spells';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { dbFightingStyles } from '../../../database/dbFightingStyles';
@@ -11,6 +10,8 @@ import { dbFavouredEnemy } from '../../../database/dbFavouredEnemy';
 import { removeSkillsFromOldSouce, updateSkillsArray } from '../../../functions/skillFunctions';
 import { removeClassSpells } from '../../../functions/spellFunctions';
 import { dbNaturalExplorer } from '../../../models/dbModels/dbNaturalExplorer';
+import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
+import { resetSkillArrays } from '../../../functions/creatorMinorFunctions';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -71,6 +72,10 @@ export const Class = () => {
     });
   };
 
+  const onSetSelectedClass = (charClass: ICharClass) => {
+    setSelectedClass(charClass);
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Starting Class</h2>
@@ -78,16 +83,14 @@ export const Class = () => {
         {!newCharacter.hasLockedChoices && (
           <div>
             <div className="choicesContainer">
-              {charClasses.map((cClass) => (
-                <button
-                  key={cClass.id}
-                  className={isActiveIcon(cClass.id, 'startingClass', newCharacter)}
-                  onClick={() => onChangeClass(cClass)}
-                  onMouseEnter={() => setSelectedClass(cClass)}
-                >
-                  <img src={cClass.icon} alt={'icon for a ' + cClass.name} height={100} width={100} />
-                  <p>{cClass.name}</p>
-                </button>
+              {charClasses.map((cClass, i) => (
+                <DisplaySelectionButton
+                  selection={cClass}
+                  onChange={onChangeClass}
+                  setActiveSelection={onSetSelectedClass}
+                  typeOfSelection="startingClass"
+                  key={i}
+                />
               ))}
             </div>
           </div>

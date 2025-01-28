@@ -4,9 +4,9 @@ import { getDbOrigin, getDbRace, getDbSubrace } from '../../../functions/getDbIt
 import { races } from '../../../database/dbRaces';
 import { IRace } from '../../../models/dbModels/IRace';
 import { INewCharacter } from '../../../models/INewCharater';
-import { isActiveIcon } from '../../../functions/creatorMinorFunctions';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
+import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -53,6 +53,10 @@ export const Race = () => {
     }
   };
 
+  const onSetSelectedRace = (race: IRace) => {
+    setSelectedRace(race);
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Race</h2>
@@ -60,16 +64,14 @@ export const Race = () => {
         {!newCharacter.hasLockedChoices && (
           <div>
             <div className="choicesContainer">
-              {races.map((race) => (
-                <button
-                  key={race.id}
-                  className={isActiveIcon(race.id, 'race', newCharacter)}
-                  onClick={() => onChangeRace(race)}
-                  onMouseEnter={() => setSelectedRace(race)}
-                >
-                  <img src={race.icon} alt={'portrait of a ' + race.name} height={100} width={100} />
-                  <p>{race.name}</p>
-                </button>
+              {races.map((race, i) => (
+                <DisplaySelectionButton
+                  selection={race}
+                  onChange={onChangeRace}
+                  setActiveSelection={onSetSelectedRace}
+                  key={i}
+                  typeOfSelection="race"
+                />
               ))}
             </div>
           </div>
