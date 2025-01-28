@@ -1,18 +1,28 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbBackground, getDbClass, getDbRace, getDbSubClass, getDbSubrace } from '../../../functions/getDbItems';
-import { INewAbility, ISkillProfNewChar } from '../../../models/INewCharater';
+import { getDbClass, getDbSubClass } from '../../../functions/getDbItems';
+import { ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import '../Overview.scss';
 import { ICharClass } from '../../../models/dbModels/ICharClass';
-import {
-  calculateSkillPointsLeft,
-  calculateSkillPointsTaken,
-  displayAbilityTotalPoints,
-  getExpertiseSlots,
-} from '../../../functions/creatorMinorFunctions';
+import { calculateSkillPointsLeft, getExpertiseSlots } from '../../../functions/creatorMinorFunctions';
 import { useState } from 'react';
 import { ISubClass } from '../../../models/dbModels/ISubClass';
+import {
+  createSkill,
+  findExpOnNewChar,
+  findProfOnNewChar,
+  getAbilityModifier,
+  isSkillExpPicked,
+  isSkillTakenFromOtherSource,
+  isSourceTheSame,
+} from '../../../functions/skillFunctions';
+import { DummyCheckmark } from './SkillsMinorComponents/DummyCheckmark';
+import { HumanSkillCheckmark } from './SkillsMinorComponents/HumanSkillSelection';
+import { ProficiencyCheckmark } from './SkillsMinorComponents/ProficiencyCheckmark';
+import { ExpertiseCheckmark } from './SkillsMinorComponents/ExpertiseCheckmark';
+import { SkillsTableHeader } from './SkillsMinorComponents/SkillsTableHeader';
+import { OtherSourcesCheckmark } from './SkillsMinorComponents/OtherSourcesCheckmark';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -28,33 +38,12 @@ export const Skills = () => {
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(
     calculateSkillPointsLeft(expertiseSlots, newCharacter.skillExpertises),
   );
-
   const [humanSkillsTaken, setHumanSkillsTaken] = useState(0);
 
-  const findProfOnNewChar = (id: string) => {
-    return newCharacter.skillProficiencies.find((o) => o.id == id);
-  };
-  const findExpOnNewChar = (id: string) => {
-    return newCharacter.skillExpertises.find((o) => o.id == id);
-  };
-
-  const isSourceTheSame = (skill: ISkillProfNewChar, source: string): boolean => {
-    const hasSource = skill.fromSource.find((o) => o === source);
-    return hasSource ? true : false;
-  };
-
-  const getAbilityModifier = (key: string, id: string): number => {
-    const usedAbility = newCharacter.abilities.find((abi: INewAbility) => abi.id === key)!;
-    const abilityTotal = displayAbilityTotalPoints(usedAbility);
-    const hasProficiency = findProfOnNewChar(id);
-    const hasExpertise = findExpOnNewChar(id);
-    const bonus: number = hasExpertise ? 4 : hasProficiency ? 2 : 0;
-    return Math.floor((abilityTotal - 10) / 2 + bonus);
-  };
-
+  //This function is probably the worst function I've ever written. I might split it into checking expertise and profs separately to cut down on the checks if I have the time...
   const isPossibleSkill = (isExpertise: boolean, id: string, source: string): boolean => {
-    const profIsAlreadyPicked = findProfOnNewChar(id);
-    const expIsAlreadyPicked = findExpOnNewChar(id);
+    const profIsAlreadyPicked = findProfOnNewChar(id, newCharacter);
+    const expIsAlreadyPicked = findExpOnNewChar(id, newCharacter);
     const isOnSubClass = charSubClass?.skillExpertises ? charSubClass.skillExpertises.find((o) => o === id) : undefined;
 
     if (profIsAlreadyPicked && profIsAlreadyPicked.canChange === false && !isExpertise) return false;
@@ -73,57 +62,24 @@ export const Skills = () => {
     if (!isExpertise) {
       if (profIsAlreadyPicked && profIsAlreadyPicked.canChange === false) return false;
     } else {
-      const proficiencyIsToBeRemoved = findProfOnNewChar(id);
+      const proficiencyIsToBeRemoved = findProfOnNewChar(id, newCharacter);
       if (proficiencyIsToBeRemoved === undefined) return false;
     }
     return true;
   };
 
-  const isSkillTakenFromOtherSource = (id: string): boolean => {
-    const profIsAlreadyPicked = findProfOnNewChar(id);
-    if (profIsAlreadyPicked && profIsAlreadyPicked.canChange === false) {
-      return true;
-    }
-    const expIsAlreadyPicked = findExpOnNewChar(id);
-    if (expIsAlreadyPicked && expIsAlreadyPicked.canChange === false) {
-      return true;
-    }
-    return false;
-  };
-
-  const isDisabled = (id: string): boolean => {
-    const profIsAlreadyPicked = findProfOnNewChar(id);
-    return profIsAlreadyPicked?.canChange === false ? true : false;
-  };
-
-  const isSkillProfPicked = (id: string): boolean => {
-    const isToBeRemoved = findProfOnNewChar(id);
-    return isToBeRemoved ? true : false;
-  };
-
-  const isSkillExpPicked = (id: string): boolean => {
-    const isToBeRemoved = findExpOnNewChar(id);
-    return isToBeRemoved ? true : false;
-  };
-
   const addSkill = (id: string, isExpertise: boolean, source: string) => {
     if (isExpertise) {
-      const newSkill: ISkillProfNewChar = {
-        id: id,
-        fromSource: [source],
-        canChange: true,
-      };
+      const newSkill: ISkillProfNewChar = createSkill(id, source, true);
       let newSkillExp = newCharacter.skillExpertises;
+
       newSkillExp ? newSkillExp?.push(newSkill) : (newSkillExp = [newSkill]);
       setNewCharacter({ ...newCharacter, skillExpertises: newSkillExp });
       setExpertiseSlotsLeft(expertiseSlotsLeft - 1);
     } else {
-      const newSkill: ISkillProfNewChar = {
-        id: id,
-        fromSource: [source],
-        canChange: true,
-      };
+      const newSkill: ISkillProfNewChar = createSkill(id, source, true);
       const newSkillProfs = newCharacter.skillProficiencies;
+
       newSkillProfs?.push(newSkill);
       setNewCharacter({ ...newCharacter, skillProficiencies: newSkillProfs });
       source === 'skills' ? setProfSlotsLeft(profSlotsLeft - 1) : setHumanSkillsTaken(1);
@@ -149,65 +105,22 @@ export const Skills = () => {
   const onTogglingSkill = (id: string, isToBeRemoved: boolean, isExpertise: boolean, fromSource: string) => {
     let removeBoth = false;
     if (isToBeRemoved && !isExpertise) {
-      removeBoth = isSkillExpPicked(id);
+      removeBoth = isSkillExpPicked(id, newCharacter);
     }
     isToBeRemoved ? removeSkill(id, isExpertise, removeBoth, fromSource) : addSkill(id, isExpertise, fromSource);
-  };
-
-  const selectCheckmarkIcon = (id: string, isExpertise: boolean): string => {
-    let source = '';
-
-    if (isExpertise) {
-      const exp = findExpOnNewChar(id)?.fromSource[0];
-      exp ? (source = exp) : '';
-    } else {
-      const prof = findProfOnNewChar(id)?.fromSource[0];
-      prof ? (source = prof) : '';
-    }
-
-    switch (source) {
-      case 'background':
-        return getDbBackground(newCharacter.background).icon;
-      case 'race':
-        return getDbRace(newCharacter.race).icon;
-      case 'class':
-        return getDbClass(newCharacter.startingClass).icon;
-      case 'subrace':
-        return newCharacter.subrace ? getDbSubrace(newCharacter.subrace).icon : '';
-      default:
-        return './icons/check-mark-icon.png';
-    }
   };
 
   return (
     <div className="skillsContainer">
       <h2>Skills</h2>
       <div>
-        <div className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}>
-          <h3 className="skillTitle">Skill Name </h3>
-          <h4 className="skillTitle">From Other source</h4>
-          <h4 className="skillTitle">Skill Bonus </h4>
-          {newCharacter.race === 'race01' && (
-            <div className={humanSkillsTaken < 1 ? 'alertText' : 'skillTitle'}>
-              <h4>Race</h4>
-              <p>{calculateSkillPointsTaken(newCharacter.skillProficiencies, 'race')} / 1</p>
-            </div>
-          )}
-          <div className={profSlotsLeft > 0 ? 'alertText' : 'skillTitle'}>
-            <h4>Prof </h4>
-            <p>
-              {calculateSkillPointsTaken(newCharacter.skillProficiencies, 'skills')} / {profSlots}
-            </p>
-          </div>
-          {expertiseSlots > 0 && (
-            <div className={expertiseSlotsLeft > 0 ? 'alertText' : 'skillTitle'}>
-              <h4>Exp</h4>
-              <p>
-                {calculateSkillPointsTaken(newCharacter.skillExpertises, 'skills')} / {expertiseSlots}
-              </p>
-            </div>
-          )}
-        </div>
+        <SkillsTableHeader
+          humanSkillsTaken={humanSkillsTaken}
+          profSlotsLeft={profSlotsLeft}
+          profSlots={profSlots}
+          expertiseSlotsLeft={expertiseSlotsLeft}
+          expertiseSlots={expertiseSlots}
+        />
 
         {skills.map((skill) => (
           <div
@@ -215,50 +128,35 @@ export const Skills = () => {
             key={skill.id}
           >
             <h4>{skill.name}</h4>
-            {isSkillTakenFromOtherSource(skill.id) ? (
-              <button className={'checkmarkIcon checked'} disabled aria-label={'Select proficiency for ' + skill.name}>
-                <img src={selectCheckmarkIcon(skill.id, false)} alt={skill.name} />
-              </button>
+            {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
+              <OtherSourcesCheckmark skill={skill} />
             ) : (
-              <div className="dummyCheckmark"></div>
+              <DummyCheckmark />
             )}
-            <p>{getAbilityModifier(skill.parentId, skill.id)}</p>
+            <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
             {newCharacter.race === 'race01' &&
               (isPossibleSkill(false, skill.id, 'race') ? (
-                <button
-                  className={isSkillProfPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
-                  disabled={humanSkillsTaken > 0 && !isSkillProfPicked(skill.id)}
-                  onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false, 'race')}
-                  aria-label={'Select proficiency for ' + skill.name}
-                >
-                  {isSkillProfPicked(skill.id) && <img src="./icons/check-mark-icon.png" alt={skill.name} />}
-                </button>
+                <HumanSkillCheckmark
+                  skill={skill}
+                  humanSkillsTaken={humanSkillsTaken}
+                  onTogglingSkill={onTogglingSkill}
+                />
               ) : (
-                <div className="dummyCheckmark"></div>
+                <DummyCheckmark />
               ))}
             {isPossibleSkill(false, skill.id, 'skills') ? (
-              <button
-                className={isSkillProfPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
-                disabled={isDisabled(skill.id) || (isSkillProfPicked(skill.id) === false && profSlotsLeft === 0)}
-                onClick={() => onTogglingSkill(skill.id, isSkillProfPicked(skill.id), false, 'skills')}
-                aria-label={'Select proficiency for ' + skill.name}
-              >
-                {isSkillProfPicked(skill.id) && <img src="./icons/check-mark-icon.png" alt={skill.name} />}
-              </button>
+              <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
             ) : (
-              <div className="dummyCheckmark"></div>
+              <DummyCheckmark />
             )}
             {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
-              <button
-                className={isSkillExpPicked(skill.id) ? 'checkmarkIcon checked' : 'checkmarkIcon'}
-                disabled={isSkillExpPicked(skill.id) === false && expertiseSlotsLeft === 0}
-                onClick={() => onTogglingSkill(skill.id, isSkillExpPicked(skill.id), true, 'skills')}
-                aria-label={'Select expertise for ' + skill.name}
-              >
-                {isSkillExpPicked(skill.id) && <img src="./icons/check-mark-icon.png" alt={skill.name} />}
-              </button>
+              <ExpertiseCheckmark
+                skill={skill}
+                expertiseSlotsLeft={expertiseSlotsLeft}
+                onTogglingSkill={onTogglingSkill}
+              />
             ) : (
-              <div className="dummyCheckmark"></div>
+              <DummyCheckmark />
             )}
           </div>
         ))}
