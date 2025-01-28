@@ -14,9 +14,6 @@
     padding: 0.1rem 1rem;
     border-radius: 1rem;
   }
-  button {
-    margin-bottom: 1rem;
-  }
 }
 .viewCharactersContainer {
   @include flexColCentered;
@@ -27,4 +24,73 @@
   border-bottom-right-radius: 3rem;
   border-bottom-left-radius: 3rem;
   margin-bottom: 2rem;
+}
+
+.viewCharsFiltercontainer {
+  margin-bottom: 3rem;
+  @include flexRowCentered;
+  flex-wrap: wrap;
+  gap: 1rem;
+  label {
+    font-size: 1rem;
+    font-family: 'Source Serif 4', serif;
+    border-right: 1px solid $colorButtonBorder;
+    padding-right: 1rem;
+  }
+
+  .resetBtn {
+    padding: 0 1rem;
+  }
+}
+
+.retrievedCharsContainer {
+  border-top: 1px solid $colorButtonBorder;
+  padding-top: 2rem;
+  @include flexColCentered;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.searchButtonContainer {
+  margin-bottom: 2rem;
+
+  .getCharsBtn {
+    padding: 0 2rem;
+    background-color: $colorButtonActiveBg;
+    font-size: 1.2rem;
+    border-radius: 100px;
+    height: 50px;
+  }
+  .getCharsBtn:hover {
+    background-color: $colorChecked;
+    color: $colorWhite;
+  }
+}
+
+.charDropdownContainer {
+  background-color: $colorButtonBg;
+  color: $colorWhite;
+  padding: 0.5rem 1rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid $colorButtonBorder;
+  margin-left: 0.5rem;
+
+  select {
+    border: 1px solid $colorButtonBorder;
+  }
+}
+
+.searchInput {
+  background-color: $colorButtonBg;
+  border: 1px solid $colorButtonBorder;
+  padding: 0.5rem 1rem;
+  color: $colorWhite;
+  font-family: 'Source Serif 4', serif;
+  font-size: 1rem;
+  border-radius: 100px;
+  width: 300px;
+  margin-left: 0.5rem;
 }

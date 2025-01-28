@@ -4,6 +4,14 @@ import { INewCharacterSummary } from '../models/INewCharater';
 import { CharacterSummary } from '../components/ViewCharacters/CharacterSummary';
 import './ViewCharacters.scss';
 import { Link } from 'react-router-dom';
+import { ViewCharactersFilter } from '../components/ViewCharacters/ViewCharactersFilter';
+
+export interface ISearchParams {
+  id?: string;
+  race?: string;
+  startingClass?: string;
+  background?: string;
+}
 
 export const ViewCharacters = () => {
   const checkForLocalStorage = (): INewCharacterSummary[] | undefined => {
@@ -13,22 +21,32 @@ export const ViewCharacters = () => {
 
   const [chars, setChars] = useState<INewCharacterSummary[] | undefined>(checkForLocalStorage());
 
-  const onGettingCharacters = async () => {
-    let chars = await getCharacters();
+  const onGettingCharacters = async (params: ISearchParams | undefined) => {
+    let chars;
+    chars = await getCharacters(params);
     setChars(chars);
   };
 
   return (
     <div className="viewCharactersMainContainer">
       <div className="viewCharactersContainer">
-        <h2>Created Characters</h2>
-        <button onClick={() => onGettingCharacters()}>Get characters</button>
-        {chars &&
-          chars.map((char) => (
-            <Link to={`/characters/${char.id}`} key={char.id}>
-              <CharacterSummary character={char} key={char.id} />
-            </Link>
-          ))}
+        <h2>Find Created Characters</h2>
+        <ViewCharactersFilter onGettingCharacters={onGettingCharacters} />
+        <div className="retrievedCharsContainer">
+          {chars &&
+            chars.length > 0 &&
+            chars.map((char) => (
+              <Link to={`/characters/${char.id}`} key={char.id}>
+                <CharacterSummary character={char} key={char.id} />
+              </Link>
+            ))}
+
+          {chars && chars.length <= 0 && (
+            <div>
+              <p>No characters found</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
