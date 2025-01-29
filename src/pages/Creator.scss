@@ -31,16 +31,14 @@
     }
 
     button {
-      padding: 0 2rem;
+      padding: 0 1rem;
+      min-width: 100px;
     }
     button:disabled {
       @include disabledButton;
     }
     button:disabled:hover {
       @include disabledButtonHover;
-    }
-    button:hover {
-      background-color: $colorButtonBgHover;
     }
   }
 }

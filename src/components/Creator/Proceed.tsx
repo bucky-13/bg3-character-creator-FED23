@@ -45,8 +45,12 @@ export const Proceed = ({ currentSection, setCurrentSection, setShowModal }: IPr
         <button onClick={navigateToPrevSection} disabled={findSectionIndex(usedSectionsArray, currentSection) === 0}>
           Previous
         </button>
-        <button onClick={navigateToNextSection} disabled={areChoicesPending(currentSection, newCharacter)}>
-          Next
+        <button
+          onClick={navigateToNextSection}
+          disabled={areChoicesPending(currentSection, newCharacter)}
+          className="confirmBtn"
+        >
+          {currentSection === 'summary' ? 'Save Character' : 'Next'}
         </button>
       </div>
     </div>

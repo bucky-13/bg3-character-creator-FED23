@@ -41,12 +41,4 @@
     color: $colorWhite;
     border: 1px solid $colorButtonCancelBg;
   }
-
-  .confirmBtn {
-    background-color: $colorButtonChecked;
-  }
-  .confirmBtn:hover {
-    background-color: $colorChecked;
-    color: $colorWhite;
-  }
 }

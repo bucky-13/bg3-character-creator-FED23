@@ -126,7 +126,7 @@ export const SideNavbar = ({ currentSection, setCurrentSection, setShowModal }: 
       />
       <button
         disabled={areChoicesPending('summary', newCharacter)}
-        className={areChoicesPending('summary', newCharacter) ? 'disable' : 'enable'}
+        className={areChoicesPending('summary', newCharacter) ? '' : 'confirmBtn'}
         onClick={onClickSaveChar}
       >
         <p>Save Character</p>

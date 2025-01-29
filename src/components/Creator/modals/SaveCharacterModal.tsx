@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { Dispatcher } from '../../../models/types';
-import './Modal.scss';
+import './SaveCharacterModal.scss';
 import { Link } from 'react-router-dom';
 import { INewCharacter } from '../../../models/INewCharater';
 import { postCharacter } from '../../../supabase/supaIndex';
