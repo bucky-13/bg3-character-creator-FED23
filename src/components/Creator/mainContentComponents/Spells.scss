@@ -28,11 +28,9 @@
   border: 2px solid $colorBorderSelected;
 }
 
+.spellChoiceBtn.selectedChoice:disabled,
 .spellChoiceBtn.selectedChoice:disabled:hover {
-  border: 1px solid $colorChecked;
-}
-.spellChoiceBtn.selectedChoice:disabled {
-  border: 1px solid $colorChecked;
+  border: 2px solid $colorChecked;
 }
 
 .spellChoiceBtn:disabled {

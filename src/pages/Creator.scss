@@ -32,7 +32,6 @@
 
     button {
       padding: 0 2rem;
-      background-color: $colorButtonBg;
     }
     button:disabled {
       @include disabledButton;
@@ -65,7 +64,6 @@
     padding-top: 1rem;
     width: 100%;
     max-width: 1200px;
-    color: $colorPrimaryLightColor;
   }
 }
 
@@ -231,10 +229,26 @@
     margin: 0;
   }
 }
+
 .stylesChoicesContainer {
   padding: 0 2rem;
 }
 
 .alertText {
   color: $colorAlert;
+}
+
+.alertDiv {
+  @include flexRowCentered;
+  border: 1px solid $colorAlert;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  h4 {
+    color: $colorAlert;
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
