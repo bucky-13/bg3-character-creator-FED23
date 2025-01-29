@@ -5,22 +5,25 @@ import './Modal.scss';
 import { Link } from 'react-router-dom';
 import { INewCharacter } from '../../../models/INewCharater';
 import { postCharacter } from '../../../supabase/supaIndex';
+import { dbOrigins } from '../../../database/dbOrigins';
 
 interface ISaveCharacterModalProps {
   setShowModal: Dispatcher<boolean>;
 }
 
 export const SaveCharacterModal = ({ setShowModal }: ISaveCharacterModalProps) => {
-  const { newCharacter } = useNewCharContext();
+  const { newCharacter, setNewCharacter } = useNewCharContext();
   const [isCharacterSaved, setIsCharacterSaved] = useState<boolean | null>(null);
   const [savedCharacter, setSavedCharacter] = useState<INewCharacter>();
 
   const onClickOutside = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     if (e.currentTarget === e.target) setShowModal(false);
+    if (isCharacterSaved === true) setNewCharacter(dbOrigins[0]);
   };
 
   const cancelSaveCharacter = () => {
     setShowModal(false);
+    if (isCharacterSaved === true) setNewCharacter(dbOrigins[0]);
   };
 
   const saveCharacter = async () => {
@@ -56,8 +59,13 @@ export const SaveCharacterModal = ({ setShowModal }: ISaveCharacterModalProps) =
       ) : (
         <div className="modalContent">
           <h2>Character Saved Successfully!</h2>
-          <p>Link to newly created character: FANCY LINK HERE {savedCharacter && savedCharacter.id}</p>
+          <p>Link to newly created character: </p>
+          <p>
+            https://bucky-13.github.io/bg3-character-creator-FED23/#/characters/{savedCharacter && savedCharacter.id}
+          </p>
           <div className="modalButtonContainer">
+            <button onClick={() => cancelSaveCharacter()}>Create Another Character</button>
+
             <Link to={`/characters/${savedCharacter?.id}`}>
               <button>View Character</button>
             </Link>
