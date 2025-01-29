@@ -1,6 +1,6 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbClass, getDbSubClass } from '../../../functions/getDbItems';
+import { getDbAbility, getDbClass, getDbSubClass } from '../../../functions/getDbItems';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import '../Overview.scss';
@@ -23,6 +23,7 @@ import { ProficiencyCheckmark } from './minorComponentsSkills/ProficiencyCheckma
 import { ExpertiseCheckmark } from './minorComponentsSkills/ExpertiseCheckmark';
 import { SkillsTableHeader } from './minorComponentsSkills/SkillsTableHeader';
 import { OtherSourcesCheckmark } from './minorComponentsSkills/OtherSourcesCheckmark';
+import { ISkill } from '../../../models/dbModels/ISkill';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -32,13 +33,16 @@ export const Skills = () => {
     : undefined;
   const profSlots = charClass.skillProficiencySlots;
   const [profSlotsLeft, setProfSlotsLeft] = useState(
-    calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies),
+    calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies, 'skills'),
   );
   const expertiseSlots = getExpertiseSlots(charClass, charSubClass, newCharacter);
   const [expertiseSlotsLeft, setExpertiseSlotsLeft] = useState(
-    calculateSkillPointsLeft(expertiseSlots, newCharacter.skillExpertises),
+    calculateSkillPointsLeft(expertiseSlots, newCharacter.skillExpertises, 'skills'),
   );
-  const [humanSkillsTaken, setHumanSkillsTaken] = useState(0);
+  const [humanSkillsTaken, setHumanSkillsTaken] = useState(
+    calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies, 'race'),
+  );
+  const [selectedSkill, setSelectedSkill] = useState<ISkill>();
 
   //This function is probably the worst function I've ever written. I might split it into checking expertise and profs separately to cut down on the checks if I have the time...
   const isPossibleSkill = (isExpertise: boolean, id: string, source: string): boolean => {
@@ -110,56 +114,74 @@ export const Skills = () => {
     isToBeRemoved ? removeSkill(id, isExpertise, removeBoth, fromSource) : addSkill(id, isExpertise, fromSource);
   };
 
-  return (
-    <div className="skillsContainer">
-      <h2>Skills</h2>
-      <div>
-        <SkillsTableHeader
-          humanSkillsTaken={humanSkillsTaken}
-          profSlotsLeft={profSlotsLeft}
-          profSlots={profSlots}
-          expertiseSlotsLeft={expertiseSlotsLeft}
-          expertiseSlots={expertiseSlots}
-        />
+  const onSelectingSkill = (skill: ISkill) => {
+    setSelectedSkill(skill);
+  };
 
-        {skills.map((skill) => (
-          <div
-            className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}
-            key={skill.id}
-          >
-            <h4>{skill.name}</h4>
-            {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
-              <OtherSourcesCheckmark skill={skill} />
-            ) : (
-              <DummyCheckmark />
-            )}
-            <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
-            {newCharacter.race === 'race01' &&
-              (isPossibleSkill(false, skill.id, 'race') ? (
-                <HumanSkillCheckmark
+  return (
+    <div className="creatorCenterContainer">
+      <h2>Skills</h2>
+      <div className="choicesAndSelectedContainer">
+        <div className="skillsContainer">
+          <SkillsTableHeader
+            humanSkillsTaken={humanSkillsTaken}
+            profSlotsLeft={profSlotsLeft}
+            profSlots={profSlots}
+            expertiseSlotsLeft={expertiseSlotsLeft}
+            expertiseSlots={expertiseSlots}
+          />
+
+          {skills.map((skill) => (
+            <div
+              className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}
+              key={skill.id}
+              onMouseEnter={() => onSelectingSkill(skill)}
+            >
+              <h4>{skill.name}</h4>
+              <p>{getDbAbility(skill.parentId).shortName.toUpperCase()}</p>
+              {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
+                <OtherSourcesCheckmark skill={skill} />
+              ) : (
+                <DummyCheckmark />
+              )}
+              <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
+              {newCharacter.race === 'race01' &&
+                (isPossibleSkill(false, skill.id, 'race') ? (
+                  <HumanSkillCheckmark
+                    skill={skill}
+                    humanSkillsTaken={humanSkillsTaken}
+                    onTogglingSkill={onTogglingSkill}
+                  />
+                ) : (
+                  <DummyCheckmark />
+                ))}
+              {isPossibleSkill(false, skill.id, 'skills') ? (
+                <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
+              ) : (
+                <DummyCheckmark />
+              )}
+              {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
+                <ExpertiseCheckmark
                   skill={skill}
-                  humanSkillsTaken={humanSkillsTaken}
+                  expertiseSlotsLeft={expertiseSlotsLeft}
                   onTogglingSkill={onTogglingSkill}
                 />
               ) : (
                 <DummyCheckmark />
-              ))}
-            {isPossibleSkill(false, skill.id, 'skills') ? (
-              <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
-            ) : (
-              <DummyCheckmark />
-            )}
-            {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
-              <ExpertiseCheckmark
-                skill={skill}
-                expertiseSlotsLeft={expertiseSlotsLeft}
-                onTogglingSkill={onTogglingSkill}
-              />
-            ) : (
-              <DummyCheckmark />
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="activeSkillContainer">
+          {selectedSkill && (
+            <div>
+              <div className="selectedChoiceHeader">
+                <h3>{selectedSkill.name}</h3>
+              </div>
+              <p>{selectedSkill.desc}</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

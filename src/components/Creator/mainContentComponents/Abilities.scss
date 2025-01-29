@@ -1,17 +1,14 @@
 @use '../../../scss/variables' as *;
 @use '../../../scss/mixins' as *;
 
-.abilitiesContainer,
-.skillsContainer {
-  width: 100%;
-  max-width: 540px;
-  height: 100%;
-  padding: 0 2rem;
+.abilitiesContainer {
+  @include flexColCentered;
+  padding-bottom: 2rem;
 }
 
 .abilityContainer {
   display: grid;
-  grid-template-columns: 50px 1fr 50px 50px 50px 60px 60px;
+  grid-template-columns: 50px 150px 50px 50px 50px 60px 60px;
   justify-items: center;
   align-items: center;
   gap: 0;

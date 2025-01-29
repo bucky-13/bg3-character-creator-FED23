@@ -8,7 +8,7 @@ export const insertChoiceAfterThis = (lvlChoices: string[], newChoice: string, i
 };
 
 export const setUsedSections = (newCharacter: INewCharacter): string[] => {
-  let lvl1ChoicesBase = ['origin', 'race', 'class', 'background', 'abilities', 'summary'];
+  let lvl1ChoicesBase = ['origin', 'race', 'class', 'background', 'abilities', 'skills', 'summary'];
 
   if (newCharacter.subrace) {
     lvl1ChoicesBase = insertChoiceAfterThis(lvl1ChoicesBase, 'subrace', 'race');
@@ -36,7 +36,7 @@ export const setUsedSections = (newCharacter: INewCharacter): string[] => {
     insertChoiceAfterThis(lvl1ChoicesBase, 'spells', 'cantrips');
   }
   if (newCharacter.origin === 'ori01' || newCharacter.origin === 'ori08') {
-    insertChoiceAfterThis(lvl1ChoicesBase, 'name', 'abilities');
+    insertChoiceAfterThis(lvl1ChoicesBase, 'name', 'skills');
   }
   return lvl1ChoicesBase;
 };

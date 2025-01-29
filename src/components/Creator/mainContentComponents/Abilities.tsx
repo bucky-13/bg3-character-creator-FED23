@@ -63,70 +63,74 @@ export const Abilities = () => {
   };
 
   return (
-    <div className="abilitiesContainer">
+    <div className="creatorCenterContainer">
       <h2>Abilities</h2>
-      <p className={abilityPoints > 0 ? 'alertText' : ''}>Ability points left: {abilityPoints}</p>
-      <div>
-        <div className="abilityContainer">
-          <div className="abiDummy"></div>
-          <p className={checkPlusTwoBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +2</p>
-          <p className={checkPlusOneBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +1</p>
-        </div>
-        {newCharacter.abilities.map((ability) => (
-          <div
-            className="abilityContainer"
-            key={ability.id}
-            onClick={() => setActiveAbility(getAbility(ability.id))}
-            onMouseEnter={() => setActiveAbility(getAbility(ability.id))}
-          >
-            <img
-              src={getAbiValue(ability.id, 'icon')}
-              className="abilitiesIcon"
-              alt={'icon of ' + getAbiValue(ability.id, 'name')}
-            />
-            <p>{getAbiValue(ability.id, 'name')}</p>
-            <button
-              className="plusMinusBtn"
-              onClick={() => removePoint(ability)}
-              disabled={ability.baseValue <= 8 ? true : false}
-            >
-              -
-            </button>
-            <p>{displayAbilityTotalPoints(ability)}</p>
-            <button
-              className="plusMinusBtn"
-              onClick={() => addPoint(ability)}
-              disabled={ability.baseValue >= 15 ? true : false || abilityPoints - calculatePointCost(ability) < 0}
-            >
-              +
-            </button>
-            <button
-              className={ability.plusTwoBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
-              onClick={() => updateNewCharBonus(ability.id, 1)}
-              aria-label={'Assign +2 bonus to' + ability.shortName}
-            >
-              {ability.plusTwoBonus && <img src="./icons/check-mark-icon.png" />}
-            </button>
-            <button
-              className={ability.plusOneBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
-              onClick={() => updateNewCharBonus(ability.id, 0)}
-              aria-label={'Assign +1 bonus to' + ability.shortName}
-            >
-              {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}
-            </button>
+      <div className="choicesAndSelectedContainer">
+        <div className="abilitiesContainer">
+          <p className={abilityPoints > 0 ? 'alertText' : ''}>Ability points left: {abilityPoints}</p>
+          <div>
+            <div className="abilityContainer">
+              <div className="abiDummy"></div>
+              <p className={checkPlusTwoBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +2</p>
+              <p className={checkPlusOneBonusMissing(newCharacter) ? 'alertText' : ''}>Assign +1</p>
+            </div>
+            {newCharacter.abilities.map((ability) => (
+              <div
+                className="abilityContainer"
+                key={ability.id}
+                onClick={() => setActiveAbility(getAbility(ability.id))}
+                onMouseEnter={() => setActiveAbility(getAbility(ability.id))}
+              >
+                <img
+                  src={getAbiValue(ability.id, 'icon')}
+                  className="abilitiesIcon"
+                  alt={'icon of ' + getAbiValue(ability.id, 'name')}
+                />
+                <p>{getAbiValue(ability.id, 'name')}</p>
+                <button
+                  className="plusMinusBtn"
+                  onClick={() => removePoint(ability)}
+                  disabled={ability.baseValue <= 8 ? true : false}
+                >
+                  -
+                </button>
+                <p>{displayAbilityTotalPoints(ability)}</p>
+                <button
+                  className="plusMinusBtn"
+                  onClick={() => addPoint(ability)}
+                  disabled={ability.baseValue >= 15 ? true : false || abilityPoints - calculatePointCost(ability) < 0}
+                >
+                  +
+                </button>
+                <button
+                  className={ability.plusTwoBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
+                  onClick={() => updateNewCharBonus(ability.id, 1)}
+                  aria-label={'Assign +2 bonus to' + ability.shortName}
+                >
+                  {ability.plusTwoBonus && <img src="./icons/check-mark-icon.png" />}
+                </button>
+                <button
+                  className={ability.plusOneBonus ? 'checkmarkIcon checked' : 'checkmarkIcon'}
+                  onClick={() => updateNewCharBonus(ability.id, 0)}
+                  aria-label={'Assign +1 bonus to' + ability.shortName}
+                >
+                  {ability.plusOneBonus && <img src="./icons/check-mark-icon.png" />}
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="abilityInfoContainer">
-        <div className="flexRowCentered">
-          <img
-            src={activeAbility.icon}
-            className="abilitiesIcon"
-            alt={'icon of ' + getAbiValue(activeAbility.id, 'name')}
-          />
-          <h3>{activeAbility.name}</h3>
         </div>
-        <p>{activeAbility.desc}</p>
+        <div className="abilityInfoContainer">
+          <div className="flexRowCentered">
+            <img
+              src={activeAbility.icon}
+              className="abilitiesIcon"
+              alt={'icon of ' + getAbiValue(activeAbility.id, 'name')}
+            />
+            <h3>{activeAbility.name}</h3>
+          </div>
+          <p>{activeAbility.desc}</p>
+        </div>
       </div>
     </div>
   );

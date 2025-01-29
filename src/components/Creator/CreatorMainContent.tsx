@@ -2,7 +2,7 @@ import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 import { lvl0spells } from '../../database/dbLvl0Spells';
 import { lvl1spells } from '../../database/dbLvl1Spells';
 import { Dispatcher } from '../../models/types';
-import { AbilitiesAndSkills } from './mainContentComponents/AbilitiesAndSkills';
+import { Abilities } from './mainContentComponents/Abilities';
 import { Background } from './mainContentComponents/Background';
 import { Class } from './mainContentComponents/Class';
 import { FavouredEnemy } from './mainContentComponents/FavouredEnemy';
@@ -11,6 +11,7 @@ import { Name } from './mainContentComponents/Name';
 import { NaturalExplorer } from './mainContentComponents/NaturalExplorer';
 import { Origin } from './mainContentComponents/Origin';
 import { Race } from './mainContentComponents/Race';
+import { Skills } from './mainContentComponents/Skills';
 import { CharSpells, ESpellArray } from './mainContentComponents/Spells';
 import { Subclass } from './mainContentComponents/Subclass';
 import { Subrace } from './mainContentComponents/Subrace';
@@ -34,7 +35,8 @@ export const CreatorMainContent = ({ currentSection, setCurrentSection, setShowM
       {currentSection === 'subclass' && <Subclass />}
       {currentSection === 'subrace' && <Subrace />}
       {currentSection === 'background' && <Background />}
-      {currentSection === 'abilities' && <AbilitiesAndSkills />}
+      {currentSection === 'abilities' && <Abilities />}
+      {currentSection === 'skills' && <Skills />}
       {currentSection === 'name' && <Name />}
       {currentSection === 'fighting style' && <FightingStyle />}
       {currentSection === 'favoured enemy' && <FavouredEnemy />}

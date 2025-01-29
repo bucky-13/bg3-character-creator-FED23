@@ -21,6 +21,7 @@ export const SkillsTableHeader = ({
   return (
     <div className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}>
       <h3 className="skillTitle">Skill Name </h3>
+      <h4 className="skillTitle">Bonus modified by</h4>
       <h4 className="skillTitle">From Other source</h4>
       <h4 className="skillTitle">Skill Bonus </h4>
       {newCharacter.race === 'race01' && (

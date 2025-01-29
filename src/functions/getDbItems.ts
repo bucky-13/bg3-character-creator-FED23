@@ -1,3 +1,4 @@
+import { abilities } from '../database/dbAbilities';
 import { charBackgrounds } from '../database/dbCharBackgrounds';
 import { charClasses } from '../database/dbCharClasses';
 import { equipmentProficiencies } from '../database/dbEquipmentProficiencies';
@@ -8,6 +9,7 @@ import { races } from '../database/dbRaces';
 import { skills } from '../database/dbSkills';
 import { subClasses } from '../database/dbSubClass';
 import { subraces } from '../database/dbSubraces';
+import { IAbility } from '../models/dbModels/IAbilitiy';
 import { ICharBackground } from '../models/dbModels/ICharBackground';
 import { ICharClass } from '../models/dbModels/ICharClass';
 import { IEquipmentProficiencies } from '../models/dbModels/IEquipmentProficiencies';
@@ -18,6 +20,9 @@ import { ISpell } from '../models/dbModels/ISpell';
 import { ISubClass } from '../models/dbModels/ISubClass';
 import { ISubrace } from '../models/dbModels/ISubrace';
 
+export const getDbAbility = (id: string): IAbility => {
+  return abilities.find((o) => o.id === id)!;
+};
 export const getDbClass = (id: string): ICharClass => {
   return charClasses.find((o) => o.id === id)!;
 };

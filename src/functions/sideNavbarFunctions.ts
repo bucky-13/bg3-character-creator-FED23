@@ -38,12 +38,16 @@ export const checkHECantrip = (newCharacter: INewCharacter): boolean => {
 
 export const checkSkillsWarning = (newCharacter: INewCharacter): boolean => {
   const profSlots = getDbClass(newCharacter.startingClass).skillProficiencySlots;
-  const skillPointsLeft = calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies);
+  const skillPointsLeft = calculateSkillPointsLeft(profSlots, newCharacter.skillProficiencies, 'skills');
   const charSubClass: ISubClass | undefined = newCharacter.startingSubclass
-    ? getDbSubClass(newCharacter.startingSubclass)
-    : undefined;
+  ? getDbSubClass(newCharacter.startingSubclass)
+  : undefined;
   const expSlots = getExpertiseSlots(getDbClass(newCharacter.startingClass), charSubClass, newCharacter);
-  const expPointsLeft = calculateSkillPointsLeft(expSlots, newCharacter.skillProficiencies);
+  const expPointsLeft = calculateSkillPointsLeft(expSlots, newCharacter.skillExpertises, 'skills');
+  if (newCharacter.race === 'race01') {
+    const skillPointsLeft = calculateSkillPointsLeft(1, newCharacter.skillProficiencies, 'race');
+    if (skillPointsLeft > 0) return true
+  }
   return skillPointsLeft > 0 || expPointsLeft > 0 ? true : false;
 };
 
@@ -85,7 +89,9 @@ export const displaySpellsGivenByClass = (newCharacter: INewCharacter) => {
 
 export const isWarningDisplayed = (section: string, newCharacter: INewCharacter): boolean => {
   if (section === 'abilities')
-    return checkAbilitiesWarning(newCharacter) || checkSkillsWarning(newCharacter) ? true : false;
+    return checkAbilitiesWarning(newCharacter) ? true : false;
+  if (section === 'skills')
+    return checkSkillsWarning(newCharacter) ? true : false;
   if (section === 'high elf cantrip') return checkHECantrip(newCharacter);
   if (section === 'cantrips') return checkSpellsNormal(ESpellArray.Lvl0, newCharacter);
   if (section === 'spellsLvl1') return checkSpellsNormal(ESpellArray.Lvl1, newCharacter);

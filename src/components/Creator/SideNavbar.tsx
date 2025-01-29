@@ -111,6 +111,12 @@ export const SideNavbar = ({ currentSection, setCurrentSection, setShowModal }: 
         setCurrentSection={setCurrentSection}
         displayWarning={isWarningDisplayed('abilities', newCharacter)}
       />
+      <ButtonSideNavbar
+        textContent="Skills"
+        activeSection={isActiveSection('skills')}
+        setCurrentSection={setCurrentSection}
+        displayWarning={isWarningDisplayed('skills', newCharacter)}
+      />
       {(newCharacter.origin === 'ori01' || newCharacter.origin === 'ori08') && (
         <ButtonSideNavbar
           textContent="Name"

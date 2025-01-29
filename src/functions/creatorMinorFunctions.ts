@@ -51,8 +51,8 @@ export const checkSkillSource = (fromSource: string[], trueSource: string): bool
   return canReturn;
 };
 
-export const calculateSkillPointsLeft = (pointsTotal: number, skillsArray: ISkillProfNewChar[]): number => {
-  const skillArrayFromSource = skillsArray.filter((o) => checkSkillSource(o.fromSource, 'skills'));
+export const calculateSkillPointsLeft = (pointsTotal: number, skillsArray: ISkillProfNewChar[], source: string): number => {
+  const skillArrayFromSource = skillsArray.filter((o) => checkSkillSource(o.fromSource, source));
   return pointsTotal - skillArrayFromSource.length;
 };
 
