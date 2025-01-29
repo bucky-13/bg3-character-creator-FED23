@@ -92,3 +92,4 @@ export const isWarningDisplayed = (section: string, newCharacter: INewCharacter)
   if (section === 'name') return !regexNameCheckPassed(newCharacter.name);
   return false;
 };
+

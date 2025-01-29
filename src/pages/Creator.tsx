@@ -19,7 +19,7 @@ export const Creator = () => {
   return (
     <NewCharContext.Provider value={{ newCharacter, setNewCharacter }}>
       <div className="creatorContainer">
-        <SideNavbar currentSection={currentSection} setCurrentSection={setCurrentSection} />
+        <SideNavbar currentSection={currentSection} setCurrentSection={setCurrentSection} setShowModal={setShowModal} />
         <CreatorMainContent
           currentSection={currentSection}
           setCurrentSection={setCurrentSection}

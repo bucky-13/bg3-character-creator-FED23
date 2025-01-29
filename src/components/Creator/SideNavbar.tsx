@@ -1,6 +1,7 @@
 import { useNewCharContext } from '../../Context/CreatedCharacterContext';
 
 import { displayCantrips, displaySpells, isWarningDisplayed } from '../../functions/sideNavbarFunctions';
+import { areChoicesPending } from '../../functions/summaryFunctions';
 
 import { Dispatcher } from '../../models/types';
 import { ButtonSideNavbar } from '../elements/ButtonSideNavbar';
@@ -10,12 +11,17 @@ import './SideNavbar.scss';
 interface SideNavbarProps {
   currentSection: string;
   setCurrentSection: Dispatcher<string>;
+  setShowModal: Dispatcher<boolean>;
 }
-export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProps) => {
+export const SideNavbar = ({ currentSection, setCurrentSection, setShowModal }: SideNavbarProps) => {
   const { newCharacter } = useNewCharContext();
 
   const isActiveSection = (section: string): boolean => {
     return currentSection === section ? true : false;
+  };
+
+  const onClickSaveChar = () => {
+    setShowModal(true);
   };
 
   return (
@@ -118,6 +124,13 @@ export const SideNavbar = ({ currentSection, setCurrentSection }: SideNavbarProp
         activeSection={isActiveSection('summary')}
         setCurrentSection={setCurrentSection}
       />
+      <button
+        disabled={areChoicesPending('summary', newCharacter)}
+        className={areChoicesPending('summary', newCharacter) ? 'disable' : 'enable'}
+        onClick={onClickSaveChar}
+      >
+        <p>Save Character</p>
+      </button>
     </div>
   );
 };

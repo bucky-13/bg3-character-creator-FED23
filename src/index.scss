@@ -103,7 +103,8 @@ footer {
   width: 100%;
   height: 40px;
   margin: 0 auto;
-  @include flexRowCentered;
+  padding-left: 1rem;
+  @include flexRowLeft;
 }
 
 main {
