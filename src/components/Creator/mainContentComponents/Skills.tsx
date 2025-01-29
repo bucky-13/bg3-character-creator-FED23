@@ -138,7 +138,7 @@ export const Skills = () => {
               onMouseEnter={() => onSelectingSkill(skill)}
             >
               <h4>{skill.name}</h4>
-              <p>{getDbAbility(skill.parentId).shortName.toUpperCase()}</p>
+
               {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
                 <OtherSourcesCheckmark skill={skill} />
               ) : (
@@ -178,7 +178,14 @@ export const Skills = () => {
               <div className="selectedChoiceHeader">
                 <h3>{selectedSkill.name}</h3>
               </div>
-              <p>{selectedSkill.desc}</p>
+              <div className="featureContainer">
+                <p>{selectedSkill.desc}</p>
+              </div>
+              <div className="featureContainer">
+                <p>
+                  <span>Skill bonus given from Ability</span>: {getDbAbility(selectedSkill.parentId).name}
+                </p>
+              </div>
             </div>
           )}
         </div>

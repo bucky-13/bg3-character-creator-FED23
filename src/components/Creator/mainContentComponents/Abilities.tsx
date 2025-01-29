@@ -7,6 +7,7 @@ import '../Overview.scss';
 import { INewAbility } from '../../../models/INewCharater';
 import { calculateAbilityPointsLeft, displayAbilityTotalPoints } from '../../../functions/creatorMinorFunctions';
 import { checkPlusOneBonusMissing, checkPlusTwoBonusMissing } from '../../../functions/sideNavbarFunctions';
+import { checkIfPrimaryAbility } from '../../../functions/skillFunctions';
 
 export const Abilities = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -86,7 +87,8 @@ export const Abilities = () => {
                   className="abilitiesIcon"
                   alt={'icon of ' + getAbiValue(ability.id, 'name')}
                 />
-                <p>{getAbiValue(ability.id, 'name')}</p>
+                <p className="starText"> {checkIfPrimaryAbility(newCharacter, ability.id) ? '☆' : ''}</p>
+                <p className="abilityName">{getAbiValue(ability.id, 'name')}</p>
                 <button
                   className="plusMinusBtn"
                   onClick={() => removePoint(ability)}
@@ -119,6 +121,9 @@ export const Abilities = () => {
               </div>
             ))}
           </div>
+          <p>
+            <span className="starText">☆</span> = This is the primary ability of your class
+          </p>
         </div>
         <div className="abilityInfoContainer">
           <div className="flexRowCentered">

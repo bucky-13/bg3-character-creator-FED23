@@ -1,4 +1,5 @@
 import { ICharClass } from '../models/dbModels/ICharClass';
+import { EAbilites } from './dbAbilities';
 import { EEquipment } from './dbEquipmentProficiencies';
 import { ESkills } from './dbSkills';
 
@@ -48,6 +49,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: 'When not wearing armour, add your Constitution modifier to your Armour Class in addition to your Dexterity modifier.',
       },
     ],
+    primaryAbility: EAbilites.Str
   },
 
   {
@@ -106,6 +108,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: 'Inspire an ally to go beyond their capabilities with your performance. They can add a +1d6 bonus to their next Attack Roll, Ability Check, or Saving Throw. Bardic Inspiration Charges: 3. Recharge: Long rest',
       },
     ],
+    primaryAbility: EAbilites.Cha
   },
   {
     id: 'ccl03',
@@ -134,6 +137,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `A Cleric's choice of deity provides access to some unique conversation options throughout the game. Some Cleric spells have visual effects that incorporate the chosen deity's symbol.`,
       },
     ],
+    primaryAbility: EAbilites.Wis
   },
   {
     id: 'ccl04',
@@ -180,6 +184,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `At level 2, gain access to new Wild Shape forms.`,
       },
     ],
+    primaryAbility: EAbilites.Wis
   },
   {
     id: 'ccl05',
@@ -212,6 +217,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `Can select a fighting style.`,
       },
     ],
+    primaryAbility: EAbilites.Str
   },
   {
     id: 'ccl06',
@@ -251,6 +257,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `Using a Bonus action and a Ki Point, punch twice in quick succession. Equivalent to two normal unarmed attacks.`,
       },
     ],
+    primaryAbility: EAbilites.Dex
   },
   {
     id: 'ccl07',
@@ -281,6 +288,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `Expend a Bonus action to gain Advantage Icon.png Advantage on Attack Rolls against celestials, fiends, and undead. ( Recharge: Short rest )`,
       },
     ],
+    primaryAbility: EAbilites.Str
   },
   {
     id: 'ccl08',
@@ -315,6 +323,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `Choose 1 Natural Explorer`,
       },
     ],
+    primaryAbility: EAbilites.Dex
   },
   {
     id: 'ccl09',
@@ -357,6 +366,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `Once per turn, you can deal an extra 1d6D Physical damage to an enemy you have Advantage on, or have an ally next to. You must have a Finesse or Ranged weapon equipped. As you gain Rogue levels, this damage will go up by adding more D6 Physical.png d6 dice.`,
       },
     ],
+    primaryAbility: EAbilites.Dex
   },
   {
     id: 'ccl10',
@@ -394,6 +404,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: `At level 2, gain access to Sorcery Points and Metamagic choices.`,
       },
     ],
+    primaryAbility: EAbilites.Cha
   },
 
   {
@@ -433,6 +444,7 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: 'Choose 2 Cantrips & 2 Spells from the Warlock Spell List. Gain 1 Warlock Spell slot',
       },
     ],
+    primaryAbility: EAbilites.Cha
   },
   {
     id: 'ccl12',
@@ -474,5 +486,6 @@ Resistance against physical damage, Deal extra melee and thrown damage, Advantag
         desc: 'Once per day out of combat, you can recover expended Spell Slots.',
       },
     ],
+    primaryAbility: EAbilites.Int
   },
 ];

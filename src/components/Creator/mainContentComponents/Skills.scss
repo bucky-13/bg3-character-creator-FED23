@@ -6,7 +6,7 @@
   padding-bottom: 2rem;
   .skillContainer {
     display: grid;
-    grid-template-columns: 180px 80px 80px 60px 50px 50px;
+    grid-template-columns: 180px 80px 60px 50px 50px;
     gap: 8px;
     align-items: center;
     margin-top: 2px;
@@ -25,7 +25,7 @@
 }
 
 .skillContainer.humanSkills {
-  grid-template-columns: 180px 80px 80px 60px 50px 50px 50px;
+  grid-template-columns: 180px 80px 60px 50px 50px 50px;
 }
 
 .activeSkillContainer {

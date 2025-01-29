@@ -165,3 +165,9 @@ export const isSkillTakenFromOtherSource = (id: string, newCharacter:INewCharact
   }
   return false;
 };
+
+export const checkIfPrimaryAbility = (newCharacter: INewCharacter, abilityId: string) => {
+  const ability = getDbClass(newCharacter.startingClass).primaryAbility
+
+  return ability === abilityId  
+}
