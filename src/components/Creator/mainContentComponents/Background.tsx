@@ -26,10 +26,6 @@ export const Background = () => {
     return charBackgrounds.filter((o) => o.id !== 'cbg07');
   };
 
-  const onSetSelectedBackground = (background: ICharBackground) => {
-    setSelectedBg(background);
-  };
-
   return (
     <div className="creatorCenterContainer">
       <h2>Character Background</h2>
@@ -38,13 +34,7 @@ export const Background = () => {
           <div>
             <div className="choicesContainer">
               {removeDUBackground().map((bg, i) => (
-                <DisplaySelectionButton
-                  selection={bg}
-                  onChange={onChangeBg}
-                  setActiveSelection={onSetSelectedBackground}
-                  key={i}
-                  typeOfSelection="background"
-                />
+                <DisplaySelectionButton selection={bg} onChange={onChangeBg} key={i} typeOfSelection="background" />
               ))}
             </div>
           </div>

@@ -72,10 +72,6 @@ export const Class = () => {
     });
   };
 
-  const onSetSelectedClass = (charClass: ICharClass) => {
-    setSelectedClass(charClass);
-  };
-
   return (
     <div className="creatorCenterContainer">
       <h2>Starting Class</h2>
@@ -87,7 +83,6 @@ export const Class = () => {
                 <DisplaySelectionButton
                   selection={cClass}
                   onChange={onChangeClass}
-                  setActiveSelection={onSetSelectedClass}
                   typeOfSelection="startingClass"
                   key={i}
                 />

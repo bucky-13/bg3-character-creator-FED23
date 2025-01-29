@@ -31,10 +31,6 @@ export const Subclass = () => {
     });
   };
 
-  const onSetSelectedSubclass = (subclass: ISubClass) => {
-    setSelectedSubclass(subclass);
-  };
-
   return (
     <div className="creatorCenterContainer">
       <h2>Subclass</h2>
@@ -49,7 +45,6 @@ export const Subclass = () => {
                     <DisplaySelectionButton
                       selection={subClass}
                       onChange={onChangeSubClass}
-                      setActiveSelection={onSetSelectedSubclass}
                       key={i}
                       typeOfSelection="startingSubclass"
                     />

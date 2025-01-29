@@ -80,6 +80,7 @@ export const FavouredEnemy = () => {
     let lvl1spells = newCharacter.lvl1Spells;
     lvl1spells = updateSpells(enemy.lvl1spell, newCharacter.lvl1Spells, 1);
 
+    setSelectedEnemy(enemy);
     setNewCharacter({
       ...newCharacter,
       favouredEnemy: [enemy],
@@ -90,22 +91,13 @@ export const FavouredEnemy = () => {
     });
   };
 
-  const displaySelectedStyle = (enemy: IFavouredEnemy) => {
-    setSelectedEnemy(enemy);
-  };
-
   return (
     <div className="creatorCenterContainer summaryMainContainer ">
       <h2>Favoured Enemy</h2>
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbFavouredEnemy.map((style, i) => (
-            <div
-              key={i}
-              className="styleContainer"
-              onClick={() => onChangeStyle(style)}
-              onMouseEnter={() => displaySelectedStyle(style)}
-            >
+            <div key={i} className="styleContainer" onClick={() => onChangeStyle(style)}>
               <button className={isStylePicked(style) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
                 {isStylePicked(style) && <img src="./icons/check-mark-icon.png" alt={style.name} />}
               </button>

@@ -53,10 +53,6 @@ export const Race = () => {
     }
   };
 
-  const onSetSelectedRace = (race: IRace) => {
-    setSelectedRace(race);
-  };
-
   return (
     <div className="creatorCenterContainer">
       <h2>Race</h2>
@@ -65,13 +61,7 @@ export const Race = () => {
           <div>
             <div className="choicesContainer">
               {races.map((race, i) => (
-                <DisplaySelectionButton
-                  selection={race}
-                  onChange={onChangeRace}
-                  setActiveSelection={onSetSelectedRace}
-                  key={i}
-                  typeOfSelection="race"
-                />
+                <DisplaySelectionButton selection={race} onChange={onChangeRace} key={i} typeOfSelection="race" />
               ))}
             </div>
           </div>

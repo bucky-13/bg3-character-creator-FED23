@@ -11,10 +11,6 @@ export const NaturalExplorer = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
   const [selectedNatural, setSelectedNatural] = useState<INaturalExplorer>(dbNaturalExplorer[2]);
 
-  const displaySelectedExplorer = (nature: INaturalExplorer) => {
-    setSelectedNatural(nature);
-  };
-
   const isStylePicked = (nature: INaturalExplorer): boolean => {
     return nature.name === newCharacter.naturalExplorer![0].name ? true : false;
   };
@@ -51,6 +47,7 @@ export const NaturalExplorer = () => {
     const skillProfs = updateProfs(explorer);
     const newSpells = updateSpells(explorer);
 
+    setSelectedNatural(explorer);
     setNewCharacter({
       ...newCharacter,
       naturalExplorer: [explorer],
@@ -65,12 +62,7 @@ export const NaturalExplorer = () => {
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbNaturalExplorer.map((explorer, i) => (
-            <div
-              key={i}
-              className="styleContainer"
-              onClick={() => onChangeExplorer(explorer)}
-              onMouseEnter={() => displaySelectedExplorer(explorer)}
-            >
+            <div key={i} className="styleContainer" onClick={() => onChangeExplorer(explorer)}>
               <button className={isStylePicked(explorer) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
                 {isStylePicked(explorer) && <img src="./icons/check-mark-icon.png" alt={explorer.name} />}
               </button>

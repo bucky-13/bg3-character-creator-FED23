@@ -36,10 +36,6 @@ export const Subrace = () => {
     });
   };
 
-  const onSetSelectedSubrace = (subrace: ISubrace) => {
-    setSelectedSubrace(subrace);
-  };
-
   return (
     <div className="creatorCenterContainer">
       <h2>Subrace</h2>
@@ -54,7 +50,6 @@ export const Subrace = () => {
                     <DisplaySelectionButton
                       selection={subrace}
                       onChange={onChangeSubrace}
-                      setActiveSelection={onSetSelectedSubrace}
                       key={i}
                       typeOfSelection="subrace"
                     />

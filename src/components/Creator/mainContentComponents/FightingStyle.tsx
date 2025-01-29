@@ -12,11 +12,8 @@ export const FightingStyle = () => {
   };
 
   const onChangeStyle = (style: IFightingStyle) => {
-    setNewCharacter({ ...newCharacter, fightingStyles: [style] });
-  };
-
-  const displaySelectedStyle = (style: IFightingStyle) => {
     setSelectedStyle(style);
+    setNewCharacter({ ...newCharacter, fightingStyles: [style] });
   };
 
   return (
@@ -25,12 +22,7 @@ export const FightingStyle = () => {
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbFightingStyles.map((style, i) => (
-            <div
-              key={i}
-              className="styleContainer"
-              onClick={() => onChangeStyle(style)}
-              onMouseEnter={() => displaySelectedStyle(style)}
-            >
+            <div key={i} className="styleContainer" onClick={() => onChangeStyle(style)}>
               <button className={isStylePicked(style) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
                 {isStylePicked(style) && <img src="./icons/check-mark-icon.png" alt={style.name} />}
               </button>
