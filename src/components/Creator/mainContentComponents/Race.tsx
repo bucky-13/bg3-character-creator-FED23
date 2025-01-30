@@ -7,8 +7,7 @@ import { INewCharacter } from '../../../models/INewCharater';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
-import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
-import { SelectedFeature } from './creatorMinorComponents/SelectedFeature';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -68,16 +67,7 @@ export const Race = () => {
             </div>
           </div>
         )}
-        {selectedRace && (
-          <div className="selectedChoiceContainer">
-            <SelectedChoiceHeader selectedChoice={selectedRace} />
-            <p>{selectedRace.desc}</p>
-            <h4 className="featureH">Features:</h4>
-            {selectedRace.features.map((feature) => (
-              <SelectedFeature feature={feature} />
-            ))}
-          </div>
-        )}
+        {selectedRace && <SelectedChoiceContainer selectedChoice={selectedRace} features={selectedRace.features} />}
       </div>
     </div>
   );

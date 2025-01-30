@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { dbFightingStyles } from '../../../database/dbFightingStyles';
 import { IFightingStyle } from '../../../models/dbModels/IFightingSyles';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 
 export const FightingStyle = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -30,14 +31,7 @@ export const FightingStyle = () => {
             </div>
           ))}
         </div>
-        {selectedStyle && (
-          <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <h3>{selectedStyle.name}</h3>
-            </div>
-            <p>{selectedStyle.desc}</p>
-          </div>
-        )}
+        {selectedStyle && <SelectedChoiceContainer selectedChoice={selectedStyle} />}
       </div>
     </div>
   );

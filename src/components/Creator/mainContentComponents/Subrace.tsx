@@ -6,8 +6,7 @@ import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
-import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
-import { SelectedFeature } from './creatorMinorComponents/SelectedFeature';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -61,14 +60,7 @@ export const Subrace = () => {
           </div>
         )}
         {selectedSubrace && (
-          <div className="selectedChoiceContainer">
-            <SelectedChoiceHeader selectedChoice={selectedSubrace} />
-            <p>{selectedSubrace.desc}</p>
-            <h4 className="featureH">Features:</h4>
-            {selectedSubrace.features.map((feature) => (
-              <SelectedFeature feature={feature} />
-            ))}
-          </div>
+          <SelectedChoiceContainer selectedChoice={selectedSubrace} features={selectedSubrace.features} />
         )}
       </div>
     </div>

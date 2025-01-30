@@ -1,6 +1,6 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbClass, getDbSubClass } from '../../../functions/getDbItems';
+import { getDbAbility, getDbClass, getDbSubClass } from '../../../functions/getDbItems';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import '../Overview.scss';
@@ -24,7 +24,8 @@ import { ExpertiseCheckmark } from './skillsMinorComponents/ExpertiseCheckmark';
 import { SkillsTableHeader } from './skillsMinorComponents/SkillsTableHeader';
 import { OtherSourcesCheckmark } from './skillsMinorComponents/OtherSourcesCheckmark';
 import { ISkill } from '../../../models/dbModels/ISkill';
-import { SelectedSkill } from './skillsMinorComponents/SelectedSkill';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -173,7 +174,16 @@ export const Skills = () => {
             </div>
           ))}
         </div>
-        <div className="selectedSkillContainer">{selectedSkill && <SelectedSkill skill={selectedSkill} />}</div>
+        <div className="selectedSkillContainer">
+          {selectedSkill && (
+            <SelectedChoiceContainer selectedChoice={selectedSkill}>
+              <SelectedManualFeature
+                title="Skill bonus given from Ability"
+                desc={getDbAbility(selectedSkill.parentId).name}
+              />
+            </SelectedChoiceContainer>
+          )}
+        </div>
       </div>
     </div>
   );

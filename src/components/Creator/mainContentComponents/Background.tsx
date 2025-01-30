@@ -6,7 +6,9 @@ import { ICharBackground } from '../../../models/dbModels/ICharBackground';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
-import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
+import { ESkills } from '../../../database/dbSkills';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -27,6 +29,10 @@ export const Background = () => {
     return charBackgrounds.filter((o) => o.id !== 'cbg07');
   };
 
+  const generateSkillsGivenString = (skills: ESkills[]): string => {
+    return `${getSkillProficiencies(skills)[0].name}, ${getSkillProficiencies(skills)[1].name}`;
+  };
+
   return (
     <div className="creatorCenterContainer">
       <h2>Character Background</h2>
@@ -41,18 +47,12 @@ export const Background = () => {
           </div>
         )}
         {selectedBg && (
-          <div className="selectedChoiceContainer">
-            <SelectedChoiceHeader selectedChoice={selectedBg} />
-            <p>{selectedBg.desc}</p>
-            <div>
-              <h4 className="hInline">Starting Skills: </h4>
-              <p>
-                {getSkillProficiencies(selectedBg.skillProficiencies)[0].name}
-                <span>, </span>
-                {getSkillProficiencies(selectedBg.skillProficiencies)[1].name}
-              </p>
-            </div>
-          </div>
+          <SelectedChoiceContainer selectedChoice={selectedBg}>
+            <SelectedManualFeature
+              title="Skills Proficiencies Given"
+              desc={generateSkillsGivenString(selectedBg.skillProficiencies)}
+            />
+          </SelectedChoiceContainer>
         )}
       </div>
     </div>

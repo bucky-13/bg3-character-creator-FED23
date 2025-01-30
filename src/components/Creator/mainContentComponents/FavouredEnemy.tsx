@@ -8,6 +8,8 @@ import { ISpellChociesNewChar } from '../../../models/INewCharater';
 import { removeSpell } from '../../../functions/spellFunctions';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { INewEquipmentProficiencies } from '../../../models/dbModels/IEquipmentProficiencies';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 
 export const FavouredEnemy = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -106,48 +108,29 @@ export const FavouredEnemy = () => {
           ))}
         </div>
         {selectedEnemy && (
-          <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <h3>{selectedEnemy.name}</h3>
-            </div>
-            <p>{selectedEnemy.desc}</p>
-            <div className="featureContainer">
-              <p>
-                <span>Skill Proficiency: </span>
-                {getDbSkill(selectedEnemy.skillProficiencies).name}
-              </p>
-            </div>
+          <SelectedChoiceContainer selectedChoice={selectedEnemy}>
+            <SelectedManualFeature title="Skill Proficiency" desc={getDbSkill(selectedEnemy.skillProficiencies).name} />
             {selectedEnemy.cantrip && (
-              <div className="featureContainer">
-                <span>Cantrip: </span>
-
-                <img
-                  src={getDbSpell(selectedEnemy.cantrip, 0).icon}
-                  alt={getDbSpell(selectedEnemy.cantrip, 0).name + ' icon'}
-                />
-                <p>{getDbSpell(selectedEnemy.cantrip, 0).name}</p>
-              </div>
+              <SelectedManualFeature
+                title="Cantrip"
+                desc={getDbSpell(selectedEnemy.cantrip, 0).name}
+                icon={getDbSpell(selectedEnemy.cantrip, 0).icon}
+              />
             )}
             {selectedEnemy.lvl1spell && (
-              <div className="featureContainer">
-                <span>Level 1 spell: </span>
-
-                <img
-                  src={getDbSpell(selectedEnemy.lvl1spell, 1).icon}
-                  alt={getDbSpell(selectedEnemy.lvl1spell, 1).name + ' icon'}
-                />
-                <p>{getDbSpell(selectedEnemy.lvl1spell, 1).name}</p>
-              </div>
+              <SelectedManualFeature
+                title="Level 1 spell"
+                desc={getDbSpell(selectedEnemy.lvl1spell, 1).name}
+                icon={getDbSpell(selectedEnemy.lvl1spell, 1).icon}
+              />
             )}
             {selectedEnemy.armorProficiencies && (
-              <div className="featureContainer">
-                <p>
-                  <span>Armor Proficiency: </span>
-                  {getDbEquipment(selectedEnemy.armorProficiencies).name}
-                </p>
-              </div>
+              <SelectedManualFeature
+                title="Armor Proficiency"
+                desc={getDbEquipment(selectedEnemy.armorProficiencies).name}
+              />
             )}
-          </div>
+          </SelectedChoiceContainer>
         )}
       </div>
     </div>

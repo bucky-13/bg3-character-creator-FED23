@@ -8,7 +8,7 @@ import { calculateAbilityPointsLeft } from '../../../functions/creatorMinorFunct
 import { getDbClass } from '../../../functions/getDbItems';
 import { AbilitiesTableHeader } from './abilityMinorComponents/AbilitiesTableHeader';
 import { AbilityTableRow } from './abilityMinorComponents/AbilityTableRow';
-import { SelectedAbility } from './abilityMinorComponents/SelectedAbility';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 
 export const Abilities = () => {
   const { newCharacter } = useNewCharContext();
@@ -38,7 +38,7 @@ export const Abilities = () => {
             {getDbClass(newCharacter.startingClass).name}s.
           </p>
         </div>
-        <SelectedAbility selectedAbility={selectedAbility} />
+        <SelectedChoiceContainer selectedChoice={selectedAbility} />
       </div>
     </div>
   );

@@ -6,6 +6,8 @@ import { INaturalExplorer } from '../../../models/dbModels/INaturalExplorer';
 import { addSkillsFromNewSource, removeRangerSkillFromOldSouce } from '../../../functions/skillFunctions';
 import { removeSpell } from '../../../functions/spellFunctions';
 import { ISkillProfNewChar, ISpellChociesNewChar } from '../../../models/INewCharater';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 
 export const NaturalExplorer = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -71,39 +73,24 @@ export const NaturalExplorer = () => {
           ))}
         </div>
         {selectedNatural && (
-          <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <h3>{selectedNatural.name}</h3>
-            </div>
-            <p>{selectedNatural.desc}</p>
+          <SelectedChoiceContainer selectedChoice={selectedNatural}>
             {selectedNatural.skillProficiencies && (
-              <div className="featureContainer">
-                <p>
-                  <span>Skill Proficiency: </span>
-                  {getDbSkill(selectedNatural.skillProficiencies).name}
-                </p>
-              </div>
+              <SelectedManualFeature
+                title="Skill Proficiency"
+                desc={getDbSkill(selectedNatural.skillProficiencies).name}
+              />
             )}
             {selectedNatural.lvl1spell && (
-              <div className="featureContainer">
-                <span>Level 1 spell: </span>
-
-                <img
-                  src={getDbSpell(selectedNatural.lvl1spell, 1).icon}
-                  alt={getDbSpell(selectedNatural.lvl1spell, 1).name + ' icon'}
-                />
-                <p>{getDbSpell(selectedNatural.lvl1spell, 1).name}</p>
-              </div>
+              <SelectedManualFeature
+                title="Level 1 spell"
+                desc={getDbSpell(selectedNatural.lvl1spell, 1).name}
+                icon={getDbSpell(selectedNatural.lvl1spell, 1).icon}
+              />
             )}
             {selectedNatural.resistance && (
-              <div className="featureContainer">
-                <p>
-                  <span>Gain Resistance: </span>
-                  {selectedNatural.resistance}
-                </p>
-              </div>
+              <SelectedManualFeature title="Gain Resistance" desc={selectedNatural.resistance} />
             )}
-          </div>
+          </SelectedChoiceContainer>
         )}
       </div>
     </div>

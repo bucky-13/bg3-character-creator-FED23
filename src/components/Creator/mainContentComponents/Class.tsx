@@ -12,9 +12,9 @@ import { removeClassSpells } from '../../../functions/spellFunctions';
 import { dbNaturalExplorer } from '../../../models/dbModels/dbNaturalExplorer';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 import { resetSkillArrays } from '../../../functions/creatorMinorFunctions';
-import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
-import { SelectedFeature } from './creatorMinorComponents/SelectedFeature';
 import { ClassEquipmentFeature } from './creatorMinorComponents/ClassEquipmentFeature';
+import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -94,24 +94,11 @@ export const Class = () => {
           </div>
         )}
         {selectedClass && (
-          <div className="selectedChoiceContainer">
-            <SelectedChoiceHeader selectedChoice={selectedClass} />
-            <p>{selectedClass.desc}</p>
-
-            <h4 className="featureH">Features:</h4>
-
+          <SelectedChoiceContainer selectedChoice={selectedClass} features={selectedClass.features}>
+            <SelectedManualFeature title="Subclass at level" desc={selectedClass.subclassAtLevel} />
             <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Weapon" />
             <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Armor" />
-            <div className="featureContainer">
-              <p>
-                <span>Subclass at level: </span>
-                {selectedClass.subclassAtLevel}
-              </p>
-            </div>
-            {selectedClass.features.map((feature) => (
-              <SelectedFeature feature={feature} />
-            ))}
-          </div>
+          </SelectedChoiceContainer>
         )}
       </div>
     </div>
