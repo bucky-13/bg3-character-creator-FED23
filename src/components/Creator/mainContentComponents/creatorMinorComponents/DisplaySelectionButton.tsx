@@ -1,12 +1,7 @@
 import { useNewCharContext } from '../../../../Context/CreatedCharacterContext';
 import { isActiveIcon } from '../../../../functions/creatorMinorFunctions';
+import { IProperties } from '../../../../models/dbModels/properties';
 import { INewCharacter } from '../../../../models/INewCharater';
-
-interface IProperties {
-  id: string;
-  name: string;
-  icon: string;
-}
 
 interface IDisplaySelectionButtonProps<T> {
   selection: T & IProperties;

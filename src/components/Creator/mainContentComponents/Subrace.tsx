@@ -6,6 +6,8 @@ import { ISubrace } from '../../../models/dbModels/ISubrace';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
+import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
+import { SelectedFeature } from './creatorMinorComponents/SelectedFeature';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -60,20 +62,11 @@ export const Subrace = () => {
         )}
         {selectedSubrace && (
           <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <img src={selectedSubrace.icon} alt={'portrait of a ' + selectedSubrace.name} />
-              <h3>{selectedSubrace.name}</h3>
-            </div>
+            <SelectedChoiceHeader selectedChoice={selectedSubrace} />
             <p>{selectedSubrace.desc}</p>
             <h4 className="featureH">Features:</h4>
             {selectedSubrace.features.map((feature) => (
-              <div key={feature.name} className="featureContainer">
-                {feature.icon && <img src={feature.icon} alt={'icon of ' + feature.name} />}
-                <p>
-                  <span>{feature.name}: </span>
-                  {feature.desc}
-                </p>
-              </div>
+              <SelectedFeature feature={feature} />
             ))}
           </div>
         )}

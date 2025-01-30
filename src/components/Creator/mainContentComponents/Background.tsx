@@ -6,6 +6,7 @@ import { ICharBackground } from '../../../models/dbModels/ICharBackground';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
+import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -41,10 +42,7 @@ export const Background = () => {
         )}
         {selectedBg && (
           <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <img src={selectedBg.icon} alt={'icon for a ' + selectedBg.name} />
-              <h3>{selectedBg.name}</h3>
-            </div>
+            <SelectedChoiceHeader selectedChoice={selectedBg} />
             <p>{selectedBg.desc}</p>
             <div>
               <h4 className="hInline">Starting Skills: </h4>

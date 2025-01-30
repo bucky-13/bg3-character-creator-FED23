@@ -7,6 +7,8 @@ import { INewCharacter } from '../../../models/INewCharater';
 import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
+import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
+import { SelectedFeature } from './creatorMinorComponents/SelectedFeature';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -68,20 +70,11 @@ export const Race = () => {
         )}
         {selectedRace && (
           <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <img src={selectedRace.icon} alt={'portrait of a ' + selectedRace.name} />
-              <h3>{selectedRace.name}</h3>
-            </div>
+            <SelectedChoiceHeader selectedChoice={selectedRace} />
             <p>{selectedRace.desc}</p>
             <h4 className="featureH">Features:</h4>
             {selectedRace.features.map((feature) => (
-              <div key={feature.name} className="featureContainer">
-                {feature.icon && <img src={feature.icon} alt={'icon of ' + feature.name} />}
-                <p>
-                  <span>{feature.name}: </span>
-                  {feature.desc}
-                </p>
-              </div>
+              <SelectedFeature feature={feature} />
             ))}
           </div>
         )}

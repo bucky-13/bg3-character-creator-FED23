@@ -5,6 +5,7 @@ import { subClasses } from '../../../database/dbSubClass';
 import { getDbSubClass } from '../../../functions/getDbItems';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
+import { SelectedChoiceHeader } from './creatorMinorComponents/SelectedChoiceHeader';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -55,10 +56,7 @@ export const Subclass = () => {
         )}
         {selectedSubclass && (
           <div className="selectedChoiceContainer">
-            <div className="selectedChoiceHeader">
-              <img src={selectedSubclass.icon} alt={'icon for a ' + selectedSubclass.name} />
-              <h3>{selectedSubclass.name}</h3>
-            </div>
+            <SelectedChoiceHeader selectedChoice={selectedSubclass} />
             <p>{selectedSubclass.desc}</p>
           </div>
         )}
