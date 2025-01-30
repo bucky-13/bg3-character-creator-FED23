@@ -33,11 +33,19 @@
   max-width: 540px;
   height: 100%;
   padding: 0 2rem;
-  margin-top: 10rem;
 }
 
 .dummyCheckmark {
   height: 30px;
   width: 30px;
   margin: 0;
+}
+
+.skillExplanation {
+  @include flexRowLeft;
+  gap: 1rem;
+  margin-bottom: 8px;
+  p {
+    margin: 0;
+  }
 }

@@ -11,7 +11,6 @@ export const SectionContainer = ({ children, title, selectedChoiceChildren }: IS
       <h2>{title}</h2>
       <div className="choicesAndSelectedContainer">
         {children}
-
         {selectedChoiceChildren}
       </div>
     </div>

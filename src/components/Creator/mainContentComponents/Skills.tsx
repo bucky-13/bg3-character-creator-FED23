@@ -1,6 +1,13 @@
 import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { skills } from '../../../database/dbSkills';
-import { getDbAbility, getDbClass, getDbSubClass } from '../../../functions/getDbItems';
+import {
+  getDbAbility,
+  getDbBackground,
+  getDbClass,
+  getDbRace,
+  getDbSubClass,
+  getDbSubrace,
+} from '../../../functions/getDbItems';
 import { ISkillProfNewChar } from '../../../models/INewCharater';
 import './Skills.scss';
 import '../Overview.scss';
@@ -27,6 +34,8 @@ import { ISkill } from '../../../models/dbModels/ISkill';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 import { SectionContainer } from './creatorMinorComponents/SectionContainer';
+import { SkillExplanationButton } from './skillsMinorComponents/SkillExplanationButton';
+import { SkillTableRow } from './skillsMinorComponents/SkillTableRow';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -132,48 +141,30 @@ export const Skills = () => {
           expertiseSlots={expertiseSlots}
         />
 
-        {skills.map((skill) => (
-          <div
-            className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}
-            key={skill.id}
-            onMouseEnter={() => onSelectingSkill(skill)}
-          >
-            <h4>{skill.name}</h4>
-
-            {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
-              <OtherSourcesCheckmark skill={skill} />
-            ) : (
-              <DummyCheckmark />
-            )}
-            <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
-            {newCharacter.race === 'race01' &&
-              (isPossibleSkill(false, skill.id, 'race') ? (
-                <HumanSkillCheckmark
-                  skill={skill}
-                  humanSkillsTaken={humanSkillsTaken}
-                  onTogglingSkill={onTogglingSkill}
-                />
-              ) : (
-                <DummyCheckmark />
-              ))}
-            {isPossibleSkill(false, skill.id, 'skills') ? (
-              <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
-            ) : (
-              <DummyCheckmark />
-            )}
-            {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
-              <ExpertiseCheckmark
-                skill={skill}
-                expertiseSlotsLeft={expertiseSlotsLeft}
-                onTogglingSkill={onTogglingSkill}
-              />
-            ) : (
-              <DummyCheckmark />
-            )}
-          </div>
+        {skills.map((skill, i) => (
+          <SkillTableRow
+            skill={skill}
+            onSelectingSkill={onSelectingSkill}
+            onTogglingSkill={onTogglingSkill}
+            isPossibleSkill={isPossibleSkill}
+            humanSkillsTaken={humanSkillsTaken}
+            profSlotsLeft={profSlotsLeft}
+            expertiseSlots={expertiseSlots}
+            expertiseSlotsLeft={expertiseSlotsLeft}
+            key={i}
+          />
         ))}
       </div>
       <div className="selectedSkillContainer">
+        <div>
+          <h3>Skills from other sources:</h3>
+          <SkillExplanationButton icon={getDbBackground(newCharacter.background).icon} title="Background" />
+          <SkillExplanationButton icon={getDbRace(newCharacter.race).icon} title="Race" />
+          {newCharacter.subrace && (
+            <SkillExplanationButton icon={getDbSubrace(newCharacter.subrace).icon} title="Subrace" />
+          )}
+          <SkillExplanationButton icon={getDbClass(newCharacter.startingClass).icon} title="Class" />
+        </div>
         {selectedSkill && (
           <SelectedChoiceContainer selectedChoice={selectedSkill}>
             <SelectedManualFeature
