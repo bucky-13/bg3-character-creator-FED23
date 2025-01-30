@@ -8,12 +8,12 @@ import {
   getCantripTotal,
   getSpellTotal,
   hasSpellsFromOtherSource,
-  isDisabled,
-  isSelected,
   isSpellAvailable,
-  isSpellFromOtherSource,
   totalSpellsSelected,
 } from '../../../functions/spellFunctions';
+import { MainSpellIcon } from './spellsMinorComponents/MainSpellIcon';
+import { SpellFromOtherSource } from './spellsMinorComponents/SpellFromOtherSource';
+import { SelectedSpell } from './spellsMinorComponents/SelectedSpell';
 
 export enum ESpecialSpellCases {
   HighElf = 'highelf',
@@ -108,67 +108,22 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
             {spellList.map(
               (spell) =>
                 isSpellAvailable(spell, newCharacter, specialCase) && (
-                  <button
-                    key={spell.id}
-                    className={isSelected(spell.id, newCharacter, spellLevel, specialCase)}
-                    disabled={isDisabled(spell.id, newCharacter, spellLevel, amountToPick, specialCase)}
-                    onClick={() => onChangeSpell(spell)}
-                  >
-                    <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
-                  </button>
+                  <MainSpellIcon
+                    spell={spell}
+                    onChangeSpell={onChangeSpell}
+                    spellLevel={spellLevel}
+                    specialCase={specialCase}
+                    amountToPick={amountToPick}
+                  />
                 ),
             )}
             {hasSpellsFromOtherSource(newCharacter, spellLevel) && !specialCase && (
-              <div>
-                <h3>{title} from other sources:</h3>
-                <p>
-                  You already know these spells from other sources. If a spell can be selected again, it will give you
-                  access to a second version of the spell with another spellcasting modifier.
-                </p>
-                {spellList.map(
-                  (spell) =>
-                    isSpellFromOtherSource(newCharacter, spellLevel, spell.id) && (
-                      <div key={spell.id} className="alreadySelectedSpellContainer">
-                        <button className="spellChoiceBtn alreadySelectedButton" disabled>
-                          <img src={spell.icon} className="spellChoiceIcon" alt={spell.name} />
-                        </button>
-                        {spell.name}
-                      </div>
-                    ),
-                )}
-              </div>
+              <SpellFromOtherSource title={title} spellList={spellList} spellLevel={spellLevel} />
             )}
           </div>
         </div>
 
-        {activeSpell && (
-          <div className="selectedSpellContainer">
-            <div className="selectedSpellHeader">
-              <img src={activeSpell.icon} alt={activeSpell.name} />
-              <h3>
-                {activeSpell.name} ({activeSpell.school})
-              </h3>
-            </div>
-
-            <p>{activeSpell.desc}</p>
-            <h4 className="featureH">Features:</h4>
-            {activeSpell.hasConcentration && (
-              <div className="iconPContainer">
-                <img src="./icons/features/Concentration.png" alt="Spell have Concentration" />
-                <p>Concentration Spell</p>
-              </div>
-            )}
-            {activeSpell.isRitual && (
-              <div className="iconPContainer">
-                <img src="./icons/features/Ritual.png" alt="Is a Ritual Spell" />
-                <p>Ritual Spell</p>
-              </div>
-            )}
-            {activeSpell.details.map((detail) => (
-              <p key={detail}>{detail}</p>
-            ))}
-          </div>
-        )}
+        {activeSpell && <SelectedSpell selectedSpell={activeSpell} />}
       </div>
     </div>
   );
