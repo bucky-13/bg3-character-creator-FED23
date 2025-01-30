@@ -10,6 +10,7 @@ import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { INewEquipmentProficiencies } from '../../../models/dbModels/IEquipmentProficiencies';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
+import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
 
 export const FavouredEnemy = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -99,12 +100,7 @@ export const FavouredEnemy = () => {
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbFavouredEnemy.map((style, i) => (
-            <div key={i} className="styleContainer" onClick={() => onChangeStyle(style)}>
-              <button className={isStylePicked(style) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
-                {isStylePicked(style) && <img src="./icons/check-mark-icon.png" alt={style.name} />}
-              </button>
-              <h4>{style.name}</h4>
-            </div>
+            <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
           ))}
         </div>
         {selectedEnemy && (

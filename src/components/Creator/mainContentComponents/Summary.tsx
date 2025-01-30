@@ -35,6 +35,9 @@ export const Summary = ({ character }: ISummaryProps) => {
         {character.startingSubclass && (
           <TextItem title="Subclass" name={getDbSubClass(character.startingSubclass).name} />
         )}
+        {character.favouredEnemy && <TextItem title="Favoured Enemy" name={character.favouredEnemy[0].name} />}
+        {character.naturalExplorer && <TextItem title="Natural Explorer" name={character.naturalExplorer[0].name} />}
+        {character.fightingStyles && <TextItem title="Fighting Style" name={character.fightingStyles[0].name} />}
         <TextItem title="Background" name={getDbBackground(character.background).name} />
         <AbilitiesSummary character={character} />
         <SkillsSummary title="Character Skill Proficiencies" skillsArray={character.skillProficiencies} />

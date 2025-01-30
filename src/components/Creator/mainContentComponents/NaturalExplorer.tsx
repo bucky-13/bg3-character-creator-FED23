@@ -8,6 +8,7 @@ import { removeSpell } from '../../../functions/spellFunctions';
 import { ISkillProfNewChar, ISpellChociesNewChar } from '../../../models/INewCharater';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
+import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
 
 export const NaturalExplorer = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -64,12 +65,12 @@ export const NaturalExplorer = () => {
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbNaturalExplorer.map((explorer, i) => (
-            <div key={i} className="styleContainer" onClick={() => onChangeExplorer(explorer)}>
-              <button className={isStylePicked(explorer) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
-                {isStylePicked(explorer) && <img src="./icons/check-mark-icon.png" alt={explorer.name} />}
-              </button>
-              <h4>{explorer.name}</h4>
-            </div>
+            <SpecialClassCheckmark
+              isXPicked={isStylePicked}
+              onChange={onChangeExplorer}
+              specialClass={explorer}
+              key={i}
+            />
           ))}
         </div>
         {selectedNatural && (

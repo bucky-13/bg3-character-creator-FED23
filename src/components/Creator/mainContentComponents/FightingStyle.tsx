@@ -3,6 +3,7 @@ import { useNewCharContext } from '../../../Context/CreatedCharacterContext';
 import { dbFightingStyles } from '../../../database/dbFightingStyles';
 import { IFightingStyle } from '../../../models/dbModels/IFightingSyles';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
 
 export const FightingStyle = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -23,12 +24,7 @@ export const FightingStyle = () => {
       <div className="choicesAndSelectedContainer">
         <div className="summarySecondaryContainer stylesChoicesContainer">
           {dbFightingStyles.map((style, i) => (
-            <div key={i} className="styleContainer" onClick={() => onChangeStyle(style)}>
-              <button className={isStylePicked(style) ? 'checkmarkIcon checked' : 'checkmarkIcon'}>
-                {isStylePicked(style) && <img src="./icons/check-mark-icon.png" alt={style.name} />}
-              </button>
-              <h4>{style.name}</h4>
-            </div>
+            <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
           ))}
         </div>
         {selectedStyle && <SelectedChoiceContainer selectedChoice={selectedStyle} />}
