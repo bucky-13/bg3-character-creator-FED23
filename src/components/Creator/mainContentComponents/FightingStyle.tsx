@@ -4,6 +4,7 @@ import { dbFightingStyles } from '../../../database/dbFightingStyles';
 import { IFightingStyle } from '../../../models/dbModels/IFightingSyles';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const FightingStyle = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -19,16 +20,13 @@ export const FightingStyle = () => {
   };
 
   return (
-    <div className="creatorCenterContainer summaryMainContainer ">
-      <h2>Fighting Style</h2>
-      <div className="choicesAndSelectedContainer">
-        <div className="summarySecondaryContainer stylesChoicesContainer">
-          {dbFightingStyles.map((style, i) => (
-            <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
-          ))}
-        </div>
-        {selectedStyle && <SelectedChoiceContainer selectedChoice={selectedStyle} />}
+    <SectionContainer title="Fighting Style">
+      <div className="summarySecondaryContainer stylesChoicesContainer">
+        {dbFightingStyles.map((style, i) => (
+          <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
+        ))}
       </div>
-    </div>
+      {selectedStyle && <SelectedChoiceContainer selectedChoice={selectedStyle} />}
+    </SectionContainer>
   );
 };

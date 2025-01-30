@@ -8,6 +8,7 @@ import { removeEquipmentFromOldClass, updateEquipmentArray } from '../../../func
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Race = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -55,20 +56,15 @@ export const Race = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Race</h2>
-      <div className="choicesAndSelectedContainer">
-        {!newCharacter.hasLockedChoices && (
-          <div>
-            <div className="choicesContainer">
-              {races.map((race, i) => (
-                <DisplaySelectionButton selection={race} onChange={onChangeRace} key={i} typeOfSelection="race" />
-              ))}
-            </div>
-          </div>
-        )}
-        {selectedRace && <SelectedChoiceContainer selectedChoice={selectedRace} features={selectedRace.features} />}
-      </div>
-    </div>
+    <SectionContainer title="Race">
+      {!newCharacter.hasLockedChoices && (
+        <div className="choicesContainer">
+          {races.map((race, i) => (
+            <DisplaySelectionButton selection={race} onChange={onChangeRace} key={i} typeOfSelection="race" />
+          ))}
+        </div>
+      )}
+      {selectedRace && <SelectedChoiceContainer selectedChoice={selectedRace} features={selectedRace.features} />}
+    </SectionContainer>
   );
 };

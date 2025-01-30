@@ -15,6 +15,7 @@ import { resetSkillArrays } from '../../../functions/creatorMinorFunctions';
 import { ClassEquipmentFeature } from './creatorMinorComponents/ClassEquipmentFeature';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Class = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -76,31 +77,24 @@ export const Class = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Starting Class</h2>
-      <div className="choicesAndSelectedContainer">
-        {!newCharacter.hasLockedChoices && (
-          <div>
-            <div className="choicesContainer">
-              {charClasses.map((cClass, i) => (
-                <DisplaySelectionButton
-                  selection={cClass}
-                  onChange={onChangeClass}
-                  typeOfSelection="startingClass"
-                  key={i}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        {selectedClass && (
-          <SelectedChoiceContainer selectedChoice={selectedClass} features={selectedClass.features}>
-            <SelectedManualFeature title="Subclass at level" desc={selectedClass.subclassAtLevel} />
-            <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Weapon" />
-            <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Armor" />
-          </SelectedChoiceContainer>
-        )}
-      </div>
-    </div>
+    <SectionContainer title="Starting Class">
+      {!newCharacter.hasLockedChoices && (
+        <div className="choicesContainer">
+          {charClasses.map((cClass, i) => (
+            <DisplaySelectionButton
+              selection={cClass}
+              onChange={onChangeClass}
+              typeOfSelection="startingClass"
+              key={i}
+            />
+          ))}
+        </div>
+      )}
+      <SelectedChoiceContainer selectedChoice={selectedClass} features={selectedClass.features}>
+        <SelectedManualFeature title="Subclass at level" desc={selectedClass.subclassAtLevel} />
+        <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Weapon" />
+        <ClassEquipmentFeature selectedClass={selectedClass} equipmentType="Armor" />
+      </SelectedChoiceContainer>
+    </SectionContainer>
   );
 };

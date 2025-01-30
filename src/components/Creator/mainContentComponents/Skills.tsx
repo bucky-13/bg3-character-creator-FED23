@@ -26,6 +26,7 @@ import { OtherSourcesCheckmark } from './skillsMinorComponents/OtherSourcesCheck
 import { ISkill } from '../../../models/dbModels/ISkill';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Skills = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -121,70 +122,67 @@ export const Skills = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Skills</h2>
-      <div className="choicesAndSelectedContainer">
-        <div className="skillsContainer">
-          <SkillsTableHeader
-            humanSkillsTaken={humanSkillsTaken}
-            profSlotsLeft={profSlotsLeft}
-            profSlots={profSlots}
-            expertiseSlotsLeft={expertiseSlotsLeft}
-            expertiseSlots={expertiseSlots}
-          />
+    <SectionContainer title="Skills">
+      <div className="skillsContainer">
+        <SkillsTableHeader
+          humanSkillsTaken={humanSkillsTaken}
+          profSlotsLeft={profSlotsLeft}
+          profSlots={profSlots}
+          expertiseSlotsLeft={expertiseSlotsLeft}
+          expertiseSlots={expertiseSlots}
+        />
 
-          {skills.map((skill) => (
-            <div
-              className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}
-              key={skill.id}
-              onMouseEnter={() => onSelectingSkill(skill)}
-            >
-              <h4>{skill.name}</h4>
+        {skills.map((skill) => (
+          <div
+            className={newCharacter.race === 'race01' ? 'skillContainer humanSkills' : 'skillContainer'}
+            key={skill.id}
+            onMouseEnter={() => onSelectingSkill(skill)}
+          >
+            <h4>{skill.name}</h4>
 
-              {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
-                <OtherSourcesCheckmark skill={skill} />
-              ) : (
-                <DummyCheckmark />
-              )}
-              <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
-              {newCharacter.race === 'race01' &&
-                (isPossibleSkill(false, skill.id, 'race') ? (
-                  <HumanSkillCheckmark
-                    skill={skill}
-                    humanSkillsTaken={humanSkillsTaken}
-                    onTogglingSkill={onTogglingSkill}
-                  />
-                ) : (
-                  <DummyCheckmark />
-                ))}
-              {isPossibleSkill(false, skill.id, 'skills') ? (
-                <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
-              ) : (
-                <DummyCheckmark />
-              )}
-              {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
-                <ExpertiseCheckmark
+            {isSkillTakenFromOtherSource(skill.id, newCharacter) ? (
+              <OtherSourcesCheckmark skill={skill} />
+            ) : (
+              <DummyCheckmark />
+            )}
+            <p>{getAbilityModifier(skill.parentId, skill.id, newCharacter)}</p>
+            {newCharacter.race === 'race01' &&
+              (isPossibleSkill(false, skill.id, 'race') ? (
+                <HumanSkillCheckmark
                   skill={skill}
-                  expertiseSlotsLeft={expertiseSlotsLeft}
+                  humanSkillsTaken={humanSkillsTaken}
                   onTogglingSkill={onTogglingSkill}
                 />
               ) : (
                 <DummyCheckmark />
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="selectedSkillContainer">
-          {selectedSkill && (
-            <SelectedChoiceContainer selectedChoice={selectedSkill}>
-              <SelectedManualFeature
-                title="Skill bonus given from Ability"
-                desc={getDbAbility(selectedSkill.parentId).name}
+              ))}
+            {isPossibleSkill(false, skill.id, 'skills') ? (
+              <ProficiencyCheckmark skill={skill} profSlotsLeft={profSlotsLeft} onTogglingSkill={onTogglingSkill} />
+            ) : (
+              <DummyCheckmark />
+            )}
+            {isPossibleSkill(true, skill.id, '') && expertiseSlots > 0 ? (
+              <ExpertiseCheckmark
+                skill={skill}
+                expertiseSlotsLeft={expertiseSlotsLeft}
+                onTogglingSkill={onTogglingSkill}
               />
-            </SelectedChoiceContainer>
-          )}
-        </div>
+            ) : (
+              <DummyCheckmark />
+            )}
+          </div>
+        ))}
       </div>
-    </div>
+      <div className="selectedSkillContainer">
+        {selectedSkill && (
+          <SelectedChoiceContainer selectedChoice={selectedSkill}>
+            <SelectedManualFeature
+              title="Skill bonus given from Ability"
+              desc={getDbAbility(selectedSkill.parentId).name}
+            />
+          </SelectedChoiceContainer>
+        )}
+      </div>
+    </SectionContainer>
   );
 };

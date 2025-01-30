@@ -9,6 +9,7 @@ import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectio
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 import { ESkills } from '../../../database/dbSkills';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Background = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -34,27 +35,21 @@ export const Background = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Character Background</h2>
-      <div className="choicesAndSelectedContainer">
-        {newCharacter.origin === 'ori01' && (
-          <div>
-            <div className="choicesContainer">
-              {removeDUBackground().map((bg, i) => (
-                <DisplaySelectionButton selection={bg} onChange={onChangeBg} key={i} typeOfSelection="background" />
-              ))}
-            </div>
-          </div>
-        )}
-        {selectedBg && (
-          <SelectedChoiceContainer selectedChoice={selectedBg}>
-            <SelectedManualFeature
-              title="Skills Proficiencies Given"
-              desc={generateSkillsGivenString(selectedBg.skillProficiencies)}
-            />
-          </SelectedChoiceContainer>
-        )}
-      </div>
-    </div>
+    <SectionContainer title="Character Background">
+      {newCharacter.origin === 'ori01' && (
+        <div className="choicesContainer">
+          {removeDUBackground().map((bg, i) => (
+            <DisplaySelectionButton selection={bg} onChange={onChangeBg} key={i} typeOfSelection="background" />
+          ))}
+        </div>
+      )}
+
+      <SelectedChoiceContainer selectedChoice={selectedBg}>
+        <SelectedManualFeature
+          title="Skills Proficiencies Given"
+          desc={generateSkillsGivenString(selectedBg.skillProficiencies)}
+        />
+      </SelectedChoiceContainer>
+    </SectionContainer>
   );
 };

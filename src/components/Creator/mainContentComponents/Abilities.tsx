@@ -9,6 +9,7 @@ import { getDbClass } from '../../../functions/getDbItems';
 import { AbilitiesTableHeader } from './abilityMinorComponents/AbilitiesTableHeader';
 import { AbilityTableRow } from './abilityMinorComponents/AbilityTableRow';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Abilities = () => {
   const { newCharacter } = useNewCharContext();
@@ -16,30 +17,27 @@ export const Abilities = () => {
   const [selectedAbility, setSelectedAbility] = useState<IAbility>(abilities[0]);
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Abilities</h2>
-      <div className="choicesAndSelectedContainer">
-        <div className="abilitiesContainer">
-          <p className={abilityPoints > 0 ? 'alertText' : ''}>Ability points left: {abilityPoints}</p>
-          <div>
-            <AbilitiesTableHeader />
-            {newCharacter.abilities.map((ability, i) => (
-              <AbilityTableRow
-                ability={ability}
-                setSelectedAbility={setSelectedAbility}
-                abilityPoints={abilityPoints}
-                setAbilityPoints={setAbilityPoints}
-                key={i}
-              />
-            ))}
-          </div>
-          <p>
-            <span className="starText">☆</span> = This is the primary ability for{' '}
-            {getDbClass(newCharacter.startingClass).name}s.
-          </p>
+    <SectionContainer title="Abilities">
+      <div className="abilitiesContainer">
+        <p className={abilityPoints > 0 ? 'alertText' : ''}>Ability points left: {abilityPoints}</p>
+        <div>
+          <AbilitiesTableHeader />
+          {newCharacter.abilities.map((ability, i) => (
+            <AbilityTableRow
+              ability={ability}
+              setSelectedAbility={setSelectedAbility}
+              abilityPoints={abilityPoints}
+              setAbilityPoints={setAbilityPoints}
+              key={i}
+            />
+          ))}
         </div>
-        <SelectedChoiceContainer selectedChoice={selectedAbility} />
+        <p>
+          <span className="starText">☆</span> = This is the primary ability for{' '}
+          {getDbClass(newCharacter.startingClass).name}s.
+        </p>
       </div>
-    </div>
+      <SelectedChoiceContainer selectedChoice={selectedAbility} />
+    </SectionContainer>
   );
 };

@@ -6,6 +6,7 @@ import { getDbSubClass } from '../../../functions/getDbItems';
 import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Subclass = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -33,29 +34,23 @@ export const Subclass = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Subclass</h2>
-
-      <div className="choicesAndSelectedContainer">
-        {!newCharacter.hasLockedChoices && (
-          <div>
-            <div className="choicesContainer">
-              {subClasses.map(
-                (subClass, i) =>
-                  subClass.mainClass === newCharacter.startingClass && (
-                    <DisplaySelectionButton
-                      selection={subClass}
-                      onChange={onChangeSubClass}
-                      key={i}
-                      typeOfSelection="startingSubclass"
-                    />
-                  ),
-              )}
-            </div>
-          </div>
-        )}
-        {selectedSubclass && <SelectedChoiceContainer selectedChoice={selectedSubclass} />}
-      </div>
-    </div>
+    <SectionContainer title="Subclass">
+      {!newCharacter.hasLockedChoices && (
+        <div className="choicesContainer">
+          {subClasses.map(
+            (subClass, i) =>
+              subClass.mainClass === newCharacter.startingClass && (
+                <DisplaySelectionButton
+                  selection={subClass}
+                  onChange={onChangeSubClass}
+                  key={i}
+                  typeOfSelection="startingSubclass"
+                />
+              ),
+          )}
+        </div>
+      )}
+      {selectedSubclass && <SelectedChoiceContainer selectedChoice={selectedSubclass} />}
+    </SectionContainer>
   );
 };

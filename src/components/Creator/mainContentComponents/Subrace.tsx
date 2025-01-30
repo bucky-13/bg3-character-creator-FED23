@@ -7,6 +7,7 @@ import { updateEquipmentArray } from '../../../functions/equipmentFunctions';
 import { updateSkillsArray } from '../../../functions/skillFunctions';
 import { DisplaySelectionButton } from './creatorMinorComponents/DisplaySelectionButton';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const Subrace = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -38,31 +39,25 @@ export const Subrace = () => {
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>Subrace</h2>
-
-      <div className="choicesAndSelectedContainer">
-        {!newCharacter.hasLockedChoices && (
-          <div>
-            <div className="choicesContainer">
-              {subraces.map(
-                (subrace, i) =>
-                  subrace.mainRace === newCharacter.race && (
-                    <DisplaySelectionButton
-                      selection={subrace}
-                      onChange={onChangeSubrace}
-                      key={i}
-                      typeOfSelection="subrace"
-                    />
-                  ),
-              )}
-            </div>
-          </div>
-        )}
-        {selectedSubrace && (
-          <SelectedChoiceContainer selectedChoice={selectedSubrace} features={selectedSubrace.features} />
-        )}
-      </div>
-    </div>
+    <SectionContainer title="Subrace">
+      {!newCharacter.hasLockedChoices && (
+        <div className="choicesContainer">
+          {subraces.map(
+            (subrace, i) =>
+              subrace.mainRace === newCharacter.race && (
+                <DisplaySelectionButton
+                  selection={subrace}
+                  onChange={onChangeSubrace}
+                  key={i}
+                  typeOfSelection="subrace"
+                />
+              ),
+          )}
+        </div>
+      )}
+      {selectedSubrace && (
+        <SelectedChoiceContainer selectedChoice={selectedSubrace} features={selectedSubrace.features} />
+      )}
+    </SectionContainer>
   );
 };

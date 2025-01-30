@@ -11,6 +11,7 @@ import { INewEquipmentProficiencies } from '../../../models/dbModels/IEquipmentP
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const FavouredEnemy = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -95,40 +96,37 @@ export const FavouredEnemy = () => {
   };
 
   return (
-    <div className="creatorCenterContainer summaryMainContainer ">
-      <h2>Favoured Enemy</h2>
-      <div className="choicesAndSelectedContainer">
-        <div className="summarySecondaryContainer stylesChoicesContainer">
-          {dbFavouredEnemy.map((style, i) => (
-            <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
-          ))}
-        </div>
-        {selectedEnemy && (
-          <SelectedChoiceContainer selectedChoice={selectedEnemy}>
-            <SelectedManualFeature title="Skill Proficiency" desc={getDbSkill(selectedEnemy.skillProficiencies).name} />
-            {selectedEnemy.cantrip && (
-              <SelectedManualFeature
-                title="Cantrip"
-                desc={getDbSpell(selectedEnemy.cantrip, 0).name}
-                icon={getDbSpell(selectedEnemy.cantrip, 0).icon}
-              />
-            )}
-            {selectedEnemy.lvl1spell && (
-              <SelectedManualFeature
-                title="Level 1 spell"
-                desc={getDbSpell(selectedEnemy.lvl1spell, 1).name}
-                icon={getDbSpell(selectedEnemy.lvl1spell, 1).icon}
-              />
-            )}
-            {selectedEnemy.armorProficiencies && (
-              <SelectedManualFeature
-                title="Armor Proficiency"
-                desc={getDbEquipment(selectedEnemy.armorProficiencies).name}
-              />
-            )}
-          </SelectedChoiceContainer>
-        )}
+    <SectionContainer title="Favoured Enemy">
+      <div className="summarySecondaryContainer stylesChoicesContainer">
+        {dbFavouredEnemy.map((style, i) => (
+          <SpecialClassCheckmark isXPicked={isStylePicked} onChange={onChangeStyle} specialClass={style} key={i} />
+        ))}
       </div>
-    </div>
+      {selectedEnemy && (
+        <SelectedChoiceContainer selectedChoice={selectedEnemy}>
+          <SelectedManualFeature title="Skill Proficiency" desc={getDbSkill(selectedEnemy.skillProficiencies).name} />
+          {selectedEnemy.cantrip && (
+            <SelectedManualFeature
+              title="Cantrip"
+              desc={getDbSpell(selectedEnemy.cantrip, 0).name}
+              icon={getDbSpell(selectedEnemy.cantrip, 0).icon}
+            />
+          )}
+          {selectedEnemy.lvl1spell && (
+            <SelectedManualFeature
+              title="Level 1 spell"
+              desc={getDbSpell(selectedEnemy.lvl1spell, 1).name}
+              icon={getDbSpell(selectedEnemy.lvl1spell, 1).icon}
+            />
+          )}
+          {selectedEnemy.armorProficiencies && (
+            <SelectedManualFeature
+              title="Armor Proficiency"
+              desc={getDbEquipment(selectedEnemy.armorProficiencies).name}
+            />
+          )}
+        </SelectedChoiceContainer>
+      )}
+    </SectionContainer>
   );
 };

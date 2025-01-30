@@ -14,6 +14,7 @@ import {
 import { MainSpellIcon } from './spellsMinorComponents/MainSpellIcon';
 import { SpellFromOtherSource } from './spellsMinorComponents/SpellFromOtherSource';
 import { SelectedSpell } from './spellsMinorComponents/SelectedSpell';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export enum ESpecialSpellCases {
   HighElf = 'highelf',
@@ -97,34 +98,31 @@ export const CharSpells = ({ spellLevel, title, spellList, specialCase }: ICantr
   };
 
   return (
-    <div className="creatorCenterContainer">
-      <h2>{title}</h2>
-      <p className={displayAlertText() ? 'alertText' : ''}>
-        {title} chosen: {totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase)} / {amountToPick}
-      </p>
-      <div className="choicesAndSelectedContainer">
-        <div>
-          <div className="choicesContainer">
-            {spellList.map(
-              (spell) =>
-                isSpellAvailable(spell, newCharacter, specialCase) && (
-                  <MainSpellIcon
-                    spell={spell}
-                    onChangeSpell={onChangeSpell}
-                    spellLevel={spellLevel}
-                    specialCase={specialCase}
-                    amountToPick={amountToPick}
-                  />
-                ),
-            )}
-            {hasSpellsFromOtherSource(newCharacter, spellLevel) && !specialCase && (
-              <SpellFromOtherSource title={title} spellList={spellList} spellLevel={spellLevel} />
-            )}
-          </div>
+    <SectionContainer title={title}>
+      <div>
+        <p className={displayAlertText() ? 'alertText' : ''}>
+          {title} chosen: {totalSpellsSelected(newCharacter[spellLevel], newCharacter, specialCase)} / {amountToPick}
+        </p>
+        <div className="choicesContainer">
+          {spellList.map(
+            (spell) =>
+              isSpellAvailable(spell, newCharacter, specialCase) && (
+                <MainSpellIcon
+                  spell={spell}
+                  onChangeSpell={onChangeSpell}
+                  spellLevel={spellLevel}
+                  specialCase={specialCase}
+                  amountToPick={amountToPick}
+                />
+              ),
+          )}
+          {hasSpellsFromOtherSource(newCharacter, spellLevel) && !specialCase && (
+            <SpellFromOtherSource title={title} spellList={spellList} spellLevel={spellLevel} />
+          )}
         </div>
-
-        {activeSpell && <SelectedSpell selectedSpell={activeSpell} />}
       </div>
-    </div>
+
+      {activeSpell && <SelectedSpell selectedSpell={activeSpell} />}
+    </SectionContainer>
   );
 };

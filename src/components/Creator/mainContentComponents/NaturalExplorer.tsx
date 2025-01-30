@@ -9,6 +9,7 @@ import { ISkillProfNewChar, ISpellChociesNewChar } from '../../../models/INewCha
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
 import { SpecialClassCheckmark } from './creatorMinorComponents/SpecialClassCheckmark';
+import { SectionContainer } from './creatorMinorComponents/SectionContainer';
 
 export const NaturalExplorer = () => {
   const { newCharacter, setNewCharacter } = useNewCharContext();
@@ -60,40 +61,37 @@ export const NaturalExplorer = () => {
   };
 
   return (
-    <div className="creatorCenterContainer summaryMainContainer ">
-      <h2>Natural Explorer</h2>
-      <div className="choicesAndSelectedContainer">
-        <div className="summarySecondaryContainer stylesChoicesContainer">
-          {dbNaturalExplorer.map((explorer, i) => (
-            <SpecialClassCheckmark
-              isXPicked={isStylePicked}
-              onChange={onChangeExplorer}
-              specialClass={explorer}
-              key={i}
-            />
-          ))}
-        </div>
-        {selectedNatural && (
-          <SelectedChoiceContainer selectedChoice={selectedNatural}>
-            {selectedNatural.skillProficiencies && (
-              <SelectedManualFeature
-                title="Skill Proficiency"
-                desc={getDbSkill(selectedNatural.skillProficiencies).name}
-              />
-            )}
-            {selectedNatural.lvl1spell && (
-              <SelectedManualFeature
-                title="Level 1 spell"
-                desc={getDbSpell(selectedNatural.lvl1spell, 1).name}
-                icon={getDbSpell(selectedNatural.lvl1spell, 1).icon}
-              />
-            )}
-            {selectedNatural.resistance && (
-              <SelectedManualFeature title="Gain Resistance" desc={selectedNatural.resistance} />
-            )}
-          </SelectedChoiceContainer>
-        )}
+    <SectionContainer title="Natural Explorer">
+      <div className="summarySecondaryContainer stylesChoicesContainer">
+        {dbNaturalExplorer.map((explorer, i) => (
+          <SpecialClassCheckmark
+            isXPicked={isStylePicked}
+            onChange={onChangeExplorer}
+            specialClass={explorer}
+            key={i}
+          />
+        ))}
       </div>
-    </div>
+      {selectedNatural && (
+        <SelectedChoiceContainer selectedChoice={selectedNatural}>
+          {selectedNatural.skillProficiencies && (
+            <SelectedManualFeature
+              title="Skill Proficiency"
+              desc={getDbSkill(selectedNatural.skillProficiencies).name}
+            />
+          )}
+          {selectedNatural.lvl1spell && (
+            <SelectedManualFeature
+              title="Level 1 spell"
+              desc={getDbSpell(selectedNatural.lvl1spell, 1).name}
+              icon={getDbSpell(selectedNatural.lvl1spell, 1).icon}
+            />
+          )}
+          {selectedNatural.resistance && (
+            <SelectedManualFeature title="Gain Resistance" desc={selectedNatural.resistance} />
+          )}
+        </SelectedChoiceContainer>
+      )}
+    </SectionContainer>
   );
 };
