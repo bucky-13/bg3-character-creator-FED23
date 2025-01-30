@@ -19,17 +19,11 @@ import {
   createSkill,
   findExpOnNewChar,
   findProfOnNewChar,
-  getAbilityModifier,
   isSkillExpPicked,
-  isSkillTakenFromOtherSource,
   isSourceTheSame,
 } from '../../../functions/skillFunctions';
-import { DummyCheckmark } from './skillsMinorComponents/DummyCheckmark';
-import { HumanSkillCheckmark } from './skillsMinorComponents/HumanSkillSelection';
-import { ProficiencyCheckmark } from './skillsMinorComponents/ProficiencyCheckmark';
-import { ExpertiseCheckmark } from './skillsMinorComponents/ExpertiseCheckmark';
+
 import { SkillsTableHeader } from './skillsMinorComponents/SkillsTableHeader';
-import { OtherSourcesCheckmark } from './skillsMinorComponents/OtherSourcesCheckmark';
 import { ISkill } from '../../../models/dbModels/ISkill';
 import { SelectedChoiceContainer } from './creatorMinorComponents/SelectedChoiceContainer';
 import { SelectedManualFeature } from './creatorMinorComponents/SelectedManualFeature';
