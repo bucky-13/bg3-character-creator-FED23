@@ -33,6 +33,7 @@ const generateSummaryWarningsText = (newCharacter: INewCharacter):string[] => {
         if (isWarningDisplayed('spellsLvl1', newCharacter))  warningText.push('Level 1 Spells');      
       }
       if (isWarningDisplayed('abilities', newCharacter)) warningText.push('Abilites');
+      if (isWarningDisplayed('skills', newCharacter)) warningText.push('Skills');
       if (newCharacter.background === 'cbg01' || newCharacter.background === 'cbg07') {
         if (isWarningDisplayed('name', newCharacter))   warningText.push('Name');
     }
