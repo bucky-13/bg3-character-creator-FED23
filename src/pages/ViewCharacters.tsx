@@ -32,21 +32,22 @@ export const ViewCharacters = () => {
       <div className="viewCharactersContainer">
         <h2>Find Created Characters</h2>
         <ViewCharactersFilter onGettingCharacters={onGettingCharacters} />
-        <div className="retrievedCharsContainer">
-          {chars &&
-            chars.length > 0 &&
-            chars.map((char) => (
-              <Link to={`/characters/${char.id}`} key={char.id}>
-                <CharacterSummary character={char} key={char.id} />
-              </Link>
-            ))}
+        {chars && (
+          <div className="retrievedCharsContainer">
+            {chars.length > 0 &&
+              chars.map((char) => (
+                <Link to={`/characters/${char.id}`} key={char.id}>
+                  <CharacterSummary character={char} key={char.id} />
+                </Link>
+              ))}
 
-          {chars && chars.length <= 0 && (
-            <div>
-              <p>No characters found</p>
-            </div>
-          )}
-        </div>
+            {chars && chars.length <= 0 && (
+              <div>
+                <p>No characters found</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
