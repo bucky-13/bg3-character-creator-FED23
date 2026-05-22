@@ -49,6 +49,7 @@ export const ViewCharacters = () => {
           </div>
         )}
       </div>
+      <div id="rentalbuddy-checkout" data-site="ILaunheV9svlkt1WE4z9"></div>
     </div>
   );
 };
